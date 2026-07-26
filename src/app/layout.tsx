@@ -66,11 +66,11 @@ export default function RootLayout({
 
               {/* Brand column */}
               <div className="md:col-span-1">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="bg-white rounded-xl p-2 flex items-center justify-center w-12 h-12 flex-shrink-0 shadow-sm">
-                    <Image src="/logo-mark.png" alt="AlliedOne Logo" width={120} height={100} className="w-8 h-auto object-contain" />
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="bg-white rounded-2xl flex items-center justify-center w-[72px] h-[72px] flex-shrink-0 shadow-sm">
+                    <Image src="/logo-mark.png" alt="AlliedOne Logo" width={120} height={100} className="w-12 h-auto object-contain" />
                   </div>
-                  <span className="font-extrabold text-2xl text-white tracking-tight">AlliedOne</span>
+                  <span className="font-extrabold text-3xl text-white tracking-tight">AlliedOne</span>
                 </div>
                 <p className="text-sm text-slate-200 leading-relaxed mb-4">
                   Empowering businesses with intelligent AI automation, digital transformation, and global trade solutions.
