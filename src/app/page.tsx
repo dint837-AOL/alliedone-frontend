@@ -83,17 +83,17 @@ export default function Home() {
       {/* ══════════════════════════════════════════════
           CORE SERVICE LINES — Strong navy background to differentiate
       ══════════════════════════════════════════════ */}
-      <section className="py-28 bg-[#1A5C8A] relative overflow-hidden">
+      <section className="py-28 bg-[#F0F7FF] relative overflow-hidden border-y border-blue-100/50">
         {/* Subtle decorative rings */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full border border-white/5" />
-          <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full border border-white/5" />
+          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full border border-blue-900/5" />
+          <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full border border-blue-900/5" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <span className="inline-block text-[#93C5FD] text-xs font-bold uppercase tracking-[0.18em] mb-3">What We Do</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4 tracking-tight">Core Service Lines</h2>
-            <p className="text-blue-100 max-w-2xl mx-auto text-lg leading-relaxed">Three specialized technology domains delivering measurable ROI for modern businesses.</p>
+            <span className="inline-block text-brand-mid text-xs font-bold uppercase tracking-[0.18em] mb-3">What We Do</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mt-1 mb-4 tracking-tight">Core Service Lines</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">Three specialized technology domains delivering measurable ROI for modern businesses.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -120,13 +120,13 @@ export default function Home() {
                 cta: "View Agency Services",
               },
             ].map((service) => (
-              <div key={service.title} className="group bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex flex-col backdrop-blur-sm">
-                <div className="w-12 h-12 bg-[#2180C0]/20 rounded-xl flex items-center justify-center text-[#5BAEE8] mb-6 group-hover:bg-[#2180C0] group-hover:text-white transition-colors duration-300">
+              <div key={service.title} className="group bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-xl hover:shadow-brand-mid/5 hover:-translate-y-1 transition-all duration-300 flex flex-col relative z-10">
+                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-brand-mid mb-6 group-hover:bg-brand-mid group-hover:text-white transition-colors duration-300">
                   {service.icon}
                 </div>
-                <h3 className="text-lg font-bold mb-3 text-white">{service.title}</h3>
-                <p className="text-slate-300 text-sm leading-relaxed mb-6 flex-grow">{service.desc}</p>
-                <Link href={service.href} className="inline-flex items-center gap-1.5 text-[#5BAEE8] text-sm font-bold hover:gap-3 transition-all duration-200">
+                <h3 className="text-lg font-bold mb-3 text-brand-navy">{service.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">{service.desc}</p>
+                <Link href={service.href} className="inline-flex items-center gap-1.5 text-brand-mid text-sm font-bold hover:gap-3 transition-all duration-200">
                   {service.cta} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

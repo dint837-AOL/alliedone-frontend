@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import Link from "next/link";
 
 // 1. Define the validation schema (Mirrors the backend Zod schema)
 const leadSchema = z.object({
@@ -162,6 +163,14 @@ export default function LeadCaptureForm() {
             "Send Message"
           )}
         </button>
+
+        {/* Legal Disclaimer */}
+        <p className="text-xs text-slate-500 text-center mt-4">
+          By submitting this form, you agree to our{" "}
+          <Link href="/terms" className="text-brand-blue hover:underline">Terms of Service</Link>
+          {" "}and{" "}
+          <Link href="/privacy" className="text-brand-blue hover:underline">Privacy Policy</Link>.
+        </p>
       </form>
     </div>
   );
