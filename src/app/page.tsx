@@ -83,7 +83,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════
           CORE SERVICE LINES — Strong navy background to differentiate
       ══════════════════════════════════════════════ */}
-      <section className="py-28 bg-[#0D3A5C] relative overflow-hidden">
+      <section className="py-28 bg-[#1A5C8A] relative overflow-hidden">
         {/* Subtle decorative rings */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full border border-white/5" />
@@ -91,9 +91,9 @@ export default function Home() {
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <span className="inline-block text-[#5BAEE8] text-xs font-bold uppercase tracking-[0.18em] mb-3">What We Do</span>
+            <span className="inline-block text-[#93C5FD] text-xs font-bold uppercase tracking-[0.18em] mb-3">What We Do</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4 tracking-tight">Core Service Lines</h2>
-            <p className="text-slate-300 max-w-2xl mx-auto text-lg leading-relaxed">Three specialized technology domains delivering measurable ROI for modern businesses.</p>
+            <p className="text-blue-100 max-w-2xl mx-auto text-lg leading-relaxed">Three specialized technology domains delivering measurable ROI for modern businesses.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

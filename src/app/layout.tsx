@@ -25,14 +25,16 @@ export default function RootLayout({
           <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
 
             {/* Logo + Name */}
-            <Link href="/" className="flex items-center gap-2">
-              <Image
-                src="/logo.png"
-                alt="AlliedOne Logo"
-                width={120}
-                height={120}
-                className="h-12 w-12 object-contain"
-              />
+            <Link href="/" className="flex items-center gap-2.5">
+              <div className="bg-white rounded-xl p-1.5 shadow-sm flex items-center justify-center w-10 h-10 flex-shrink-0">
+                <Image
+                  src="/logo-mark.png"
+                  alt="AlliedOne Logo"
+                  width={100}
+                  height={80}
+                  className="w-7 h-auto object-contain"
+                />
+              </div>
               <span className="font-extrabold text-xl text-brand-navy tracking-tight leading-none">AlliedOne</span>
             </Link>
 
@@ -67,7 +69,9 @@ export default function RootLayout({
               {/* Brand column */}
               <div className="md:col-span-1">
                 <div className="flex items-center gap-3 mb-5">
-                  <Image src="/logo.png" alt="AlliedOne Logo" width={80} height={80} className="h-12 w-12 object-contain" />
+                  <div className="bg-white rounded-xl p-2 flex items-center justify-center w-11 h-11 flex-shrink-0">
+                    <Image src="/logo-mark.png" alt="AlliedOne Logo" width={100} height={80} className="w-7 h-auto object-contain" />
+                  </div>
                   <span className="font-extrabold text-2xl text-white tracking-tight">AlliedOne</span>
                 </div>
                 <p className="text-sm text-slate-200 leading-relaxed mb-4">
