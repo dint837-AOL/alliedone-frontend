@@ -25,15 +25,15 @@ export default function RootLayout({
           <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
 
             {/* Logo + Name */}
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/logo.png"
                 alt="AlliedOne Logo"
-                width={40}
-                height={40}
-                className="h-10 w-auto object-contain"
+                width={120}
+                height={120}
+                className="h-12 w-12 object-contain"
               />
-              <span className="font-extrabold text-xl text-brand-navy tracking-tight">AlliedOne</span>
+              <span className="font-extrabold text-xl text-brand-navy tracking-tight leading-none">AlliedOne</span>
             </Link>
 
             {/* Desktop nav links */}
@@ -67,9 +67,7 @@ export default function RootLayout({
               {/* Brand column */}
               <div className="md:col-span-1">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="bg-white p-2 rounded-xl inline-flex items-center justify-center">
-                    <Image src="/logo.png" alt="AlliedOne Logo" width={32} height={32} className="h-8 w-auto object-contain" />
-                  </div>
+                  <Image src="/logo.png" alt="AlliedOne Logo" width={80} height={80} className="h-12 w-12 object-contain" />
                   <span className="font-extrabold text-2xl text-white tracking-tight">AlliedOne</span>
                 </div>
                 <p className="text-sm text-slate-200 leading-relaxed mb-4">
@@ -114,8 +112,8 @@ export default function RootLayout({
                 <ul className="space-y-3 text-sm text-slate-200">
                   <li><Link href="/about" className="hover:text-white hover:underline transition-all">About Us</Link></li>
                   <li><Link href="/contact" className="hover:text-white hover:underline transition-all">Contact</Link></li>
-                  <li><Link href="#" className="hover:text-white hover:underline transition-all">Privacy Policy</Link></li>
-                  <li><Link href="#" className="hover:text-white hover:underline transition-all">Terms of Service</Link></li>
+                  <li><Link href="/privacy" className="hover:text-white hover:underline transition-all">Privacy Policy</Link></li>
+                  <li><Link href="/terms" className="hover:text-white hover:underline transition-all">Terms of Service</Link></li>
                 </ul>
               </div>
 
