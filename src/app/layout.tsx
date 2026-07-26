@@ -25,16 +25,14 @@ export default function RootLayout({
           <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
 
             {/* Logo + Name */}
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="bg-white rounded-xl p-1.5 shadow-sm flex items-center justify-center w-10 h-10 flex-shrink-0">
-                <Image
-                  src="/logo-mark.png"
-                  alt="AlliedOne Logo"
-                  width={100}
-                  height={80}
-                  className="w-7 h-auto object-contain"
-                />
-              </div>
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/logo-mark.png"
+                alt="AlliedOne Logo"
+                width={150}
+                height={120}
+                className="h-9 w-auto object-contain"
+              />
               <span className="font-extrabold text-xl text-brand-navy tracking-tight leading-none">AlliedOne</span>
             </Link>
 
