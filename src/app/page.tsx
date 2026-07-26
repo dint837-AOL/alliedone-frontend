@@ -2,7 +2,7 @@ import Link from "next/link";
 import LeadCaptureForm from "@/components/sections/LeadCaptureForm";
 import {
   Lightbulb, Workflow, MessageSquare, Mail, Users, TrendingUp, PenTool,
-  Bot, Cpu, Zap, Search, Rocket, CheckCircle, ArrowRight
+  Bot, Cpu, Search, Rocket, CheckCircle, ArrowRight
 } from "lucide-react";
 
 // ── Shared section header pattern ────────────────────────────
@@ -21,7 +21,7 @@ export default function Home() {
     <div className="w-full">
 
       {/* ══════════════════════════════════════════════
-          HERO — Full-bleed banner
+          HERO — Full-bleed dark banner
       ══════════════════════════════════════════════ */}
       <section className="bg-[#0D3A5C] relative overflow-hidden">
         {/* Decorative background rings */}
@@ -64,13 +64,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* Bottom fade */}
-        <div className="h-16 bg-gradient-to-b from-transparent to-[#F8FAFC] absolute bottom-0 left-0 right-0"></div>
       </section>
 
       {/* ══════════════════════════════════════════════
-          TRUST BAR
+          TRUST BAR — White with bottom border
       ══════════════════════════════════════════════ */}
       <section className="bg-white border-b border-slate-100 py-8">
         <div className="max-w-7xl mx-auto px-6 text-center">
@@ -84,15 +81,20 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          CORE SERVICE LINES — 3 primary offerings
+          CORE SERVICE LINES — Strong navy background to differentiate
       ══════════════════════════════════════════════ */}
-      <section className="py-28 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeader
-            eyebrow="What We Do"
-            title="Core Service Lines"
-            subtitle="Three specialized technology domains delivering measurable ROI for modern businesses."
-          />
+      <section className="py-28 bg-[#0D3A5C] relative overflow-hidden">
+        {/* Subtle decorative rings */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full border border-white/5" />
+          <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full border border-white/5" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-block text-[#5BAEE8] text-xs font-bold uppercase tracking-[0.18em] mb-3">What We Do</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4 tracking-tight">Core Service Lines</h2>
+            <p className="text-slate-300 max-w-2xl mx-auto text-lg leading-relaxed">Three specialized technology domains delivering measurable ROI for modern businesses.</p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -118,13 +120,13 @@ export default function Home() {
                 cta: "View Agency Services",
               },
             ].map((service) => (
-              <div key={service.title} className="group bg-white border border-slate-200 rounded-2xl p-8 hover:border-[#2180C0]/40 hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div className="w-12 h-12 bg-[#EBF4FB] rounded-xl flex items-center justify-center text-[#2180C0] mb-6 group-hover:bg-[#2180C0] group-hover:text-white transition-colors duration-300">
+              <div key={service.title} className="group bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex flex-col backdrop-blur-sm">
+                <div className="w-12 h-12 bg-[#2180C0]/20 rounded-xl flex items-center justify-center text-[#5BAEE8] mb-6 group-hover:bg-[#2180C0] group-hover:text-white transition-colors duration-300">
                   {service.icon}
                 </div>
-                <h3 className="text-lg font-bold mb-3 text-[#0D3A5C]">{service.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">{service.desc}</p>
-                <Link href={service.href} className="inline-flex items-center gap-1.5 text-[#2180C0] text-sm font-bold hover:gap-3 transition-all duration-200">
+                <h3 className="text-lg font-bold mb-3 text-white">{service.title}</h3>
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 flex-grow">{service.desc}</p>
+                <Link href={service.href} className="inline-flex items-center gap-1.5 text-[#5BAEE8] text-sm font-bold hover:gap-3 transition-all duration-200">
                   {service.cta} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -134,9 +136,9 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          FULL SERVICE CATALOGUE — 7 lines from the doc
+          FULL SERVICE CATALOGUE — Light background
       ══════════════════════════════════════════════ */}
-      <section className="py-28 bg-white">
+      <section className="py-28 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             eyebrow="Full Portfolio"
@@ -154,7 +156,7 @@ export default function Home() {
               { icon: <TrendingUp className="w-5 h-5" />, title: "Digital Marketing & AI Agency", desc: "Facebook and Google Ads management, SEO strategy & execution, and AI-assisted lead generation." },
               { icon: <PenTool className="w-5 h-5" />, title: "AI Content Studio", desc: "Social media content, video scripts, blog posts, product descriptions, and marketing copy." },
             ].map((item) => (
-              <div key={item.title} className="group bg-[#F8FAFC] rounded-xl p-6 border border-slate-100 hover:border-[#2180C0]/30 hover:bg-white hover:shadow-md transition-all duration-200">
+              <div key={item.title} className="group bg-white rounded-xl p-6 border border-slate-200 hover:border-[#2180C0]/30 hover:shadow-md transition-all duration-200">
                 <div className="w-10 h-10 rounded-lg bg-[#EBF4FB] text-[#2180C0] flex items-center justify-center mb-4 group-hover:bg-[#2180C0] group-hover:text-white transition-colors duration-300">
                   {item.icon}
                 </div>
@@ -167,9 +169,9 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          HOW IT WORKS — 3-step process
+          HOW IT WORKS — White background
       ══════════════════════════════════════════════ */}
-      <section className="py-28 bg-[#F8FAFC] border-t border-slate-100">
+      <section className="py-28 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             eyebrow="Our Process"
@@ -200,12 +202,12 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          AI BOT HIGHLIGHT
+          AI BOT HIGHLIGHT — Soft blue-tinted background
       ══════════════════════════════════════════════ */}
-      <section className="py-28 bg-white">
+      <section className="py-28 bg-[#EBF4FB]">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           {/* Chat UI mockup */}
-          <div className="bg-[#F8FAFC] rounded-2xl p-8 border border-slate-200">
+          <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
             <div className="flex items-center gap-3 mb-6 pb-5 border-b border-slate-200">
               <div className="w-11 h-11 rounded-xl bg-[#0D3A5C] flex items-center justify-center flex-shrink-0">
                 <Bot className="w-5 h-5 text-white" />
@@ -220,13 +222,13 @@ export default function Home() {
             </div>
 
             <div className="space-y-3 text-sm">
-              <div className="bg-white rounded-2xl rounded-tl-sm p-4 max-w-[85%] text-slate-700 border border-slate-100 shadow-sm">
+              <div className="bg-[#F8FAFC] rounded-2xl rounded-tl-sm p-4 max-w-[85%] text-slate-700 border border-slate-100 shadow-sm">
                 Hi! Thanks for reaching out. What can we help you build?
               </div>
               <div className="bg-[#2180C0] rounded-2xl rounded-tr-sm p-4 max-w-[80%] ml-auto text-white">
                 I&apos;d like to automate my customer support and leads.
               </div>
-              <div className="bg-white rounded-2xl rounded-tl-sm p-4 max-w-[90%] text-slate-700 border border-slate-100 shadow-sm leading-relaxed">
+              <div className="bg-[#F8FAFC] rounded-2xl rounded-tl-sm p-4 max-w-[90%] text-slate-700 border border-slate-100 shadow-sm leading-relaxed">
                 Perfect. We can deploy a custom AI agent directly to your Facebook or LinkedIn channels within 48 hours. Should we schedule a quick demo?
               </div>
             </div>
@@ -261,14 +263,14 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          CONTACT FORM
+          CONTACT FORM — Light slate background
       ══════════════════════════════════════════════ */}
-      <section className="py-28 bg-[#F8FAFC]" id="contact">
+      <section className="py-28 bg-[#F8FAFC] border-t border-slate-100" id="contact">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             eyebrow="Connect With Us"
             title={<>Let&apos;s Build Your <span className="text-[#2180C0]">AI Future.</span></>}
-            subtitle="Drop us a message below. Whether it's a simple automation workflow or a comprehensive enterprise AI rollout, our engineering team is ready to deliver."
+            subtitle="Drop us a message below. Whether it&apos;s a simple automation workflow or a comprehensive enterprise AI rollout, our engineering team is ready to deliver."
           />
           <LeadCaptureForm />
         </div>

@@ -1,8 +1,8 @@
 import LeadCaptureForm from "@/components/sections/LeadCaptureForm";
 
 export const metadata = {
-  title: "Contact Us | Allied One",
-  description: "Get in touch with Allied One for AI automation and consulting.",
+  title: "Contact Us | AlliedOne",
+  description: "Get in touch with AlliedOne for AI automation and consulting.",
 };
 
 export default function ContactPage() {

@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Services | Allied One",
+  title: "Services | AlliedOne",
   description: "Explore our comprehensive suite of AI, Automation, and Digital Marketing services.",
 };
 

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AlliedOne Limited | AI & Digital Solutions",
-  description: "Enterprise AI Automation, Consulting, and Digital Marketing",
+  title: "AlliedOne | AI & Digital Solutions",
+  description: "Enterprise AI Automation, Consulting, and Digital Marketing — AlliedOne Limited, Dhaka.",
 };
 
 export default function RootLayout({
@@ -25,9 +26,11 @@ export default function RootLayout({
 
             {/* Logo + Name */}
             <Link href="/" className="flex items-center gap-3">
-              <img
+              <Image
                 src="/logo.png"
                 alt="AlliedOne Logo"
+                width={40}
+                height={40}
                 className="h-10 w-auto object-contain"
               />
               <span className="font-extrabold text-xl text-brand-navy tracking-tight">AlliedOne</span>
@@ -55,7 +58,7 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main>
 
         {/* ── Footer ── */}
-        <footer className="bg-[#0D3A5C] text-slate-100 pt-16 pb-8 mt-20">
+        <footer className="bg-[#0D3A5C] text-slate-100 pt-16 pb-8">
           <div className="max-w-7xl mx-auto px-6">
 
             {/* Top 4-col grid */}
@@ -65,7 +68,7 @@ export default function RootLayout({
               <div className="md:col-span-1">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="bg-white p-2 rounded-xl inline-flex items-center justify-center">
-                    <img src="/logo.png" alt="AlliedOne Logo" className="h-8 w-auto object-contain" />
+                    <Image src="/logo.png" alt="AlliedOne Logo" width={32} height={32} className="h-8 w-auto object-contain" />
                   </div>
                   <span className="font-extrabold text-2xl text-white tracking-tight">AlliedOne</span>
                 </div>
