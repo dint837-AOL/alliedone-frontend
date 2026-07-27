@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LeadCaptureForm from "@/components/sections/LeadCaptureForm";
+import FadeInSection from "@/components/ui/FadeInSection";
 import {
   Lightbulb, Workflow, MessageSquare, Mail, Users, TrendingUp, PenTool,
   Bot, Cpu, Search, Rocket, CheckCircle, ArrowRight
@@ -31,20 +32,19 @@ export default function Home() {
           <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] rounded-full border border-white/5"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 py-32 md:py-40 relative z-10">
+        <FadeInSection className="max-w-7xl mx-auto px-6 py-32 md:py-40 relative z-10" delay={0.1}>
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-slate-100 text-xs font-bold mb-8 uppercase tracking-widest border border-white/15 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              Enterprise AI Solutions
+              AlliedOne Limited
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.08]">
-              Automate. Scale.{" "}
-              <span className="text-[#5BAEE8]">Dominate.</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.2]">
+              AI Automation <span className="text-[#5BAEE8]">&bull;</span> Digital Transformation <span className="text-[#5BAEE8]">&bull;</span> Global Trade <span className="text-[#5BAEE8]">&bull;</span> Business Solutions
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl">
-              AlliedOne architects and deploys custom AI automation, business process workflows, and intelligent digital systems — so your business grows on autopilot.
+            <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-3xl">
+              AlliedOne Limited is a progressive Bangladeshi private limited company formed on the basis of a dream of being a reliable provider of technology and business solutions in both local and international arenas.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -63,21 +63,21 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </div>
+        </FadeInSection>
       </section>
 
       {/* ══════════════════════════════════════════════
           TRUST BAR — White with bottom border
       ══════════════════════════════════════════════ */}
       <section className="bg-white border-b border-slate-100 py-8">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <FadeInSection className="max-w-7xl mx-auto px-6 text-center" delay={0.2}>
           <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.18em] mb-6">Delivering results across industries</p>
           <div className="flex flex-wrap justify-center gap-8 md:gap-12 items-center">
             {["Retail & E-Commerce", "Healthcare", "Finance & FinTech", "Education", "Real Estate", "Logistics"].map((industry) => (
               <span key={industry} className="text-slate-400 text-sm font-semibold hover:text-[#2180C0] transition-colors cursor-default">{industry}</span>
             ))}
           </div>
-        </div>
+        </FadeInSection>
       </section>
 
       {/* ══════════════════════════════════════════════
@@ -89,7 +89,7 @@ export default function Home() {
           <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full border border-blue-900/5" />
           <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full border border-blue-900/5" />
         </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <FadeInSection className="max-w-7xl mx-auto px-6 relative z-10" delay={0.1}>
           <div className="text-center mb-16">
             <span className="inline-block text-brand-mid text-xs font-bold uppercase tracking-[0.18em] mb-3">What We Do</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mt-1 mb-4 tracking-tight">Core Service Lines</h2>
@@ -132,14 +132,14 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </FadeInSection>
       </section>
 
       {/* ══════════════════════════════════════════════
           FULL SERVICE CATALOGUE — Light background
       ══════════════════════════════════════════════ */}
       <section className="py-28 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-6">
+        <FadeInSection className="max-w-7xl mx-auto px-6" delay={0.1}>
           <SectionHeader
             eyebrow="Full Portfolio"
             title="Everything We Offer"
@@ -165,14 +165,14 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </FadeInSection>
       </section>
 
       {/* ══════════════════════════════════════════════
           HOW IT WORKS — White background
       ══════════════════════════════════════════════ */}
       <section className="py-28 bg-white border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-6">
+        <FadeInSection className="max-w-7xl mx-auto px-6" delay={0.1}>
           <SectionHeader
             eyebrow="Our Process"
             title="How AlliedOne Works"
@@ -198,14 +198,14 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </FadeInSection>
       </section>
 
       {/* ══════════════════════════════════════════════
           AI BOT HIGHLIGHT — Soft blue-tinted background
       ══════════════════════════════════════════════ */}
       <section className="py-28 bg-[#EBF4FB]">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <FadeInSection className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center" delay={0.1}>
           {/* Chat UI mockup */}
           <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
             <div className="flex items-center gap-3 mb-6 pb-5 border-b border-slate-200">
@@ -259,21 +259,21 @@ export default function Home() {
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-        </div>
+        </FadeInSection>
       </section>
 
       {/* ══════════════════════════════════════════════
           CONTACT FORM — Light slate background
       ══════════════════════════════════════════════ */}
       <section className="py-28 bg-[#F8FAFC] border-t border-slate-100" id="contact">
-        <div className="max-w-7xl mx-auto px-6">
+        <FadeInSection className="max-w-7xl mx-auto px-6" delay={0.1}>
           <SectionHeader
             eyebrow="Connect With Us"
             title={<>Let&apos;s Build Your <span className="text-[#2180C0]">AI Future.</span></>}
             subtitle="Drop us a message below. Whether it&apos;s a simple automation workflow or a comprehensive enterprise AI rollout, our engineering team is ready to deliver."
           />
           <LeadCaptureForm />
-        </div>
+        </FadeInSection>
       </section>
 
     </div>
