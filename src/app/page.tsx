@@ -32,22 +32,23 @@ export default function Home() {
           <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] rounded-full border border-white/5"></div>
         </div>
 
-        <FadeInSection className="max-w-7xl mx-auto px-6 py-32 md:py-40 relative z-10" delay={0.1}>
-          <div className="max-w-3xl">
+        <FadeInSection className="max-w-7xl mx-auto px-6 py-32 md:py-40 relative z-10 flex flex-col items-center text-center" delay={0.1}>
+          <div className="max-w-4xl flex flex-col items-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-slate-100 text-xs font-bold mb-8 uppercase tracking-widest border border-white/15 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               AlliedOne Limited
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.2]">
-              AI Automation <span className="text-[#5BAEE8]">&bull;</span> Digital Transformation <span className="text-[#5BAEE8]">&bull;</span> Global Trade <span className="text-[#5BAEE8]">&bull;</span> Business Solutions
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-white mb-6 leading-[1.3]">
+              AI Automation <span className="text-[#5BAEE8] mx-2 hidden md:inline-block">&bull;</span><br className="md:hidden" /> Digital Transformation <br className="hidden md:block" />
+              <span className="inline-block mt-2 md:mt-4">Global Trade <span className="text-[#5BAEE8] mx-2 hidden md:inline-block">&bull;</span><br className="md:hidden" /> Business Solutions</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-3xl">
+            <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto">
               AlliedOne Limited is a progressive Bangladeshi private limited company formed on the basis of a dream of being a reliable provider of technology and business solutions in both local and international arenas.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-[#2180C0] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#1A5C8A] transition-all shadow-lg text-base"

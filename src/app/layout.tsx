@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import MobileNav from "@/components/ui/MobileNav";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -44,13 +45,16 @@ export default function RootLayout({
               <Link href="/contact" className="hover:text-[#1A5C8A] transition-colors">Contact</Link>
             </div>
 
-            {/* CTA Button */}
-            <Link
-              href="/contact"
-              className="bg-[#1A5C8A] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#0D3A5C] transition-all shadow-md"
-            >
-              Schedule a Demo
-            </Link>
+            {/* CTA Button & Mobile Nav */}
+            <div className="flex items-center gap-4">
+              <Link
+                href="/contact"
+                className="hidden md:inline-block bg-[#1A5C8A] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#0D3A5C] transition-all shadow-md"
+              >
+                Schedule a Demo
+              </Link>
+              <MobileNav />
+            </div>
           </div>
         </nav>
 
@@ -75,9 +79,21 @@ export default function RootLayout({
                 <p className="text-sm text-slate-200 leading-relaxed mb-4">
                   Empowering businesses with intelligent AI automation, digital transformation, and global trade solutions.
                 </p>
-                <div className="text-sm text-slate-300 space-y-1 mb-5">
-                  <p><strong>Head Office:</strong> Dhaka, Bangladesh</p>
-                  <p><strong>Email:</strong> info@alliedoneltd.com</p>
+                <div className="text-sm text-slate-300 space-y-3 mb-5">
+                  <p className="flex items-start gap-2">
+                    <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    <a href="https://maps.app.goo.gl/ecKg11UdVs66DTFy8" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                      198, Bara Moghbazar, Dhaka-1217
+                    </a>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    <a href="mailto:info@alliedoneltd.com" className="hover:text-white transition-colors">info@alliedoneltd.com</a>
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <a href="https://wa.me/8801601440044" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">+880 1601-440044</a>
+                  </p>
                 </div>
                 {/* Social Links */}
                 <div className="flex gap-4 mt-5">

@@ -25,6 +25,7 @@ const leadSchema = z.object({
     "AI_CONTENT_STUDIO",
     "OTHER",
   ]),
+  problemDescription: z.string().optional(),
   notes: z.string().optional(),
 });
 
@@ -122,29 +123,45 @@ export default function LeadCaptureForm() {
         {/* Service Interest Field */}
         <div>
           <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Service of Interest *</label>
-          <select
-            {...register("serviceInterest")}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800 appearance-none"
-          >
-            <option value="AI_OPPORTUNITY_CONSULTING">AI Opportunity & Implementation</option>
-            <option value="PROCESS_AUTOMATION_STRATEGY">Process Automation Strategy</option>
-            <option value="WHATSAPP_BOTS_STRATEGY">WhatsApp & Messaging Bots</option>
-            <option value="EMAIL_AUTOMATION_CONSULTING">Email Automation Consulting</option>
-            <option value="ATS_HR_TECH_ARCHITECTURE">ATS & HR Tech Architecture</option>
-            <option value="DIGITAL_MARKETING_AGENCY">Digital Marketing Agency</option>
-            <option value="AI_CONTENT_STUDIO">AI Content Studio</option>
-            <option value="OTHER">Other / General Inquiry</option>
-          </select>
+          <div className="relative">
+            <select
+              {...register("serviceInterest")}
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800 appearance-none pr-10"
+            >
+              <option value="AI_OPPORTUNITY_CONSULTING">AI Opportunity & Implementation</option>
+              <option value="PROCESS_AUTOMATION_STRATEGY">Process Automation Strategy</option>
+              <option value="WHATSAPP_BOTS_STRATEGY">WhatsApp & Messaging Bots</option>
+              <option value="EMAIL_AUTOMATION_CONSULTING">Email Automation Consulting</option>
+              <option value="ATS_HR_TECH_ARCHITECTURE">ATS & HR Tech Architecture</option>
+              <option value="DIGITAL_MARKETING_AGENCY">Digital Marketing Agency</option>
+              <option value="AI_CONTENT_STUDIO">AI Content Studio</option>
+              <option value="OTHER">Other / General Inquiry</option>
+            </select>
+            <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-500">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+          </div>
+        </div>
+
+        {/* Problem Description Field */}
+        <div>
+          <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Please describe your exact problem or project</label>
+          <textarea
+            {...register("problemDescription")}
+            rows={3}
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all resize-none text-slate-800"
+            placeholder="Tell us about the challenges you're facing and what you need help with..."
+          ></textarea>
         </div>
 
         {/* Notes Field */}
         <div>
-          <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Additional Notes</label>
+          <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Additional Notes (Optional)</label>
           <textarea
             {...register("notes")}
-            rows={4}
+            rows={2}
             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all resize-none text-slate-800"
-            placeholder="Tell us about your requirements..."
+            placeholder="Any other details you'd like to share..."
           ></textarea>
         </div>
 
