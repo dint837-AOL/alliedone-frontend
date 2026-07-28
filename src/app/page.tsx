@@ -43,13 +43,13 @@ export default function Home() {
               <span>AI Automation</span>
               <span className="text-[#5BAEE8] hidden md:inline-block">&bull;</span>
               <span>Digital Transformation</span>
-              <span className="text-[#5BAEE8] hidden lg:inline-block">&bull;</span>
+              <div className="basis-full h-0 hidden md:block"></div>
               <span>Global Trade</span>
               <span className="text-[#5BAEE8] hidden md:inline-block">&bull;</span>
               <span>Business Solutions</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-3xl mx-auto text-left">
               AlliedOne Limited is a progressive Bangladeshi private limited company formed on the basis of a dream of being a reliable provider of technology and business solutions in both local and international arenas.
             </p>
 
