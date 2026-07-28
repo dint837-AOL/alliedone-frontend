@@ -34,7 +34,7 @@ export default function Home() {
 
         <FadeInSection className="max-w-7xl mx-auto px-6 py-32 md:py-40 relative z-10 flex flex-col items-center text-center" delay={0.1}>
           <div className="max-w-4xl flex flex-col items-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-slate-100 text-xs font-bold mb-8 uppercase tracking-widest border border-white/15 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-slate-100 text-sm font-semibold mb-8 tracking-wide border border-white/15 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               AlliedOne Limited
             </div>
