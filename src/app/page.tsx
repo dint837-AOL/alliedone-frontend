@@ -39,9 +39,14 @@ export default function Home() {
               AlliedOne Limited
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-white mb-6 leading-[1.3]">
-              AI Automation <span className="text-[#5BAEE8] mx-2 hidden md:inline-block">&bull;</span><br className="md:hidden" /> Digital Transformation <br className="hidden md:block" />
-              <span className="inline-block mt-2 md:mt-4">Global Trade <span className="text-[#5BAEE8] mx-2 hidden md:inline-block">&bull;</span><br className="md:hidden" /> Business Solutions</span>
+            <h1 className="text-3xl md:text-4xl lg:text-[3rem] font-extrabold tracking-tight text-white mb-6 leading-[1.3] flex flex-wrap justify-center items-center gap-x-4 gap-y-2">
+              <span>AI Automation</span>
+              <span className="text-[#5BAEE8] hidden md:inline-block">&bull;</span>
+              <span>Digital Transformation</span>
+              <span className="text-[#5BAEE8] hidden lg:inline-block">&bull;</span>
+              <span>Global Trade</span>
+              <span className="text-[#5BAEE8] hidden md:inline-block">&bull;</span>
+              <span>Business Solutions</span>
             </h1>
 
             <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto">
