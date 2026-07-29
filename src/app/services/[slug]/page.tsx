@@ -44,7 +44,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
         <Link
           href="/services"
-          className="flex items-center gap-2 bg-[#0D3A5C] hover:bg-[#134B76] text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider shadow-2xl shadow-[#0D3A5C]/50 transition-all hover:-translate-y-1 border border-white/20 backdrop-blur-md"
+          className="flex items-center gap-2 bg-[#2180C0] hover:bg-[#5BAEE8] text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider shadow-2xl shadow-[#2180C0]/50 transition-all hover:-translate-y-1 border-2 border-white/90 backdrop-blur-md"
         >
           <ChevronLeft className="w-5 h-5" />
           Back to Services
