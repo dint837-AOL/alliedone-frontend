@@ -32,9 +32,9 @@ export default function RootLayout({
                 alt="AlliedOne Logo"
                 width={150}
                 height={120}
-                className="h-14 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
-              <span className="font-extrabold text-3xl text-brand-navy tracking-tight leading-none">AlliedOne</span>
+              <span className="font-extrabold text-4xl text-brand-navy tracking-tight leading-none">AlliedOne</span>
             </Link>
 
             {/* Desktop nav links */}

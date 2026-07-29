@@ -42,15 +42,17 @@ export default function Home() {
             <h1 className="text-3xl md:text-4xl lg:text-[3rem] font-extrabold tracking-tight text-white mb-6 leading-[1.3] flex flex-wrap justify-center items-center gap-x-4 gap-y-2">
               <span>AI Automation</span>
               <span className="text-[#5BAEE8] hidden md:inline-block">&bull;</span>
-              <span>Digital Transformation</span>
+              <span>Business Solutions</span>
               <div className="basis-full h-0 hidden md:block"></div>
               <span>Global Trade</span>
               <span className="text-[#5BAEE8] hidden md:inline-block">&bull;</span>
-              <span>Business Solutions</span>
+              <span>Digital Transformation</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-3xl mx-auto text-left">
-              AlliedOne Limited is a progressive Bangladeshi private limited company formed on the basis of a dream of being a reliable provider of technology and business solutions in both local and international arenas.
+            <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-3xl mx-auto md:text-justify text-left">
+              AlliedOne Limited is a progressive Bangladeshi private limited company <br className="hidden md:block" />
+              formed on the basis of a dream of being a reliable provider of technology <br className="hidden md:block" />
+              and business solutions in both local and international arenas.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -75,12 +77,12 @@ export default function Home() {
       {/* ══════════════════════════════════════════════
           TRUST BAR — White with bottom border
       ══════════════════════════════════════════════ */}
-      <section className="bg-white border-b border-slate-100 py-8">
+      <section className="bg-gradient-to-r from-[#0D3A5C] via-[#2180C0] to-[#0D3A5C] border-b border-blue-900/20 py-10 shadow-inner">
         <FadeInSection className="max-w-7xl mx-auto px-6 text-center" delay={0.2}>
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.18em] mb-6">Delivering results across industries</p>
+          <p className="text-xs font-bold text-blue-200/80 uppercase tracking-[0.18em] mb-6 drop-shadow-sm">Delivering results across industries</p>
           <div className="flex flex-wrap justify-center gap-8 md:gap-12 items-center">
             {["Retail & E-Commerce", "Healthcare", "Finance & FinTech", "Education", "Real Estate", "Logistics"].map((industry) => (
-              <span key={industry} className="text-slate-400 text-sm font-semibold hover:text-[#2180C0] transition-colors cursor-default">{industry}</span>
+              <span key={industry} className="text-blue-50 text-sm font-semibold hover:text-white transition-colors cursor-default drop-shadow-sm">{industry}</span>
             ))}
           </div>
         </FadeInSection>
