@@ -53,8 +53,13 @@ export default function Home() {
                 </div>
               </h1>
 
-              <p lang="en" className="text-base md:text-xl text-slate-300 mb-12 leading-relaxed text-justify [hyphens:auto] md:[text-align-last:justify] w-full max-w-[44rem] mx-auto">
-                AlliedOne Limited is a progressive Bangladeshi private limited company formed on the basis of a dream of being a reliable provider of technology and business solutions in both local and international arenas<span className="hidden md:inline"> accordingly</span>.
+              {/* Mobile paragraph — justified block */}
+              <p lang="en" className="block md:hidden text-[clamp(0.8rem,3.5vw,1rem)] text-slate-300 mb-12 leading-relaxed text-justify [text-align-last:justify] w-full mx-auto">
+                AlliedOne Limited is a progressive Bangladeshi private limited company, built on the vision of becoming a trusted and reliable provider of innovative technology and business solutions, serving clients effectively across both local and international arenas with dedication and excellence.
+              </p>
+              {/* Desktop paragraph — fully justified block */}
+              <p lang="en" className="hidden md:block text-xl text-slate-300 mb-12 leading-relaxed text-justify [text-align-last:justify] w-full max-w-[44rem] mx-auto">
+                AlliedOne Limited is a progressive Bangladeshi private limited company formed on the basis of a dream of being a reliable provider of technology and business solutions in both local and international arenas accordingly.
               </p>
             </div>
 
