@@ -24,6 +24,7 @@ const serviceCategories = [
           "Custom implementation roadmap and SOP design",
           "Guided rollout support to ensure adoption",
         ],
+        slug: "ai-opportunity-implementation",
       },
       {
         icon: <Workflow className="w-5 h-5" />,
@@ -34,6 +35,7 @@ const serviceCategories = [
           "Inventory tracking and management automation",
           "Attendance, HR, and leave management blueprints",
         ],
+        slug: "process-automation-strategy",
       },
     ],
   },
@@ -51,6 +53,7 @@ const serviceCategories = [
           "Messaging API integration planning",
           "Bot performance and escalation path strategy",
         ],
+        slug: "whatsapp-messaging-bots",
       },
       {
         icon: <Mail className="w-5 h-5" />,
@@ -61,6 +64,7 @@ const serviceCategories = [
           "Audience segmentation strategy",
           "Deliverability and infrastructure optimization",
         ],
+        slug: "email-automation-consulting",
       },
       {
         icon: <Users className="w-5 h-5" />,
@@ -71,6 +75,7 @@ const serviceCategories = [
           "Interview automation architecture",
           "Hiring funnel optimization strategy",
         ],
+        slug: "ats-hr-tech-architecture",
       },
     ],
   },
@@ -88,6 +93,7 @@ const serviceCategories = [
           "SEO strategy and execution",
           "AI assisted lead generation campaigns",
         ],
+        slug: "digital-marketing-ai-agency",
       },
       {
         icon: <PenTool className="w-5 h-5" />,
@@ -98,6 +104,7 @@ const serviceCategories = [
           "Blog posts and product descriptions",
           "Marketing copy and presentation design",
         ],
+        slug: "ai-content-studio",
       },
     ],
   },
@@ -153,6 +160,15 @@ export default function ServicesPage() {
                         </li>
                       ))}
                     </ul>
+                    {service.slug && (
+                      <Link 
+                        href={`/services/${service.slug}`}
+                        className="mt-6 flex items-center gap-1.5 text-sm font-bold text-[#2180C0] hover:text-[#0D3A5C] transition-colors group"
+                      >
+                        Learn More in Detail
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    )}
                   </div>
                 ))}
               </div>

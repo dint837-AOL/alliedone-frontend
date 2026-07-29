@@ -121,11 +121,11 @@ export default function RootLayout({
               <div>
                 <h4 className="text-white font-bold mb-5 uppercase text-xs tracking-widest">Services</h4>
                 <ul className="space-y-3 text-sm text-slate-200">
-                  <li><Link href="/services" className="hover:text-white transition-colors">AI Opportunity & Implementation</Link></li>
-                  <li><Link href="/services" className="hover:text-white transition-colors">Process Automation Strategy</Link></li>
-                  <li><Link href="/services" className="hover:text-white transition-colors">WhatsApp & Messaging Bots</Link></li>
-                  <li><Link href="/services" className="hover:text-white transition-colors">Digital Marketing & AI Agency</Link></li>
-                  <li><Link href="/services" className="hover:text-white transition-colors">AI Content Studio</Link></li>
+                  <li><Link href="/services/ai-opportunity-implementation" className="hover:text-white transition-colors">AI Opportunity & Implementation</Link></li>
+                  <li><Link href="/services/process-automation-strategy" className="hover:text-white transition-colors">Process Automation Strategy</Link></li>
+                  <li><Link href="/services/whatsapp-messaging-bots" className="hover:text-white transition-colors">WhatsApp & Messaging Bots</Link></li>
+                  <li><Link href="/services/digital-marketing-ai-agency" className="hover:text-white transition-colors">Digital Marketing & AI Agency</Link></li>
+                  <li><Link href="/services/ai-content-studio" className="hover:text-white transition-colors">AI Content Studio</Link></li>
                 </ul>
               </div>
 
