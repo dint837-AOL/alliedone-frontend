@@ -40,6 +40,17 @@ export default async function ServiceDetailPage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
+      {/* ── Floating Back Button ── */}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+        <Link
+          href="/services"
+          className="flex items-center gap-2 bg-[#0D3A5C] hover:bg-[#134B76] text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider shadow-2xl shadow-[#0D3A5C]/50 transition-all hover:-translate-y-1 border border-white/20 backdrop-blur-md"
+        >
+          <ChevronLeft className="w-5 h-5" />
+          Back to Services
+        </Link>
+      </div>
+
       {/* ── Page Header ── */}
       <section className="bg-[#0D3A5C] relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
@@ -47,13 +58,6 @@ export default async function ServiceDetailPage({ params }: Props) {
           <div className="absolute -bottom-12 -left-12 w-[300px] h-[300px] rounded-full border border-white/5"></div>
         </div>
         <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-[#5BAEE8] hover:text-white transition-colors text-sm font-bold uppercase tracking-wider mb-8"
-          >
-            <ChevronLeft className="w-4 h-4" />
-            Back to Services
-          </Link>
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight leading-[1.08]">
               {service.heroHeadline}

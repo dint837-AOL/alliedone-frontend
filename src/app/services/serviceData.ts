@@ -141,49 +141,5 @@ export const servicesData: ServiceDetail[] = [
       }
     ],
     ctaText: "Explore Content Packages"
-  },
-  {
-    slug: "email-automation-consulting",
-    title: "Email Automation Consulting",
-    coreValue: "Convert and retain customers with strategic design for automated email workflows.",
-    heroHeadline: "Email Workflows That Convert on Autopilot",
-    subHeadline: "We design and implement intelligent email automation strategies that nurture leads, onboard users, and drive continuous re-engagement.",
-    whatWeOffer: [
-      {
-        title: "Automated Workflow Design",
-        description: "Strategic setup of welcome series, lead nurture sequences, and re-engagement campaigns."
-      },
-      {
-        title: "Audience Segmentation",
-        description: "Intelligent grouping of your user base to ensure highly targeted and relevant messaging."
-      },
-      {
-        title: "Deliverability Optimization",
-        description: "Technical configuration and best practices to ensure your emails actually land in the inbox."
-      }
-    ],
-    ctaText: "Optimize Your Emails"
-  },
-  {
-    slug: "ats-hr-tech-architecture",
-    title: "ATS & HR Tech Architecture",
-    coreValue: "Scale your hiring with high-level strategy for AI-driven candidate screening and interview automation.",
-    heroHeadline: "Next-Generation Hiring Architecture",
-    subHeadline: "Streamline your recruitment pipeline with advanced applicant tracking systems and AI-powered screening technologies.",
-    whatWeOffer: [
-      {
-        title: "AI Screening Systems",
-        description: "Design automated screening mechanisms to quickly identify the best candidates."
-      },
-      {
-        title: "Interview Automation",
-        description: "Architect systems that handle scheduling and initial candidate assessments automatically."
-      },
-      {
-        title: "Funnel Optimization",
-        description: "Comprehensive strategy to reduce time-to-hire and improve the overall candidate experience."
-      }
-    ],
-    ctaText: "Upgrade Your HR Tech"
   }
 ];

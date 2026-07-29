@@ -55,28 +55,6 @@ const serviceCategories = [
         ],
         slug: "whatsapp-messaging-bots",
       },
-      {
-        icon: <Mail className="w-5 h-5" />,
-        name: "Email Automation Consulting",
-        tagline: "Strategic design for automated email workflows that convert and retain.",
-        items: [
-          "Automated workflow design (welcome, nurture, re-engagement)",
-          "Audience segmentation strategy",
-          "Deliverability and infrastructure optimization",
-        ],
-        slug: "email-automation-consulting",
-      },
-      {
-        icon: <Users className="w-5 h-5" />,
-        name: "ATS & HR Tech Architecture",
-        tagline: "High-level strategy for AI-driven candidate screening and interview automation.",
-        items: [
-          "AI candidate screening system design",
-          "Interview automation architecture",
-          "Hiring funnel optimization strategy",
-        ],
-        slug: "ats-hr-tech-architecture",
-      },
     ],
   },
   {
