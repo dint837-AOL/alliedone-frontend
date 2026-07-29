@@ -40,21 +40,21 @@ export default function Home() {
             </div>
 
             <div className="w-full flex flex-col items-center">
-              <h1 className="text-3xl md:text-4xl lg:text-[3.25rem] font-extrabold tracking-tight text-white mb-8 leading-[1.3] w-full max-w-[56rem] mx-auto flex flex-col gap-y-3 md:gap-y-5">
-                <div className="flex flex-col md:flex-row justify-between items-center w-full">
-                  <span className="md:whitespace-nowrap">AI Automation</span>
-                  <span className="text-[#5BAEE8] hidden md:block">&bull;</span>
-                  <span className="md:whitespace-nowrap">Business Solutions</span>
+              <h1 className="text-[clamp(1.1rem,4.8vw,3.25rem)] font-extrabold tracking-tight text-white mb-8 leading-[1.3] w-full max-w-[56rem] mx-auto flex flex-col gap-y-3 md:gap-y-5">
+                <div className="flex flex-row justify-between items-center w-full">
+                  <span className="whitespace-nowrap">AI Automation</span>
+                  <span className="text-[#5BAEE8] mx-2 md:mx-4">&bull;</span>
+                  <span className="whitespace-nowrap">Business Solutions</span>
                 </div>
-                <div className="flex flex-col md:flex-row justify-between items-center w-full mt-2 md:mt-0">
-                  <span className="md:whitespace-nowrap">Global Trade</span>
-                  <span className="text-[#5BAEE8] hidden md:block">&bull;</span>
-                  <span className="md:whitespace-nowrap">Digital Transformation</span>
+                <div className="flex flex-row justify-between items-center w-full">
+                  <span className="whitespace-nowrap">Global Trade</span>
+                  <span className="text-[#5BAEE8] mx-2 md:mx-4">&bull;</span>
+                  <span className="whitespace-nowrap">Digital Transformation</span>
                 </div>
               </h1>
 
-              <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed md:text-justify md:[text-align-last:justify] text-center w-full max-w-[44rem] mx-auto">
-                AlliedOne Limited is a progressive Bangladeshi private limited company formed on the basis of a dream of being a reliable provider of technology and business solutions in both local and international arenas accordingly.
+              <p lang="en" className="text-base md:text-xl text-slate-300 mb-12 leading-relaxed text-justify [hyphens:auto] md:[text-align-last:justify] w-full max-w-[44rem] mx-auto">
+                AlliedOne Limited is a progressive Bangladeshi private limited company formed on the basis of a dream of being a reliable provider of technology and business solutions in both local and international arenas<span className="hidden md:inline"> accordingly</span>.
               </p>
             </div>
 
