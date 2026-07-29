@@ -40,7 +40,7 @@ export default function Home() {
             </div>
 
             <div className="w-full flex flex-col items-center">
-              <h1 className="text-[clamp(1.1rem,4.8vw,3.25rem)] font-extrabold tracking-tight text-white mb-8 leading-[1.3] w-full max-w-[56rem] mx-auto flex flex-col gap-y-3 md:gap-y-5">
+              <h1 className="text-[clamp(1.1rem,4.8vw,3.25rem)] font-extrabold tracking-tighter text-white mb-8 leading-[1.3] w-full max-w-[65rem] mx-auto flex flex-col gap-y-3 md:gap-y-5">
                 <div className="flex flex-row justify-between items-center w-full">
                   <span className="whitespace-nowrap">AI Automation</span>
                   <span className="text-[#5BAEE8] mx-2 md:mx-4">&bull;</span>

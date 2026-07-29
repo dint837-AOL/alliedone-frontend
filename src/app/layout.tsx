@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import MobileNav from "@/components/ui/MobileNav";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -70,11 +71,9 @@ export default function RootLayout({
 
               {/* Brand column */}
               <div className="md:col-span-1">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="bg-white rounded-2xl flex items-center justify-center w-14 h-14 flex-shrink-0 shadow-sm">
-                    <Image src="/logo-mark-v2.png" alt="AlliedOne Logo" width={120} height={100} className="w-9 h-auto object-contain" />
-                  </div>
-                  <span className="font-extrabold text-3xl text-white tracking-tight">AlliedOne</span>
+                <div className="inline-flex items-center gap-2 mb-5 bg-white rounded-2xl px-3 py-2 shadow-md">
+                  <Image src="/logo-mark-v2.png" alt="AlliedOne Logo" width={120} height={100} className="h-10 w-auto object-contain" />
+                  <span className="font-extrabold text-2xl text-[#0D3A5C] tracking-tight leading-none">AlliedOne</span>
                 </div>
                 <p className="text-sm text-slate-200 leading-relaxed mb-4">
                   Empowering businesses with intelligent AI automation, digital transformation, and global trade solutions.
@@ -162,6 +161,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        <ScrollToTop />
       </body>
     </html>
   );
