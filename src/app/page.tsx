@@ -39,21 +39,24 @@ export default function Home() {
               AlliedOne Limited
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-[3rem] font-extrabold tracking-tight text-white mb-6 leading-[1.3] flex flex-wrap justify-center items-center gap-x-4 gap-y-2">
-              <span>AI Automation</span>
-              <span className="text-[#5BAEE8] hidden md:inline-block">&bull;</span>
-              <span>Business Solutions</span>
-              <div className="basis-full h-0 hidden md:block"></div>
-              <span>Global Trade</span>
-              <span className="text-[#5BAEE8] hidden md:inline-block">&bull;</span>
-              <span>Digital Transformation</span>
-            </h1>
+            <div className="w-full flex flex-col items-center">
+              <h1 className="text-3xl md:text-4xl lg:text-[3.25rem] font-extrabold tracking-tight text-white mb-8 leading-[1.3] w-full max-w-[56rem] mx-auto flex flex-col gap-y-3 md:gap-y-5">
+                <div className="flex flex-col md:flex-row justify-between items-center w-full">
+                  <span className="md:whitespace-nowrap">AI Automation</span>
+                  <span className="text-[#5BAEE8] hidden md:block">&bull;</span>
+                  <span className="md:whitespace-nowrap">Business Solutions</span>
+                </div>
+                <div className="flex flex-col md:flex-row justify-between items-center w-full mt-2 md:mt-0">
+                  <span className="md:whitespace-nowrap">Global Trade</span>
+                  <span className="text-[#5BAEE8] hidden md:block">&bull;</span>
+                  <span className="md:whitespace-nowrap">Digital Transformation</span>
+                </div>
+              </h1>
 
-            <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-3xl mx-auto md:text-justify text-left">
-              AlliedOne Limited is a progressive Bangladeshi private limited company <br className="hidden md:block" />
-              formed on the basis of a dream of being a reliable provider of technology <br className="hidden md:block" />
-              and business solutions in both local and international arenas.
-            </p>
+              <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed md:text-justify md:[text-align-last:justify] text-center w-full max-w-[44rem] mx-auto">
+                AlliedOne Limited is a progressive Bangladeshi private limited company formed on the basis of a dream of being a reliable provider of technology and business solutions in both local and international arenas accordingly.
+              </p>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
