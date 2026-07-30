@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import MobileNav from "@/components/ui/MobileNav";
+import DesktopNav from "@/components/ui/DesktopNav";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import "./globals.css";
 
@@ -39,12 +40,7 @@ export default function RootLayout({
             </Link>
 
             {/* Desktop nav links */}
-            <div className="hidden md:flex gap-8 text-lg font-bold text-[#0D3A5C]">
-              <Link href="/" className="hover:text-[#1A5C8A] transition-colors">Home</Link>
-              <Link href="/services" className="hover:text-[#1A5C8A] transition-colors">Services</Link>
-              <Link href="/about" className="hover:text-[#1A5C8A] transition-colors">About</Link>
-              <Link href="/contact" className="hover:text-[#1A5C8A] transition-colors">Contact</Link>
-            </div>
+            <DesktopNav />
 
             {/* CTA Button & Mobile Nav */}
             <div className="flex items-center gap-4">

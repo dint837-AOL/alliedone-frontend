@@ -2,10 +2,19 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+
+const links = [
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <div className="md:hidden flex items-center">
@@ -19,10 +28,25 @@ export default function MobileNav() {
 
       {isOpen && (
         <div className="absolute top-[88px] left-0 right-0 bg-white border-b border-slate-200 shadow-xl py-6 px-6 flex flex-col gap-5 animate-in slide-in-from-top-2">
-          <Link href="/" onClick={() => setIsOpen(false)} className="font-bold text-lg text-[#0D3A5C] hover:text-[#1A5C8A]">Home</Link>
-          <Link href="/services" onClick={() => setIsOpen(false)} className="font-bold text-lg text-[#0D3A5C] hover:text-[#1A5C8A]">Services</Link>
-          <Link href="/about" onClick={() => setIsOpen(false)} className="font-bold text-lg text-[#0D3A5C] hover:text-[#1A5C8A]">About</Link>
-          <Link href="/contact" onClick={() => setIsOpen(false)} className="font-bold text-lg text-[#0D3A5C] hover:text-[#1A5C8A]">Contact</Link>
+          {links.map((link) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.href);
+
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`font-bold text-lg transition-colors ${
+                  isActive ? "text-[#1A5C8A] border-l-4 border-[#1A5C8A] pl-2" : "text-[#0D3A5C] hover:text-[#1A5C8A]"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
           
           <Link
             href="/contact"
