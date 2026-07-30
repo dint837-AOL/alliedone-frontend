@@ -9,6 +9,14 @@ interface FadeInSectionProps {
   delay?: number;
 }
 
+/**
+ * A reusable wrapper component that animates its children fading in 
+ * and sliding up when they scroll into the viewport.
+ * Uses Framer Motion for scroll-based animations.
+ * 
+ * @param {FadeInSectionProps} props - Component props containing children, className, and optional delay.
+ * @returns {JSX.Element} The animated motion.div wrapper.
+ */
 export default function FadeInSection({ children, className = "", delay = 0 }: FadeInSectionProps) {
   return (
     <motion.div

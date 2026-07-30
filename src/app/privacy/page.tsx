@@ -1,5 +1,4 @@
 import FadeInSection from "@/components/ui/FadeInSection";
-import Link from "next/link";
 
 export const metadata = {
   title: "Privacy Policy | AlliedOne",

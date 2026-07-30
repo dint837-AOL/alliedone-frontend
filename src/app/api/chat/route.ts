@@ -4,6 +4,13 @@ import { streamText } from "ai";
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
+/**
+ * Handles incoming chat messages from the frontend ChatWidget and streams back 
+ * responses using the Vercel AI SDK and OpenAI's GPT models.
+ * 
+ * @param {Request} req - The incoming HTTP request containing the chat history (messages).
+ * @returns {Promise<Response>} A text stream response containing the assistant's reply.
+ */
 export async function POST(req: Request) {
   // If the user hasn't set up their OpenAI API key yet, return a mock streaming response
   if (!process.env.OPENAI_API_KEY) {

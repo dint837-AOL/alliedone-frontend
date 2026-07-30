@@ -11,6 +11,13 @@ const links = [
   { name: "Contact", href: "/contact" },
 ];
 
+/**
+ * Desktop navigation component.
+ * Displays navigation links and handles active state styling based on the current pathname.
+ * Uses Framer Motion for layout animations (e.g. active indicator).
+ * 
+ * @returns {JSX.Element} The rendered DesktopNav component.
+ */
 export default function DesktopNav() {
   const pathname = usePathname();
 

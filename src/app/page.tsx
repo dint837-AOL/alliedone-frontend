@@ -2,7 +2,7 @@ import Link from "next/link";
 import LeadCaptureForm from "@/components/sections/LeadCaptureForm";
 import FadeInSection from "@/components/ui/FadeInSection";
 import {
-  Lightbulb, Workflow, MessageSquare, Mail, Users, TrendingUp, PenTool,
+  Lightbulb, Workflow, MessageSquare, Mail, TrendingUp, PenTool,
   Bot, Cpu, Search, Rocket, CheckCircle, ArrowRight, GraduationCap
 } from "lucide-react";
 

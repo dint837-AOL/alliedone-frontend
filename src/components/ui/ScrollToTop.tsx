@@ -3,6 +3,12 @@
 import { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
 
+/**
+ * Floating button component that appears when the user scrolls down the page.
+ * Clicking the button smoothly scrolls the window back to the very top.
+ * 
+ * @returns {JSX.Element} The rendered ScrollToTop button component.
+ */
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 

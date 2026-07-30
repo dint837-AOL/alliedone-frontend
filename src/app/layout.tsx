@@ -130,7 +130,6 @@ export default function RootLayout({
                 <h4 className="text-white font-bold mb-5 uppercase text-xs tracking-widest">Company</h4>
                 <ul className="space-y-3 text-sm text-slate-200">
                   <li><Link href="/about" className="hover:text-white hover:underline transition-all">About Us</Link></li>
-                  <li><Link href="/contact" className="hover:text-white hover:underline transition-all">Contact</Link></li>
                   <li><Link href="/privacy" className="hover:text-white hover:underline transition-all">Privacy Policy</Link></li>
                   <li><Link href="/terms" className="hover:text-white hover:underline transition-all">Terms of Service</Link></li>
                 </ul>

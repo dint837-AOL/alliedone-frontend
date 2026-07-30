@@ -12,6 +12,13 @@ const links = [
   { name: "Contact", href: "/contact" },
 ];
 
+/**
+ * Mobile navigation component.
+ * Features a hamburger menu that toggles a dropdown overlay with navigation links.
+ * Automatically closes when a link is clicked.
+ * 
+ * @returns {JSX.Element} The rendered MobileNav component.
+ */
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();

@@ -7,6 +7,12 @@ import { MessageSquare, X, Send, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
+/**
+ * Floating Chat Widget for the AlliedOne AI Assistant.
+ * Utilizes the Vercel AI SDK to manage streaming chat state.
+ * 
+ * @returns {JSX.Element} The rendered ChatWidget component.
+ */
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -18,10 +24,21 @@ export default function ChatWidget() {
 
   const isLoading = status === "submitted" || status === "streaming";
 
+  /**
+   * Updates the input state as the user types.
+   * 
+   * @param {React.ChangeEvent<HTMLInputElement>} e - The input change event.
+   */
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
 
+  /**
+   * Handles the submission of the user's message to the AI backend.
+   * Prevents submission if the input is empty or the AI is currently loading.
+   * 
+   * @param {React.FormEvent<HTMLFormElement>} e - The form submission event.
+   */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
@@ -115,7 +132,7 @@ export default function ChatWidget() {
                         : "bg-white text-slate-700 border border-slate-100 rounded-2xl rounded-bl-sm"
                     }`}
                   >
-                    {m.parts?.map((part, i) => part.type === "text" ? part.text : null)}
+                    {m.parts?.map((part) => part.type === "text" ? part.text : null)}
                   </div>
                   
                   {m.role === "user" && (

@@ -6,7 +6,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Link from "next/link";
 
-// 1. Define the validation schema (Mirrors the backend Zod schema)
+/**
+ * Zod validation schema for the Lead Capture Form.
+ * Mirrors the backend schema for strict type safety.
+ */
 const leadSchema = z.object({
   name: z.string().min(2, "Name is required"),
   company: z.string().optional(),
@@ -31,6 +34,13 @@ const leadSchema = z.object({
 
 type LeadFormData = z.infer<typeof leadSchema>;
 
+/**
+ * Form component to capture user leads and project inquiries.
+ * Uses react-hook-form for state management and Zod for schema validation.
+ * Submits data directly to the backend CRM API.
+ * 
+ * @returns {JSX.Element} The rendered LeadCaptureForm component.
+ */
 export default function LeadCaptureForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
@@ -44,7 +54,12 @@ export default function LeadCaptureForm() {
     resolver: zodResolver(leadSchema),
   });
 
-  // 2. Handle API Submission
+  /**
+   * Handles the form submission by sending the validated data to the backend API.
+   * Updates local UI state (loading, success, error) based on the network response.
+   * 
+   * @param {LeadFormData} data - The validated form data matching the Zod schema.
+   */
   const onSubmit = async (data: LeadFormData) => {
     setIsSubmitting(true);
     setSubmitStatus("idle");
