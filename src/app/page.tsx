@@ -3,7 +3,7 @@ import LeadCaptureForm from "@/components/sections/LeadCaptureForm";
 import FadeInSection from "@/components/ui/FadeInSection";
 import {
   Lightbulb, Workflow, MessageSquare, Mail, Users, TrendingUp, PenTool,
-  Bot, Cpu, Search, Rocket, CheckCircle, ArrowRight
+  Bot, Cpu, Search, Rocket, CheckCircle, ArrowRight, GraduationCap
 } from "lucide-react";
 
 // ── Shared section header pattern ────────────────────────────
@@ -109,10 +109,13 @@ export default function Home() {
           <div className="text-center mb-16">
             <span className="inline-block text-brand-mid text-xs font-bold uppercase tracking-[0.18em] mb-3">What We Do</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mt-1 mb-4 tracking-tight">Core Service Lines</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">Three specialized technology domains delivering measurable ROI for modern businesses.</p>
+            <div className="text-slate-600 text-lg leading-relaxed flex flex-col items-center justify-center">
+              <span>Specialized technology domains delivering</span>
+              <span>measurable ROI for modern business.</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: <Lightbulb className="w-6 h-6" />,
@@ -134,6 +137,13 @@ export default function Home() {
                 desc: "Full funnel digital marketing execution across channels that drive measurable growth — Facebook & Google Ads, SEO strategy, AI-assisted lead generation, and an AI Content Studio.",
                 href: "/services",
                 cta: "View Agency Services",
+              },
+              {
+                icon: <GraduationCap className="w-6 h-6" />,
+                title: "Skill Development",
+                desc: "Empowering teams with cutting-edge training in AI, digital marketing, and modern business tools to ensure your workforce is future-ready and capable of maximizing technology ROI.",
+                href: "/services",
+                cta: "Explore Training",
               },
             ].map((service) => (
               <div key={service.title} className="group bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-xl hover:shadow-brand-mid/5 hover:-translate-y-1 transition-all duration-300 flex flex-col relative z-10">
@@ -168,7 +178,7 @@ export default function Home() {
               { icon: <Workflow className="w-5 h-5" />, title: "Process Automation Strategy", desc: "Approval workflows, inventory tracking, attendance, HR, and leave management automation." },
               { icon: <MessageSquare className="w-5 h-5" />, title: "WhatsApp & Messaging Bots", desc: "Conversation flow design, messaging API integration, and bot performance & escalation strategy." },
               { icon: <Mail className="w-5 h-5" />, title: "Email Automation Consulting", desc: "Automated nurture workflows, audience segmentation strategy, and deliverability optimization." },
-              { icon: <Users className="w-5 h-5" />, title: "ATS & HR Tech Architecture", desc: "AI candidate screening design, interview automation architecture, and hiring funnel optimization." },
+              { icon: <GraduationCap className="w-5 h-5" />, title: "Skill Development", desc: "Corporate training programs for AI tools, digital marketing execution, and workflow automation." },
               { icon: <TrendingUp className="w-5 h-5" />, title: "Digital Marketing & AI Agency", desc: "Facebook and Google Ads management, SEO strategy & execution, and AI-assisted lead generation." },
               { icon: <PenTool className="w-5 h-5" />, title: "AI Content Studio", desc: "Social media content, video scripts, blog posts, product descriptions, and marketing copy." },
             ].map((item) => (
@@ -200,17 +210,16 @@ export default function Home() {
             <div className="hidden md:block absolute top-[2.75rem] left-[calc(33.333%-1rem)] right-[calc(33.333%-1rem)] h-px bg-[#2180C0]/20 z-0"></div>
 
             {[
-              { step: "01", icon: <Search className="w-6 h-6" />, title: "Discovery & Audit", desc: "We assess your current workflows, identify AI opportunities, and map out where automation creates the highest ROI." },
-              { step: "02", icon: <Cpu className="w-6 h-6" />, title: "Design & Build", desc: "Our team architects and builds your custom AI system — from chatbots and automations to full CRM and marketing infrastructure." },
-              { step: "03", icon: <Rocket className="w-6 h-6" />, title: "Deploy & Scale", desc: "We go live, monitor performance, and continuously optimize so your systems improve over time without manual effort." },
+              { step: "01", icon: <Search className="w-6 h-6" />, title: "Finding Your Problem", desc: "We assess your current workflows, identify AI opportunities, and map out where automation creates the highest ROI." },
+              { step: "02", icon: <Cpu className="w-6 h-6" />, title: "Making a Plan to Fix It", desc: "Our team architects and builds your custom AI system — from chatbots and automations to full CRM and marketing infrastructure." },
+              { step: "03", icon: <Rocket className="w-6 h-6" />, title: "Implementation", desc: "We go live, monitor performance, and continuously optimize so your systems improve over time without manual effort." },
             ].map((step) => (
               <div key={step.step} className="text-center relative z-10 flex flex-col items-center">
                 <div className="w-[5.5rem] h-[5.5rem] rounded-full bg-[#0D3A5C] text-white flex items-center justify-center mx-auto mb-6 shadow-lg relative">
                   {step.icon}
                   <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#2180C0] text-white text-[10px] font-extrabold flex items-center justify-center">{step.step}</span>
                 </div>
-                <h3 className="text-xl font-bold text-[#0D3A5C] mb-3">{step.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed max-w-xs mx-auto">{step.desc}</p>
+                <h3 className="text-xl font-bold text-[#0D3A5C]">{step.title}</h3>
               </div>
             ))}
           </div>

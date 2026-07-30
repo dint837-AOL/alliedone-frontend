@@ -5,6 +5,7 @@ import Link from "next/link";
 import MobileNav from "@/components/ui/MobileNav";
 import DesktopNav from "@/components/ui/DesktopNav";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
+import ChatWidget from "@/components/ui/ChatWidget";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -71,9 +72,6 @@ export default function RootLayout({
                   <Image src="/logo-mark-v2.png" alt="AlliedOne Logo" width={120} height={100} className="h-10 w-auto object-contain" />
                   <span className="font-extrabold text-2xl text-[#0D3A5C] tracking-tight leading-none">AlliedOne</span>
                 </div>
-                <p className="text-sm text-slate-200 leading-relaxed mb-4">
-                  Empowering businesses with intelligent AI automation, digital transformation, and global trade solutions.
-                </p>
                 <div className="text-sm text-slate-300 space-y-3 mb-5">
                   <p className="flex items-start gap-2">
                     <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -158,6 +156,7 @@ export default function RootLayout({
           </div>
         </footer>
         <ScrollToTop />
+        <ChatWidget />
       </body>
     </html>
   );
