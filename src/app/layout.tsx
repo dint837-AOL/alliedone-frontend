@@ -118,6 +118,8 @@ export default function RootLayout({
                   <li><Link href="/services/ai-opportunity-implementation" className="hover:text-white transition-colors">AI Opportunity & Implementation</Link></li>
                   <li><Link href="/services/process-automation-strategy" className="hover:text-white transition-colors">Process Automation Strategy</Link></li>
                   <li><Link href="/services/whatsapp-messaging-bots" className="hover:text-white transition-colors">WhatsApp & Messaging Bots</Link></li>
+                  <li><Link href="/services/email-automation-consulting" className="hover:text-white transition-colors">Email Automation Consulting</Link></li>
+                  <li><Link href="/services/skill-development" className="hover:text-white transition-colors">Skill Development</Link></li>
                   <li><Link href="/services/digital-marketing-ai-agency" className="hover:text-white transition-colors">Digital Marketing & AI Agency</Link></li>
                   <li><Link href="/services/ai-content-studio" className="hover:text-white transition-colors">AI Content Studio</Link></li>
                 </ul>

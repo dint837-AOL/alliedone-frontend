@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {
-  Lightbulb, Workflow, MessageSquare, TrendingUp, PenTool,
+  Lightbulb, Workflow, MessageSquare, TrendingUp, PenTool, Mail, GraduationCap,
   ArrowRight, CheckCircle
 } from "lucide-react";
 
@@ -42,6 +42,28 @@ const servicesList = [
       "Bot performance and escalation path strategy",
     ],
     slug: "whatsapp-messaging-bots",
+  },
+  {
+    icon: <Mail className="w-6 h-6" />,
+    name: "Email Automation Consulting",
+    tagline: "Maximize engagement with automated nurture workflows, segmentation, and deliverability optimization.",
+    items: [
+      "Automated nurture workflow design",
+      "Audience segmentation and personalization strategy",
+      "Deliverability and inbox placement optimization",
+    ],
+    slug: "email-automation-consulting",
+  },
+  {
+    icon: <GraduationCap className="w-6 h-6" />,
+    name: "Skill Development",
+    tagline: "Corporate training programs designed to empower your workforce with modern technology and automation skills.",
+    items: [
+      "Corporate training programs for AI tools",
+      "Digital marketing execution workshops",
+      "Workflow automation and tool proficiency",
+    ],
+    slug: "skill-development",
   },
   {
     icon: <TrendingUp className="w-6 h-6" />,

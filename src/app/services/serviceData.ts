@@ -91,6 +91,58 @@ export const servicesData: ServiceDetail[] = [
     ctaText: "Build Your AI Bot"
   },
   {
+    slug: "email-automation-consulting",
+    title: "Email Automation Consulting",
+    coreValue: "Transform your email list into a reliable revenue engine through highly targeted, automated nurturing.",
+    heroHeadline: "Data-Driven Nurture Campaigns That Convert",
+    subHeadline: "Stop blasting generic emails. We design and deploy intelligent, behavior-triggered email sequences that build trust, educate prospects, and drive sales on autopilot.",
+    whatWeOffer: [
+      {
+        title: "Automated Nurture Workflows",
+        description: "Design multi-step email drip campaigns that automatically guide prospects from initial opt-in to final conversion."
+      },
+      {
+        title: "Audience Segmentation Strategy",
+        description: "Divide your audience based on behavior, purchase history, and engagement to deliver hyper-relevant messaging."
+      },
+      {
+        title: "Deliverability Optimization",
+        description: "Technical configuration of SPF, DKIM, and DMARC to ensure your emails reliably hit the primary inbox, not the spam folder."
+      },
+      {
+        title: "Copywriting & Campaign Analytics",
+        description: "Persuasive email copy combined with continuous A/B testing of subject lines, send times, and call-to-actions."
+      }
+    ],
+    ctaText: "Optimize Your Emails"
+  },
+  {
+    slug: "skill-development",
+    title: "Skill Development",
+    coreValue: "Future-proof your workforce by equipping them with the practical skills needed to thrive in an AI-driven economy.",
+    heroHeadline: "Corporate Training for the Modern Digital Era",
+    subHeadline: "Technology is only as effective as the team using it. Our targeted corporate training programs bridge the gap between human talent and advanced automation tools.",
+    whatWeOffer: [
+      {
+        title: "AI Tools Proficiency Training",
+        description: "Hands-on workshops teaching your staff how to leverage ChatGPT, Midjourney, and specialized AI agents in their daily work."
+      },
+      {
+        title: "Digital Marketing Execution",
+        description: "Actionable training in SEO, paid media management, and data analysis for internal marketing teams."
+      },
+      {
+        title: "Workflow Automation Basics",
+        description: "Teach key employees how to build and manage simple Zapier or Make.com automations to solve their own operational bottlenecks."
+      },
+      {
+        title: "Customized Corporate Bootcamps",
+        description: "Intensive, role-specific training programs designed entirely around your company's proprietary tech stack and operational goals."
+      }
+    ],
+    ctaText: "Train Your Team"
+  },
+  {
     slug: "digital-marketing-ai-agency",
     title: "Digital Marketing & AI Agency",
     coreValue: "Supercharge your growth engine with data-driven advertising and rapid, AI-powered response systems.",

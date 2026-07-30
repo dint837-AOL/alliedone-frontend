@@ -7,12 +7,12 @@ import {
 } from "lucide-react";
 
 // ── Shared section header pattern ────────────────────────────
-function SectionHeader({ eyebrow, title, subtitle }: { eyebrow: string; title: React.ReactNode; subtitle?: string }) {
+function SectionHeader({ eyebrow, title, subtitle }: { eyebrow: string; title: React.ReactNode; subtitle?: React.ReactNode }) {
   return (
     <div className="text-center mb-16">
       <span className="inline-block text-[#2180C0] text-xs font-bold uppercase tracking-[0.18em] mb-3">{eyebrow}</span>
       <h2 className="text-3xl md:text-4xl font-extrabold text-[#0D3A5C] mt-1 mb-4 tracking-tight">{title}</h2>
-      {subtitle && <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">{subtitle}</p>}
+      {subtitle && <div className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">{subtitle}</div>}
     </div>
   );
 }
@@ -96,70 +96,7 @@ export default function Home() {
         </FadeInSection>
       </section>
 
-      {/* ══════════════════════════════════════════════
-          CORE SERVICE LINES — Strong navy background to differentiate
-      ══════════════════════════════════════════════ */}
-      <section className="py-28 bg-[#F0F7FF] relative overflow-hidden border-y border-blue-100/50">
-        {/* Subtle decorative rings */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full border border-blue-900/5" />
-          <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full border border-blue-900/5" />
-        </div>
-        <FadeInSection className="max-w-7xl mx-auto px-6 relative z-10" delay={0.1}>
-          <div className="text-center mb-16">
-            <span className="inline-block text-brand-mid text-xs font-bold uppercase tracking-[0.18em] mb-3">What We Do</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy mt-1 mb-4 tracking-tight">Core Service Lines</h2>
-            <div className="text-slate-600 text-lg leading-relaxed flex flex-col items-center justify-center">
-              <span>Specialized technology domains delivering</span>
-              <span>measurable ROI for modern business.</span>
-            </div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: <Lightbulb className="w-6 h-6" />,
-                title: "AI Opportunity & Implementation",
-                desc: "We identify exactly where AI and automation can create the most value for your business, then deliver a clear, actionable roadmap and standard operating procedures to implement it.",
-                href: "/services",
-                cta: "View Consulting Scope",
-              },
-              {
-                icon: <Workflow className="w-6 h-6" />,
-                title: "Process Automation Strategy",
-                desc: "A proven methodology for mapping and automating recurring operational work — approval workflows, inventory tracking, attendance, HR, and leave management across your departments.",
-                href: "/services",
-                cta: "View Automation Tools",
-              },
-              {
-                icon: <TrendingUp className="w-6 h-6" />,
-                title: "Digital Marketing & AI Agency",
-                desc: "Full funnel digital marketing execution across channels that drive measurable growth — Facebook & Google Ads, SEO strategy, AI-assisted lead generation, and an AI Content Studio.",
-                href: "/services",
-                cta: "View Agency Services",
-              },
-              {
-                icon: <GraduationCap className="w-6 h-6" />,
-                title: "Skill Development",
-                desc: "Empowering teams with cutting-edge training in AI, digital marketing, and modern business tools to ensure your workforce is future-ready and capable of maximizing technology ROI.",
-                href: "/services",
-                cta: "Explore Training",
-              },
-            ].map((service) => (
-              <div key={service.title} className="group bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-xl hover:shadow-brand-mid/5 hover:-translate-y-1 transition-all duration-300 flex flex-col relative z-10">
-                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-brand-mid mb-6 group-hover:bg-brand-mid group-hover:text-white transition-colors duration-300">
-                  {service.icon}
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-brand-navy">{service.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">{service.desc}</p>
-                <Link href={service.href} className="inline-flex items-center gap-1.5 text-brand-mid text-sm font-bold hover:gap-3 transition-all duration-200">
-                  {service.cta} <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </FadeInSection>
-      </section>
 
       {/* ══════════════════════════════════════════════
           FULL SERVICE CATALOGUE — Light background
@@ -169,7 +106,12 @@ export default function Home() {
           <SectionHeader
             eyebrow="Full Portfolio"
             title="Everything We Offer"
-            subtitle="A complete suite of AI-powered services designed to modernize every layer of your business."
+            subtitle={
+              <div className="flex flex-col items-center justify-center">
+                <span>A complete suite of AI-powered services designed</span>
+                <span>to modernize every single layer of your business.</span>
+              </div>
+            }
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
