@@ -66,12 +66,9 @@ export default function RootLayout({
             {/* Top 4-col grid */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-[#1A5C8A]">
 
-              {/* Brand column */}
+              {/* Contact column */}
               <div className="md:col-span-1">
-                <div className="inline-flex items-center gap-2 mb-5 bg-white rounded-2xl px-3 py-2 shadow-md">
-                  <Image src="/logo-mark-v2.png" alt="AlliedOne Logo" width={120} height={100} className="h-10 w-auto object-contain" />
-                  <span className="font-extrabold text-2xl text-[#0D3A5C] tracking-tight leading-none">AlliedOne</span>
-                </div>
+                <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Contacts</h4>
                 <div className="text-sm text-slate-300 space-y-3 mb-5">
                   <p className="flex items-start gap-2">
                     <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -113,7 +110,7 @@ export default function RootLayout({
 
               {/* Services column */}
               <div>
-                <h4 className="text-white font-bold mb-5 uppercase text-xs tracking-widest">Services</h4>
+                <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Services</h4>
                 <ul className="space-y-3 text-sm text-slate-200">
                   <li><Link href="/services/ai-opportunity-implementation" className="hover:text-white transition-colors">AI Opportunity & Implementation</Link></li>
                   <li><Link href="/services/process-automation-strategy" className="hover:text-white transition-colors">Process Automation Strategy</Link></li>
@@ -126,27 +123,36 @@ export default function RootLayout({
               </div>
 
               {/* Company column */}
-              <div>
-                <h4 className="text-white font-bold mb-5 uppercase text-xs tracking-widest">Company</h4>
-                <ul className="space-y-3 text-sm text-slate-200">
-                  <li><Link href="/about" className="hover:text-white hover:underline transition-all">About Us</Link></li>
-                  <li><Link href="/privacy" className="hover:text-white hover:underline transition-all">Privacy Policy</Link></li>
-                  <li><Link href="/terms" className="hover:text-white hover:underline transition-all">Terms of Service</Link></li>
-                </ul>
+              <div className="flex flex-col justify-between h-full">
+                <div>
+                  <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Company</h4>
+                  <ul className="space-y-3 text-sm text-slate-200">
+                    <li><Link href="/about" className="hover:text-white hover:underline transition-all">About Us</Link></li>
+                    <li><Link href="/privacy" className="hover:text-white hover:underline transition-all">Privacy Policy</Link></li>
+                    <li><Link href="/terms" className="hover:text-white hover:underline transition-all">Terms of Service</Link></li>
+                  </ul>
+                </div>
               </div>
 
               {/* Contact / CTA column */}
-              <div>
-                <h4 className="text-white font-bold mb-5 uppercase text-xs tracking-widest">Get in Touch</h4>
-                <p className="text-sm text-slate-200 mb-5 leading-relaxed">
-                  Ready to transform your business with AI? Let&apos;s talk.
-                </p>
-                <Link
-                  href="/contact"
-                  className="inline-block bg-white text-[#0D3A5C] px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-slate-200 transition-all"
-                >
-                  Schedule a Demo &rarr;
-                </Link>
+              <div className="flex flex-col justify-between h-full">
+                <div>
+                  <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Get in Touch</h4>
+                  <p className="text-sm text-slate-200 mb-5 leading-relaxed">
+                    Ready to transform your business with AI? Let&apos;s talk.
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="inline-block bg-white text-[#0D3A5C] px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-slate-200 transition-all"
+                  >
+                    Schedule a Demo &rarr;
+                  </Link>
+                </div>
+
+                <div className="mt-8 inline-flex items-center gap-2 bg-white rounded-2xl px-3 py-2 shadow-md w-max">
+                  <Image src="/logo-mark-v2.png" alt="AlliedOne Logo" width={120} height={100} className="h-10 w-auto object-contain" />
+                  <span className="font-extrabold text-2xl text-[#0D3A5C] tracking-tight leading-none">AlliedOne</span>
+                </div>
               </div>
             </div>
 
