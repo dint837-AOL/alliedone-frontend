@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Mail, ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
+import { toast } from "sonner";
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState("");
@@ -33,6 +34,9 @@ export default function NewsletterSignup() {
 
       setStatus("success");
       setEmail("");
+      toast.success("Subscribed to Newsletter!", {
+        description: "Check your inbox for a welcome email."
+      });
       
       // Reset success message after 5 seconds
       setTimeout(() => {
@@ -41,7 +45,9 @@ export default function NewsletterSignup() {
     } catch (err: any) {
       console.error(err);
       setStatus("error");
-      setErrorMessage(err.message || "Something went wrong. Please try again.");
+      const msg = err.message || "Something went wrong. Please try again.";
+      setErrorMessage(msg);
+      toast.error("Subscription failed", { description: msg });
     }
   };
 

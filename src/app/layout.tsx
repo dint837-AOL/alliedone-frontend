@@ -8,6 +8,7 @@ import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import ChatWidget from "@/components/ui/ChatWidget";
 import FeedbackWidget from "@/components/ui/FeedbackWidget";
 import NewsletterWidget from "@/components/ui/NewsletterWidget";
+import { Toaster } from 'sonner';
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -165,6 +166,7 @@ export default function RootLayout({
         <ScrollToTop />
         <FeedbackWidget />
         <ChatWidget />
+        <Toaster position="bottom-right" richColors />
       </body>
     </html>
   );

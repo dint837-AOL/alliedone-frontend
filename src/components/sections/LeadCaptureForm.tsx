@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Link from "next/link";
+import { toast } from "sonner";
 
 /**
  * Zod validation schema for the Lead Capture Form.
@@ -74,10 +75,16 @@ export default function LeadCaptureForm() {
       if (!response.ok) throw new Error("Failed to submit");
 
       setSubmitStatus("success");
+      toast.success("Message Sent Successfully!", {
+        description: "We'll be in touch shortly."
+      });
       reset(); // Clear the form on success
     } catch (error) {
       console.error("Submission error:", error);
       setSubmitStatus("error");
+      toast.error("Failed to send message", {
+        description: "Please try again or contact us directly."
+      });
     } finally {
       setIsSubmitting(false);
     }

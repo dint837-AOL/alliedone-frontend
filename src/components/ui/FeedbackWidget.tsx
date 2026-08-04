@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Bug, X, Send, AlertTriangle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { toast } from "sonner";
 
 export default function FeedbackWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,15 +45,22 @@ export default function FeedbackWidget() {
       }
       
       setStatus("success");
+      toast.success("Feedback submitted successfully!", {
+        description: "Thank you for helping us improve AlliedOne."
+      });
       setTimeout(() => {
         setIsOpen(false);
         setStatus("idle");
         setFormData({ name: "", email: "", type: "BUG_REPORT", message: "" });
-      }, 3000);
+      }, 1500);
     } catch (err: any) {
       console.error(err);
-      setErrorMessage(err.message || "Failed to submit. Please try again later.");
+      const msg = err.message || "Failed to submit. Please try again later.";
+      setErrorMessage(msg);
       setStatus("error");
+      toast.error("Failed to submit feedback", {
+        description: msg
+      });
     }
   };
 
