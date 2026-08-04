@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function FeedbackWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("Failed to submit. Please try again later.");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -34,7 +35,13 @@ export default function FeedbackWidget() {
         body: JSON.stringify(formData)
       });
 
-      if (!res.ok) throw new Error("Submission failed");
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        if (errorData.errors && errorData.errors.length > 0) {
+          throw new Error(errorData.errors[0].message);
+        }
+        throw new Error(errorData.message || "Submission failed");
+      }
       
       setStatus("success");
       setTimeout(() => {
@@ -42,8 +49,9 @@ export default function FeedbackWidget() {
         setStatus("idle");
         setFormData({ name: "", email: "", type: "BUG_REPORT", message: "" });
       }, 3000);
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
+      setErrorMessage(err.message || "Failed to submit. Please try again later.");
       setStatus("error");
     }
   };
@@ -145,7 +153,7 @@ export default function FeedbackWidget() {
                   </div>
 
                   {status === "error" && (
-                    <p className="text-xs text-red-500 font-medium">Failed to submit. Please try again later.</p>
+                    <p className="text-xs text-red-500 font-medium bg-red-50 p-2 rounded border border-red-100">{errorMessage}</p>
                   )}
 
                   <button
