@@ -306,14 +306,7 @@ export default function TermsOfServicePage() {
         </div>
       </section>
 
-      {/* ── Intro Card ── */}
-      <div className="max-w-4xl mx-auto px-6 -mt-8 relative z-10">
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
-          <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-            By accessing our Website, submitting an inquiry, engaging our Services, or otherwise doing business with us, you (&quot;Client,&quot; &quot;you,&quot; or &quot;your&quot;) agree to be bound by these Terms. If you do not agree, please do not use our Website or Services.
-          </p>
-        </div>
-      </div>
+
 
       {/* ── Sections ── */}
       <div className="max-w-4xl mx-auto px-6 py-16 space-y-6">

@@ -106,10 +106,10 @@ export default function NewsletterSignup() {
                 <button
                   type="submit"
                   disabled={status === "loading" || !email}
-                  className="group w-full inline-flex items-center justify-center gap-2 bg-white text-[#0D3A5C] px-8 py-4 rounded-xl font-extrabold hover:bg-[#5BAEE8] hover:text-white transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(91,174,232,0.4)]"
+                  className="group w-full inline-flex items-center justify-center gap-2 bg-[#2180C0] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#1A5C8A] transition-all shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {status === "loading" ? (
-                    <Loader2 className="w-5 h-5 animate-spin text-[#0D3A5C]" />
+                    <Loader2 className="w-5 h-5 animate-spin text-white" />
                   ) : (
                     <>
                       Subscribe Now

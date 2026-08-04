@@ -77,7 +77,7 @@ export default function NewsletterWidget() {
           <button
             type="submit"
             disabled={status === "loading" || !email}
-            className="whitespace-nowrap sm:w-auto w-full bg-[#2180C0] hover:bg-[#5BAEE8] text-white text-sm font-bold rounded-lg px-4 py-2.5 flex items-center justify-center gap-2 transition-all disabled:opacity-50"
+            className="whitespace-nowrap sm:w-auto w-full bg-[#2180C0] text-white hover:bg-[#1A5C8A] text-sm font-bold rounded-lg px-4 py-2.5 flex items-center justify-center gap-2 transition-all shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {status === "loading" ? (
               <Loader2 className="w-4 h-4 animate-spin" />
