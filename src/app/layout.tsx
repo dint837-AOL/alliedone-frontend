@@ -7,6 +7,7 @@ import DesktopNav from "@/components/ui/DesktopNav";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import ChatWidget from "@/components/ui/ChatWidget";
 import FeedbackWidget from "@/components/ui/FeedbackWidget";
+import NewsletterWidget from "@/components/ui/NewsletterWidget";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -150,10 +151,7 @@ export default function RootLayout({
                   </Link>
                 </div>
 
-                <div className="mt-8 inline-flex items-center gap-2 bg-white rounded-2xl px-3 py-2 shadow-md w-max">
-                  <Image src="/logo-mark-v2.png" alt="AlliedOne Logo" width={120} height={100} className="h-10 w-auto object-contain" />
-                  <span className="font-extrabold text-2xl text-[#0D3A5C] tracking-tight leading-none">AlliedOne</span>
-                </div>
+                <NewsletterWidget />
               </div>
             </div>
 

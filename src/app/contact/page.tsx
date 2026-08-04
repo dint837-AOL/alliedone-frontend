@@ -1,4 +1,5 @@
 import LeadCaptureForm from "@/components/sections/LeadCaptureForm";
+import NewsletterSignup from "@/components/sections/NewsletterSignup";
 
 export const metadata = {
   title: "Contact Us | AlliedOne",
@@ -20,6 +21,11 @@ export default function ContactPage() {
         
         {/* Render the Client Component Form */}
         <LeadCaptureForm />
+
+        {/* Newsletter Signup at the bottom */}
+        <div className="mt-28 mb-8">
+          <NewsletterSignup />
+        </div>
       </div>
     </div>
   );

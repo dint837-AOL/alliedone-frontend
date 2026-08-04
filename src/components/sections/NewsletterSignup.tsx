@@ -46,70 +46,88 @@ export default function NewsletterSignup() {
   };
 
   return (
-    <div className="bg-[#0D3A5C] rounded-3xl overflow-hidden relative shadow-2xl">
-      {/* Decorative abstract shapes */}
-      <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#2180C0]/30 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#2180C0]/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div className="relative rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(33,128,192,0.15)] border border-slate-200">
+      {/* Background Gradient & Mesh */}
+      <div className="absolute inset-0 bg-[#0D3A5C] z-0"></div>
+      <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#2180C0]/60 via-transparent to-transparent opacity-80 z-0 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#5BAEE8]/40 via-transparent to-transparent opacity-50 z-0 pointer-events-none"></div>
 
-      <div className="px-8 py-12 md:p-16 relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
-        <div className="md:w-1/2 text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-blue-200 text-xs font-bold uppercase tracking-wider mb-4 border border-white/10">
-            <Mail className="w-3.5 h-3.5" />
-            Weekly Insights
+      {/* Grid Pattern overlay */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)] z-0"></div>
+
+      <div className="px-8 py-16 md:p-20 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="md:w-[55%] text-left">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#5BAEE8] text-xs font-bold uppercase tracking-[0.2em] mb-6 border border-white/20 backdrop-blur-md shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Weekly Industry Insights
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">
-            Stay ahead of the curve.
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight leading-[1.1]">
+            Automate to dominate. <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5BAEE8] to-white">
+              Stay ahead of the curve.
+            </span>
           </h2>
-          <p className="text-blue-100/80 text-lg leading-relaxed max-w-lg">
-            Join our newsletter to get actionable tips on AI automation, digital marketing, and modernizing your business workflows.
+          <p className="text-blue-100/90 text-lg leading-relaxed max-w-lg font-light">
+            Join visionary leaders receiving our best strategies on <strong className="font-semibold text-white">AI implementation, workflow automation</strong>, and scaling operations—delivered directly to your inbox every week.
           </p>
         </div>
 
-        <div className="md:w-1/2 w-full max-w-md">
-          {status === "success" ? (
-            <div className="bg-white/10 border border-white/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center backdrop-blur-sm animate-in fade-in zoom-in duration-300">
-              <div className="w-12 h-12 bg-emerald-500/20 rounded-full flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-6 h-6 text-emerald-400" />
+        <div className="md:w-[45%] w-full max-w-md relative">
+          {/* Glass pane behind form */}
+          <div className="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl -z-10 transform scale-[1.03] translate-y-1"></div>
+          
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 shadow-xl">
+            {status === "success" ? (
+              <div className="flex flex-col items-center justify-center text-center animate-in fade-in zoom-in duration-300 py-4">
+                <div className="w-16 h-16 bg-emerald-400/20 rounded-full flex items-center justify-center mb-5 ring-4 ring-emerald-400/10">
+                  <CheckCircle2 className="w-8 h-8 text-emerald-400" />
+                </div>
+                <h3 className="text-white font-extrabold text-2xl mb-2">Welcome Aboard!</h3>
+                <p className="text-blue-100/80 text-sm leading-relaxed">
+                  You're officially subscribed. Keep an eye on your inbox for our welcome email and exclusive AI strategies.
+                </p>
               </div>
-              <h3 className="text-white font-bold text-xl mb-2">You're Subscribed!</h3>
-              <p className="text-blue-100/80 text-sm">Keep an eye on your inbox for your welcome email.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="relative">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <div className="relative flex-grow">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+            ) : (
+              <form onSubmit={handleSubmit} className="relative flex flex-col gap-4">
+                <h3 className="text-white font-bold text-xl mb-2 text-center md:text-left">Get Exclusive Access</h3>
+                
+                <div className="relative">
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-200" />
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
+                    placeholder="Enter your work email"
                     required
                     disabled={status === "loading"}
-                    className="w-full pl-11 pr-4 py-4 rounded-xl bg-white text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#5BAEE8] transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full pl-12 pr-4 py-4 rounded-xl bg-[#061d30]/60 border border-white/20 text-white placeholder:text-blue-200/50 focus:outline-none focus:border-[#5BAEE8] focus:ring-1 focus:ring-[#5BAEE8] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-inner backdrop-blur-sm"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={status === "loading" || !email}
-                  className="whitespace-nowrap inline-flex items-center justify-center gap-2 bg-[#2180C0] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#5BAEE8] transition-colors disabled:opacity-70 disabled:cursor-not-allowed h-full"
+                  className="group w-full inline-flex items-center justify-center gap-2 bg-white text-[#0D3A5C] px-8 py-4 rounded-xl font-extrabold hover:bg-[#5BAEE8] hover:text-white transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(91,174,232,0.4)]"
                 >
                   {status === "loading" ? (
-                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <Loader2 className="w-5 h-5 animate-spin text-[#0D3A5C]" />
                   ) : (
                     <>
-                      Subscribe <ArrowRight className="w-4 h-4" />
+                      Subscribe Now
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </>
                   )}
                 </button>
-              </div>
-              {status === "error" && (
-                <p className="absolute -bottom-7 left-2 text-red-400 text-sm font-medium animate-in slide-in-from-top-1">
-                  {errorMessage}
+                {status === "error" && (
+                  <div className="bg-red-500/10 border border-red-500/20 text-red-300 text-sm font-medium p-3 rounded-lg mt-2 text-center animate-in slide-in-from-top-1">
+                    {errorMessage}
+                  </div>
+                )}
+                <p className="text-center text-[10px] text-blue-200/50 mt-2">
+                  No spam. Unsubscribe at any time.
                 </p>
-              )}
-            </form>
-          )}
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </div>
