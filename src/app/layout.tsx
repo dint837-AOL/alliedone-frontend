@@ -6,6 +6,7 @@ import MobileNav from "@/components/ui/MobileNav";
 import DesktopNav from "@/components/ui/DesktopNav";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import ChatWidget from "@/components/ui/ChatWidget";
+import FeedbackWidget from "@/components/ui/FeedbackWidget";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -163,6 +164,7 @@ export default function RootLayout({
           </div>
         </footer>
         <ScrollToTop />
+        <FeedbackWidget />
         <ChatWidget />
       </body>
     </html>
