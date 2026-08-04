@@ -24,12 +24,11 @@ export default function FeedbackWidget() {
 
     setStatus("loading");
     
-    // In production, you would point this to your actual deployed backend URL 
-    // or use NEXT_PUBLIC_API_URL. For local testing we assume proxy or CORS handles it.
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+    // NEXT_PUBLIC_API_URL usually includes '/api' at the end (e.g., https://.../api)
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
     
     try {
-      const res = await fetch(`${apiUrl}/api/feedback`, {
+      const res = await fetch(`${apiUrl}/feedback`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
