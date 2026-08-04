@@ -52,42 +52,46 @@ export default function NewsletterWidget() {
   }
 
   return (
-    <div className="mt-8 bg-[#0a2e4a] border border-[#164a75] rounded-xl p-5 shadow-inner">
-      <h4 className="text-white font-bold text-sm mb-1 flex items-center gap-2">
-        <Mail className="w-4 h-4 text-[#5BAEE8]" />
-        Weekly Insights
-      </h4>
-      <p className="text-slate-300 text-xs mb-4 leading-relaxed">
-        Get AI automation tips delivered to your inbox.
-      </p>
-      
-      <form onSubmit={handleSubmit} className="flex flex-col gap-2 relative">
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          required
-          disabled={status === "loading"}
-          className="w-full bg-[#061d30] border border-[#164a75] text-sm text-slate-200 placeholder:text-slate-500 rounded-lg px-3 py-2.5 focus:outline-none focus:border-[#5BAEE8] focus:ring-1 focus:ring-[#5BAEE8] transition-all"
-        />
-        <button
-          type="submit"
-          disabled={status === "loading" || !email}
-          className="w-full bg-[#2180C0] hover:bg-[#5BAEE8] text-white text-sm font-bold rounded-lg px-3 py-2.5 flex items-center justify-center gap-2 transition-all disabled:opacity-50"
-        >
-          {status === "loading" ? (
-            <Loader2 className="w-4 h-4 animate-spin" />
-          ) : (
-            <>
-              Subscribe <ArrowRight className="w-3.5 h-3.5" />
-            </>
+    <div className="mt-8 bg-[#0a2e4a] border border-[#164a75] rounded-xl p-5 shadow-inner w-full">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="md:w-1/3">
+          <h4 className="text-white font-bold text-sm mb-1 flex items-center gap-2">
+            <Mail className="w-4 h-4 text-[#5BAEE8]" />
+            Weekly Insights
+          </h4>
+          <p className="text-slate-300 text-xs leading-relaxed">
+            Get AI automation tips delivered to your inbox.
+          </p>
+        </div>
+        
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 w-full md:w-2/3 relative">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            required
+            disabled={status === "loading"}
+            className="w-full bg-[#061d30] border border-[#164a75] text-sm text-slate-200 placeholder:text-slate-500 rounded-lg px-3 py-2.5 focus:outline-none focus:border-[#5BAEE8] focus:ring-1 focus:ring-[#5BAEE8] transition-all"
+          />
+          <button
+            type="submit"
+            disabled={status === "loading" || !email}
+            className="whitespace-nowrap sm:w-auto w-full bg-[#2180C0] hover:bg-[#5BAEE8] text-white text-sm font-bold rounded-lg px-4 py-2.5 flex items-center justify-center gap-2 transition-all disabled:opacity-50"
+          >
+            {status === "loading" ? (
+              <Loader2 className="w-4 h-4 animate-spin" />
+            ) : (
+              <>
+                Subscribe <ArrowRight className="w-3.5 h-3.5" />
+              </>
+            )}
+          </button>
+          {status === "error" && (
+            <p className="absolute -bottom-5 left-0 text-red-400 text-[10px] font-medium">{errorMessage}</p>
           )}
-        </button>
-        {status === "error" && (
-          <p className="text-red-400 text-[10px] mt-1 font-medium">{errorMessage}</p>
-        )}
-      </form>
+        </form>
+      </div>
     </div>
   );
 }

@@ -124,31 +124,32 @@ export default function RootLayout({
                 </ul>
               </div>
 
-              {/* Company column */}
-              <div className="flex flex-col justify-between h-full">
-                <div>
-                  <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Company</h4>
-                  <ul className="space-y-3 text-sm text-slate-200">
-                    <li><Link href="/about" className="hover:text-white hover:underline transition-all">About Us</Link></li>
-                    <li><Link href="/privacy" className="hover:text-white hover:underline transition-all">Privacy Policy</Link></li>
-                    <li><Link href="/terms" className="hover:text-white hover:underline transition-all">Terms of Service</Link></li>
-                  </ul>
-                </div>
-              </div>
+              {/* Right side: Company, Contact, and horizontal Newsletter */}
+              <div className="md:col-span-2 flex flex-col justify-between">
+                <div className="grid grid-cols-2 gap-8 mb-8">
+                  {/* Company column */}
+                  <div>
+                    <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Company</h4>
+                    <ul className="space-y-3 text-sm text-slate-200">
+                      <li><Link href="/about" className="hover:text-white hover:underline transition-all">About Us</Link></li>
+                      <li><Link href="/privacy" className="hover:text-white hover:underline transition-all">Privacy Policy</Link></li>
+                      <li><Link href="/terms" className="hover:text-white hover:underline transition-all">Terms of Service</Link></li>
+                    </ul>
+                  </div>
 
-              {/* Contact / CTA column */}
-              <div className="flex flex-col justify-between h-full">
-                <div>
-                  <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Get in Touch</h4>
-                  <p className="text-sm text-slate-200 mb-5 leading-relaxed">
-                    Ready to transform your business with AI? Let&apos;s talk.
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="inline-block bg-white text-[#0D3A5C] px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-slate-200 transition-all"
-                  >
-                    Schedule a Demo &rarr;
-                  </Link>
+                  {/* Contact / CTA column */}
+                  <div>
+                    <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Get in Touch</h4>
+                    <p className="text-sm text-slate-200 mb-5 leading-relaxed">
+                      Ready to transform your business with AI? Let&apos;s talk.
+                    </p>
+                    <Link
+                      href="/contact"
+                      className="inline-block bg-white text-[#0D3A5C] px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-slate-200 transition-all"
+                    >
+                      Schedule a Demo &rarr;
+                    </Link>
+                  </div>
                 </div>
 
                 <NewsletterWidget />
