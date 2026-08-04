@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LeadCaptureForm from "@/components/sections/LeadCaptureForm";
 import NewsletterSignup from "@/components/sections/NewsletterSignup";
+import FAQSection from "@/components/sections/FAQSection";
 import FadeInSection from "@/components/ui/FadeInSection";
 import {
   Lightbulb, Workflow, MessageSquare, Mail, TrendingUp, PenTool,
@@ -227,6 +228,15 @@ export default function Home() {
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+        </FadeInSection>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          FAQ SECTION
+      ══════════════════════════════════════════════ */}
+      <section className="py-24 bg-[#F8FAFC]">
+        <FadeInSection className="max-w-7xl mx-auto px-6" delay={0.1}>
+          <FAQSection />
         </FadeInSection>
       </section>
 
