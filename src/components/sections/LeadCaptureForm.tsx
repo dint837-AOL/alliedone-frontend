@@ -72,18 +72,30 @@ export default function LeadCaptureForm() {
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) throw new Error("Failed to submit");
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        if (errorData.errors && errorData.errors.length > 0) {
+          throw new Error(errorData.errors[0].message);
+        }
+        throw new Error(errorData.message || `Server error: ${response.status}`);
+      }
 
       setSubmitStatus("success");
       toast.success("Message Sent Successfully!", {
         description: "We'll be in touch shortly."
       });
       reset(); // Clear the form on success
-    } catch (error) {
+    } catch (error: any) {
       console.error("Submission error:", error);
       setSubmitStatus("error");
+      
+      let msg = error.message || "Failed to send message";
+      if (msg === "Failed to fetch") {
+        msg = "Network or CORS error. The request may have been processed, but the response was blocked.";
+      }
+      
       toast.error("Failed to send message", {
-        description: "Please try again or contact us directly."
+        description: msg
       });
     } finally {
       setIsSubmitting(false);

@@ -55,7 +55,10 @@ export default function FeedbackWidget() {
       }, 1500);
     } catch (err: any) {
       console.error(err);
-      const msg = err.message || "Failed to submit. Please try again later.";
+      let msg = err.message || "Failed to submit. Please try again later.";
+      if (msg === "Failed to fetch") {
+        msg = "Network or CORS error. The request may have been processed, but the response was blocked.";
+      }
       setErrorMessage(msg);
       setStatus("error");
       toast.error("Failed to submit feedback", {

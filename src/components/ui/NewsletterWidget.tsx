@@ -41,7 +41,10 @@ export default function NewsletterWidget() {
     } catch (err: any) {
       console.error(err);
       setStatus("error");
-      const msg = err.message || "Something went wrong.";
+      let msg = err.message || "Something went wrong.";
+      if (msg === "Failed to fetch") {
+        msg = "Network or CORS error. The request may have been processed, but the response was blocked.";
+      }
       setErrorMessage(msg);
       toast.error("Subscription failed", { description: msg });
     }
