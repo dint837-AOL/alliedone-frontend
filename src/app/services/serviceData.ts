@@ -13,6 +13,40 @@ export interface ServiceDetail {
 
 export const servicesData: ServiceDetail[] = [
   {
+    slug: "government-procurement",
+    title: "Government Procurement & Institutional Supply",
+    coreValue: "Transparent, efficient, and professionally managed commercial relationships.",
+    heroHeadline: "Building Trusted Institutional Relationships",
+    subHeadline: "AlliedOne Limited supports government organizations, corporate institutions, and international business partners through responsible procurement support and strategic sourcing.",
+    whatWeOffer: [
+      {
+        title: "1. Opportunity Identification",
+        description: "Identifying and evaluating public and institutional procurement opportunities."
+      },
+      {
+        title: "2. Tender Requirement Analysis",
+        description: "Comprehensive breakdown of technical and commercial tender specifications."
+      },
+      {
+        title: "3. Supplier & Product Evaluation",
+        description: "Vetting and validating domestic and international suppliers for compliance and quality."
+      },
+      {
+        title: "4. Commercial Proposal Preparation",
+        description: "Drafting competitive, fully-compliant commercial and technical proposals."
+      },
+      {
+        title: "5. Procurement Execution",
+        description: "Managing the end-to-end purchasing process and contract coordination."
+      },
+      {
+        title: "6. Delivery & Documentation",
+        description: "Coordinating logistics, shipment follow-up, and final compliance documentation."
+      }
+    ],
+    ctaText: "Discuss Procurement Needs"
+  },
+  {
     slug: "ai-opportunity-implementation",
     title: "AI Opportunity & Implementation",
     coreValue: "Uncover high-value AI use cases and execute a seamless roadmap to modernize your business.",

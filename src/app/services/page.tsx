@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {
   Lightbulb, Workflow, MessageSquare, TrendingUp, PenTool, Mail, GraduationCap,
-  ArrowRight, CheckCircle
+  ArrowRight, CheckCircle, Landmark
 } from "lucide-react";
 
 export const metadata = {
@@ -10,6 +10,17 @@ export const metadata = {
 };
 
 const servicesList = [
+  {
+    icon: <Landmark className="w-6 h-6" />,
+    name: "Government Procurement & Supply",
+    tagline: "Transparent, efficient, and professionally managed commercial relationships.",
+    items: [
+      "Tender Requirement Analysis",
+      "Supplier & Product Evaluation",
+      "Commercial Proposal Preparation",
+    ],
+    slug: "government-procurement",
+  },
   {
     icon: <Lightbulb className="w-6 h-6" />,
     name: "AI Opportunity & Implementation",

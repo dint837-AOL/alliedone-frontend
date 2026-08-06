@@ -20,6 +20,7 @@ const leadSchema = z.object({
     return isEmail || isPhone;
   }, "Must be a valid email address or phone number"),
   serviceInterest: z.enum([
+    "GOVERNMENT_PROCUREMENT",
     "AI_OPPORTUNITY_CONSULTING",
     "PROCESS_AUTOMATION_STRATEGY",
     "WHATSAPP_BOTS_STRATEGY",
@@ -162,6 +163,7 @@ export default function LeadCaptureForm() {
               {...register("serviceInterest")}
               className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800 appearance-none pr-10"
             >
+              <option value="GOVERNMENT_PROCUREMENT">Government Procurement & Supply</option>
               <option value="AI_OPPORTUNITY_CONSULTING">AI Opportunity & Implementation</option>
               <option value="PROCESS_AUTOMATION_STRATEGY">Process Automation Strategy</option>
               <option value="WHATSAPP_BOTS_STRATEGY">WhatsApp & Messaging Bots</option>
