@@ -68,18 +68,18 @@ export default function FeedbackWidget() {
   };
 
   return (
-    <div className="fixed bottom-4 left-4 md:bottom-6 md:left-6 z-50 flex flex-col items-start">
+    <div className="fixed top-1/2 right-0 -translate-y-1/2 z-50 flex items-center">
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, x: 20, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: 20, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="w-[calc(100vw-2rem)] sm:w-[380px] mb-4 md:mb-5 flex flex-col overflow-hidden rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] border border-slate-200/60 bg-white/95 backdrop-blur-xl"
+            className="w-[calc(100vw-3rem)] sm:w-[380px] mr-2 md:mr-4 max-h-[85vh] flex flex-col overflow-hidden rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] border border-slate-200/60 bg-white/95 backdrop-blur-xl"
           >
             {/* Header */}
-            <div className="bg-[#0D3A5C] px-6 py-4 flex items-center justify-between text-white shadow-sm z-10 relative overflow-hidden">
+            <div className="bg-[#0D3A5C] px-6 py-4 flex items-center justify-between text-white shadow-sm z-10 relative overflow-hidden flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent pointer-events-none"></div>
               <div className="flex items-center gap-3 relative z-10">
                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20 shadow-inner">
@@ -99,7 +99,7 @@ export default function FeedbackWidget() {
             </div>
 
             {/* Form Content */}
-            <div className="p-6 bg-slate-50/50 flex-grow">
+            <div className="p-6 bg-slate-50/50 flex-grow overflow-y-auto">
               {status === "success" ? (
                 <div className="flex flex-col items-center justify-center h-full py-8 text-center">
                   <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4">
@@ -184,17 +184,22 @@ export default function FeedbackWidget() {
       </AnimatePresence>
 
       <motion.button
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ x: -2 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white text-slate-600 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.2)] border border-slate-100 flex items-center justify-center relative hover:text-amber-600 hover:border-amber-100 transition-colors z-50 group"
+        className="bg-[#0D3A5C] text-white shadow-lg border border-r-0 border-[#1A5C8A] flex flex-col items-center justify-center rounded-l-xl hover:bg-[#1A5C8A] transition-colors z-50 py-3 px-2 gap-2"
       >
-        <div className="absolute inset-0 bg-amber-500/0 group-hover:bg-amber-500/5 rounded-full transition-colors"></div>
         {isOpen ? (
-          <X className="w-6 h-6 md:w-7 md:h-7 relative z-10" />
+          <X className="w-4 h-4" />
         ) : (
-          <Bug className="w-6 h-6 md:w-7 md:h-7 relative z-10" />
+          <Bug className="w-4 h-4" />
         )}
+        <span 
+          className="text-xs font-bold tracking-widest uppercase rotate-180" 
+          style={{ writingMode: 'vertical-rl' }}
+        >
+          Feedback
+        </span>
       </motion.button>
     </div>
   );
