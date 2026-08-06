@@ -1,12 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Bug, X, Send, AlertTriangle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 
 export default function FeedbackWidget() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpenFeedback = () => setIsOpen(true);
+    window.addEventListener('open-feedback', handleOpenFeedback);
+    return () => window.removeEventListener('open-feedback', handleOpenFeedback);
+  }, []);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("Failed to submit. Please try again later.");
   const [formData, setFormData] = useState({
@@ -187,7 +193,7 @@ export default function FeedbackWidget() {
         whileHover={{ x: -2 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#0D3A5C] text-white shadow-lg border border-r-0 border-[#1A5C8A] flex flex-col items-center justify-center rounded-l-xl hover:bg-[#1A5C8A] transition-colors z-50 py-3 px-2 gap-2"
+        className="hidden md:flex bg-[#0D3A5C] text-white shadow-lg border border-r-0 border-[#1A5C8A] flex-col items-center justify-center rounded-l-xl hover:bg-[#1A5C8A] transition-colors z-50 py-3 px-2 gap-2"
       >
         {isOpen ? (
           <X className="w-4 h-4" />

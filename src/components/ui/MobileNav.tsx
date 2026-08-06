@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Bug } from "lucide-react";
 
 const links = [
   { name: "Home", href: "/" },
@@ -55,10 +55,24 @@ export default function MobileNav() {
             );
           })}
           
+          {/* Feedback Trigger */}
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              window.dispatchEvent(new Event('open-feedback'));
+            }}
+            className="flex items-center gap-3 font-bold text-lg text-[#0D3A5C] hover:text-[#1A5C8A] transition-colors mt-2"
+          >
+            <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center border border-slate-200">
+              <Bug className="w-4 h-4 text-amber-600" />
+            </div>
+            Report an Issue
+          </button>
+          
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
-            className="bg-[#2180C0] text-white px-6 py-4 mt-2 rounded-xl text-center text-base font-bold shadow-md hover:bg-[#1A5C8A] transition-colors"
+            className="bg-[#2180C0] text-white px-6 py-4 mt-4 rounded-xl text-center text-base font-bold shadow-md hover:bg-[#1A5C8A] transition-colors"
           >
             Schedule a Demo
           </Link>
