@@ -74,7 +74,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           
           {/* Left Column - Value Proposition */}
-          <div className="lg:col-span-5 sticky top-32">
+          <div className="lg:col-span-5 lg:sticky lg:top-32">
             <span className="text-[#2180C0] text-xs font-bold uppercase tracking-[0.18em]">Core Value</span>
             <h2 className="text-2xl md:text-3xl font-extrabold text-[#0D3A5C] mt-2 mb-6 leading-tight">
               {service.coreValue}
