@@ -127,7 +127,7 @@ export default function RootLayout({
 
               {/* Right side: Company, Contact, and horizontal Newsletter */}
               <div className="md:col-span-2 flex flex-col justify-between">
-                <div className="grid grid-cols-2 gap-8 mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
                   {/* Company column */}
                   <div>
                     <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Company</h4>
