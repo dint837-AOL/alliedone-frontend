@@ -41,7 +41,7 @@ export default async function ServiceDetailPage({ params }: Props) {
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
       {/* ── Floating Back Button ── */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+      <div className="hidden md:block fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
         <Link
           href="/services"
           className="flex items-center gap-2 bg-[#2180C0] hover:bg-[#5BAEE8] text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider shadow-2xl shadow-[#2180C0]/50 transition-all hover:-translate-y-1 border-2 border-white/90 backdrop-blur-md"
