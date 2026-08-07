@@ -115,14 +115,9 @@ export default function RootLayout({
               <div>
                 <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Services</h4>
                 <ul className="space-y-3 text-sm text-slate-200">
-                  <li><Link href="/services/government-procurement" className="hover:text-white transition-colors">Government Procurement & Supply</Link></li>
-                  <li><Link href="/services/ai-opportunity-implementation" className="hover:text-white transition-colors">AI Opportunity & Implementation</Link></li>
-                  <li><Link href="/services/process-automation-strategy" className="hover:text-white transition-colors">Process Automation Strategy</Link></li>
-                  <li><Link href="/services/whatsapp-messaging-bots" className="hover:text-white transition-colors">WhatsApp & Messaging Bots</Link></li>
-                  <li><Link href="/services/email-automation-consulting" className="hover:text-white transition-colors">Email Automation Consulting</Link></li>
-                  <li><Link href="/services/skill-development" className="hover:text-white transition-colors">Skill Development</Link></li>
-                  <li><Link href="/services/digital-marketing-ai-agency" className="hover:text-white transition-colors">Digital Marketing & AI Agency</Link></li>
-                  <li><Link href="/services/ai-content-studio" className="hover:text-white transition-colors">AI Content Studio</Link></li>
+                  <li><Link href="/services#global-trade" className="hover:text-white transition-colors">Global Trade & Industrial Solutions</Link></li>
+                  <li><Link href="/services#government-procurement" className="hover:text-white transition-colors">Government Procurement</Link></li>
+                  <li><Link href="/services#technology" className="hover:text-white transition-colors">Technology & Digital Solutions</Link></li>
                 </ul>
               </div>
 

@@ -20,6 +20,9 @@ const leadSchema = z.object({
     return isEmail || isPhone;
   }, "Must be a valid email address or phone number"),
   serviceInterest: z.enum([
+    "GLOBAL_TRADE_SOURCING",
+    "GLOBAL_TRADE_EXPORT",
+    "GLOBAL_TRADE_INDENTING",
     "GOVERNMENT_PROCUREMENT",
     "AI_OPPORTUNITY_CONSULTING",
     "PROCESS_AUTOMATION_STRATEGY",
@@ -163,14 +166,23 @@ export default function LeadCaptureForm() {
               {...register("serviceInterest")}
               className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800 appearance-none pr-10"
             >
-              <option value="GOVERNMENT_PROCUREMENT">Government Procurement & Supply</option>
-              <option value="AI_OPPORTUNITY_CONSULTING">AI Opportunity & Implementation</option>
-              <option value="PROCESS_AUTOMATION_STRATEGY">Process Automation Strategy</option>
-              <option value="WHATSAPP_BOTS_STRATEGY">WhatsApp & Messaging Bots</option>
-              <option value="EMAIL_AUTOMATION_CONSULTING">Email Automation Consulting</option>
-              <option value="ATS_HR_TECH_ARCHITECTURE">ATS & HR Tech Architecture</option>
-              <option value="DIGITAL_MARKETING_AGENCY">Digital Marketing Agency</option>
-              <option value="AI_CONTENT_STUDIO">AI Content Studio</option>
+              <optgroup label="Global Trade & Industrial Solutions">
+                <option value="GLOBAL_TRADE_SOURCING">Import & Strategic Sourcing</option>
+                <option value="GLOBAL_TRADE_EXPORT">Export Facilitation</option>
+                <option value="GLOBAL_TRADE_INDENTING">International Indenting & Representation</option>
+              </optgroup>
+              <optgroup label="Government Procurement & Institutional Business">
+                <option value="GOVERNMENT_PROCUREMENT">Government Procurement & Supply</option>
+              </optgroup>
+              <optgroup label="Technology & Digital Solutions">
+                <option value="AI_OPPORTUNITY_CONSULTING">AI Opportunity & Implementation</option>
+                <option value="PROCESS_AUTOMATION_STRATEGY">Process Automation Strategy</option>
+                <option value="WHATSAPP_BOTS_STRATEGY">WhatsApp & Messaging Bots</option>
+                <option value="EMAIL_AUTOMATION_CONSULTING">Email Automation Consulting</option>
+                <option value="ATS_HR_TECH_ARCHITECTURE">ATS & HR Tech Architecture</option>
+                <option value="DIGITAL_MARKETING_AGENCY">Digital Marketing & AI Agency</option>
+                <option value="AI_CONTENT_STUDIO">AI Content Studio</option>
+              </optgroup>
               <option value="OTHER">Other / General Inquiry</option>
             </select>
             <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-500">
