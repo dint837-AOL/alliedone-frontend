@@ -7,7 +7,6 @@ import DesktopNav from "@/components/ui/DesktopNav";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import ChatWidget from "@/components/ui/ChatWidget";
 import FeedbackWidget from "@/components/ui/FeedbackWidget";
-import NewsletterWidget from "@/components/ui/NewsletterWidget";
 import { Toaster } from 'sonner';
 import "./globals.css";
 
@@ -157,8 +156,6 @@ export default function RootLayout({
                     </Link>
                   </div>
                 </div>
-
-                <NewsletterWidget />
               </div>
             </div>
 
