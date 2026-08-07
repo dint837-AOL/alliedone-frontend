@@ -148,16 +148,27 @@ export default function RootLayout({
                   </div>
                 </div>
 
-                <NewsletterWidget />
               </div>
             </div>
             
-            {/* Giant Company Name */}
-            <div className="w-full mt-16 md:mt-20 pt-8 border-t border-white/10 flex justify-center overflow-hidden">
-              <h2 className="text-[12vw] md:text-[10vw] font-black text-white/5 tracking-tighter leading-none select-none">
-                ALLIEDONE
-              </h2>
+            {/* Newsletter and Company Watermark - directly below Services and Contact */}
+            <div className="mt-12 md:mt-16 pt-12 border-t border-white/10 grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16 items-center">
+              {/* Empty column to offset and align with Services & Contact */}
+              <div className="hidden md:block md:col-span-1"></div>
+              
+              <div className="md:col-span-3 flex flex-col md:flex-row items-end justify-between gap-8">
+                <div className="w-full md:w-auto flex-1 max-w-md">
+                  <NewsletterWidget />
+                </div>
+                <div className="w-full md:w-auto flex justify-start md:justify-end overflow-hidden shrink-0">
+                  <h2 className="text-6xl md:text-[6.5vw] font-black text-white/5 tracking-tighter leading-none select-none">
+                    ALLIEDONE
+                  </h2>
+                </div>
+              </div>
             </div>
+            
+
 
             {/* Bottom bar */}
             <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-300">
