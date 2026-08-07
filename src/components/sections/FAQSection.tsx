@@ -36,6 +36,33 @@ const faqs = [
     answer:
       "Yes. We welcome collaboration with international suppliers, buyers, technology companies, and strategic partners.",
   },
+  {
+    question: "What products does AlliedOne typically import and export?",
+    answer: (
+      <>
+        <p className="mb-2">Our trade portfolio includes:</p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li><strong>Imports:</strong> Food ingredients, spices, industrial chemicals, construction materials, and feed mill raw materials.</li>
+          <li><strong>Exports:</strong> Hilsa fish, premium aromatic rice, fresh fruits & vegetables, and selected agricultural products.</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    question: "What kind of technology and digital solutions do you offer?",
+    answer:
+      "We offer custom business software, web and mobile applications, AI chatbots and workflow automation, digital marketing, and educational technology platforms.",
+  },
+  {
+    question: "Which global markets does AlliedOne operate in?",
+    answer:
+      "Our major sourcing markets include China, India, UAE, Australia, Ukraine, Oman, and Hong Kong. We also actively export to markets such as India, UAE, and China.",
+  },
+  {
+    question: "How do you ensure quality and manage risk?",
+    answer:
+      "We maintain high standards through rigorous supplier evaluation, product quality reviews, strict documentation management, and continuous delivery monitoring.",
+  },
 ];
 
 export default function FAQSection() {
