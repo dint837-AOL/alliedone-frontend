@@ -113,7 +113,7 @@ export default function RootLayout({
 
               {/* Services column — 2 sub-cols, one per pillar */}
               <div className="md:col-span-2">
-                <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Services</h4>
+                <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider text-center">Services We Offer</h4>
                 <div className="grid grid-cols-2 gap-8">
                   {/* Pillar 1 */}
                   <div>
