@@ -111,17 +111,17 @@ export default function RootLayout({
                 </div>
 
                 {/* Logo & Name */}
-                <div className="flex items-center gap-3 mt-8">
+                <div className="flex items-center gap-4 mt-8">
                   <Image
                     src="/logo-hd.png"
                     alt="AlliedOne Logo"
-                    width={48}
-                    height={48}
-                    className="object-contain"
+                    width={56}
+                    height={56}
+                    className="object-contain brightness-0 invert"
                   />
-                  <div>
-                    <p className="text-white font-bold text-xl leading-tight tracking-tight">AlliedOne</p>
-                    <p className="text-slate-400 text-xs leading-tight">Limited</p>
+                  <div className="leading-tight">
+                    <p className="text-white font-extrabold text-2xl tracking-tight">AlliedOne</p>
+                    <p className="text-slate-400 text-sm tracking-widest uppercase">Limited</p>
                   </div>
                 </div>
               </div>
