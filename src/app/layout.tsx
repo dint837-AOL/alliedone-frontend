@@ -113,7 +113,7 @@ export default function RootLayout({
 
               {/* Services column */}
               <div className="md:col-span-1">
-                <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Services We Offer</h4>
+                <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Services</h4>
                 <ul className="space-y-4 text-sm text-slate-300">
                   <li>
                     <Link href="/services#global-trade" className="hover:text-white transition-colors group flex items-start gap-2">
