@@ -115,22 +115,8 @@ export default function RootLayout({
               <div>
                 <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Services</h4>
                 <ul className="space-y-3 text-sm text-slate-200">
-                  <li className="font-semibold text-white/80 pt-1 pb-1">Global Trade & Institutional Business</li>
-                  <li><Link href="/services/import-strategic-sourcing" className="hover:text-white transition-colors pl-2 block">• Import & Strategic Sourcing</Link></li>
-                  <li><Link href="/services/industrial-supply-solutions" className="hover:text-white transition-colors pl-2 block">• Industrial Supply Solutions</Link></li>
-                  <li><Link href="/services/supply-chain-logistics" className="hover:text-white transition-colors pl-2 block">• Supply Chain & Logistics Coordination</Link></li>
-                  <li><Link href="/services/export-facilitation" className="hover:text-white transition-colors pl-2 block">• Export Facilitation</Link></li>
-                  <li><Link href="/services/international-indenting" className="hover:text-white transition-colors pl-2 block">• International Indenting</Link></li>
-                  <li><Link href="/services/government-procurement" className="hover:text-white transition-colors pl-2 block">• Government Procurement</Link></li>
-
-                  <li className="font-semibold text-white/80 pt-3 pb-1">Technology & Digital Solutions</li>
-                  <li><Link href="/services/ai-opportunity-implementation" className="hover:text-white transition-colors pl-2 block">• AI Opportunity & Implementation</Link></li>
-                  <li><Link href="/services/process-automation-strategy" className="hover:text-white transition-colors pl-2 block">• Process Automation Strategy</Link></li>
-                  <li><Link href="/services/whatsapp-messaging-bots" className="hover:text-white transition-colors pl-2 block">• WhatsApp & Messaging Bots</Link></li>
-                  <li><Link href="/services/email-automation-consulting" className="hover:text-white transition-colors pl-2 block">• Email Automation Consulting</Link></li>
-                  <li><Link href="/services/skill-development" className="hover:text-white transition-colors pl-2 block">• Skill Development</Link></li>
-                  <li><Link href="/services/digital-marketing-ai-agency" className="hover:text-white transition-colors pl-2 block">• Digital Marketing Agency</Link></li>
-                  <li><Link href="/services/ai-content-studio" className="hover:text-white transition-colors pl-2 block">• AI Content Studio</Link></li>
+                  <li><Link href="/services#global-trade" className="hover:text-white transition-colors">Global Trade & Institutional Business</Link></li>
+                  <li><Link href="/services#technology" className="hover:text-white transition-colors">Technology & Digital Solutions</Link></li>
                 </ul>
               </div>
 
@@ -178,16 +164,5 @@ export default function RootLayout({
         <Toaster position="bottom-right" richColors />
       </body>
     </html>
-  );
-}
-            </div >
-          </div >
-        </footer >
-        <ScrollToTop />
-        <FeedbackWidget />
-        <ChatWidget />
-        <Toaster position="bottom-right" richColors />
-      </body >
-    </html >
   );
 }
