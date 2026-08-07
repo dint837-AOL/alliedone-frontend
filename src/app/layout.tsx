@@ -66,8 +66,8 @@ export default function RootLayout({
         <footer className="bg-[#0D3A5C] text-slate-100 pt-16 pb-8">
           <div className="max-w-7xl mx-auto px-6">
 
-            {/* Top 4-col grid */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-[#1A5C8A]">
+            {/* Top 5-col grid: 1 Contacts + 2 Services + 2 Company/Contact/Newsletter */}
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-10 pb-12 border-b border-[#1A5C8A]">
 
               {/* Contact column */}
               <div className="md:col-span-1">
@@ -109,30 +109,38 @@ export default function RootLayout({
                     </svg>
                   </a>
                 </div>
-
-                {/* Logo & Name */}
-                <div className="flex items-center gap-4 mt-8">
-                  <Image
-                    src="/logo-hd.png"
-                    alt="AlliedOne Logo"
-                    width={56}
-                    height={56}
-                    className="object-contain brightness-0 invert"
-                  />
-                  <div className="leading-tight">
-                    <p className="text-white font-extrabold text-2xl tracking-tight">AlliedOne</p>
-                    <p className="text-slate-400 text-sm tracking-widest uppercase">Limited</p>
-                  </div>
-                </div>
               </div>
 
-              {/* Services column */}
-              <div>
+              {/* Services column — 2 sub-cols, one per pillar */}
+              <div className="md:col-span-2">
                 <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Services</h4>
-                <ul className="space-y-3 text-sm text-slate-200">
-                  <li><Link href="/services#global-trade" className="hover:text-white transition-colors">Global Trade & Institutional Business</Link></li>
-                  <li><Link href="/services#technology" className="hover:text-white transition-colors">Technology & Digital Solutions</Link></li>
-                </ul>
+                <div className="grid grid-cols-2 gap-8">
+                  {/* Pillar 1 */}
+                  <div>
+                    <p className="text-[#5BAEE8] text-xs font-bold uppercase tracking-widest mb-3">Global Trade &amp; Institutional</p>
+                    <ul className="space-y-2 text-sm text-slate-300">
+                      <li><Link href="/services/import-strategic-sourcing" className="hover:text-white transition-colors">Import &amp; Strategic Sourcing</Link></li>
+                      <li><Link href="/services/industrial-supply-solutions" className="hover:text-white transition-colors">Industrial Supply Solutions</Link></li>
+                      <li><Link href="/services/export-facilitation" className="hover:text-white transition-colors">Export Facilitation</Link></li>
+                      <li><Link href="/services/supply-chain-logistics" className="hover:text-white transition-colors">Supply Chain &amp; Logistics</Link></li>
+                      <li><Link href="/services/international-indenting" className="hover:text-white transition-colors">International Indenting</Link></li>
+                      <li><Link href="/services/government-procurement" className="hover:text-white transition-colors">Government Procurement</Link></li>
+                    </ul>
+                  </div>
+                  {/* Pillar 2 */}
+                  <div>
+                    <p className="text-[#5BAEE8] text-xs font-bold uppercase tracking-widest mb-3">Technology &amp; Digital</p>
+                    <ul className="space-y-2 text-sm text-slate-300">
+                      <li><Link href="/services/ai-opportunity-implementation" className="hover:text-white transition-colors">AI Opportunity &amp; Implementation</Link></li>
+                      <li><Link href="/services/process-automation-strategy" className="hover:text-white transition-colors">Process Automation</Link></li>
+                      <li><Link href="/services/whatsapp-messaging-bots" className="hover:text-white transition-colors">WhatsApp &amp; Messaging Bots</Link></li>
+                      <li><Link href="/services/email-automation-consulting" className="hover:text-white transition-colors">Email Automation</Link></li>
+                      <li><Link href="/services/skill-development" className="hover:text-white transition-colors">Skill Development</Link></li>
+                      <li><Link href="/services/digital-marketing-ai-agency" className="hover:text-white transition-colors">Digital Marketing Agency</Link></li>
+                      <li><Link href="/services/ai-content-studio" className="hover:text-white transition-colors">AI Content Studio</Link></li>
+                    </ul>
+                  </div>
+                </div>
               </div>
 
               {/* Right side: Company, Contact, and horizontal Newsletter */}

@@ -100,9 +100,6 @@ export default function Home() {
 
 
 
-      {/* ══════════════════════════════════════════════
-          FULL SERVICE CATALOGUE — Light background
-      ══════════════════════════════════════════════ */}
       <section className="py-28 bg-[#F8FAFC]">
         <FadeInSection className="max-w-7xl mx-auto px-6" delay={0.1}>
           <SectionHeader
@@ -110,30 +107,80 @@ export default function Home() {
             title="Everything We Offer"
             subtitle={
               <div className="flex flex-col items-center justify-center">
-                <span>A complete suite of AI-powered services designed</span>
-                <span>to modernize every single layer of your business.</span>
+                <span>Two core business pillars built on decades of expertise</span>
+                <span>and cutting-edge technology — working together for your growth.</span>
               </div>
             }
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { icon: <Lightbulb className="w-5 h-5" />, title: "AI Opportunity & Implementation", desc: "AI readiness assessment, custom implementation roadmap, SOP design, and guided rollout support." },
-              { icon: <Workflow className="w-5 h-5" />, title: "Process Automation Strategy", desc: "Approval workflows, inventory tracking, attendance, HR, and leave management automation." },
-              { icon: <MessageSquare className="w-5 h-5" />, title: "WhatsApp & Messaging Bots", desc: "Conversation flow design, messaging API integration, and bot performance & escalation strategy." },
-              { icon: <Mail className="w-5 h-5" />, title: "Email Automation Consulting", desc: "Automated nurture workflows, audience segmentation strategy, and deliverability optimization." },
-              { icon: <GraduationCap className="w-5 h-5" />, title: "Skill Development", desc: "Corporate training programs for AI tools, digital marketing execution, and workflow automation." },
-              { icon: <TrendingUp className="w-5 h-5" />, title: "Digital Marketing & AI Agency", desc: "Facebook and Google Ads management, SEO strategy & execution, and AI-assisted lead generation." },
-              { icon: <PenTool className="w-5 h-5" />, title: "AI Content Studio", desc: "Social media content, video scripts, blog posts, product descriptions, and marketing copy." },
-            ].map((item) => (
-              <div key={item.title} className="group bg-white rounded-xl p-6 border border-slate-200 hover:border-[#2180C0]/30 hover:shadow-md transition-all duration-200">
-                <div className="w-10 h-10 rounded-lg bg-[#EBF4FB] text-[#2180C0] flex items-center justify-center mb-4 group-hover:bg-[#2180C0] group-hover:text-white transition-colors duration-300">
-                  {item.icon}
-                </div>
-                <h4 className="font-bold text-[#0D3A5C] mb-2 text-sm leading-snug">{item.title}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Pillar 1: Global Trade */}
+            <div className="group relative bg-[#0D3A5C] rounded-3xl p-10 overflow-hidden flex flex-col">
+              {/* Background decoration */}
+              <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/5"></div>
+              <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-white/5"></div>
+              <div className="relative z-10 flex flex-col flex-grow">
+                <span className="inline-block text-[#5BAEE8] text-xs font-bold uppercase tracking-[0.18em] mb-4">Pillar 01</span>
+                <h3 className="text-3xl font-extrabold text-white mb-4 leading-tight tracking-tight">Global Trade &amp; Institutional Business</h3>
+                <p className="text-slate-300 text-base leading-relaxed mb-8">Reliable sourcing, export facilitation, commercial representation, and government procurement support — connecting Bangladesh with global markets.</p>
+                <ul className="space-y-3 mb-10 flex-grow">
+                  {[
+                    "Import & Strategic Sourcing",
+                    "Industrial Supply Solutions",
+                    "Export Facilitation",
+                    "Supply Chain & Logistics Coordination",
+                    "International Indenting & Representation",
+                    "Government Procurement & Institutional Supply",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-slate-200 text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#5BAEE8] flex-shrink-0"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/services#global-trade"
+                  className="inline-flex items-center gap-2 bg-white text-[#0D3A5C] px-7 py-3.5 rounded-xl font-bold hover:bg-[#2180C0] hover:text-white transition-all duration-300 shadow-md w-fit"
+                >
+                  Explore Global Trade
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
-            ))}
+            </div>
+
+            {/* Pillar 2: Technology */}
+            <div className="group relative bg-white rounded-3xl p-10 border border-slate-200 overflow-hidden flex flex-col hover:border-[#2180C0]/30 hover:shadow-2xl transition-all duration-300">
+              <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#EBF4FB]"></div>
+              <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-[#EBF4FB]"></div>
+              <div className="relative z-10 flex flex-col flex-grow">
+                <span className="inline-block text-[#2180C0] text-xs font-bold uppercase tracking-[0.18em] mb-4">Pillar 02</span>
+                <h3 className="text-3xl font-extrabold text-[#0D3A5C] mb-4 leading-tight tracking-tight">Technology &amp; Digital Solutions</h3>
+                <p className="text-slate-500 text-base leading-relaxed mb-8">AI implementation, process automation, messaging bots, email automation, skill development, digital marketing, and AI-powered content — modernizing every layer of your business.</p>
+                <ul className="space-y-3 mb-10 flex-grow">
+                  {[
+                    "AI Opportunity & Implementation",
+                    "Process Automation Strategy",
+                    "WhatsApp & Messaging Bots",
+                    "Email Automation Consulting",
+                    "Skill Development",
+                    "Digital Marketing & AI Agency",
+                    "AI Content Studio",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-slate-600 text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] flex-shrink-0"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/services#technology"
+                  className="inline-flex items-center gap-2 bg-[#0D3A5C] text-white px-7 py-3.5 rounded-xl font-bold hover:bg-[#2180C0] transition-all duration-300 shadow-md w-fit"
+                >
+                  Explore Tech Solutions
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
           </div>
         </FadeInSection>
       </section>
