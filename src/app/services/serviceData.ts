@@ -44,6 +44,60 @@ export const servicesData: ServiceDetail[] = [
     ctaText: "Discuss Sourcing Needs"
   },
   {
+    slug: "industrial-supply-solutions",
+    category: "Global Trade & Institutional Business",
+    title: "Industrial Supply Solutions",
+    coreValue: "Supporting manufacturing and industrial organizations with dependable sourcing and coordinated supply of production inputs.",
+    heroHeadline: "Dependable Supply for Uninterrupted Production",
+    subHeadline: "We provide comprehensive industrial supply solutions, ensuring your manufacturing facilities have the critical inputs they need, exactly when they need them.",
+    whatWeOffer: [
+      {
+        title: "Raw Material Provision",
+        description: "Consistent supply of industrial chemicals, manufacturing components, and production inputs."
+      },
+      {
+        title: "Just-In-Time Delivery",
+        description: "Coordinating delivery schedules to optimize inventory costs and minimize warehouse overhead."
+      },
+      {
+        title: "Quality Assurance",
+        description: "Rigorous quality checks on all supplied materials to ensure compliance with production standards."
+      },
+      {
+        title: "Vendor Managed Inventory",
+        description: "Proactive management of stock levels to prevent production downtime."
+      }
+    ],
+    ctaText: "Explore Industrial Supply"
+  },
+  {
+    slug: "supply-chain-logistics",
+    category: "Global Trade & Institutional Business",
+    title: "Supply Chain & Logistics Coordination",
+    coreValue: "Coordinating procurement, logistics, documentation, shipment follow-up, and supplier communication to support efficient international trade.",
+    heroHeadline: "Seamless Global Logistics Management",
+    subHeadline: "Navigate the complexities of international trade with our expert supply chain and logistics coordination services.",
+    whatWeOffer: [
+      {
+        title: "Shipment Tracking & Follow-up",
+        description: "Real-time monitoring of international freight from origin to final destination."
+      },
+      {
+        title: "Customs & Documentation",
+        description: "Expert handling of all import/export documentation, Letters of Credit, and customs clearance procedures."
+      },
+      {
+        title: "Supplier Communication",
+        description: "Acting as your primary liaison with overseas suppliers to resolve issues and expedite orders."
+      },
+      {
+        title: "Freight Optimization",
+        description: "Securing the most cost-effective and reliable freight routes via sea, air, and land."
+      }
+    ],
+    ctaText: "Optimize Your Supply Chain"
+  },
+  {
     slug: "export-facilitation",
     category: "Global Trade & Institutional Business",
     title: "Export Facilitation",

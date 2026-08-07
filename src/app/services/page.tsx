@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {
   Lightbulb, Workflow, MessageSquare, TrendingUp, PenTool, Mail, GraduationCap,
-  ArrowRight, CheckCircle, Landmark, Globe, Briefcase, Network
+  ArrowRight, CheckCircle, Landmark, Globe, Briefcase, Network, Truck, Factory
 } from "lucide-react";
 import { servicesData } from "./serviceData";
 
@@ -18,7 +18,9 @@ const techServices = servicesData.filter(s => s.category === "Technology & Digit
 const getIconForSlug = (slug: string) => {
   switch (slug) {
     case "import-strategic-sourcing": return <Globe className="w-6 h-6" />;
+    case "industrial-supply-solutions": return <Factory className="w-6 h-6" />;
     case "export-facilitation": return <Network className="w-6 h-6" />;
+    case "supply-chain-logistics": return <Truck className="w-6 h-6" />;
     case "international-indenting": return <Briefcase className="w-6 h-6" />;
     case "government-procurement": return <Landmark className="w-6 h-6" />;
     case "ai-opportunity-implementation": return <Lightbulb className="w-6 h-6" />;

@@ -21,6 +21,8 @@ const leadSchema = z.object({
   }, "Must be a valid email address or phone number"),
   serviceInterest: z.enum([
     "GLOBAL_TRADE_SOURCING",
+    "GLOBAL_TRADE_INDUSTRIAL_SUPPLY",
+    "GLOBAL_TRADE_LOGISTICS",
     "GLOBAL_TRADE_EXPORT",
     "GLOBAL_TRADE_INDENTING",
     "GOVERNMENT_PROCUREMENT",
@@ -168,6 +170,8 @@ export default function LeadCaptureForm() {
             >
               <optgroup label="Global Trade & Institutional Business">
                 <option value="GLOBAL_TRADE_SOURCING">Import & Strategic Sourcing</option>
+                <option value="GLOBAL_TRADE_INDUSTRIAL_SUPPLY">Industrial Supply Solutions</option>
+                <option value="GLOBAL_TRADE_LOGISTICS">Supply Chain & Logistics Coordination</option>
                 <option value="GLOBAL_TRADE_EXPORT">Export Facilitation</option>
                 <option value="GLOBAL_TRADE_INDENTING">International Indenting & Representation</option>
                 <option value="GOVERNMENT_PROCUREMENT">Government Procurement & Supply</option>
