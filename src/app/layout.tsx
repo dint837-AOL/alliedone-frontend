@@ -109,6 +109,21 @@ export default function RootLayout({
                     </svg>
                   </a>
                 </div>
+
+                {/* Logo & Name */}
+                <div className="flex items-center gap-3 mt-8">
+                  <Image
+                    src="/logo-hd.png"
+                    alt="AlliedOne Logo"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  />
+                  <div>
+                    <p className="text-white font-bold text-xl leading-tight tracking-tight">AlliedOne</p>
+                    <p className="text-slate-400 text-xs leading-tight">Limited</p>
+                  </div>
+                </div>
               </div>
 
               {/* Services column */}
