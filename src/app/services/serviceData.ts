@@ -1,6 +1,6 @@
 export interface ServiceDetail {
   slug: string;
-  category: "Global Trade & Industrial Solutions" | "Government Procurement & Institutional Business" | "Technology & Digital Solutions";
+  category: "Global Trade & Institutional Business" | "Technology & Digital Solutions";
   title: string;
   coreValue: string;
   heroHeadline: string;
@@ -14,11 +14,11 @@ export interface ServiceDetail {
 
 export const servicesData: ServiceDetail[] = [
   // ==========================================
-  // PILLAR 1: GLOBAL TRADE & INDUSTRIAL SOLUTIONS
+  // PILLAR 1: GLOBAL TRADE & INSTITUTIONAL BUSINESS
   // ==========================================
   {
     slug: "import-strategic-sourcing",
-    category: "Global Trade & Industrial Solutions",
+    category: "Global Trade & Institutional Business",
     title: "Import & Strategic Sourcing",
     coreValue: "Reliable sourcing of critical raw materials, ingredients, and industrial supplies from global markets.",
     heroHeadline: "Connecting Your Business with Global Markets",
@@ -45,7 +45,7 @@ export const servicesData: ServiceDetail[] = [
   },
   {
     slug: "export-facilitation",
-    category: "Global Trade & Industrial Solutions",
+    category: "Global Trade & Institutional Business",
     title: "Export Facilitation",
     coreValue: "Connecting high-quality local agricultural and consumer products with international buyers.",
     heroHeadline: "Taking Local Excellence to the Global Stage",
@@ -72,7 +72,7 @@ export const servicesData: ServiceDetail[] = [
   },
   {
     slug: "international-indenting",
-    category: "Global Trade & Industrial Solutions",
+    category: "Global Trade & Institutional Business",
     title: "International Indenting & Representation",
     coreValue: "Professional commercial representation to facilitate business between international manufacturers and local buyers.",
     heroHeadline: "Your Trusted Commercial Representative",
@@ -99,11 +99,9 @@ export const servicesData: ServiceDetail[] = [
   },
 
   // ==========================================
-  // PILLAR 2: GOVERNMENT PROCUREMENT & INSTITUTIONAL BUSINESS
-  // ==========================================
   {
     slug: "government-procurement",
-    category: "Government Procurement & Institutional Business",
+    category: "Global Trade & Institutional Business",
     title: "Government Procurement & Institutional Supply",
     coreValue: "Transparent, efficient, and professionally managed commercial relationships.",
     heroHeadline: "Building Trusted Institutional Relationships",

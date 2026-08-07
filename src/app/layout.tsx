@@ -115,8 +115,7 @@ export default function RootLayout({
               <div>
                 <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Services</h4>
                 <ul className="space-y-3 text-sm text-slate-200">
-                  <li><Link href="/services#global-trade" className="hover:text-white transition-colors">Global Trade & Industrial Solutions</Link></li>
-                  <li><Link href="/services#government-procurement" className="hover:text-white transition-colors">Government Procurement</Link></li>
+                  <li><Link href="/services#global-trade" className="hover:text-white transition-colors">Global Trade & Institutional Business</Link></li>
                   <li><Link href="/services#technology" className="hover:text-white transition-colors">Technology & Digital Solutions</Link></li>
                 </ul>
               </div>

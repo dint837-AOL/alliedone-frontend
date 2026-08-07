@@ -11,8 +11,7 @@ export const metadata = {
 };
 
 // Group services by category
-const globalTradeServices = servicesData.filter(s => s.category === "Global Trade & Industrial Solutions");
-const govProcurementServices = servicesData.filter(s => s.category === "Government Procurement & Institutional Business");
+const globalTradeServices = servicesData.filter(s => s.category === "Global Trade & Institutional Business");
 const techServices = servicesData.filter(s => s.category === "Technology & Digital Solutions");
 
 // Helper function to assign icons based on slug
@@ -58,8 +57,8 @@ export default function ServicesPage() {
       <section className="max-w-7xl mx-auto px-6 py-20" id="global-trade">
         <div className="mb-12 border-b border-slate-200 pb-6">
           <span className="text-[#2180C0] text-sm font-bold uppercase tracking-widest">Pillar 01</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0D3A5C] mt-2">Global Trade & Industrial Solutions</h2>
-          <p className="text-slate-500 mt-3 max-w-2xl text-lg">Reliable sourcing of critical raw materials, commercial representation, and export facilitation across international markets.</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0D3A5C] mt-2">Global Trade & Institutional Business</h2>
+          <p className="text-slate-500 mt-3 max-w-2xl text-lg">Reliable sourcing of critical raw materials, commercial representation, export facilitation, and complex institutional procurement across global markets.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {globalTradeServices.map((service, sIdx) => (
@@ -68,24 +67,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── PILLAR 2: Gov Procurement ── */}
-      <section className="max-w-7xl mx-auto px-6 py-20 bg-white border-y border-slate-200" id="government-procurement">
+      {/* ── PILLAR 2: Tech ── */}
+      <section className="max-w-7xl mx-auto px-6 py-20 bg-white border-t border-slate-200" id="technology">
         <div className="mb-12 border-b border-slate-200 pb-6">
           <span className="text-[#2180C0] text-sm font-bold uppercase tracking-widest">Pillar 02</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0D3A5C] mt-2">Government Procurement & Institutional Business</h2>
-          <p className="text-slate-500 mt-3 max-w-2xl text-lg">Navigating complex public and institutional contracts with transparency, efficiency, and professional compliance.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {govProcurementServices.map((service, sIdx) => (
-            <ServiceCard key={sIdx} service={service} />
-          ))}
-        </div>
-      </section>
-
-      {/* ── PILLAR 3: Tech ── */}
-      <section className="max-w-7xl mx-auto px-6 py-20" id="technology">
-        <div className="mb-12 border-b border-slate-200 pb-6">
-          <span className="text-[#2180C0] text-sm font-bold uppercase tracking-widest">Pillar 03</span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#0D3A5C] mt-2">Technology & Digital Solutions</h2>
           <p className="text-slate-500 mt-3 max-w-2xl text-lg">Modernizing businesses with process automation, conversational AI, digital marketing, and intelligent software.</p>
         </div>

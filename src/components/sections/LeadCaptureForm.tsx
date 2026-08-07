@@ -166,12 +166,10 @@ export default function LeadCaptureForm() {
               {...register("serviceInterest")}
               className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800 appearance-none pr-10"
             >
-              <optgroup label="Global Trade & Industrial Solutions">
+              <optgroup label="Global Trade & Institutional Business">
                 <option value="GLOBAL_TRADE_SOURCING">Import & Strategic Sourcing</option>
                 <option value="GLOBAL_TRADE_EXPORT">Export Facilitation</option>
                 <option value="GLOBAL_TRADE_INDENTING">International Indenting & Representation</option>
-              </optgroup>
-              <optgroup label="Government Procurement & Institutional Business">
                 <option value="GOVERNMENT_PROCUREMENT">Government Procurement & Supply</option>
               </optgroup>
               <optgroup label="Technology & Digital Solutions">
