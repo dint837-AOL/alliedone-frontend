@@ -42,7 +42,7 @@ export default function ChatWidget() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
-    sendMessage({ role: "user", content: input });
+    sendMessage({ role: "user", parts: [{ type: "text", text: input }] });
     setInput("");
   };
 

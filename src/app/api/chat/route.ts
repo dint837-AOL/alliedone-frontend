@@ -35,11 +35,16 @@ export async function POST(req: Request) {
   // If the key is present, process the real AI request
   const { messages } = await req.json();
 
+  const formattedMessages = messages.map((m: any) => ({
+    role: m.role,
+    content: m.content || (m.parts && m.parts[0]?.text) || "",
+  }));
+
   const result = streamText({
     model: openai("gpt-4o-mini"),
     system:
       "You are the AlliedOne Assistant, a professional, knowledgeable, and helpful AI chatbot for AlliedOne Limited. AlliedOne provides Enterprise AI Automation, Consulting, and Digital Marketing. Keep your answers brief, professional, and friendly.",
-    messages,
+    messages: formattedMessages,
   });
 
   return result.toTextStreamResponse();
