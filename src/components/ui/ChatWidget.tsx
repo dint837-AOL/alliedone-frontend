@@ -16,7 +16,7 @@ import Image from "next/image";
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
-  const { messages, status, append } = useChat({
+  const { messages, status, sendMessage } = useChat({
     transport: new DefaultChatTransport({
       api: "/api/chat",
     }),
@@ -42,7 +42,7 @@ export default function ChatWidget() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
-    append({ role: "user", content: input });
+    sendMessage({ role: "user", content: input });
     setInput("");
   };
 
