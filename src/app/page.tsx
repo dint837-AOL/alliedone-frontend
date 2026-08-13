@@ -24,20 +24,24 @@ export default function Home() {
     <div className="w-full">
 
       {/* ══════════════════════════════════════════════
-          HERO — IT Website Redesign (Dark Theme)
+          HERO — IT Focus, Navy background
       ══════════════════════════════════════════════ */}
-      <section className="bg-[#0B1121] relative overflow-hidden pt-20 pb-32">
+      <section className="bg-[#0D3A5C] relative overflow-hidden pt-20 pb-28">
         {/* Subtle grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
         
         {/* Glowing orbs */}
-        <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none"></div>
-        <div className="absolute top-1/3 -right-1/4 w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-blue-400/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-1/3 -right-1/4 w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-[100px] pointer-events-none"></div>
 
         <FadeInSection className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16" delay={0.1}>
           
           {/* Left Column: Text Content */}
           <div className="flex-1 text-left flex flex-col items-start pt-10 lg:pt-0">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-slate-100 text-sm font-semibold mb-8 tracking-wide border border-white/15 backdrop-blur-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              AlliedOne Limited
+            </div>
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-white mb-8 leading-[1.1]">
               ENGINEERING SMART AI <br className="hidden md:block" />
               AUTOMATION &amp; <br className="hidden md:block" />
@@ -45,20 +49,21 @@ export default function Home() {
               SOLUTIONS
             </h1>
             
-            <p className="text-lg text-slate-400 mb-10 max-w-2xl leading-relaxed">
+            <p className="text-lg text-slate-300 mb-10 max-w-2xl leading-relaxed">
               We build scalable tech infrastructure, automate complex workflows, and deploy enterprise-grade software to future-proof your business operations.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5">
               <Link
-                href="/services"
-                className="inline-flex items-center justify-center bg-cyan-400 text-[#0B1121] px-8 py-4 rounded-xl font-extrabold hover:bg-cyan-300 transition-all shadow-[0_0_25px_rgba(34,211,238,0.4)] text-base"
+                href="/contact"
+                className="inline-flex items-center justify-center bg-white text-[#0D3A5C] px-8 py-4 rounded-xl font-extrabold hover:bg-slate-100 transition-all shadow-lg text-base"
               >
-                Explore Tech Solutions
+                Start Your AI Journey
+                <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-transparent text-white px-8 py-4 rounded-xl font-bold border border-white/20 hover:bg-white/10 transition-all text-base"
+                className="inline-flex items-center justify-center bg-transparent text-white px-8 py-4 rounded-xl font-bold border border-white/30 hover:bg-white/10 transition-all text-base"
               >
                 Book Demo
               </Link>
@@ -70,8 +75,8 @@ export default function Home() {
             <div className="relative w-full aspect-video md:aspect-[4/3] bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-xl shadow-2xl overflow-hidden flex flex-col">
               {/* Top Bar */}
               <div className="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
-                <div className="w-8 h-8 rounded-lg bg-cyan-400/20 flex items-center justify-center">
-                  <span className="text-cyan-400 font-bold">A</span>
+                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
+                  <span className="text-white font-bold">A</span>
                 </div>
                 <span className="text-sm font-semibold text-white">IT Infrastructure Workflow Dashboard</span>
                 <div className="ml-auto flex gap-1.5">
@@ -86,15 +91,15 @@ export default function Home() {
                 {/* Left Sidebar */}
                 <div className="col-span-1 space-y-3">
                   <div className="h-12 bg-white/5 rounded-lg border border-white/5 flex items-center px-3 gap-3">
-                     <Bot className="w-4 h-4 text-cyan-400" />
+                     <Bot className="w-4 h-4 text-blue-300" />
                      <div className="h-2 w-16 bg-white/20 rounded-full"></div>
                   </div>
                   <div className="h-12 bg-white/5 rounded-lg border border-white/5 flex items-center px-3 gap-3">
-                     <Workflow className="w-4 h-4 text-blue-400" />
+                     <Workflow className="w-4 h-4 text-slate-300" />
                      <div className="h-2 w-12 bg-white/20 rounded-full"></div>
                   </div>
                   <div className="h-12 bg-white/5 rounded-lg border border-white/5 flex items-center px-3 gap-3">
-                     <TrendingUp className="w-4 h-4 text-purple-400" />
+                     <TrendingUp className="w-4 h-4 text-emerald-400" />
                      <div className="h-2 w-20 bg-white/20 rounded-full"></div>
                   </div>
                 </div>
@@ -103,91 +108,44 @@ export default function Home() {
                 <div className="col-span-2 flex flex-col gap-4">
                   <div className="flex-1 bg-gradient-to-br from-white/5 to-transparent rounded-lg border border-white/5 flex flex-col items-center justify-center relative overflow-hidden">
                     {/* Node map mock */}
-                    <div className="w-12 h-12 bg-cyan-400/20 rounded-xl border border-cyan-400/50 flex items-center justify-center z-10">
-                      <Cpu className="w-6 h-6 text-cyan-400" />
+                    <div className="w-12 h-12 bg-white/10 rounded-xl border border-white/20 flex items-center justify-center z-10">
+                      <Cpu className="w-6 h-6 text-white" />
                     </div>
-                    <div className="w-px h-8 bg-cyan-400/30"></div>
+                    <div className="w-px h-8 bg-white/20"></div>
                     <div className="flex gap-8 z-10">
-                      <div className="w-10 h-10 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center"><MessageSquare className="w-4 h-4 text-slate-400" /></div>
-                      <div className="w-10 h-10 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center"><Search className="w-4 h-4 text-slate-400" /></div>
+                      <div className="w-10 h-10 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center"><MessageSquare className="w-4 h-4 text-slate-300" /></div>
+                      <div className="w-10 h-10 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center"><Search className="w-4 h-4 text-slate-300" /></div>
                     </div>
                   </div>
                   
                   {/* Bottom Stats */}
                   <div className="h-24 grid grid-cols-2 gap-4">
                      <div className="bg-white/5 rounded-lg border border-white/5 p-3 flex flex-col justify-end relative overflow-hidden">
-                        <div className="text-xs text-slate-400 mb-1">System Load</div>
-                        <div className="text-lg font-bold text-cyan-400">98%</div>
-                        {/* Mock bar chart */}
-                        <div className="absolute bottom-0 right-2 w-24 h-8 flex items-end justify-end gap-1 opacity-50">
-                          <div className="w-2 h-[40%] bg-cyan-400 rounded-t-sm"></div>
-                          <div className="w-2 h-[70%] bg-cyan-400 rounded-t-sm"></div>
-                          <div className="w-2 h-[50%] bg-cyan-400 rounded-t-sm"></div>
-                          <div className="w-2 h-[90%] bg-cyan-400 rounded-t-sm"></div>
-                          <div className="w-2 h-[100%] bg-cyan-400 rounded-t-sm shadow-[0_0_8px_#22d3ee]"></div>
+                        <div className="text-xs text-slate-300 mb-1">System Load</div>
+                        <div className="text-lg font-bold text-white">98%</div>
+                        <div className="absolute bottom-0 right-2 w-24 h-8 flex items-end justify-end gap-1 opacity-40">
+                          <div className="w-2 h-[40%] bg-white rounded-t-sm"></div>
+                          <div className="w-2 h-[70%] bg-white rounded-t-sm"></div>
+                          <div className="w-2 h-[50%] bg-white rounded-t-sm"></div>
+                          <div className="w-2 h-[90%] bg-white rounded-t-sm"></div>
+                          <div className="w-2 h-[100%] bg-white rounded-t-sm"></div>
                         </div>
                      </div>
                      <div className="bg-white/5 rounded-lg border border-white/5 p-3 flex flex-col justify-end">
-                        <div className="text-xs text-slate-400 mb-1">Active Nodes</div>
+                        <div className="text-xs text-slate-300 mb-1">Active Nodes</div>
                         <div className="text-lg font-bold text-white">24</div>
                      </div>
                   </div>
                 </div>
               </div>
             </div>
-            {/* Floating decoration elements to mimic the 3D feel */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-500/20 rounded-full blur-[40px]"></div>
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-300/10 rounded-full blur-[40px]"></div>
           </div>
         </FadeInSection>
-
-        {/* Bottom Cards Row */}
-        <div className="max-w-7xl mx-auto px-6 relative z-20 mt-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div className="bg-[#0f172a] border border-cyan-500/40 rounded-2xl p-6 flex items-center gap-5 shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-cyan-400 transition-colors group cursor-default">
-               <div className="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                 <Bot className="w-6 h-6 text-cyan-400" />
-               </div>
-               <div>
-                 <h3 className="text-lg font-bold text-white mb-1">AI Chatbots &amp; Automation</h3>
-                 <p className="text-sm text-slate-400">Intelligent workflows &amp; conversational AI</p>
-               </div>
-            </div>
-
-            <div className="bg-[#0f172a] border border-white/10 rounded-2xl p-6 flex items-center gap-5 hover:border-white/30 transition-colors group cursor-default">
-               <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                 <span className="text-white font-bold text-lg">&lt;/&gt;</span>
-               </div>
-               <div>
-                 <h3 className="text-lg font-bold text-white mb-1">Custom Software Development</h3>
-                 <p className="text-sm text-slate-400">Tailored enterprise solutions &amp; apps</p>
-               </div>
-            </div>
-
-            <div className="bg-[#0f172a] border border-white/10 rounded-2xl p-6 flex items-center gap-5 hover:border-white/30 transition-colors group cursor-default">
-               <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                 <Cpu className="w-6 h-6 text-white" />
-               </div>
-               <div>
-                 <h3 className="text-lg font-bold text-white mb-1">Cloud &amp; Infrastructure</h3>
-                 <p className="text-sm text-slate-400">Scalable DevOps and system architecture</p>
-               </div>
-            </div>
-
-            <div className="bg-[#0f172a] border border-white/10 rounded-2xl p-6 flex items-center gap-5 hover:border-white/30 transition-colors group cursor-default">
-               <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                 <TrendingUp className="w-6 h-6 text-white" />
-               </div>
-               <div>
-                 <h3 className="text-lg font-bold text-white mb-1">Cybersecurity &amp; IT Consulting</h3>
-                 <p className="text-sm text-slate-400">Enterprise security and tech strategy</p>
-               </div>
-            </div>
-
-          </div>
-        </div>
-
       </section>
+
+
+
 
       {/* ══════════════════════════════════════════════
           TRUST BAR — White with bottom border

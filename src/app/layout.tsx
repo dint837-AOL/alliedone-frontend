@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-brand-slate text-brand-dark flex flex-col min-h-screen antialiased`}>
 
         {/* ── Sticky Navigation ── */}
-        <nav className="bg-[#0B1121] border-b border-white/10 sticky top-0 z-50">
+        <nav className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
           <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
 
             {/* Logo + Name */}
@@ -37,9 +37,9 @@ export default function RootLayout({
                 alt="AlliedOne Logo"
                 width={150}
                 height={120}
-                className="h-10 w-auto object-contain brightness-0 invert" // using invert to make logo white if it's dark
+                className="h-12 w-auto object-contain"
               />
-              <span className="font-extrabold text-2xl text-white tracking-tight leading-none">AlliedOne Tech</span>
+              <span className="font-extrabold text-3xl text-[#0D3A5C] tracking-tight leading-none">AlliedOne</span>
             </Link>
 
             {/* Desktop nav links */}
@@ -49,9 +49,9 @@ export default function RootLayout({
             <div className="flex items-center gap-4">
               <Link
                 href="/contact"
-                className="hidden md:inline-flex items-center justify-center bg-cyan-400/10 text-cyan-400 px-6 py-2.5 rounded-full text-sm font-bold border border-cyan-400/50 hover:bg-cyan-400 hover:text-[#0B1121] transition-all shadow-[0_0_15px_rgba(34,211,238,0.3)]"
+                className="hidden md:inline-block bg-[#0D3A5C] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#1A5C8A] transition-all shadow-md"
               >
-                Client Portal 🌍
+                Schedule a Demo
               </Link>
               <MobileNav />
             </div>
@@ -137,6 +137,7 @@ export default function RootLayout({
                     <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Company</h4>
                     <ul className="space-y-3 text-sm text-slate-200">
                       <li><Link href="/about" className="hover:text-white hover:underline transition-all">About Us</Link></li>
+                      <li><Link href="/careers" className="hover:text-white hover:underline transition-all">Careers</Link></li>
                       <li><Link href="/privacy" className="hover:text-white hover:underline transition-all">Privacy Policy</Link></li>
                       <li><Link href="/terms" className="hover:text-white hover:underline transition-all">Terms of Service</Link></li>
                     </ul>
