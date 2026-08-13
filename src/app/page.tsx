@@ -43,13 +43,14 @@ export default function Home() {
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               AlliedOne Limited
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-white mb-8 leading-[1.1]">
-              SMART TECH SOLUTIONS
-            </h1>
-            
-            <p className="text-lg text-slate-300 mb-10 max-w-2xl leading-relaxed">
-              International Business
-            </p>
+            <ul className="list-disc list-inside text-white mb-10 space-y-4">
+              <li className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1]">
+                Smart Tech Solutions
+              </li>
+              <li className="text-2xl md:text-3xl lg:text-[1.75rem] font-semibold text-slate-300">
+                International Business
+              </li>
+            </ul>
 
             <div className="flex flex-col sm:flex-row gap-5">
               <Link
@@ -69,14 +70,14 @@ export default function Home() {
           </div>
 
           <div className="flex-1 w-full relative flex items-center justify-center">
-            <div className="relative w-full max-w-lg aspect-square lg:aspect-auto lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image 
-                src="/hero-image.png"
-                alt="Smart Tech Solutions"
-                fill
-                className="object-contain"
-                priority
-              />
+            <div className="relative w-full max-w-lg aspect-square lg:aspect-auto lg:h-[500px] rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shadow-2xl backdrop-blur-sm overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="grid grid-cols-2 gap-12 relative z-10">
+                <Cpu className="w-20 h-20 text-blue-400/60 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-500" />
+                <Workflow className="w-20 h-20 text-emerald-400/60 group-hover:text-emerald-400 group-hover:scale-110 transition-all duration-500 delay-100" />
+                <Bot className="w-20 h-20 text-purple-400/60 group-hover:text-purple-400 group-hover:scale-110 transition-all duration-500 delay-200" />
+                <Lightbulb className="w-20 h-20 text-amber-400/60 group-hover:text-amber-400 group-hover:scale-110 transition-all duration-500 delay-300" />
+              </div>
             </div>
             {/* Floating decoration elements to mimic the 3D feel */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-300/10 rounded-full blur-[40px]"></div>
