@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import LeadCaptureForm from "@/components/sections/LeadCaptureForm";
 import NewsletterSignup from "@/components/sections/NewsletterSignup";
@@ -43,14 +44,11 @@ export default function Home() {
               AlliedOne Limited
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-white mb-8 leading-[1.1]">
-              ENGINEERING SMART AI <br className="hidden md:block" />
-              AUTOMATION &amp; <br className="hidden md:block" />
-              ENTERPRISE DIGITAL <br className="hidden md:block" />
-              SOLUTIONS
+              SMART TECH SOLUTIONS
             </h1>
             
             <p className="text-lg text-slate-300 mb-10 max-w-2xl leading-relaxed">
-              We build scalable tech infrastructure, automate complex workflows, and deploy enterprise-grade software to future-proof your business operations.
+              International business only.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5">
@@ -70,75 +68,17 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Column: Mock Dashboard Graphic */}
-          <div className="flex-1 w-full relative">
-            <div className="relative w-full aspect-video md:aspect-[4/3] bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-xl shadow-2xl overflow-hidden flex flex-col">
-              {/* Top Bar */}
-              <div className="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                  <span className="text-white font-bold">A</span>
-                </div>
-                <span className="text-sm font-semibold text-white">IT Infrastructure Workflow Dashboard</span>
-                <div className="ml-auto flex gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-white/20"></div>
-                  <div className="w-2 h-2 rounded-full bg-white/20"></div>
-                  <div className="w-2 h-2 rounded-full bg-white/20"></div>
-                </div>
-              </div>
-              
-              {/* Inner Dashboard Layout */}
-              <div className="flex-1 grid grid-cols-3 gap-4">
-                {/* Left Sidebar */}
-                <div className="col-span-1 space-y-3">
-                  <div className="h-12 bg-white/5 rounded-lg border border-white/5 flex items-center px-3 gap-3">
-                     <Bot className="w-4 h-4 text-blue-300" />
-                     <div className="h-2 w-16 bg-white/20 rounded-full"></div>
-                  </div>
-                  <div className="h-12 bg-white/5 rounded-lg border border-white/5 flex items-center px-3 gap-3">
-                     <Workflow className="w-4 h-4 text-slate-300" />
-                     <div className="h-2 w-12 bg-white/20 rounded-full"></div>
-                  </div>
-                  <div className="h-12 bg-white/5 rounded-lg border border-white/5 flex items-center px-3 gap-3">
-                     <TrendingUp className="w-4 h-4 text-emerald-400" />
-                     <div className="h-2 w-20 bg-white/20 rounded-full"></div>
-                  </div>
-                </div>
-
-                {/* Main Graph Area */}
-                <div className="col-span-2 flex flex-col gap-4">
-                  <div className="flex-1 bg-gradient-to-br from-white/5 to-transparent rounded-lg border border-white/5 flex flex-col items-center justify-center relative overflow-hidden">
-                    {/* Node map mock */}
-                    <div className="w-12 h-12 bg-white/10 rounded-xl border border-white/20 flex items-center justify-center z-10">
-                      <Cpu className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="w-px h-8 bg-white/20"></div>
-                    <div className="flex gap-8 z-10">
-                      <div className="w-10 h-10 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center"><MessageSquare className="w-4 h-4 text-slate-300" /></div>
-                      <div className="w-10 h-10 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center"><Search className="w-4 h-4 text-slate-300" /></div>
-                    </div>
-                  </div>
-                  
-                  {/* Bottom Stats */}
-                  <div className="h-24 grid grid-cols-2 gap-4">
-                     <div className="bg-white/5 rounded-lg border border-white/5 p-3 flex flex-col justify-end relative overflow-hidden">
-                        <div className="text-xs text-slate-300 mb-1">System Load</div>
-                        <div className="text-lg font-bold text-white">98%</div>
-                        <div className="absolute bottom-0 right-2 w-24 h-8 flex items-end justify-end gap-1 opacity-40">
-                          <div className="w-2 h-[40%] bg-white rounded-t-sm"></div>
-                          <div className="w-2 h-[70%] bg-white rounded-t-sm"></div>
-                          <div className="w-2 h-[50%] bg-white rounded-t-sm"></div>
-                          <div className="w-2 h-[90%] bg-white rounded-t-sm"></div>
-                          <div className="w-2 h-[100%] bg-white rounded-t-sm"></div>
-                        </div>
-                     </div>
-                     <div className="bg-white/5 rounded-lg border border-white/5 p-3 flex flex-col justify-end">
-                        <div className="text-xs text-slate-300 mb-1">Active Nodes</div>
-                        <div className="text-lg font-bold text-white">24</div>
-                     </div>
-                  </div>
-                </div>
-              </div>
+          <div className="flex-1 w-full relative flex items-center justify-center">
+            <div className="relative w-full max-w-lg aspect-square lg:aspect-auto lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image 
+                src="/hero-image.png"
+                alt="Smart Tech Solutions"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
+            {/* Floating decoration elements to mimic the 3D feel */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-300/10 rounded-full blur-[40px]"></div>
           </div>
         </FadeInSection>
