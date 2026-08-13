@@ -6,9 +6,10 @@ import { motion } from "framer-motion";
 
 const links = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
+  { name: "AI Services", href: "/services" },
+  { name: "Software", href: "/services" },
+  { name: "Cloud Solutions", href: "/services" },
   { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
 ];
 
 /**
@@ -33,16 +34,16 @@ export default function DesktopNav() {
           <Link
             key={link.name}
             href={link.href}
-            className={`relative px-4 py-2 rounded-full text-base font-bold transition-colors ${
+            className={`relative px-4 py-2 rounded-full text-sm lg:text-base font-bold transition-colors ${
               isActive
-                ? "text-[#0D3A5C]"
-                : "text-slate-600 hover:text-[#1A5C8A]"
+                ? "text-white"
+                : "text-slate-400 hover:text-cyan-400"
             }`}
           >
             {isActive && (
               <motion.div
                 layoutId="activeNavIndicator"
-                className="absolute inset-0 bg-slate-100 rounded-full -z-10"
+                className="absolute inset-0 bg-white/10 rounded-full -z-10"
                 initial={false}
                 transition={{
                   type: "spring",

@@ -27,19 +27,19 @@ export default function RootLayout({
       <body className={`${inter.className} bg-brand-slate text-brand-dark flex flex-col min-h-screen antialiased`}>
 
         {/* ── Sticky Navigation ── */}
-        <nav className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-card">
+        <nav className="bg-[#0B1121] border-b border-white/10 sticky top-0 z-50">
           <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
 
             {/* Logo + Name */}
-            <Link href="/" className="flex items-center gap-1.5">
+            <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/logo-mark-v2.png"
                 alt="AlliedOne Logo"
                 width={150}
                 height={120}
-                className="h-14 w-auto object-contain"
+                className="h-10 w-auto object-contain brightness-0 invert" // using invert to make logo white if it's dark
               />
-              <span className="font-extrabold text-4xl text-brand-navy tracking-tight leading-none">AlliedOne</span>
+              <span className="font-extrabold text-2xl text-white tracking-tight leading-none">AlliedOne Tech</span>
             </Link>
 
             {/* Desktop nav links */}
@@ -49,9 +49,9 @@ export default function RootLayout({
             <div className="flex items-center gap-4">
               <Link
                 href="/contact"
-                className="hidden md:inline-block bg-[#1A5C8A] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#0D3A5C] transition-all shadow-md"
+                className="hidden md:inline-flex items-center justify-center bg-cyan-400/10 text-cyan-400 px-6 py-2.5 rounded-full text-sm font-bold border border-cyan-400/50 hover:bg-cyan-400 hover:text-[#0B1121] transition-all shadow-[0_0_15px_rgba(34,211,238,0.3)]"
               >
-                Schedule a Demo
+                Client Portal 🌍
               </Link>
               <MobileNav />
             </div>
