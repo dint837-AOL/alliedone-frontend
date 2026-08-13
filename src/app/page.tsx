@@ -72,80 +72,15 @@ export default function Home() {
           </div>
 
           <div className="flex-1 w-full relative flex items-center justify-center">
-            {/* IT & Automation UI Mockup */}
-            <div className="relative w-full max-w-lg aspect-[4/3] lg:aspect-auto lg:h-[450px] rounded-2xl bg-[#082236] border border-[#1E4D70] shadow-2xl overflow-hidden group">
-              
-              {/* Animated background grids & glow */}
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none"></div>
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-blue-400/20 transition-all duration-700"></div>
-
-              <div className="absolute inset-0 p-5 flex flex-col relative z-10">
-                {/* Mockup Header */}
-                <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
-                  <div className="flex gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-400/80"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80"></div>
-                  </div>
-                  <div className="flex items-center gap-2 bg-white/5 px-3 py-1 rounded-full border border-white/5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span className="text-[10px] text-slate-300 font-mono tracking-wider uppercase">System Active</span>
-                  </div>
-                </div>
-
-                {/* Automation Flow */}
-                <div className="flex-1 relative flex items-center justify-center w-full my-4">
-                  {/* Flow line */}
-                  <div className="absolute top-1/2 left-8 right-8 h-[2px] bg-[#1E4D70] -translate-y-1/2">
-                    <div className="h-full bg-blue-400 w-1/3 rounded-full animate-[pulse_2s_ease-in-out_infinite]"></div>
-                  </div>
-
-                  {/* Nodes */}
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 rounded-xl bg-[#0D3A5C] border border-[#2180C0]/50 flex items-center justify-center shadow-lg z-10">
-                    <Cpu className="w-6 h-6 text-slate-200" />
-                  </div>
-                  
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-2xl bg-blue-600 border border-blue-400 flex items-center justify-center shadow-[0_0_40px_rgba(37,99,235,0.4)] z-10 group-hover:scale-105 transition-transform duration-500">
-                    <Bot className="w-10 h-10 text-white" />
-                  </div>
-                  
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 rounded-xl bg-[#0D3A5C] border border-emerald-500/50 flex items-center justify-center shadow-lg z-10">
-                    <TrendingUp className="w-6 h-6 text-emerald-400" />
-                  </div>
-                </div>
-
-                {/* Bottom metrics */}
-                <div className="grid grid-cols-2 gap-4 mt-auto">
-                  <div className="bg-white/5 border border-white/5 rounded-xl p-4 flex flex-col justify-between">
-                    <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-3">Processing</div>
-                    <div className="flex items-end gap-1.5 h-10">
-                      {[40, 70, 45, 90, 60, 100, 80].map((h, i) => (
-                        <div key={i} className="flex-1 bg-blue-500/40 rounded-t-sm hover:bg-blue-400 transition-colors" style={{ height: `${h}%` }}></div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/5 border border-white/5 rounded-xl p-4 flex flex-col justify-center gap-3">
-                    <div className="flex items-center justify-between">
-                      <div className="text-[10px] text-slate-400 uppercase tracking-widest">Efficiency</div>
-                      <div className="text-xs font-bold text-emerald-400">+94%</div>
-                    </div>
-                    <div className="w-full bg-[#1E4D70] h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-emerald-400 h-full w-[94%]"></div>
-                    </div>
-                    
-                    <div className="flex items-center justify-between mt-1">
-                      <div className="text-[10px] text-slate-400 uppercase tracking-widest">Load</div>
-                      <div className="text-xs font-bold text-blue-400">24%</div>
-                    </div>
-                    <div className="w-full bg-[#1E4D70] h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-blue-400 h-full w-[24%]"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="relative w-full max-w-lg aspect-square lg:aspect-auto lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image 
+                src="/automation-hero.png"
+                alt="Strategic Technology Suite"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
-            
             {/* Floating decoration elements to mimic the 3D feel */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-300/10 rounded-full blur-[40px]"></div>
           </div>
