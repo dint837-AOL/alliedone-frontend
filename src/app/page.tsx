@@ -27,66 +27,65 @@ export default function Home() {
       {/* ══════════════════════════════════════════════
           HERO — IT Focus, Navy background
       ══════════════════════════════════════════════ */}
-      <section className="bg-[#0D3A5C] relative overflow-hidden pt-20 pb-28">
-        {/* Subtle grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+      <section className="relative overflow-hidden pt-32 pb-40 min-h-[90vh] flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/hero-bg.png"
+            alt="AlliedOne Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Gradient Overlays for readability and style */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#081828]/95 via-[#0D3A5C]/75 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#081828] via-[#081828]/40 to-transparent"></div>
+        </div>
         
         {/* Glowing orbs */}
-        <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-blue-400/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div className="absolute top-1/3 -right-1/4 w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-blue-400/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-        <FadeInSection className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16" delay={0.1}>
-          
-          {/* Left Column: Text Content */}
-          <div className="flex-1 text-left flex flex-col items-start pt-10 lg:pt-0">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-slate-100 text-sm font-semibold mb-8 tracking-wide border border-white/15 backdrop-blur-sm">
+        <FadeInSection className="max-w-7xl mx-auto px-6 relative z-10 w-full" delay={0.1}>
+          <div className="max-w-3xl flex flex-col items-start">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-slate-100 text-sm font-semibold mb-10 tracking-wide border border-white/20 backdrop-blur-md shadow-lg">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               AlliedOne Limited
             </div>
-            <ul className="text-white mb-10 space-y-4">
-              <li className="flex items-center gap-3 text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1] whitespace-nowrap">
-                <div className="w-4 flex justify-center flex-shrink-0">
-                  <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white mt-1"></span>
+            
+            <ul className="mb-12 space-y-4">
+              <li className="flex items-center gap-4 text-4xl md:text-6xl lg:text-[4rem] font-extrabold tracking-tight leading-[1.1] whitespace-nowrap">
+                <div className="w-5 flex justify-center flex-shrink-0 mt-1">
+                  <span className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_0_15px_rgba(56,189,248,0.6)]"></span>
                 </div>
-                Smart Tech Solutions
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-cyan-300 drop-shadow-lg">
+                  Smart Tech Solutions
+                </span>
               </li>
-              <li className="flex items-center gap-3 text-3xl md:text-4xl lg:text-[2.1rem] font-semibold text-slate-300">
-                <div className="w-4 flex justify-center flex-shrink-0">
-                  <span className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-slate-300 mt-1"></span>
+              <li className="flex items-center gap-4 text-3xl md:text-4xl lg:text-[2.25rem] font-semibold text-slate-300">
+                <div className="w-5 flex justify-center flex-shrink-0 mt-1">
+                  <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-slate-400"></span>
                 </div>
-                International Business
+                <span className="text-slate-200">
+                  International Business
+                </span>
               </li>
             </ul>
 
             <div className="flex flex-col sm:flex-row gap-5">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-white text-[#0D3A5C] px-8 py-4 rounded-xl font-extrabold hover:bg-slate-100 transition-all shadow-lg text-base"
+                className="inline-flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-xl font-extrabold hover:from-cyan-400 hover:to-blue-500 transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] text-base border border-blue-400/30"
               >
                 Start Your AI Journey
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-transparent text-white px-8 py-4 rounded-xl font-bold border border-white/30 hover:bg-white/10 transition-all text-base"
+                className="inline-flex items-center justify-center bg-white/10 text-white px-8 py-4 rounded-xl font-bold border border-white/30 hover:bg-white/20 transition-all text-base backdrop-blur-md"
               >
                 Book Demo
               </Link>
             </div>
-          </div>
-
-          <div className="flex-1 w-full relative flex items-center justify-center">
-            <div className="relative w-full max-w-lg aspect-square lg:aspect-auto lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image 
-                src="/automation-hero.png"
-                alt="Strategic Technology Suite"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-            {/* Floating decoration elements to mimic the 3D feel */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-300/10 rounded-full blur-[40px]"></div>
           </div>
         </FadeInSection>
       </section>
