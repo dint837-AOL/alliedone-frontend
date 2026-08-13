@@ -45,11 +45,15 @@ export default function Home() {
             </div>
             <ul className="text-white mb-10 space-y-4">
               <li className="flex items-center gap-3 text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1] whitespace-nowrap">
-                <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white flex-shrink-0 mt-1"></span>
+                <div className="w-4 flex justify-center flex-shrink-0">
+                  <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white mt-1"></span>
+                </div>
                 Smart Tech Solutions
               </li>
               <li className="flex items-center gap-3 text-3xl md:text-4xl lg:text-[2.1rem] font-semibold text-slate-300">
-                <span className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-slate-300 flex-shrink-0 mt-0.5"></span>
+                <div className="w-4 flex justify-center flex-shrink-0">
+                  <span className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-slate-300 mt-1"></span>
+                </div>
                 International Business
               </li>
             </ul>
