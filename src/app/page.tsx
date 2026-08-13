@@ -43,11 +43,13 @@ export default function Home() {
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               AlliedOne Limited
             </div>
-            <ul className="list-disc list-inside text-white mb-10 space-y-4">
-              <li className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1] whitespace-nowrap">
+            <ul className="text-white mb-10 space-y-4">
+              <li className="flex items-center gap-3 text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1] whitespace-nowrap">
+                <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white flex-shrink-0 mt-1"></span>
                 Smart Tech Solutions
               </li>
-              <li className="text-3xl md:text-4xl lg:text-[2.1rem] font-semibold text-slate-300">
+              <li className="flex items-center gap-3 text-3xl md:text-4xl lg:text-[2.1rem] font-semibold text-slate-300">
+                <span className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-slate-300 flex-shrink-0 mt-0.5"></span>
                 International Business
               </li>
             </ul>
