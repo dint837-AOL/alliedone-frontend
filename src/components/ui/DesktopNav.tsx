@@ -32,6 +32,16 @@ const topLinks = [
   { name: "Contact", href: "/contact" },
 ];
 
+const topLinksBeforeServices = [
+  { name: "Home", href: "/" },
+];
+
+const topLinksAfterServices = [
+  { name: "About", href: "/about" },
+  { name: "Careers", href: "/careers" },
+  { name: "Contact", href: "/contact" },
+];
+
 export default function DesktopNav() {
   const pathname = usePathname();
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -51,7 +61,31 @@ export default function DesktopNav() {
 
   return (
     <div className="hidden md:flex items-center gap-1">
-      {/* Services dropdown */}
+      {/* Home link first */}
+      {topLinksBeforeServices.map((link) => {
+        const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+        return (
+          <Link
+            key={link.name}
+            href={link.href}
+            className={`relative px-4 py-2 rounded-full text-sm lg:text-base font-bold transition-colors ${
+              isActive ? "text-[#0D3A5C]" : "text-slate-600 hover:text-[#1A5C8A]"
+            }`}
+          >
+            {isActive && (
+              <motion.div
+                layoutId="activeNavIndicator"
+                className="absolute inset-0 bg-slate-100 rounded-full -z-10"
+                initial={false}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+            )}
+            {link.name}
+          </Link>
+        );
+      })}
+
+      {/* Services dropdown — right after Home */}
       <div className="relative" ref={dropdownRef}>
         <button
           onClick={() => setServicesOpen(!servicesOpen)}
@@ -73,26 +107,8 @@ export default function DesktopNav() {
               className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[600px] bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden"
             >
               <div className="grid grid-cols-2 gap-0">
-                {/* Global Trade Column */}
+                {/* Digital Solutions Column — First */}
                 <div className="p-5 border-r border-slate-100">
-                  <p className="text-[10px] font-extrabold text-[#0D3A5C] uppercase tracking-[0.18em] mb-3 px-2">Global Trade</p>
-                  <div className="space-y-0.5">
-                    {globalTradeServices.map((s) => (
-                      <Link
-                        key={s.href}
-                        href={s.href}
-                        onClick={() => setServicesOpen(false)}
-                        className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] flex-shrink-0 group-hover:scale-125 transition-transform"></span>
-                        {s.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Digital Solutions Column */}
-                <div className="p-5">
                   <p className="text-[10px] font-extrabold text-[#0D3A5C] uppercase tracking-[0.18em] mb-3 px-2">Digital Solutions</p>
                   <div className="space-y-0.5">
                     {digitalServices.map((s) => (
@@ -108,14 +124,32 @@ export default function DesktopNav() {
                     ))}
                   </div>
                 </div>
+
+                {/* Global Trade Column — Second */}
+                <div className="p-5">
+                  <p className="text-[10px] font-extrabold text-[#0D3A5C] uppercase tracking-[0.18em] mb-3 px-2">Global Trade</p>
+                  <div className="space-y-0.5">
+                    {globalTradeServices.map((s) => (
+                      <Link
+                        key={s.href}
+                        href={s.href}
+                        onClick={() => setServicesOpen(false)}
+                        className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+                        {s.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
 
-      {/* Regular links */}
-      {topLinks.map((link) => {
+      {/* Remaining links */}
+      {topLinksAfterServices.map((link) => {
         const isActive =
           link.href === "/"
             ? pathname === "/"
