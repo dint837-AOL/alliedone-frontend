@@ -48,7 +48,7 @@ export default function Home() {
             </h1>
             
             <p className="text-lg text-slate-300 mb-10 max-w-2xl leading-relaxed">
-              International business only.
+              International Business
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5">
