@@ -5,7 +5,8 @@
 ![AlliedOne](https://img.shields.io/badge/AlliedOne-Limited-0D3A5C?style=for-the-badge)
 ![Next.js](https://img.shields.io/badge/Next.js-16.x-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![Deployed on Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 **The public-facing marketing and CRM web application for AlliedOne Limited.**
@@ -33,13 +34,14 @@
 
 ## Overview
 
-The AlliedOne Frontend is the public-facing web application for **AlliedOne Limited**, a Bangladeshi AI automation and digital services company. Built with Next.js 16 (App Router) and TypeScript, it delivers a premium, performance-first web experience for potential clients and business partners.
+The AlliedOne Frontend is the public-facing web application for **AlliedOne Limited**, a Bangladeshi AI automation, digital services, and global trade company. Built with Next.js 16 (App Router), React 19, and TypeScript, it delivers a premium, performance-first web experience for potential clients and business partners.
 
 The application serves multiple purposes:
 
-- **Marketing** — Showcases AlliedOne's six service divisions with dedicated, SEO-optimized service pages.
+- **Marketing** — Showcases AlliedOne's two core business pillars (Digital Solutions and Global Trade) with dedicated, SEO-optimized service pages.
 - **Lead Generation** — An intelligent contact form that captures, validates, and routes inquiries directly to the CRM backend with automated email notifications.
-- **User Engagement** — Features a real-time AI-powered chat widget, a feedback submission widget, and a newsletter subscription system with welcome emails.
+- **User Engagement** — Features a real-time AI-powered chat widget, a feedback submission widget, a careers application portal, and a newsletter subscription system with welcome emails.
+- **Partner Brand Hosting** — Hosts the **GSBD (Global Supply BD)** brand page, a subsidiary focused on export, import, and supply chain.
 - **Legal and Compliance** — Hosts legally-complete Terms of Service and Privacy Policy pages.
 
 ---
@@ -49,12 +51,16 @@ The application serves multiple purposes:
 | Layer | Technology | Version | Purpose |
 |-------|-----------|---------|---------|
 | **Framework** | Next.js | 16.x | Full-stack React framework with App Router |
+| **UI Library** | React | 19 | Component model and state management |
 | **Language** | TypeScript | 5.x | Type-safe development |
-| **Styling** | Tailwind CSS | 3.x | Utility-first CSS framework |
-| **Icons** | Lucide React | latest | Consistent, lightweight icon library |
-| **Font** | Inter (Google Fonts) | — | Primary typeface |
-| **AI Chat** | Streaming API route | — | OpenAI-compatible chat completion |
-| **Hosting** | Vercel | — | Edge deployment with CI/CD |
+| **Styling** | Tailwind CSS | 4.x | Utility-first CSS framework |
+| **Animation** | Framer Motion | 12.x | Smooth page and component animations |
+| **AI Chat** | Vercel AI SDK (`ai`) | 7.x | Streaming chat completions via OpenAI-compatible endpoint |
+| **Forms** | React Hook Form + Zod | 7.x / 4.x | Performant form validation and schema enforcement |
+| **Notifications** | Sonner | 2.x | Toast notification system |
+| **Icons** | Lucide React | 1.x | Consistent, lightweight icon library |
+| **Font** | Inter (Google Fonts) | — | Primary typeface, loaded via `next/font` |
+| **Hosting** | Vercel | — | Edge deployment with automatic CI/CD |
 
 ---
 
@@ -63,19 +69,26 @@ The application serves multiple purposes:
 ```
 alliedone-frontend/
 ├── public/
-│   ├── logo-mark-v2.png       # AlliedOne logo mark
-│   └── ...                    # Static assets
+│   ├── logo-mark-v2.png       # AlliedOne primary logo mark
+│   ├── gsbd-logo.png          # Global Supply BD brand logo
+│   └── ...                    # Static assets and images
 │
 ├── src/
 │   ├── app/                   # Next.js App Router pages
-│   │   ├── layout.tsx         # Root layout: Nav, Footer, floating widgets
+│   │   ├── layout.tsx         # Root layout: Nav, Footer, floating widgets, Toaster
 │   │   ├── page.tsx           # Homepage (/)
 │   │   ├── globals.css        # Global CSS resets and design tokens
 │   │   │
 │   │   ├── about/             # About Us page (/about)
 │   │   │   └── page.tsx
 │   │   │
+│   │   ├── careers/           # Careers portal (/careers)
+│   │   │   └── page.tsx
+│   │   │
 │   │   ├── contact/           # Contact page (/contact)
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── gsbd/              # GSBD (Global Supply BD) brand page (/gsbd)
 │   │   │   └── page.tsx
 │   │   │
 │   │   ├── services/          # Service pages
@@ -98,15 +111,17 @@ alliedone-frontend/
 │   │
 │   └── components/
 │       ├── sections/          # Full-page section components
-│       │   ├── LeadCaptureForm.tsx    # Multi-field contact/inquiry form
-│       │   └── NewsletterSignup.tsx   # Full-featured newsletter signup block
+│       │   ├── CareerApplicationForm.tsx  # Job application form with file upload
+│       │   ├── FAQSection.tsx             # Accordion FAQ section
+│       │   ├── LeadCaptureForm.tsx        # Multi-field CRM contact/inquiry form
+│       │   └── NewsletterSignup.tsx       # Full-featured newsletter signup block
 │       │
 │       └── ui/                # Reusable atomic UI components
 │           ├── ChatWidget.tsx         # Floating AI chat assistant
 │           ├── FeedbackWidget.tsx     # Bug report and suggestion widget
 │           ├── NewsletterWidget.tsx   # Compact newsletter widget (footer)
-│           ├── DesktopNav.tsx         # Desktop navigation bar
-│           ├── MobileNav.tsx          # Mobile hamburger navigation
+│           ├── DesktopNav.tsx         # Desktop navigation bar with dropdown
+│           ├── MobileNav.tsx          # Mobile hamburger navigation overlay
 │           ├── ScrollToTop.tsx        # Floating scroll-to-top button
 │           └── FadeInSection.tsx      # Intersection Observer animation wrapper
 │
@@ -124,11 +139,13 @@ All routes use the **Next.js App Router** with file-based routing.
 
 | Route | Rendering | Description |
 |-------|-----------|-------------|
-| `/` | Static | Homepage with Hero, Services grid, Process, Testimonials, CTA, and Newsletter |
-| `/about` | Static | Company story, team, mission and values |
+| `/` | Static | Homepage with Hero, Services pillars, Process, FAQ, Testimonials, CTA, and Newsletter |
+| `/about` | Static | Company story, team, mission, and values |
+| `/careers` | Static | Careers portal with open positions and job application form |
 | `/contact` | Static | Lead capture form with newsletter signup below |
-| `/services` | Static | Services overview grid |
-| `/services/[slug]` | SSG | Individual service detail pages (7 pre-rendered paths) |
+| `/gsbd` | Static | Global Supply BD brand page — coming soon teaser |
+| `/services` | Static | Services overview grid for both pillars |
+| `/services/[slug]` | SSG | Individual service detail pages (pre-rendered paths) |
 | `/privacy` | Static | Full Privacy Policy |
 | `/terms` | Static | Terms of Service (20 sections) |
 | `/api/chat` | Dynamic | Streaming AI chat completions endpoint |
@@ -146,6 +163,10 @@ Pre-rendered at build time via `generateStaticParams`:
 | `digital-marketing-ai-agency` | Digital Marketing and AI Agency |
 | `ai-content-studio` | AI Content Studio |
 | `skill-development` | Skill Development |
+| `global-trade-sourcing` | Global Trade — Sourcing |
+| `global-trade-logistics` | Global Trade — Logistics |
+| `global-trade-export` | Global Trade — Export |
+| `government-procurement` | Government Procurement |
 
 ---
 
@@ -160,10 +181,10 @@ Large, full-width components that form entire page sections.
 The primary CRM lead capture form used on the Contact and Homepage. Features:
 
 - Multi-field form: name, email/phone, company, service interest dropdown, and message.
-- Client-side validation before API submission.
+- Client-side validation using **React Hook Form** and **Zod** schemas.
 - Integrates with `POST /api/leads` on the backend.
 - Triggers an auto-reply email to the submitter and an internal notification to the team.
-- Loading state with animated spinner.
+- Loading state with animated spinner and toast feedback via **Sonner**.
 - Clear success and error feedback messaging.
 
 #### `NewsletterSignup.tsx`
@@ -177,6 +198,22 @@ A full-width, premium newsletter subscription block. Used on the Homepage and Co
 - Styled error block for validation feedback.
 - "No spam. Unsubscribe at any time." reassurance copy.
 
+#### `CareerApplicationForm.tsx`
+
+A structured job application form on the Careers page. Features:
+
+- Collects: applicant name, email, phone, position of interest, cover letter, and CV file upload.
+- Built with **React Hook Form** and **Zod** for robust client-side validation.
+- Animated submission states with **Framer Motion**.
+- Inline success/error feedback.
+
+#### `FAQSection.tsx`
+
+An expandable accordion FAQ section used on the Homepage and Careers page. Features:
+
+- Smooth expand/collapse animations powered by **Framer Motion**.
+- Contains company-profile-sourced FAQs covering services, process, and pricing.
+
 ---
 
 ### UI Components
@@ -187,10 +224,10 @@ Reusable, atomic components shared across pages.
 
 A floating AI chat assistant pinned to the bottom-right corner of every page.
 
-- Powered by the `/api/chat` streaming route.
-- Renders markdown-formatted responses in real time.
-- Maintains full conversation history in local React state.
-- Smooth open/close animation.
+- Powered by the `/api/chat` streaming route using the **Vercel AI SDK**.
+- Renders markdown-formatted responses in real time via the `useChat` hook.
+- Maintains full conversation history in React state.
+- Smooth open/close animation with **Framer Motion**.
 
 #### `FeedbackWidget.tsx`
 
@@ -213,8 +250,8 @@ A compact, horizontal newsletter form used in the site footer.
 
 Responsive navigation components:
 
-- **Desktop:** Sticky horizontal nav bar with service links and a "Get Started" CTA.
-- **Mobile:** Hamburger icon trigger with a full-screen slide-down overlay menu.
+- **Desktop:** Sticky horizontal nav bar with a **Services dropdown** exposing Digital Solutions and Global Trade sub-pillars, plus a "Get Started" CTA button.
+- **Mobile:** Hamburger icon trigger with a full-screen slide-down overlay menu; Feedback widget entry point integrated directly in the mobile menu.
 
 #### `ScrollToTop.tsx`
 
@@ -230,11 +267,11 @@ A lightweight wrapper using the browser-native **Intersection Observer API** to 
 
 ### AI Chat Widget
 
-An in-page AI assistant powered by a Next.js streaming API route. Users can ask questions about AlliedOne's services, and the assistant responds in real time with streamed text output.
+An in-page AI assistant powered by a Next.js streaming API route using the **Vercel AI SDK**. Users can ask questions about AlliedOne's services, and the assistant responds in real time with streamed text output.
 
 ### Smart Lead Capture
 
-The contact form captures structured CRM leads, fires an automated auto-reply email to the submitter, and sends an internal notification to the AlliedOne team — all automatically on a successful form submission.
+The contact form captures structured CRM leads using **React Hook Form** + **Zod** validation, fires an automated auto-reply email to the submitter, and sends an internal notification to the AlliedOne team — all on a successful form submission.
 
 ### Newsletter System
 
@@ -245,13 +282,21 @@ Full end-to-end newsletter subscription flow:
 3. Backend saves the subscriber and sends a formatted HTML welcome email via Brevo.
 4. Duplicate and re-subscription scenarios are gracefully handled with informative messages.
 
+### Careers Portal
+
+A full careers page featuring open positions, company culture information, and a structured job application form that collects applicant details and CV file uploads.
+
+### GSBD Brand Page
+
+A dedicated page (`/gsbd`) hosting the **Global Supply BD** brand identity with a polished "coming soon" teaser page featuring glassmorphism design and ambient glow effects.
+
 ### Feedback Widget
 
 A persistent bug/suggestion reporter available on every page. Submissions are saved to the database for internal team review.
 
 ### Scroll Animations
 
-The `FadeInSection` component provides performant, scroll-triggered fade-in animations using the browser-native Intersection Observer API — no external animation library is required.
+Page sections use `FadeInSection` (Intersection Observer API) for performant scroll-triggered fade-in effects. The Chat widget, Career form, and FAQ accordion leverage **Framer Motion** for richer interactive transitions.
 
 ---
 
@@ -289,7 +334,7 @@ npm run dev
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start Next.js development server (Turbopack) |
+| `npm run dev` | Start Next.js development server (webpack mode) |
 | `npm run build` | Create an optimized production build |
 | `npm start` | Serve the production build locally |
 | `npm run lint` | Run ESLint across the codebase |
@@ -340,9 +385,11 @@ This application is deployed on **[Vercel](https://vercel.com)** with automatic 
 Route (app)
 ├── ○ /                          Static
 ├── ○ /about                     Static
+├── ○ /careers                   Static
 ├── ○ /contact                   Static
+├── ○ /gsbd                      Static
 ├── ○ /services                  Static
-├── ● /services/[slug]           SSG — 7 paths
+├── ● /services/[slug]           SSG — pre-rendered paths
 ├── ○ /privacy                   Static
 ├── ○ /terms                     Static
 └── ƒ /api/chat                  Dynamic (streaming)
