@@ -65,9 +65,9 @@ export default function Home() {
                 <div className="w-5 flex justify-center flex-shrink-0 mt-1">
                   <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-slate-400"></span>
                 </div>
-                <span className="text-slate-200">
+                <Link href="/gsbd" className="text-slate-200 hover:text-cyan-300 transition-colors underline decoration-white/20 underline-offset-4 hover:decoration-cyan-300">
                   International Business
-                </span>
+                </Link>
               </li>
             </ul>
 
