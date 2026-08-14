@@ -6,7 +6,7 @@ export default function GSBDPage() {
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[150px] pointer-events-none"></div>
 
-      <div className="relative z-10 w-40 h-40 md:w-56 md:h-56 mb-12">
+      <div className="relative z-10 w-20 h-20 md:w-28 md:h-28 mb-8">
         <Image 
           src="/gsbd-logo.png" 
           alt="GLOBAL SUPPLY BD Logo" 
@@ -16,11 +16,11 @@ export default function GSBDPage() {
         />
       </div>
       
-      <h1 className="relative z-10 text-4xl md:text-6xl lg:text-[5rem] font-extrabold tracking-tight text-white mb-6">
-        GLOBAL SUPPLY BD
+      <h1 className="relative z-10 text-3xl md:text-5xl lg:text-[4rem] font-extrabold tracking-tight text-white mb-4">
+        GLOBAL SUPPLY BD.
       </h1>
       
-      <p className="relative z-10 text-lg md:text-2xl text-cyan-300 font-bold tracking-[0.3em] uppercase mb-16">
+      <p className="relative z-10 text-base md:text-xl text-cyan-300 font-bold tracking-[0.3em] uppercase mb-10">
         Export • Import • Supply
       </p>
       
