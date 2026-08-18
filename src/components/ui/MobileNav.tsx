@@ -114,12 +114,12 @@ export default function MobileNav() {
             onClick={() => setIsOpen(false)}
             className="bg-[#0D3A5C] text-white px-6 py-4 mt-4 rounded-xl flex items-center justify-center gap-2.5 text-base font-bold shadow-md hover:bg-[#1A5C8A] transition-colors"
           >
-            <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm">
+            <span className="w-6 h-6 rounded-md bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm overflow-hidden">
               <Image
                 src="/gsbd-logo.png"
                 alt="Global Trade Logo"
-                width={20}
-                height={20}
+                width={24}
+                height={24}
                 className="w-full h-full object-contain"
               />
             </span>

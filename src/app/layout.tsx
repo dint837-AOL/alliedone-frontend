@@ -51,12 +51,12 @@ export default function RootLayout({
                 href="https://www.alliedoneltd.com/gsbd"
                 className="hidden md:inline-flex items-center gap-2.5 bg-[#0D3A5C] text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-[#1A5C8A] transition-all shadow-md group"
               >
-                <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm">
+                <span className="w-6 h-6 rounded-md bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm overflow-hidden">
                   <Image
                     src="/gsbd-logo.png"
                     alt="Global Trade Logo"
-                    width={20}
-                    height={20}
+                    width={24}
+                    height={24}
                     className="w-full h-full object-contain"
                   />
                 </span>
