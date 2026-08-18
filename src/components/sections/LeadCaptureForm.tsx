@@ -182,7 +182,7 @@ export default function LeadCaptureForm() {
                 <option value="WHATSAPP_BOTS_STRATEGY">WhatsApp & Messaging Bots</option>
                 <option value="EMAIL_AUTOMATION_CONSULTING">Email Automation Consulting</option>
                 <option value="ATS_HR_TECH_ARCHITECTURE">ATS & HR Tech Architecture</option>
-                <option value="DIGITAL_MARKETING_AGENCY">Digital Marketing & AI Agency</option>
+                <option value="DIGITAL_MARKETING_AGENCY">AI Agency</option>
                 <option value="AI_CONTENT_STUDIO">AI Content Studio</option>
               </optgroup>
               <option value="OTHER">Other / General Inquiry</option>

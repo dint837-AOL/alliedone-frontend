@@ -330,7 +330,7 @@ export const servicesData: ServiceDetail[] = [
   {
     slug: "digital-marketing-ai-agency",
     category: "Technology & Digital Solutions",
-    title: "Digital Marketing & AI Agency",
+    title: "AI Agency",
     coreValue: "Supercharge your growth engine with data-driven advertising and rapid, AI-powered response systems.",
     heroHeadline: "Next-Gen Marketing Engineered for High Conversions",
     subHeadline: "Drive qualified demand through targeted ad campaigns and instant AI lead-capture experiences that maximize ad spend ROI.",

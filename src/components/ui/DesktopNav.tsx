@@ -21,7 +21,7 @@ const digitalServices = [
   { name: "WhatsApp & Messaging Bots", href: "/services/whatsapp-messaging-bots" },
   { name: "Email Automation Consulting", href: "/services/email-automation-consulting" },
   { name: "Skill Development", href: "/services/skill-development" },
-  { name: "Digital Marketing & AI Agency", href: "/services/digital-marketing-ai-agency" },
+  { name: "AI Agency", href: "/services/digital-marketing-ai-agency" },
   { name: "AI Content Studio", href: "/services/ai-content-studio" },
 ];
 

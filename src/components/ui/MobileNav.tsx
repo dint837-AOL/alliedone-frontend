@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Bug, ChevronDown, ChevronUp } from "lucide-react";
 
@@ -20,7 +21,7 @@ const digitalServices = [
   { name: "WhatsApp & Messaging Bots", href: "/services/whatsapp-messaging-bots" },
   { name: "Email Automation Consulting", href: "/services/email-automation-consulting" },
   { name: "Skill Development", href: "/services/skill-development" },
-  { name: "Digital Marketing & AI Agency", href: "/services/digital-marketing-ai-agency" },
+  { name: "AI Agency", href: "/services/digital-marketing-ai-agency" },
   { name: "AI Content Studio", href: "/services/ai-content-studio" },
 ];
 
@@ -109,11 +110,20 @@ export default function MobileNav() {
           </button>
 
           <Link
-            href="/contact"
+            href="https://www.alliedoneltd.com/gsbd"
             onClick={() => setIsOpen(false)}
-            className="bg-[#0D3A5C] text-white px-6 py-4 mt-4 rounded-xl text-center text-base font-bold shadow-md hover:bg-[#1A5C8A] transition-colors"
+            className="bg-[#0D3A5C] text-white px-6 py-4 mt-4 rounded-xl flex items-center justify-center gap-2.5 text-base font-bold shadow-md hover:bg-[#1A5C8A] transition-colors"
           >
-            Schedule a Demo
+            <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm">
+              <Image
+                src="/gsbd-logo.png"
+                alt="Global Trade Logo"
+                width={20}
+                height={20}
+                className="w-full h-full object-contain"
+              />
+            </span>
+            <span>Global Trade</span>
           </Link>
         </div>
       )}

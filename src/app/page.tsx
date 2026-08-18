@@ -52,7 +52,7 @@ export default function Home() {
               AlliedOne Limited
             </div>
             
-            <ul className="mb-12 space-y-4">
+            <ul className="mb-12 space-y-6 md:space-y-8">
               <li className="flex items-center gap-4 text-4xl md:text-6xl lg:text-[4rem] font-extrabold tracking-tight leading-[1.1] whitespace-nowrap">
                 <div className="w-5 flex justify-center flex-shrink-0 mt-1">
                   <span className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_0_15px_rgba(56,189,248,0.6)]"></span>
@@ -65,9 +65,9 @@ export default function Home() {
                 <div className="w-5 flex justify-center flex-shrink-0 mt-1">
                   <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-slate-400"></span>
                 </div>
-                <Link href="/gsbd" className="text-slate-200 hover:text-cyan-300 transition-colors underline decoration-white/20 underline-offset-4 hover:decoration-cyan-300">
+                <span className="text-slate-200">
                   International Business
-                </Link>
+                </span>
               </li>
             </ul>
 
@@ -172,7 +172,7 @@ export default function Home() {
                     "WhatsApp & Messaging Bots",
                     "Email Automation Consulting",
                     "Skill Development",
-                    "Digital Marketing & AI Agency",
+                    "AI Agency",
                     "AI Content Studio",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-3 text-slate-600 text-sm">

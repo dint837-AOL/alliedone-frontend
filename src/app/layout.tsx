@@ -48,10 +48,19 @@ export default function RootLayout({
             {/* CTA Button & Mobile Nav */}
             <div className="flex items-center gap-4">
               <Link
-                href="/contact"
-                className="hidden md:inline-block bg-[#0D3A5C] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#1A5C8A] transition-all shadow-md"
+                href="https://www.alliedoneltd.com/gsbd"
+                className="hidden md:inline-flex items-center gap-2.5 bg-[#0D3A5C] text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-[#1A5C8A] transition-all shadow-md group"
               >
-                Schedule a Demo
+                <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm">
+                  <Image
+                    src="/gsbd-logo.png"
+                    alt="Global Trade Logo"
+                    width={20}
+                    height={20}
+                    className="w-full h-full object-contain"
+                  />
+                </span>
+                <span>Global Trade</span>
               </Link>
               <MobileNav />
             </div>
