@@ -19,13 +19,14 @@ export default function GSBDPage() {
           priority
           className="object-cover object-center"
         />
-        {/* Subtle, low-opacity gradient overlays to ensure background is clearly visible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#081828]/55 via-[#081828]/30 to-[#081828]/70"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#081828]/40 via-transparent to-[#081828]/40"></div>
+        {/* Medium-opacity rich brand gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#081828]/85 via-[#0D3A5C]/60 to-[#081828]/85"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#081828]/90 via-[#081828]/25 to-[#081828]/60"></div>
+        <div className="absolute inset-0 bg-radial from-blue-900/30 via-transparent to-transparent"></div>
       </div>
 
       {/* Atmospheric Glowing Accent */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-[#2180C0]/20 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
       {/* ── Main Hero Content ── */}
       <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
