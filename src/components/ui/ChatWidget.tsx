@@ -42,8 +42,14 @@ export default function ChatWidget() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
-    sendMessage({ role: "user", parts: [{ type: "text", text: input }] });
+    const textToSend = input;
     setInput("");
+    sendMessage({ role: "user", parts: [{ type: "text", text: textToSend }] });
+  };
+
+  const handleQuickPrompt = (promptText: string) => {
+    if (isLoading) return;
+    sendMessage({ role: "user", parts: [{ type: "text", text: promptText }] });
   };
 
   return (
@@ -102,46 +108,63 @@ export default function ChatWidget() {
                   
                   {/* Quick Prompts */}
                   <div className="flex flex-wrap gap-2 justify-center mt-6">
-                    <span className="text-xs font-semibold text-[#2180C0] bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full cursor-pointer hover:bg-blue-100 transition-colors">
+                    <button
+                      type="button"
+                      onClick={() => handleQuickPrompt("What is AI Automation?")}
+                      className="text-xs font-semibold text-[#2180C0] bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full cursor-pointer hover:bg-blue-100 transition-colors"
+                    >
                       What is AI Automation?
-                    </span>
-                    <span className="text-xs font-semibold text-[#2180C0] bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full cursor-pointer hover:bg-blue-100 transition-colors">
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleQuickPrompt("What marketing services do you offer?")}
+                      className="text-xs font-semibold text-[#2180C0] bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full cursor-pointer hover:bg-blue-100 transition-colors"
+                    >
                       Marketing Services
-                    </span>
+                    </button>
                   </div>
                 </div>
               )}
               
-              {messages.map((m) => (
-                <div
-                  key={m.id}
-                  className={`flex gap-3 items-end ${
-                    m.role === "user" ? "justify-end" : "justify-start"
-                  }`}
-                >
-                  {m.role === "assistant" && (
-                    <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-sm mb-1 p-1">
-                      <Image src="/logo-mark-v2.png" alt="AlliedOne" width={20} height={20} className="object-contain" />
-                    </div>
-                  )}
-                  
+              {messages.map((m) => {
+                const messageText =
+                  m.parts && m.parts.length > 0
+                    ? m.parts
+                        .map((part) => (part.type === "text" ? part.text : ""))
+                        .join("")
+                    : (m as any).content || "";
+
+                return (
                   <div
-                    className={`relative max-w-[80%] px-4 py-3 text-sm leading-relaxed shadow-sm ${
-                      m.role === "user"
-                        ? "bg-[#0D3A5C] text-white rounded-2xl rounded-br-sm"
-                        : "bg-white text-slate-700 border border-slate-100 rounded-2xl rounded-bl-sm"
+                    key={m.id}
+                    className={`flex gap-3 items-end ${
+                      m.role === "user" ? "justify-end" : "justify-start"
                     }`}
                   >
-                    {m.parts?.map((part) => part.type === "text" ? part.text : null)}
-                  </div>
-                  
-                  {m.role === "user" && (
-                    <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center flex-shrink-0 mb-1">
-                      <User className="w-4 h-4 text-slate-600" />
+                    {m.role === "assistant" && (
+                      <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-sm mb-1 p-1">
+                        <Image src="/logo-mark-v2.png" alt="AlliedOne" width={20} height={20} className="object-contain" />
+                      </div>
+                    )}
+                    
+                    <div
+                      className={`relative max-w-[80%] px-4 py-3 text-sm leading-relaxed shadow-sm whitespace-pre-wrap ${
+                        m.role === "user"
+                          ? "bg-[#0D3A5C] text-white rounded-2xl rounded-br-sm"
+                          : "bg-white text-slate-700 border border-slate-100 rounded-2xl rounded-bl-sm"
+                      }`}
+                    >
+                      {messageText}
                     </div>
-                  )}
-                </div>
-              ))}
+                    
+                    {m.role === "user" && (
+                      <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center flex-shrink-0 mb-1">
+                        <User className="w-4 h-4 text-slate-600" />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
               
               {isLoading && (
                 <div className="flex gap-3 justify-start items-end">
