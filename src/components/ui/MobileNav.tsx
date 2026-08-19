@@ -16,18 +16,20 @@ const globalTradeServices = [
 ];
 
 const digitalServices = [
-  { name: "AI Opportunity & Implementation", href: "/services/ai-opportunity-implementation" },
-  { name: "Process Automation Strategy", href: "/services/process-automation-strategy" },
-  { name: "WhatsApp & Messaging Bots", href: "/services/whatsapp-messaging-bots" },
-  { name: "Email Automation Consulting", href: "/services/email-automation-consulting" },
-  { name: "Skill Development", href: "/services/skill-development" },
-  { name: "AI Agency", href: "/services/digital-marketing-ai-agency" },
-  { name: "AI Content Studio", href: "/services/ai-content-studio" },
+  { name: "Educational Web/App for Class IX, X, SSC, XI, XII, HSC and University admission candidates", href: "/services/educational-web-app" },
+  { name: "AI Training for students, professionals, job seekers, and entrepreneurs", href: "/services/ai-training" },
+  { name: "Workflow Automation (No Code)", href: "/services/workflow-automation-no-code" },
+  { name: "Dashboard Automation", href: "/services/dashboard-automation" },
+  { name: "AI Tool selection & Implementation", href: "/services/ai-tool-selection-implementation" },
+  { name: "Discovery Workshop", href: "/services/discovery-workshop" },
 ];
 
-const topLinks = [
+const topLinksBeforeServices = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
+];
+
+const topLinksAfterServices = [
   { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
@@ -48,28 +50,46 @@ export default function MobileNav() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-[72px] left-0 right-0 bg-white border-b border-slate-200 shadow-xl py-6 px-6 flex flex-col gap-2 animate-in slide-in-from-top-2 z-50">
+        <div className="absolute top-[72px] left-0 right-0 bg-white border-b border-slate-200 shadow-xl py-6 px-6 flex flex-col gap-2 animate-in slide-in-from-top-2 z-50 max-h-[85vh] overflow-y-auto">
           
+          {/* Home and About first */}
+          {topLinksBeforeServices.map((link) => {
+            const isActive =
+              link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`font-bold text-lg transition-colors ${
+                  isActive ? "text-[#1A5C8A] border-l-4 border-[#1A5C8A] pl-2" : "text-[#0D3A5C] hover:text-[#1A5C8A]"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+
           {/* Services accordion */}
           <button
             onClick={() => setServicesOpen(!servicesOpen)}
-            className="flex items-center justify-between font-bold text-lg text-[#0D3A5C] hover:text-[#1A5C8A] transition-colors"
+            className="flex items-center justify-between font-bold text-lg text-[#0D3A5C] hover:text-[#1A5C8A] transition-colors py-1"
           >
             Services
             {servicesOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
           </button>
 
           {servicesOpen && (
-            <div className="pl-4 border-l-2 border-slate-200 space-y-3 mb-1">
-              <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider mt-2">Global Trade</p>
-              {globalTradeServices.map((s) => (
+            <div className="pl-4 border-l-2 border-slate-200 space-y-3 mb-2">
+              <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider mt-2">Digital Solutions</p>
+              {digitalServices.map((s) => (
                 <Link key={s.href} href={s.href} onClick={() => setIsOpen(false)}
                   className="block text-sm font-medium text-slate-600 hover:text-[#1A5C8A] transition-colors">
                   {s.name}
                 </Link>
               ))}
-              <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider pt-2">Digital Solutions</p>
-              {digitalServices.map((s) => (
+              <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider pt-2">Global Trade</p>
+              {globalTradeServices.map((s) => (
                 <Link key={s.href} href={s.href} onClick={() => setIsOpen(false)}
                   className="block text-sm font-medium text-slate-600 hover:text-[#1A5C8A] transition-colors">
                   {s.name}
@@ -78,7 +98,8 @@ export default function MobileNav() {
             </div>
           )}
 
-          {topLinks.map((link) => {
+          {/* Remaining links (Careers, Contact) */}
+          {topLinksAfterServices.map((link) => {
             const isActive =
               link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
             return (
@@ -123,7 +144,7 @@ export default function MobileNav() {
                 className="w-full h-full object-contain"
               />
             </span>
-            <span>GLOBAL SUPPLY BD</span>
+            <span>GLOBAL SUPPLY BD.</span>
           </Link>
         </div>
       )}

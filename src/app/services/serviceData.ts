@@ -151,8 +151,6 @@ export const servicesData: ServiceDetail[] = [
     ],
     ctaText: "Partner With Us"
   },
-
-  // ==========================================
   {
     slug: "government-procurement",
     category: "Global Trade & Institutional Business",
@@ -190,195 +188,168 @@ export const servicesData: ServiceDetail[] = [
   },
 
   // ==========================================
-  // PILLAR 3: TECHNOLOGY & DIGITAL SOLUTIONS
+  // PILLAR 2: TECHNOLOGY & DIGITAL SOLUTIONS
   // ==========================================
   {
-    slug: "ai-opportunity-implementation",
+    slug: "educational-web-app",
     category: "Technology & Digital Solutions",
-    title: "AI Opportunity & Implementation",
-    coreValue: "Uncover high-value AI use cases and execute a seamless roadmap to modernize your business.",
-    heroHeadline: "Turn AI Potential into Operational Profit",
-    subHeadline: "We evaluate your workflows, pinpoint high-impact AI opportunities, and implement bespoke AI solutions designed for measurable ROI.",
+    title: "Educational Web/App for Class IX, X, SSC, XI, XII, HSC and University admission candidates",
+    coreValue: "Comprehensive digital learning and exam preparation platforms engineered for modern students from secondary to university entrance.",
+    heroHeadline: "Next-Gen Educational Apps & Web Platforms",
+    subHeadline: "Interactive learning portals, model tests, live quizzes, and smart performance analytics designed for Class IX–XII, SSC, HSC, and University admission examinees.",
     whatWeOffer: [
       {
-        title: "AI Readiness & ROI Assessment",
-        description: "Audit your current tech stack and operational bottlenecks to identify where AI will yield the highest immediate return."
+        title: "Dynamic Question Bank & Model Tests",
+        description: "Curated chapter-by-chapter question repositories with instant evaluation and detailed answer explanations."
       },
       {
-        title: "Custom AI Roadmapping",
-        description: "Design a step-by-step adoption strategy covering data readiness, software selection, and rollout phases."
+        title: "Live Analytics & Diagnostic Reports",
+        description: "Real-time performance tracking pinpointing student strengths, weaknesses, and subject-wise accuracy."
       },
       {
-        title: "Workflow & SOP Engineering",
-        description: "Re-architect standard operating procedures to seamlessly weave AI tools into your daily team workflows."
+        title: "Video Lessons & Interactive Quizzes",
+        description: "Structured multimedia syllabus delivery with milestone assessments and revision modules."
       },
       {
-        title: "Vendor & Tool Selection",
-        description: "Objective guidance on selecting the best LLMs, agentic tools, and platforms tailored to your industry."
+        title: "Admission Exam Simulations",
+        description: "Full-length timed mock tests tailored for Engineering, Medical, and Public University admission exams."
       }
     ],
-    ctaText: "Schedule an AI Audit"
+    ctaText: "Explore EdTech Solutions"
   },
   {
-    slug: "process-automation-strategy",
+    slug: "ai-training",
     category: "Technology & Digital Solutions",
-    title: "Process Automation Strategy",
-    coreValue: "Reclaim hours of manual work with intelligent, end-to-end operational workflows.",
-    heroHeadline: "Scale Operations Without Adding Overhead",
-    subHeadline: "Eliminate friction, human error, and manual data transfers with enterprise-grade business process automation.",
+    title: "AI Training for students, professionals, job seekers, and entrepreneurs",
+    coreValue: "Empowering learners and leaders with practical, job-ready Artificial Intelligence, prompt engineering, and automation skills.",
+    heroHeadline: "Practical AI Training for Career & Business Growth",
+    subHeadline: "Hands-on, outcome-driven programs designed to take students, working professionals, job seekers, and business owners from beginner to confident AI practitioners.",
     whatWeOffer: [
       {
-        title: "Workflow & Approval Systems",
-        description: "Automate complex, multi-step approval flows for procurement, contracts, and internal requests."
+        title: "Student Academic & Skill Fast-Track",
+        description: "Practical modules on utilizing AI for research, coding assistance, document synthesis, and creative projects."
       },
       {
-        title: "HR & Workforce Automation",
-        description: "Streamline candidate screening, employee onboarding, leave tracking, and attendance systems."
+        title: "Professional Productivity Masterclasses",
+        description: "Empowering corporate teams to multiply daily output using custom GPTs, Copilots, and workflow AI tools."
       },
       {
-        title: "Back-Office Integration",
-        description: "Connect isolated tools (CRMs, ERPs, spreadsheets, and databases) into one unified operational network."
+        title: "Job Seeker Career & Portfolio Prep",
+        description: "Building in-demand AI competencies, automated resume building, and demonstrable portfolio projects."
       },
       {
-        title: "Inventory & Resource Management",
-        description: "Set up automated triggers for stock updates, automated reordering, and resource planning."
+        title: "Entrepreneur AI Strategy Blueprints",
+        description: "Equipping founders with AI operational playbooks to launch, market, and scale with minimal team overhead."
       }
     ],
-    ctaText: "Automate Your Operations"
+    ctaText: "Enroll in AI Training"
   },
   {
-    slug: "whatsapp-messaging-bots",
+    slug: "workflow-automation-no-code",
     category: "Technology & Digital Solutions",
-    title: "WhatsApp & Messaging Bots",
-    coreValue: "Convert inquiries into sales 24/7 with instant, intelligent chat automation across your primary messaging channels.",
-    heroHeadline: "Instant Lead Engagement on WhatsApp, Messenger & Beyond",
-    subHeadline: "Never lose a lead to response delay. Deploy conversational AI bots that qualify prospects, answer FAQs, and book meetings around the clock.",
+    title: "Workflow Automation (No Code)",
+    coreValue: "Eliminate repetitive manual tasks and connect all your operational software without writing a single line of code.",
+    heroHeadline: "End-to-End No-Code Workflow Automation",
+    subHeadline: "Connect CRMs, Google Workspace, WhatsApp, databases, payment systems, and form builders into resilient, automated operational pipelines.",
     whatWeOffer: [
       {
-        title: "Instant Social Ad Responders",
-        description: "Automatically message users who click, comment, or interact with your Facebook and LinkedIn ads in real time."
+        title: "Make.com & Zapier Integration",
+        description: "Custom multi-step automation scenarios linking all your business software into one unified ecosystem."
       },
       {
-        title: "WhatsApp & Messenger Workflows",
-        description: "Build interactive chat flows for automated lead capture, FAQs, and service menu routing."
+        title: "Lead Ingestion & CRM Routing",
+        description: "Instantaneous capture of leads from Meta/Google ads and landing pages directly into your sales pipeline."
       },
       {
-        title: "24/7 AI Support Agents",
-        description: "Train conversational bots on your business data to handle customer inquiries instantly without agent intervention."
+        title: "Automated Notifications & Reminders",
+        description: "Trigger SMS, WhatsApp, and email alerts for payment confirmations, meeting bookings, and task deadlines."
       },
       {
-        title: "Seamless CRM Ingestion",
-        description: "Automatically push contact data, conversation notes, and user preferences directly into your CRM directory."
+        title: "Data Sync & Error-Free Reconciliation",
+        description: "Eliminate manual copy-pasting across spreadsheets, inventory databases, and financial records."
       }
     ],
-    ctaText: "Build Your AI Bot"
+    ctaText: "Automate Your Workflows"
   },
   {
-    slug: "email-automation-consulting",
+    slug: "dashboard-automation",
     category: "Technology & Digital Solutions",
-    title: "Email Automation Consulting",
-    coreValue: "Transform your email list into a reliable revenue engine through highly targeted, automated nurturing.",
-    heroHeadline: "Data-Driven Nurture Campaigns That Convert",
-    subHeadline: "Stop blasting generic emails. We design and deploy intelligent, behavior-triggered email sequences that build trust, educate prospects, and drive sales on autopilot.",
+    title: "Dashboard Automation",
+    coreValue: "Real-time visibility into your business metrics with automated data pipelines and interactive executive dashboards.",
+    heroHeadline: "Automated Business Intelligence & Real-Time Dashboards",
+    subHeadline: "Consolidate fragmented data across sales, operations, marketing, and finance into dynamic, self-updating visual dashboards for confident decision-making.",
     whatWeOffer: [
       {
-        title: "Automated Nurture Workflows",
-        description: "Design multi-step email drip campaigns that automatically guide prospects from initial opt-in to final conversion."
+        title: "Automated Multi-Source Data Pipelines",
+        description: "Seamless data extraction and transformation from databases, CRMs, e-commerce stores, and ad platforms."
       },
       {
-        title: "Audience Segmentation Strategy",
-        description: "Divide your audience based on behavior, purchase history, and engagement to deliver hyper-relevant messaging."
+        title: "Executive & Operational KPI Dashboards",
+        description: "Interactive visualizations tailored for leadership, department heads, and operational teams."
       },
       {
-        title: "Deliverability Optimization",
-        description: "Technical configuration of SPF, DKIM, and DMARC to ensure your emails reliably hit the primary inbox, not the spam folder."
+        title: "Real-Time Sales & Revenue Tracking",
+        description: "Live monitoring of key growth metrics, conversion rates, customer lifetime values, and cash flow."
       },
       {
-        title: "Copywriting & Campaign Analytics",
-        description: "Persuasive email copy combined with continuous A/B testing of subject lines, send times, and call-to-actions."
+        title: "Scheduled PDF Reports & Alert Triggers",
+        description: "Automated daily/weekly summary reports delivered directly to your inbox or Slack/WhatsApp groups."
       }
     ],
-    ctaText: "Optimize Your Emails"
+    ctaText: "Build Your Dashboard"
   },
   {
-    slug: "skill-development",
+    slug: "ai-tool-selection-implementation",
     category: "Technology & Digital Solutions",
-    title: "Skill Development",
-    coreValue: "Future-proof your workforce by equipping them with the practical skills needed to thrive in an AI-driven economy.",
-    heroHeadline: "Corporate Training for the Modern Digital Era",
-    subHeadline: "Technology is only as effective as the team using it. Our targeted corporate training programs bridge the gap between human talent and advanced automation tools.",
+    title: "AI Tool selection & Implementation",
+    coreValue: "Navigating the modern AI landscape to handpick, integrate, and customize the highest-ROI AI stack for your organization.",
+    heroHeadline: "Strategic AI Tool Selection & Seamless Deployment",
+    subHeadline: "Avoid trial-and-error costs. We objectively evaluate, benchmark, and deploy the most effective AI models and software tailored to your industry.",
     whatWeOffer: [
       {
-        title: "AI Tools Proficiency Training",
-        description: "Hands-on workshops teaching your staff how to leverage ChatGPT, Midjourney, and specialized AI agents in their daily work."
+        title: "Objective AI Readiness Audit",
+        description: "Deep evaluation of current technology infrastructure, data security, and high-impact AI opportunities."
       },
       {
-        title: "Digital Marketing Execution",
-        description: "Actionable training in SEO, paid media management, and data analysis for internal marketing teams."
+        title: "Model & Vendor Selection",
+        description: "Independent guidance comparing commercial LLMs (OpenAI, Gemini, Anthropic) vs. secure self-hosted open-source models."
       },
       {
-        title: "Workflow Automation Basics",
-        description: "Teach key employees how to build and manage simple Zapier or Make.com automations to solve their own operational bottlenecks."
+        title: "Custom Integration & API Deployment",
+        description: "Seamless embedding of AI capabilities into your existing software, CMS, or internal employee tools."
       },
       {
-        title: "Customized Corporate Bootcamps",
-        description: "Intensive, role-specific training programs designed entirely around your company's proprietary tech stack and operational goals."
+        title: "Staff Onboarding & SOP Engineering",
+        description: "Creating practical operating procedures and hands-on guidance to ensure rapid team adoption."
       }
     ],
-    ctaText: "Train Your Team"
+    ctaText: "Schedule AI Tool Audit"
   },
   {
-    slug: "digital-marketing-ai-agency",
+    slug: "discovery-workshop",
     category: "Technology & Digital Solutions",
-    title: "AI Agency",
-    coreValue: "Supercharge your growth engine with data-driven advertising and rapid, AI-powered response systems.",
-    heroHeadline: "Next-Gen Marketing Engineered for High Conversions",
-    subHeadline: "Drive qualified demand through targeted ad campaigns and instant AI lead-capture experiences that maximize ad spend ROI.",
+    title: "Discovery Workshop",
+    coreValue: "Intensive collaborative sessions to identify operational bottlenecks, digital opportunities, and AI-driven growth vectors.",
+    heroHeadline: "Uncover High-Impact Digital & Automation Opportunities",
+    subHeadline: "A structured, interactive deep-dive with your leadership and core team to formulate a clear, prioritized digital transformation roadmap.",
     whatWeOffer: [
       {
-        title: "Paid Media Campaigns (Meta & Google)",
-        description: "Data-backed ad creation, precise audience targeting, and continuous budget optimization."
+        title: "Operational Bottleneck Mapping",
+        description: "Analyzing every stage of your customer journey and internal processes to reveal inefficiencies and waste."
       },
       {
-        title: "Agentic Ad-Interaction Flows",
-        description: "Connect paid ads directly to automated messaging systems that immediately deliver your service offerings to warm leads."
+        title: "AI & Automation Opportunity Prioritization",
+        description: "Scoring potential initiatives by ease of execution, upfront cost, and expected return on investment."
       },
       {
-        title: "Search Engine Optimization (SEO)",
-        description: "Implement AI-enhanced search strategies to dominate organic search results for core keywords."
+        title: "Tech Stack & Architecture Review",
+        description: "Evaluating current tools and software licenses to eliminate redundancy and improve compatibility."
       },
       {
-        title: "Campaign & Lead Analytics",
-        description: "Track every click from ad impression to CRM lead ingestion with real-time performance tracking."
+        title: "Actionable 30-60-90 Day Roadmap",
+        description: "A concrete milestone blueprint detailing immediate quick-wins and long-term modernization strategies."
       }
     ],
-    ctaText: "Launch Your Campaign"
-  },
-  {
-    slug: "ai-content-studio",
-    category: "Technology & Digital Solutions",
-    title: "AI Content Studio",
-    coreValue: "Scale high-quality content creation effortlessly without sacrificing brand voice or authority.",
-    heroHeadline: "On-Demand Brand Content Powered by AI & Human Strategy",
-    subHeadline: "Produce compelling social media campaigns, video scripts, blogs, and marketing assets at a fraction of the traditional turnaround time.",
-    whatWeOffer: [
-      {
-        title: "Social Media Content Creation",
-        description: "Bulk production of platform-optimized posts, captions, graphics, and carousel copy."
-      },
-      {
-        title: "Video Scripts & Storyboarding",
-        description: "Engaging scripts designed for short-form video (Reels, TikTok) and long-form video campaigns."
-      },
-      {
-        title: "Blog & Thought Leadership Writing",
-        description: "SEO-optimized articles and long-form copy crafted to establish industry authority."
-      },
-      {
-        title: "Pitch Decks & Marketing Collateral",
-        description: "Persuasive presentation decks, product descriptions, landing page copy, and sales assets."
-      }
-    ],
-    ctaText: "Explore Content Packages"
+    ctaText: "Book a Discovery Workshop"
   }
 ];

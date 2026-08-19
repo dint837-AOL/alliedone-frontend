@@ -164,16 +164,15 @@ export default function Home() {
               <div className="relative z-10 flex flex-col flex-grow">
                 <span className="inline-block text-[#2180C0] text-xs font-bold uppercase tracking-[0.18em] mb-4">Pillar 02</span>
                 <h3 className="text-3xl font-extrabold text-[#0D3A5C] mb-4 leading-tight tracking-tight">Technology &amp; Digital Solutions</h3>
-                <p className="text-slate-500 text-base leading-relaxed mb-8">AI implementation, process automation, messaging bots, email automation, skill development, digital marketing, and AI-powered content — modernizing every layer of your business.</p>
+                <p className="text-slate-500 text-base leading-relaxed mb-8">Educational software, AI training, no-code workflow automation, executive dashboards, AI tool selection, and transformation workshops.</p>
                 <ul className="space-y-3 mb-10 flex-grow">
                   {[
-                    "AI Opportunity & Implementation",
-                    "Process Automation Strategy",
-                    "WhatsApp & Messaging Bots",
-                    "Email Automation Consulting",
-                    "Skill Development",
-                    "AI Agency",
-                    "AI Content Studio",
+                    "Educational Web/App (Class IX-XII, SSC, HSC, Admission)",
+                    "AI Training (Students, Pros, Job Seekers & Founders)",
+                    "Workflow Automation (No Code)",
+                    "Dashboard Automation",
+                    "AI Tool selection & Implementation",
+                    "Discovery Workshop",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-3 text-slate-600 text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] flex-shrink-0"></span>

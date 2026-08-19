@@ -23,13 +23,12 @@ const getIconForSlug = (slug: string) => {
     case "supply-chain-logistics": return <Truck className="w-6 h-6" />;
     case "international-indenting": return <Briefcase className="w-6 h-6" />;
     case "government-procurement": return <Landmark className="w-6 h-6" />;
-    case "ai-opportunity-implementation": return <Lightbulb className="w-6 h-6" />;
-    case "process-automation-strategy": return <Workflow className="w-6 h-6" />;
-    case "whatsapp-messaging-bots": return <MessageSquare className="w-6 h-6" />;
-    case "email-automation-consulting": return <Mail className="w-6 h-6" />;
-    case "skill-development": return <GraduationCap className="w-6 h-6" />;
-    case "digital-marketing-ai-agency": return <TrendingUp className="w-6 h-6" />;
-    case "ai-content-studio": return <PenTool className="w-6 h-6" />;
+    case "educational-web-app": return <GraduationCap className="w-6 h-6" />;
+    case "ai-training": return <Lightbulb className="w-6 h-6" />;
+    case "workflow-automation-no-code": return <Workflow className="w-6 h-6" />;
+    case "dashboard-automation": return <TrendingUp className="w-6 h-6" />;
+    case "ai-tool-selection-implementation": return <PenTool className="w-6 h-6" />;
+    case "discovery-workshop": return <MessageSquare className="w-6 h-6" />;
     default: return <CheckCircle className="w-6 h-6" />;
   }
 };

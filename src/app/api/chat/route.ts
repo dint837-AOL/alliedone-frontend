@@ -49,10 +49,10 @@ export async function POST(req: Request) {
     const geminiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY;
     const openaiKey = process.env.OPENAI_API_KEY;
 
-    // If no AI key is configured, return a mock helpful message in UI stream format
+    // If no AI key is configured in environment, return a helpful notice
     if (!geminiKey && !openaiKey) {
       return createFallbackUIMessageResponse(
-        "Hi! The chatbot API key is not yet configured. Please set GEMINI_API_KEY in your environment variables to enable the AI assistant."
+        "Hi! The chatbot API key is not yet configured. Please set GEMINI_API_KEY in your environment variables (or .env.local) to enable the AI assistant."
       );
     }
 

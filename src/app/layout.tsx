@@ -60,7 +60,7 @@ export default function RootLayout({
                     className="w-full h-full object-contain"
                   />
                 </span>
-                <span>GLOBAL SUPPLY BD</span>
+                <span>GLOBAL SUPPLY BD.</span>
               </Link>
               <MobileNav />
             </div>
