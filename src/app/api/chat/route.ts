@@ -5,36 +5,55 @@ import { streamText } from "ai";
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
+function createFallbackUIMessageResponse(text: string) {
+  const encoder = new TextEncoder();
+  const stream = new ReadableStream({
+    async start(controller) {
+      controller.enqueue(encoder.encode(`data: {"type":"start"}\n\n`));
+      controller.enqueue(encoder.encode(`data: {"type":"start-step"}\n\n`));
+      controller.enqueue(encoder.encode(`data: {"type":"text-start","id":"0"}\n\n`));
+
+      const words = text.split(" ");
+      for (const word of words) {
+        const delta = JSON.stringify({ type: "text-delta", id: "0", delta: `${word} ` });
+        controller.enqueue(encoder.encode(`data: ${delta}\n\n`));
+        await new Promise((resolve) => setTimeout(resolve, 25));
+      }
+
+      controller.enqueue(encoder.encode(`data: {"type":"text-end","id":"0"}\n\n`));
+      controller.enqueue(encoder.encode(`data: {"type":"finish-step"}\n\n`));
+      controller.enqueue(encoder.encode(`data: {"type":"finish","finishReason":"stop"}\n\n`));
+      controller.enqueue(encoder.encode(`data: [DONE]\n\n`));
+      controller.close();
+    },
+  });
+
+  return new Response(stream, {
+    headers: {
+      "Content-Type": "text/event-stream; charset=utf-8",
+      "Cache-Control": "no-cache",
+      Connection: "keep-alive",
+    },
+  });
+}
+
 /**
  * Handles incoming chat messages from the frontend ChatWidget and streams back 
- * responses using Google Gemini (or OpenAI if configured).
+ * responses using Google Gemini (or OpenAI if configured) via the UI Message Stream protocol.
  * 
  * @param {Request} req - The incoming HTTP request containing the chat history (messages).
- * @returns {Promise<Response>} A text stream response containing the assistant's reply.
+ * @returns {Promise<Response>} A UI Message Stream response containing the assistant's reply.
  */
 export async function POST(req: Request) {
   try {
     const geminiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY;
     const openaiKey = process.env.OPENAI_API_KEY;
 
-    // If no AI key is configured, return a mock helpful message
+    // If no AI key is configured, return a mock helpful message in UI stream format
     if (!geminiKey && !openaiKey) {
-      const encoder = new TextEncoder();
-      const stream = new ReadableStream({
-        async start(controller) {
-          const message =
-            "Hi! The chatbot API key is not yet configured. Please set GEMINI_API_KEY in your environment variables to enable the AI assistant.";
-          const chunks = message.split(" ");
-          for (const chunk of chunks) {
-            controller.enqueue(encoder.encode(`${chunk} `));
-            await new Promise((resolve) => setTimeout(resolve, 30));
-          }
-          controller.close();
-        },
-      });
-      return new Response(stream, {
-        headers: { "Content-Type": "text/plain; charset=utf-8" },
-      });
+      return createFallbackUIMessageResponse(
+        "Hi! The chatbot API key is not yet configured. Please set GEMINI_API_KEY in your environment variables to enable the AI assistant."
+      );
     }
 
     const { messages } = await req.json();
@@ -62,20 +81,11 @@ export async function POST(req: Request) {
       messages: formattedMessages,
     });
 
-    return result.toTextStreamResponse();
+    return result.toUIMessageStreamResponse();
   } catch (error: any) {
     console.error("Chat API error:", error);
-    const encoder = new TextEncoder();
-    const errorMessage =
-      "I'm sorry, I encountered a temporary connection issue. Please try asking again in a moment.";
-    const stream = new ReadableStream({
-      start(controller) {
-        controller.enqueue(encoder.encode(errorMessage));
-        controller.close();
-      },
-    });
-    return new Response(stream, {
-      headers: { "Content-Type": "text/plain; charset=utf-8" },
-    });
+    return createFallbackUIMessageResponse(
+      "I'm sorry, I encountered a temporary connection issue. Please try asking again in a moment."
+    );
   }
 }
