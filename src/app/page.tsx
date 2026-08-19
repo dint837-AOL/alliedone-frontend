@@ -41,7 +41,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#081828]/95 via-[#0D3A5C]/75 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#081828] via-[#081828]/40 to-transparent"></div>
         </div>
-        
+
         {/* Glowing orbs */}
         <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-blue-400/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
@@ -51,7 +51,7 @@ export default function Home() {
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               AlliedOne Limited
             </div>
-            
+
             <ul className="mb-12 space-y-6 md:space-y-8">
               <li className="flex items-center gap-4 text-4xl md:text-6xl lg:text-[4rem] font-extrabold tracking-tight leading-[1.1] whitespace-nowrap">
                 <div className="w-5 flex justify-center flex-shrink-0 mt-1">
@@ -94,7 +94,7 @@ export default function Home() {
 
 
       {/* ══════════════════════════════════════════════
-          TRUST BAR — White with bottom border
+          TRUST BAR — White with bottom borderr
       ══════════════════════════════════════════════ */}
       <section className="bg-gradient-to-r from-[#0D3A5C] via-[#2180C0] to-[#0D3A5C] border-b border-blue-900/20 py-10 shadow-inner">
         <FadeInSection className="max-w-7xl mx-auto px-6 text-center" delay={0.2}>

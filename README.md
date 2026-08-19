@@ -49,7 +49,7 @@ The application serves multiple purposes:
 ## Tech Stack
 
 | Layer | Technology | Version | Purpose |
-|-------|-----------|---------|---------|
+| ------- | ----------- | --------- | --------- |
 | **Framework** | Next.js | 16.x | Full-stack React framework with App Router |
 | **UI Library** | React | 19 | Component model and state management |
 | **Language** | TypeScript | 5.x | Type-safe development |
@@ -138,7 +138,7 @@ alliedone-frontend/
 All routes use the **Next.js App Router** with file-based routing.
 
 | Route | Rendering | Description |
-|-------|-----------|-------------|
+| ------- | ----------- | ------------- |
 | `/` | Static | Homepage with Hero, Services pillars, Process, FAQ, Testimonials, CTA, and Newsletter |
 | `/about` | Static | Company story, team, mission, and values |
 | `/careers` | Static | Careers portal with open positions and job application form |
@@ -155,7 +155,7 @@ All routes use the **Next.js App Router** with file-based routing.
 Pre-rendered at build time via `generateStaticParams`:
 
 | URL Slug | Service Name |
-|----------|-------------|
+| ---------- | ------------- |
 | `ai-opportunity-implementation` | AI Opportunity and Implementation |
 | `process-automation-strategy` | Process Automation Strategy |
 | `whatsapp-messaging-bots` | WhatsApp and Messaging Bots |
@@ -333,7 +333,7 @@ npm run dev
 ### Available Scripts
 
 | Command | Description |
-|---------|-------------|
+| --------- | ------------- |
 | `npm run dev` | Start Next.js development server (webpack mode) |
 | `npm run build` | Create an optimized production build |
 | `npm start` | Serve the production build locally |
@@ -358,7 +358,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 For **Vercel production**, set these in the project's **Environment Variables** dashboard:
 
 | Variable | Production Value |
-|----------|-----------------|
+| ---------- | ----------------- |
 | `NEXT_PUBLIC_API_URL` | `https://alliedone-backend.onrender.com/api` |
 | `OPENAI_API_KEY` | Your production OpenAI key |
 
@@ -373,7 +373,7 @@ This application is deployed on **[Vercel](https://vercel.com)** with automatic 
 ### Vercel Service Settings
 
 | Setting | Value |
-|---------|-------|
+| --------- | ------- |
 | **Framework Preset** | Next.js |
 | **Build Command** | `npm run build` |
 | **Output Directory** | `.next` |
@@ -406,7 +406,7 @@ Route (app)
 ### Color Palette
 
 | Token | Hex | Usage |
-|-------|-----|-------|
+| ------- | ----- | ------- |
 | **Brand Dark** | `#0D3A5C` | Hero backgrounds, dark sections, footer |
 | **Brand Blue** | `#2180C0` | Primary buttons, accents |
 | **Brand Light Blue** | `#5BAEE8` | Hover states, gradient highlights |
@@ -429,7 +429,7 @@ Route (app)
 ### Core Component Patterns
 
 | Pattern | Classes |
-|---------|---------|
+| --------- | --------- |
 | **Primary Button** | `bg-[#2180C0] text-white hover:bg-[#1A5C8A] rounded-xl font-bold shadow-md` |
 | **White Card** | `bg-white border border-slate-100 rounded-2xl shadow-sm` |
 | **Dark Section** | `bg-[#0D3A5C]` with radial gradient overlay divs for depth |
@@ -450,7 +450,7 @@ Route (app)
 
 ## License
 
-This project is proprietary software owned by **AlliedOne Limited**. All rights reserved.
+This project is proprietary software owned by **AlliedOne Limited**. All rights reserved..
 
 ---
 
