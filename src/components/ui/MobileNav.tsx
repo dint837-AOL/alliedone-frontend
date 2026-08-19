@@ -16,8 +16,8 @@ const globalTradeServices = [
 ];
 
 const digitalServices = [
-  { name: "Educational Web/App for Class IX, X, SSC, XI, XII, HSC and University admission candidates", href: "/services/educational-web-app" },
-  { name: "AI Training for students, professionals, job seekers, and entrepreneurs", href: "/services/ai-training" },
+  { name: "Educational Web/App", href: "/services/educational-web-app" },
+  { name: "AI Training", href: "/services/ai-training" },
   { name: "Workflow Automation (No Code)", href: "/services/workflow-automation-no-code" },
   { name: "Dashboard Automation", href: "/services/dashboard-automation" },
   { name: "AI Tool selection & Implementation", href: "/services/ai-tool-selection-implementation" },

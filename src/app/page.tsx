@@ -167,8 +167,8 @@ export default function Home() {
                 <p className="text-slate-500 text-base leading-relaxed mb-8">Educational software, AI training, no-code workflow automation, executive dashboards, AI tool selection, and transformation workshops.</p>
                 <ul className="space-y-3 mb-10 flex-grow">
                   {[
-                    "Educational Web/App (Class IX-XII, SSC, HSC, Admission)",
-                    "AI Training (Students, Pros, Job Seekers & Founders)",
+                    "Educational Web/App",
+                    "AI Training",
                     "Workflow Automation (No Code)",
                     "Dashboard Automation",
                     "AI Tool selection & Implementation",

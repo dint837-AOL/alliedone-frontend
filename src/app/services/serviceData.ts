@@ -193,7 +193,7 @@ export const servicesData: ServiceDetail[] = [
   {
     slug: "educational-web-app",
     category: "Technology & Digital Solutions",
-    title: "Educational Web/App for Class IX, X, SSC, XI, XII, HSC and University admission candidates",
+    title: "Educational Web/App",
     coreValue: "Comprehensive digital learning and exam preparation platforms engineered for modern students from secondary to university entrance.",
     heroHeadline: "Next-Gen Educational Apps & Web Platforms",
     subHeadline: "Interactive learning portals, model tests, live quizzes, and smart performance analytics designed for Class IX–XII, SSC, HSC, and University admission examinees.",
@@ -220,7 +220,7 @@ export const servicesData: ServiceDetail[] = [
   {
     slug: "ai-training",
     category: "Technology & Digital Solutions",
-    title: "AI Training for students, professionals, job seekers, and entrepreneurs",
+    title: "AI Training",
     coreValue: "Empowering learners and leaders with practical, job-ready Artificial Intelligence, prompt engineering, and automation skills.",
     heroHeadline: "Practical AI Training for Career & Business Growth",
     subHeadline: "Hands-on, outcome-driven programs designed to take students, working professionals, job seekers, and business owners from beginner to confident AI practitioners.",

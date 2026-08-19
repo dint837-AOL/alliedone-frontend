@@ -16,8 +16,8 @@ const globalTradeServices = [
 ];
 
 const digitalServices = [
-  { name: "Educational Web/App for Class IX, X, SSC, XI, XII, HSC and University admission candidates", href: "/services/educational-web-app" },
-  { name: "AI Training for students, professionals, job seekers, and entrepreneurs", href: "/services/ai-training" },
+  { name: "Educational Web/App", href: "/services/educational-web-app" },
+  { name: "AI Training", href: "/services/ai-training" },
   { name: "Workflow Automation (No Code)", href: "/services/workflow-automation-no-code" },
   { name: "Dashboard Automation", href: "/services/dashboard-automation" },
   { name: "AI Tool selection & Implementation", href: "/services/ai-tool-selection-implementation" },
@@ -96,40 +96,40 @@ export default function DesktopNav() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.97 }}
               transition={{ duration: 0.15 }}
-              className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[680px] max-w-[90vw] bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden"
+              className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[600px] bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden"
             >
-              <div className="grid grid-cols-12 gap-0">
-                {/* Digital Solutions Column — First (Larger width for rich titles) */}
-                <div className="col-span-7 p-5 border-r border-slate-100">
+              <div className="grid grid-cols-2 gap-0">
+                {/* Digital Solutions Column — First */}
+                <div className="p-5 border-r border-slate-100">
                   <p className="text-[10px] font-extrabold text-[#0D3A5C] uppercase tracking-[0.18em] mb-3 px-2">Digital Solutions</p>
-                  <div className="space-y-1">
+                  <div className="space-y-0.5">
                     {digitalServices.map((s) => (
                       <Link
                         key={s.href}
                         href={s.href}
                         onClick={() => setServicesOpen(false)}
-                        className="flex items-start gap-2 px-3 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group leading-snug"
+                        className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 flex-shrink-0 mt-1.5 group-hover:scale-125 transition-transform"></span>
-                        <span className="line-clamp-2">{s.name}</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+                        {s.name}
                       </Link>
                     ))}
                   </div>
                 </div>
 
                 {/* Global Trade Column — Second */}
-                <div className="col-span-5 p-5">
+                <div className="p-5">
                   <p className="text-[10px] font-extrabold text-[#0D3A5C] uppercase tracking-[0.18em] mb-3 px-2">Global Trade</p>
-                  <div className="space-y-1">
+                  <div className="space-y-0.5">
                     {globalTradeServices.map((s) => (
                       <Link
                         key={s.href}
                         href={s.href}
                         onClick={() => setServicesOpen(false)}
-                        className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group"
+                        className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] flex-shrink-0 group-hover:scale-125 transition-transform"></span>
-                        <span className="line-clamp-2">{s.name}</span>
+                        {s.name}
                       </Link>
                     ))}
                   </div>
