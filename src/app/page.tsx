@@ -46,12 +46,7 @@ export default function Home() {
         <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-blue-400/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
         <FadeInSection className="max-w-7xl mx-auto px-6 relative z-10 w-full" delay={0.1}>
-          <div className="max-w-3xl flex flex-col items-start">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-slate-100 text-sm font-semibold mb-10 tracking-wide border border-white/20 backdrop-blur-md shadow-lg">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              AlliedOne Limited
-            </div>
-
+          <div className="max-w-3xl flex flex-col items-start pt-4">
             <ul className="mb-12 space-y-6 md:space-y-8">
               <li className="flex items-center gap-4 text-4xl md:text-6xl lg:text-[4rem] font-extrabold tracking-tight leading-[1.1] whitespace-nowrap">
                 <div className="w-5 flex justify-center flex-shrink-0 mt-1">
