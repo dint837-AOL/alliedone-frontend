@@ -35,14 +35,27 @@ export default function AboutPage() {
             </div>
             <h2 className="text-2xl font-bold text-[#0D3A5C] mb-6 relative z-10">Message from the CEO</h2>
             <div className="text-slate-600 space-y-4 text-base md:text-lg leading-relaxed relative z-10">
-              <p>Welcome to AlliedOne Limited.</p>
               <p>
-                At AlliedOne Limited, we are convinced that technology is not just a tool but a catalyst for business transformations and changes in the industry and community. Our vision includes the creation of an organization combining innovation, integrity, and international business skills.
+                Welcome to AlliedOne Limited and thank you for your interest in our company.
               </p>
               <p>
-                Our goal is not to be just another technology company, but a reliable strategic partner providing intelligent solutions, fostering innovation, and developing relationships based on trust, professionalism, and results. We are dedicated to sustainability and creating value for each of our clients and partners.
+                Over the course of the last 14 years, my career has revolved around the tangible aspects of international business. From creating international business operations to supply chain management, governmental procurement and cooperation with agencies by means of GLOBAL SUPPLY BD. (GSBD), I gained firsthand knowledge of the difficulties and intricacies of industry through real-life experience.
               </p>
-              <p>Please, join us in creating innovative solutions helping to achieve the goals of economic growth and digitalization.</p>
+              <p>
+                It soon became clear to me that only those organizations will survive in the coming years which can skillfully combine industry practicality with technology advancements.
+              </p>
+              <p>
+                That is why AlliedOne Limited was established. Alongside my continuous work in international trade and industrial sourcing through strategic alliances with our partners all over the world, this company was created with a single-minded dedication – to bring AI, business automation and digitalization solutions to organizations.
+              </p>
+              <p>
+                Being aware of the physical market, starting from the supply chain of materials up to highly complex distribution systems, AlliedOne does not develop technologies for themselves only; we have been developing technologies to address specific problems on the market. We bridge the old trading floor and the new digital world.
+              </p>
+              <p>
+                It is my conviction that successful businesses operate based on four main principles: trust, implementation, technology, and long-term cooperation. If you are a company, that aims at digitization, a tech company that wants to collaborate, or an international business company that seeks a dependable business partner in Bangladesh, AlliedOne can become your business booster.
+              </p>
+              <p>
+                Thank you to all our customers, business partners, and stakeholders for your loyalty and cooperation!
+              </p>
               <div className="pt-6">
                 <p className="font-bold text-[#0D3A5C]">Mohammad Ahsan Kabir</p>
                 <p className="text-sm text-slate-500">Chief Executive Officer, AlliedOne Limited</p>
