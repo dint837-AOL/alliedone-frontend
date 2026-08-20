@@ -1,7 +1,8 @@
 import Link from "next/link";
 import {
   Lightbulb, Workflow, MessageSquare, TrendingUp, PenTool, Mail, GraduationCap,
-  ArrowRight, CheckCircle, Landmark, Globe, Briefcase, Network, Truck, Factory
+  ArrowRight, CheckCircle, Landmark, Globe, Briefcase, Network, Truck, Factory,
+  Monitor, Code
 } from "lucide-react";
 import { servicesData } from "./serviceData";
 
@@ -29,6 +30,8 @@ const getIconForSlug = (slug: string) => {
     case "dashboard-automation": return <TrendingUp className="w-6 h-6" />;
     case "ai-tool-selection-implementation": return <PenTool className="w-6 h-6" />;
     case "discovery-workshop": return <MessageSquare className="w-6 h-6" />;
+    case "website-development": return <Monitor className="w-6 h-6" />;
+    case "software-development": return <Code className="w-6 h-6" />;
     default: return <CheckCircle className="w-6 h-6" />;
   }
 };

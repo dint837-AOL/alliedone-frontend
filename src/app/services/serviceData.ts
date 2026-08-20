@@ -351,5 +351,59 @@ export const servicesData: ServiceDetail[] = [
       }
     ],
     ctaText: "Book a Discovery Workshop"
+  },
+  {
+    slug: "website-development",
+    category: "Technology & Digital Solutions",
+    title: "Website Development",
+    coreValue: "High-performance, modern websites and web applications engineered for speed, conversion, and seamless user experiences.",
+    heroHeadline: "Modern, Scalable Web Applications & Portals",
+    subHeadline: "We build responsive, secure, and blazing-fast web solutions tailored to strengthen your corporate brand and power online business operations.",
+    whatWeOffer: [
+      {
+        title: "Custom Web Application Architecture",
+        description: "Tailored frontend and full-stack solutions built with Next.js, React, and modern web standards."
+      },
+      {
+        title: "Corporate Websites & Dynamic Portals",
+        description: "High-impact, conversion-focused corporate platforms with integrated content management."
+      },
+      {
+        title: "Performance & SEO Optimization",
+        description: "Core Web Vitals optimization, responsive UI across all screen sizes, and search visibility."
+      },
+      {
+        title: "Cloud Deployment & Security",
+        description: "Robust hosting setup, SSL, CDN integration, and ongoing maintenance support."
+      }
+    ],
+    ctaText: "Start Web Project"
+  },
+  {
+    slug: "software-development",
+    category: "Technology & Digital Solutions",
+    title: "Software Development",
+    coreValue: "Bespoke software systems, API integrations, and scalable business tools designed to digitize complex operational workflows.",
+    heroHeadline: "Custom Software Engineered for Growth",
+    subHeadline: "From internal management tools and database applications to custom client portals, we develop robust software that drives measurable efficiency.",
+    whatWeOffer: [
+      {
+        title: "Custom Business Application Development",
+        description: "Purpose-built software systems designed around your organization's unique operational needs."
+      },
+      {
+        title: "API Design & Third-Party Integrations",
+        description: "Connecting ERPs, payment gateways, CRM systems, and cloud databases into unified pipelines."
+      },
+      {
+        title: "Legacy System Modernization",
+        description: "Migrating and upgrading outdated legacy processes into agile, cloud-native web architectures."
+      },
+      {
+        title: "Quality Assurance & Lifecycle Support",
+        description: "Comprehensive testing, security auditing, and continuous technical enhancement."
+      }
+    ],
+    ctaText: "Discuss Software Project"
   }
 ];

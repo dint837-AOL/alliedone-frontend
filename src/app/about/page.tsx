@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Target, Shield, Zap, Globe, Users, BookOpen } from "lucide-react";
+import { ArrowRight, Target, Shield, Globe } from "lucide-react";
 
 export const metadata = {
   title: "About Us | AlliedOne Limited",
@@ -74,8 +74,8 @@ export default function AboutPage() {
               <Target className="w-7 h-7" />
             </div>
             <h3 className="text-2xl font-bold text-[#0D3A5C] mb-4">Our Vision</h3>
-            <p className="text-slate-600 leading-relaxed">
-              To become a leading technology-enabled business group recognized nationally and internationally for innovation, operational excellence, ethical business practices, and sustainable growth.
+            <p className="text-slate-600 leading-relaxed text-base md:text-lg">
+              Becoming a trusted regional business and technology company, recognized for innovation, integrity and operational excellence.
             </p>
           </div>
           
@@ -85,39 +85,14 @@ export default function AboutPage() {
               <Globe className="w-7 h-7" />
             </div>
             <h3 className="text-2xl font-bold text-[#0D3A5C] mb-4">Our Mission</h3>
-            <ul className="text-slate-600 leading-relaxed space-y-3">
-              <li className="flex gap-3"><CheckCircle className="w-5 h-5 text-[#2180C0] shrink-0" /> Provide innovative digital solutions that address the needs of businesses.</li>
-              <li className="flex gap-3"><CheckCircle className="w-5 h-5 text-[#2180C0] shrink-0" /> Help businesses grow faster using technology and automation.</li>
-              <li className="flex gap-3"><CheckCircle className="w-5 h-5 text-[#2180C0] shrink-0" /> Contribute towards providing quality education using digital means.</li>
-              <li className="flex gap-3"><CheckCircle className="w-5 h-5 text-[#2180C0] shrink-0" /> Leverage strong international partnerships for supply chain management.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* ── STRATEGIC PILLARS ── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="inline-block text-[#2180C0] text-xs font-bold uppercase tracking-widest mb-3">Our Core Focus</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0D3A5C] mb-4">Strategic Business Pillars</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: <Zap className="w-6 h-6" />, title: "Technology & Innovation", desc: "Creating software, AI, automation systems, and digital solutions to improve business performance." },
-              { icon: <BookOpen className="w-6 h-6" />, title: "Education & Human Capital", desc: "Providing technology-based education solutions and ICT skills development programs." },
-              { icon: <Globe className="w-6 h-6" />, title: "International Trade", desc: "Enabling imports/exports of raw materials through reliable global sourcing." },
-              { icon: <Users className="w-6 h-6" />, title: "Institutional Solutions", desc: "Serving governments and institutions with procurement, tech, and business solutions." },
-            ].map((pillar) => (
-              <div key={pillar.title} className="bg-[#F8FAFC] border border-slate-100 p-8 rounded-2xl hover:border-[#2180C0]/30 transition-all duration-300">
-                <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-[#2180C0] mb-6">
-                  {pillar.icon}
-                </div>
-                <h4 className="text-lg font-bold text-[#0D3A5C] mb-3">{pillar.title}</h4>
-                <p className="text-sm text-slate-500 leading-relaxed">{pillar.desc}</p>
-              </div>
-            ))}
+            <p className="text-slate-600 font-medium mb-3">Our mission is:</p>
+            <ol className="text-slate-600 leading-relaxed space-y-3 list-decimal list-inside">
+              <li>To strengthen global trade through reliable sourcing and strategic partnerships.</li>
+              <li>To deliver practical business and technology solutions that create measurable value for our clients.</li>
+              <li>To support organizations in modernizing.</li>
+              <li>To contribute to human resources development through technology and,</li>
+              <li>To build long term relationships based on trust, professionalism and continuous development.</li>
+            </ol>
           </div>
         </div>
       </section>
@@ -127,17 +102,17 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Our Core Values</h2>
-            <p className="text-slate-300 max-w-2xl mx-auto text-lg">The principles guiding our governance structure and daily operations.</p>
+            <p className="text-slate-300 max-w-2xl mx-auto text-lg">The foundational principles that guide our conduct, decisions, and partnerships.</p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
-              { title: "Integrity", desc: "Honesty, transparency, and accountability in every business activity." },
-              { title: "Innovation", desc: "Continuously seeking smarter solutions through creative thinking." },
-              { title: "Customer Success", desc: "The success of our clients defines our own success." },
-              { title: "Excellence", desc: "Pursuing the highest standards in quality, execution, and delivery." },
-              { title: "Collaboration", desc: "Building long-term partnerships to create sustainable growth." },
-              { title: "Continuous Learning", desc: "Embracing adaptability and constant improvement." },
+              { title: "1. Integrity", desc: "Honesty, transparency, and the highest ethical standards in all business activities." },
+              { title: "2. Innovation", desc: "Pioneering creative, future-ready business and technology solutions." },
+              { title: "3. Collaboration", desc: "Building strong, cooperative partnerships that achieve shared success." },
+              { title: "4. Accountability", desc: "Taking full ownership and delivering on our commitments with dependability." },
+              { title: "5. Continuous Development", desc: "Relentlessly expanding knowledge, processes, and technological capabilities." },
+              { title: "6. Long Term Orientation", desc: "Dedicated to enduring relationships and creating sustainable long-term value." },
             ].map((value) => (
               <div key={value.title} className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm">
                 <Shield className="w-6 h-6 text-[#5BAEE8] mb-4" />
