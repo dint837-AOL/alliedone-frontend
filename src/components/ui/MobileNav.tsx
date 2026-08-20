@@ -123,10 +123,12 @@ export default function MobileNav() {
                   Global Trade &amp; Institutional Business
                 </p>
                 <div className="space-y-1 mt-2">
-                  {globalTradeServices.map((s) => (
+                  {globalTradeServices.map((s, idx) => (
                     <Link key={s.href} href={s.href} onClick={() => setIsOpen(false)}
                       className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-[#1A5C8A] transition-colors py-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] flex-shrink-0"></span>
+                      <span className="w-4 h-4 rounded bg-slate-100 text-[#2180C0] text-[10px] font-bold flex items-center justify-center flex-shrink-0">
+                        {idx + 1}
+                      </span>
                       {s.name}
                     </Link>
                   ))}

@@ -156,14 +156,16 @@ export default function DesktopNav() {
                       Global Trade &amp; Institutional Business
                     </p>
                     <div className="space-y-0.5">
-                      {globalTradeServices.map((s) => (
+                      {globalTradeServices.map((s, idx) => (
                         <Link
                           key={s.href}
                           href={s.href}
                           onClick={() => setServicesOpen(false)}
-                          className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group"
+                          className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+                          <span className="w-4 h-4 rounded bg-[#EBF4FB] text-[#2180C0] text-[10px] font-bold flex items-center justify-center flex-shrink-0 group-hover:bg-[#2180C0] group-hover:text-white transition-colors">
+                            {idx + 1}
+                          </span>
                           {s.name}
                         </Link>
                       ))}
