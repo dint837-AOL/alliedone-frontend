@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, Target, Shield, Globe } from "lucide-react";
+import {
+  ArrowRight, Target, Globe,
+  ShieldCheck, Lightbulb, Users, CheckCircle2, TrendingUp, Compass
+} from "lucide-react";
 
 export const metadata = {
   title: "About Us | AlliedOne Limited",
@@ -107,15 +110,39 @@ export default function AboutPage() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
-              { title: "1. Integrity", desc: "Honesty, transparency, and the highest ethical standards in all business activities." },
-              { title: "2. Innovation", desc: "Pioneering creative, future-ready business and technology solutions." },
-              { title: "3. Collaboration", desc: "Building strong, cooperative partnerships that achieve shared success." },
-              { title: "4. Accountability", desc: "Taking full ownership and delivering on our commitments with dependability." },
-              { title: "5. Continuous Development", desc: "Relentlessly expanding knowledge, processes, and technological capabilities." },
-              { title: "6. Long Term Orientation", desc: "Dedicated to enduring relationships and creating sustainable long-term value." },
+              {
+                title: "1. Integrity",
+                desc: "Honesty, transparency, and the highest ethical standards in all business activities.",
+                icon: <ShieldCheck className="w-6 h-6 text-[#5BAEE8] mb-4" />,
+              },
+              {
+                title: "2. Innovation",
+                desc: "Pioneering creative, future-ready business and technology solutions.",
+                icon: <Lightbulb className="w-6 h-6 text-[#5BAEE8] mb-4" />,
+              },
+              {
+                title: "3. Collaboration",
+                desc: "Building strong, cooperative partnerships that achieve shared success.",
+                icon: <Users className="w-6 h-6 text-[#5BAEE8] mb-4" />,
+              },
+              {
+                title: "4. Accountability",
+                desc: "Taking full ownership and delivering on our commitments with dependability.",
+                icon: <CheckCircle2 className="w-6 h-6 text-[#5BAEE8] mb-4" />,
+              },
+              {
+                title: "5. Continuous Development",
+                desc: "Relentlessly expanding knowledge, processes, and technological capabilities.",
+                icon: <TrendingUp className="w-6 h-6 text-[#5BAEE8] mb-4" />,
+              },
+              {
+                title: "6. Long Term Orientation",
+                desc: "Dedicated to enduring relationships and creating sustainable long-term value.",
+                icon: <Compass className="w-6 h-6 text-[#5BAEE8] mb-4" />,
+              },
             ].map((value) => (
               <div key={value.title} className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm">
-                <Shield className="w-6 h-6 text-[#5BAEE8] mb-4" />
+                {value.icon}
                 <h4 className="text-lg font-bold mb-2">{value.title}</h4>
                 <p className="text-sm text-slate-300">{value.desc}</p>
               </div>
