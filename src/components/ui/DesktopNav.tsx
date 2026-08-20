@@ -18,6 +18,15 @@ const division2Services = [
   { name: "Practical AI Training Programs", href: "/services/ai-training" },
 ];
 
+const globalTradeServices = [
+  { name: "Import & Strategic Sourcing", href: "/services/import-strategic-sourcing" },
+  { name: "Industrial Supply Solutions", href: "/services/industrial-supply-solutions" },
+  { name: "Supply Chain & Logistics", href: "/services/supply-chain-logistics" },
+  { name: "Export Facilitation", href: "/services/export-facilitation" },
+  { name: "International Indenting", href: "/services/international-indenting" },
+  { name: "Government Procurement", href: "/services/government-procurement" },
+];
+
 const topLinksBeforeServices = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
@@ -90,32 +99,47 @@ export default function DesktopNav() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.97 }}
               transition={{ duration: 0.15 }}
-              className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[680px] bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden"
+              className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[700px] bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden"
             >
-              {/* Introduction Banner */}
-              <div className="bg-[#F8FAFC] border-b border-slate-100 p-4 px-6 text-xs text-slate-600 leading-relaxed font-normal">
-                AlliedOne Limited works through 2 divisions, each focusing on different goals and activities. The divisions are interdependent and support each other, enabling us to deliver comprehensive solutions under the same corporate identity.
-              </div>
-
               <div className="grid grid-cols-2 gap-0">
-                {/* Division 1: Technology and Digital Solutions */}
-                <div className="p-5 border-r border-slate-100 flex flex-col justify-between">
+                {/* Left Column: Tech & HR Divisions */}
+                <div className="p-5 border-r border-slate-100 flex flex-col gap-4">
+                  {/* Division 1: Technology and Digital Solutions */}
                   <div>
-                    <p className="text-[11px] font-extrabold text-[#0D3A5C] uppercase tracking-[0.14em] mb-1 px-2">
-                      Division 1: Technology and Digital Solutions
+                    <p className="text-[11px] font-extrabold text-[#0D3A5C] uppercase tracking-[0.14em] mb-1.5 px-2">
+                      Division 1: Technology &amp; Digital Solutions
                     </p>
-                    <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-3 px-2">
-                      Relevant activities:
-                    </p>
-                    <div className="space-y-1">
+                    <div className="space-y-0.5">
                       {division1Services.map((s, idx) => (
                         <Link
                           key={s.href}
                           href={s.href}
                           onClick={() => setServicesOpen(false)}
-                          className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group"
+                          className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group"
                         >
-                          <span className="w-5 h-5 rounded-md bg-[#EBF4FB] text-[#2180C0] text-xs font-bold flex items-center justify-center flex-shrink-0 group-hover:bg-[#2180C0] group-hover:text-white transition-colors">
+                          <span className="w-4 h-4 rounded bg-[#EBF4FB] text-[#2180C0] text-[10px] font-bold flex items-center justify-center flex-shrink-0 group-hover:bg-[#2180C0] group-hover:text-white transition-colors">
+                            {idx + 1}
+                          </span>
+                          {s.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Division 2: Human Resource Development */}
+                  <div className="pt-3 border-t border-slate-100">
+                    <p className="text-[11px] font-extrabold text-[#0D3A5C] uppercase tracking-[0.14em] mb-1.5 px-2">
+                      Division 2: Human Resource Development
+                    </p>
+                    <div className="space-y-0.5">
+                      {division2Services.map((s, idx) => (
+                        <Link
+                          key={s.href}
+                          href={s.href}
+                          onClick={() => setServicesOpen(false)}
+                          className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group"
+                        >
+                          <span className="w-4 h-4 rounded bg-[#EBF4FB] text-[#2180C0] text-[10px] font-bold flex items-center justify-center flex-shrink-0 group-hover:bg-[#2180C0] group-hover:text-white transition-colors">
                             {idx + 1}
                           </span>
                           {s.name}
@@ -125,26 +149,21 @@ export default function DesktopNav() {
                   </div>
                 </div>
 
-                {/* Division 2: Human Resource Development */}
-                <div className="p-5 flex flex-col justify-between">
+                {/* Right Column: Global Trade & Institutional Business */}
+                <div className="p-5 flex flex-col justify-start">
                   <div>
-                    <p className="text-[11px] font-extrabold text-[#0D3A5C] uppercase tracking-[0.14em] mb-1 px-2">
-                      Division 2: Human Resource Development
+                    <p className="text-[11px] font-extrabold text-[#0D3A5C] uppercase tracking-[0.14em] mb-2 px-2">
+                      Global Trade &amp; Institutional Business
                     </p>
-                    <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-3 px-2">
-                      Relevant activities:
-                    </p>
-                    <div className="space-y-1">
-                      {division2Services.map((s, idx) => (
+                    <div className="space-y-0.5">
+                      {globalTradeServices.map((s) => (
                         <Link
                           key={s.href}
                           href={s.href}
                           onClick={() => setServicesOpen(false)}
                           className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group"
                         >
-                          <span className="w-5 h-5 rounded-md bg-[#EBF4FB] text-[#2180C0] text-xs font-bold flex items-center justify-center flex-shrink-0 group-hover:bg-[#2180C0] group-hover:text-white transition-colors">
-                            {idx + 1}
-                          </span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] flex-shrink-0 group-hover:scale-125 transition-transform"></span>
                           {s.name}
                         </Link>
                       ))}

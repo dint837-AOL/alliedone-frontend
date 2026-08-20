@@ -18,6 +18,15 @@ const division2Services = [
   { name: "Practical AI Training Programs", href: "/services/ai-training" },
 ];
 
+const globalTradeServices = [
+  { name: "Import & Strategic Sourcing", href: "/services/import-strategic-sourcing" },
+  { name: "Industrial Supply Solutions", href: "/services/industrial-supply-solutions" },
+  { name: "Supply Chain & Logistics", href: "/services/supply-chain-logistics" },
+  { name: "Export Facilitation", href: "/services/export-facilitation" },
+  { name: "International Indenting", href: "/services/international-indenting" },
+  { name: "Government Procurement", href: "/services/government-procurement" },
+];
+
 const topLinksBeforeServices = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
@@ -75,13 +84,9 @@ export default function MobileNav() {
 
           {servicesOpen && (
             <div className="pl-4 border-l-2 border-slate-200 space-y-4 mb-2">
-              <p className="text-xs text-slate-500 leading-relaxed pt-1">
-                AlliedOne Limited works through 2 divisions, delivering comprehensive solutions under the same corporate identity.
-              </p>
-
               <div>
                 <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider">
-                  Division 1: Technology & Digital Solutions
+                  Division 1: Technology &amp; Digital Solutions
                 </p>
                 <div className="space-y-1 mt-2">
                   {division1Services.map((s, idx) => (
@@ -107,6 +112,21 @@ export default function MobileNav() {
                       <span className="w-4 h-4 rounded bg-slate-100 text-[#2180C0] text-[10px] font-bold flex items-center justify-center flex-shrink-0">
                         {idx + 1}
                       </span>
+                      {s.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider pt-2 border-t border-slate-100">
+                  Global Trade &amp; Institutional Business
+                </p>
+                <div className="space-y-1 mt-2">
+                  {globalTradeServices.map((s) => (
+                    <Link key={s.href} href={s.href} onClick={() => setIsOpen(false)}
+                      className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-[#1A5C8A] transition-colors py-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] flex-shrink-0"></span>
                       {s.name}
                     </Link>
                   ))}
