@@ -25,64 +25,127 @@ export default function Home() {
     <div className="w-full">
 
       {/* ══════════════════════════════════════════════
-          HERO — IT Focus, Navy background
+          HERO — Global Trade, Technology, Trusted Partnerships
       ══════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden pt-32 pb-40 min-h-[90vh] flex items-center">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/hero-bg.png"
-            alt="AlliedOne Background"
-            fill
-            className="object-cover"
-            priority
-          />
-          {/* Gradient Overlays for readability and style */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#081828]/95 via-[#0D3A5C]/75 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#081828] via-[#081828]/40 to-transparent"></div>
-        </div>
+      <section className="relative w-full overflow-hidden bg-[#071927]">
 
-        {/* Glowing orbs */}
-        <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-blue-400/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
+        {/* Image at full natural size — drives section height, no cropping */}
+        <Image
+          src="/IMG-20260823-WA0011.jpg"
+          alt="AlliedOne Global Trade & Technology Solutions"
+          width={1920}
+          height={1080}
+          className="w-full h-auto block"
+          priority
+          sizes="100vw"
+          style={{ display: 'block' }}
+        />
 
-        <FadeInSection className="max-w-7xl mx-auto px-6 relative z-10 w-full" delay={0.1}>
-          <div className="max-w-3xl flex flex-col items-start pt-4">
-            <ul className="mb-12 space-y-6 md:space-y-8">
-              <li className="flex items-center gap-4 text-4xl md:text-6xl lg:text-[4rem] font-extrabold tracking-tight leading-[1.1] whitespace-nowrap">
-                <div className="w-5 flex justify-center flex-shrink-0 mt-1">
-                  <span className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_0_15px_rgba(56,189,248,0.6)]"></span>
-                </div>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-cyan-300 drop-shadow-lg">
-                  Smart Tech Solutions
+        {/* Content overlay — absolutely covers the image */}
+        <div className="absolute inset-0 flex flex-col justify-between px-6 pt-20 pb-6 sm:pt-24 sm:pb-8">
+
+          {/* Bottom dark gradient — makes card area distinct without hiding the image */}
+          <div className="absolute bottom-0 left-0 right-0 h-[38%] bg-gradient-to-t from-black/55 via-black/25 to-transparent pointer-events-none" />
+
+          {/* Top: Headline + subtitle + buttons */}
+          <FadeInSection className="w-full max-w-7xl mx-auto" delay={0.1}>
+            <div className="max-w-2xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.75rem] font-black tracking-tight leading-[1.08] mb-4">
+                <span className="block text-[#006A4E] drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
+                  Global Trade.
                 </span>
-              </li>
-              <li className="flex items-center gap-4 text-3xl md:text-4xl lg:text-[2.25rem] font-semibold text-slate-300">
-                <div className="w-5 flex justify-center flex-shrink-0 mt-1">
-                  <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-slate-400"></span>
-                </div>
-                <span className="text-slate-200">
-                  International Business
+                <span className="block text-[#075586] drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
+                  Technology.
                 </span>
-              </li>
-            </ul>
+                <span className="block text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.9)]">
+                  Trusted Partnerships.
+                </span>
+              </h1>
 
-            <div className="flex flex-col sm:flex-row gap-5">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-xl font-extrabold hover:from-cyan-400 hover:to-blue-500 transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] text-base border border-blue-400/30"
-              >
-                Start Your AI Journey
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center bg-white/10 text-white px-8 py-4 rounded-xl font-bold border border-white/30 hover:bg-white/20 transition-all text-base backdrop-blur-md"
-              >
-                Book Demo
-              </Link>
+              <p className="text-slate-200 text-sm sm:text-base max-w-md mb-6 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                Two independent, specialized businesses — one shared commitment to reliability, expertise, and long-term partnership.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  href="#businesses"
+                  className="inline-flex items-center gap-2 bg-[#006A4E] hover:bg-[#004d38] text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg text-sm font-bold shadow-lg transition-all hover:-translate-y-0.5"
+                >
+                  <span>Explore Our Businesses</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border border-white/40 px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg text-sm font-bold backdrop-blur-sm transition-all hover:-translate-y-0.5"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
-          </div>
-        </FadeInSection>
+          </FadeInSection>
+
+          {/* Bottom: OUR BUSINESSES cards — above the gradient overlay */}
+          <FadeInSection className="w-full max-w-7xl mx-auto relative z-10" delay={0.3}>
+            <div id="businesses" className="w-full">
+              <div className="mb-2">
+                <span className="text-[9px] font-extrabold uppercase tracking-[0.3em] text-slate-400/80">
+                  OUR BUSINESSES
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
+
+                {/* Card 01: GLOBAL SUPPLY BD */}
+                <div className="group bg-[#006A4E]/30 hover:bg-[#006A4E]/40 border border-[#006A4E]/50 hover:border-[#006A4E]/70 rounded-xl p-3 sm:p-4 transition-all duration-300 flex flex-col gap-1.5">
+                  <div>
+                    <span className="text-[9px] font-bold text-[#006A4E] uppercase tracking-widest drop-shadow-sm">01</span>
+                    <h3 className="text-sm sm:text-[15px] font-black text-white tracking-tight leading-tight drop-shadow-sm">
+                      GLOBAL SUPPLY BD (GSBD)
+                    </h3>
+                    <p className="text-[10px] font-semibold text-[#006A4E] mt-0.5 mb-1.5 drop-shadow-sm">
+                      International Trade &amp; Supply Solutions
+                    </p>
+                    <p className="text-[9px] sm:text-[10px] text-slate-200/90 leading-snug">
+                      · Global Sourcing &amp; Procurement · Import &amp; Export Trade Solutions · International Indenting &amp; Representation
+                    </p>
+                  </div>
+                  <Link
+                    href="/gsbd"
+                    className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-[#006A4E] hover:text-[#008f69] transition-colors mt-0.5 drop-shadow-sm"
+                  >
+                    <span>Explore GSBD</span>
+                    <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+
+                {/* Card 02: ALLIEDONE DIGITAL */}
+                <div className="group bg-[#075586]/30 hover:bg-[#075586]/40 border border-[#075586]/50 hover:border-[#075586]/70 rounded-xl p-3 sm:p-4 transition-all duration-300 flex flex-col gap-1.5">
+                  <div>
+                    <span className="text-[9px] font-bold text-[#075586] uppercase tracking-widest drop-shadow-sm">02</span>
+                    <h3 className="text-sm sm:text-[15px] font-black text-white tracking-tight leading-tight drop-shadow-sm">
+                      ALLIEDONE DIGITAL
+                    </h3>
+                    <p className="text-[10px] font-semibold text-[#075586] mt-0.5 mb-1.5 drop-shadow-sm">
+                      Smart IT &amp; Digital Enterprise Solutions
+                    </p>
+                    <p className="text-[9px] sm:text-[10px] text-slate-200/90 leading-snug">
+                      · AI &amp; Business Automation · Web Development &amp; Design · Education, Training &amp; Skills Development
+                    </p>
+                  </div>
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-[#075586] hover:text-[#0a7ebc] transition-colors mt-0.5 drop-shadow-sm"
+                  >
+                    <span>Explore Digital</span>
+                    <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+
+              </div>
+            </div>
+          </FadeInSection>
+
+        </div>
       </section>
 
 

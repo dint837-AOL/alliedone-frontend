@@ -6,25 +6,20 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Bug, ChevronDown, ChevronUp } from "lucide-react";
 
-const division1Services = [
-  { name: "Business Automation", href: "/services/workflow-automation-no-code" },
-  { name: "Website Development", href: "/services/website-development" },
-  { name: "AI Implementation", href: "/services/ai-tool-selection-implementation" },
-  { name: "Software Development", href: "/services/software-development" },
-];
-
-const division2Services = [
-  { name: "Educational Web & App Platforms", href: "/services/educational-web-app" },
-  { name: "Practical AI Training Programs", href: "/services/ai-training" },
-];
-
 const globalTradeServices = [
-  { name: "Import & Strategic Sourcing", href: "/services/import-strategic-sourcing" },
-  { name: "Industrial Supply Solutions", href: "/services/industrial-supply-solutions" },
-  { name: "Supply Chain & Logistics", href: "/services/supply-chain-logistics" },
-  { name: "Export Facilitation", href: "/services/export-facilitation" },
-  { name: "International Indenting", href: "/services/international-indenting" },
-  { name: "Government Procurement", href: "/services/government-procurement" },
+  { name: "Global Sourcing & Procurement", href: "/services/global-sourcing-procurement" },
+  { name: "Import & Trade Solutions", href: "/services/import-trade-solutions" },
+  { name: "Export & Global Market Access", href: "/services/export-global-market-access" },
+  { name: "International Indenting & Representation", href: "/services/international-indenting-representation" },
+  { name: "Supply Chain & Logistics Coordination", href: "/services/supply-chain-logistics-coordination" },
+];
+
+const digitalServices = [
+  { name: "Web Development & Design", href: "/services/web-development-design" },
+  { name: "AI & Business Automation", href: "/services/ai-business-automation" },
+  { name: "Education, Training & Skills Development", href: "/services/education-training-skills-development" },
+  { name: "Enterprise Software & Digital Solutions", href: "#", comingSoon: true },
+  { name: "Smart Utilities & Digital Productivity Applications", href: "#", comingSoon: true },
 ];
 
 const topLinksBeforeServices = [
@@ -83,57 +78,32 @@ export default function MobileNav() {
           </button>
 
           {servicesOpen && (
-            <div className="pl-4 border-l-2 border-slate-200 space-y-4 mb-2">
-              <div>
-                <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider">
-                  Division 1: Technology &amp; Digital Solutions
-                </p>
-                <div className="space-y-1 mt-2">
-                  {division1Services.map((s, idx) => (
-                    <Link key={s.href} href={s.href} onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-[#1A5C8A] transition-colors py-1">
-                      <span className="w-4 h-4 rounded bg-slate-100 text-[#2180C0] text-[10px] font-bold flex items-center justify-center flex-shrink-0">
-                        {idx + 1}
-                      </span>
-                      {s.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider pt-2 border-t border-slate-100">
-                  Division 2: Human Resource Development
-                </p>
-                <div className="space-y-1 mt-2">
-                  {division2Services.map((s, idx) => (
-                    <Link key={s.href} href={s.href} onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-[#1A5C8A] transition-colors py-1">
-                      <span className="w-4 h-4 rounded bg-slate-100 text-[#2180C0] text-[10px] font-bold flex items-center justify-center flex-shrink-0">
-                        {idx + 1}
-                      </span>
-                      {s.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider pt-2 border-t border-slate-100">
-                  Global Trade &amp; Institutional Business
-                </p>
-                <div className="space-y-1 mt-2">
-                  {globalTradeServices.map((s, idx) => (
-                    <Link key={s.href} href={s.href} onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-[#1A5C8A] transition-colors py-1">
-                      <span className="w-4 h-4 rounded bg-slate-100 text-[#2180C0] text-[10px] font-bold flex items-center justify-center flex-shrink-0">
-                        {idx + 1}
-                      </span>
-                      {s.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
+            <div className="pl-4 border-l-2 border-slate-200 space-y-3 mb-2">
+              <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider mt-2">Global Trade</p>
+              {globalTradeServices.map((s) => (
+                <Link key={s.name} href={s.href} onClick={() => setIsOpen(false)}
+                  className="block text-sm font-medium text-slate-600 hover:text-[#1A5C8A] transition-colors py-1">
+                  {s.name}
+                </Link>
+              ))}
+              
+              <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider pt-3">Digital Solutions</p>
+              {digitalServices.map((s) => (
+                <Link 
+                  key={s.name} 
+                  href={s.href} 
+                  onClick={(e) => {
+                    if (s.comingSoon) e.preventDefault();
+                    else setIsOpen(false);
+                  }}
+                  className={`block text-sm font-medium transition-colors py-1 ${
+                    s.comingSoon ? "text-slate-400" : "text-slate-600 hover:text-[#1A5C8A]"
+                  }`}
+                >
+                  {s.name}
+                  {s.comingSoon && <span className="ml-2 inline-block text-[9px] font-black uppercase tracking-wider text-white bg-[#FF5F15] px-1.5 py-0.5 rounded shadow-sm">Coming Soon</span>}
+                </Link>
+              ))}
             </div>
           )}
 

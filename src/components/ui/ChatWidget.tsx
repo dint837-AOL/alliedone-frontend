@@ -72,8 +72,8 @@ export default function ChatWidget() {
               <div className="relative flex justify-between items-start text-white">
                 <div className="flex items-center gap-4">
                   <div className="relative">
-                    <div className="w-12 h-12 bg-white/80 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/30 shadow-inner overflow-hidden p-1">
-                      <Image src="/logo-mark-v2.png" alt="AlliedOne Logo" width={32} height={32} className="object-contain" />
+                    <div className="w-12 h-12 bg-white/80 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/30 shadow-inner overflow-hidden p-1.5">
+                      <Image src="/alliedone-mark.svg" alt="AlliedOne Logo" width={32} height={32} className="object-contain" />
                     </div>
                     <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-400 border-2 border-[#155b8c] rounded-full animate-pulse"></span>
                   </div>
@@ -98,8 +98,8 @@ export default function ChatWidget() {
             <div className="flex-1 overflow-y-auto p-5 bg-slate-50/50 space-y-6">
               {messages.length === 0 && (
                 <div className="flex flex-col items-center justify-center h-full text-center px-4 animate-in fade-in duration-700">
-                  <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 p-2">
-                    <Image src="/logo-mark-v2.png" alt="AlliedOne Logo" width={40} height={40} className="object-contain" />
+                  <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 p-3">
+                    <Image src="/alliedone-mark.svg" alt="AlliedOne Logo" width={40} height={40} className="object-contain" />
                   </div>
                   <h4 className="text-lg font-bold text-slate-800 mb-2">How can we help?</h4>
                   <p className="text-sm text-slate-500 leading-relaxed">
@@ -143,7 +143,7 @@ export default function ChatWidget() {
                   >
                     {m.role === "assistant" && (
                       <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-sm mb-1 p-1">
-                        <Image src="/logo-mark-v2.png" alt="AlliedOne" width={20} height={20} className="object-contain" />
+                        <Image src="/alliedone-mark.svg" alt="AlliedOne" width={20} height={20} className="object-contain" />
                       </div>
                     )}
                     
@@ -169,7 +169,7 @@ export default function ChatWidget() {
               {isLoading && (
                 <div className="flex gap-3 justify-start items-end">
                   <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-sm mb-1 p-1">
-                    <Image src="/logo-mark-v2.png" alt="AlliedOne" width={20} height={20} className="object-contain" />
+                    <Image src="/alliedone-mark.svg" alt="AlliedOne" width={20} height={20} className="object-contain" />
                   </div>
                   <div className="bg-white border border-slate-100 rounded-2xl rounded-bl-sm px-4 py-4 shadow-sm flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-[#2180C0]/60 rounded-full animate-bounce"></span>
