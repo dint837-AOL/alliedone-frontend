@@ -43,7 +43,7 @@ export default function Home() {
           />
 
           {/* Bluish gradient spanning the whole section — makes text pop on a dark blue overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0D3A5C]/95 via-[#0D3A5C]/80 to-[#0D3A5C]/65 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0D3A5C]/95 via-[#0D3A5C]/90 to-[#0D3A5C]/85 pointer-events-none" />
 
           {/* Content: more left padding for breathing room */}
           <div className="absolute inset-0 flex flex-col justify-between pl-14 pr-8 sm:pl-20 sm:pr-12 pt-8 pb-6">
@@ -51,36 +51,19 @@ export default function Home() {
             {/* TOP-LEFT: Headline + subtitle + buttons */}
             <div className="max-w-[800px]">
               <h1
-                className="font-black tracking-[0.15em] leading-[1.2] mb-6 uppercase text-white drop-shadow-sm flex whitespace-nowrap gap-x-4 sm:gap-x-8"
-                style={{ fontSize: "clamp(1.1rem, 2.5vw, 2.2rem)" }}
+                className="font-black tracking-[0.15em] leading-[1.2] mb-6 uppercase text-white drop-shadow-sm flex flex-col"
+                style={{ fontSize: "clamp(2rem, 4vw, 3.3rem)" }}
               >
                 <span>TRADE</span>
                 <span>TECHNOLOGY</span>
                 <span>TRUST</span>
               </h1>
 
-              <p className="text-white/90 text-[14px] sm:text-[15px] leading-relaxed mb-5 max-w-[370px] font-medium drop-shadow-sm">
+              <p className="text-white/90 text-[14px] sm:text-[15px] leading-relaxed max-w-[370px] font-medium drop-shadow-sm">
                 Two independent, specialized businesses —<br />
                 one shared commitment to reliability, expertise,<br />
                 and long-term partnership.
               </p>
-
-              <div className="flex flex-wrap items-center gap-3">
-                <Link
-                  href="#our-businesses"
-                  className="inline-flex items-center gap-2 bg-[#006A4E] hover:bg-[#005540] text-white px-5 py-2.5 rounded-md text-[13.5px] font-bold shadow-md transition-all hover:-translate-y-0.5"
-                >
-                  <span>Explore Our Businesses</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 border border-white/30 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-md text-[13.5px] font-bold backdrop-blur-sm transition-all hover:-translate-y-0.5"
-                >
-                  <Mail className="w-4 h-4" />
-                  Contact Us
-                </Link>
-              </div>
             </div>
 
 
