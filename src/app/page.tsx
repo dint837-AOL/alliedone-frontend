@@ -51,7 +51,7 @@ export default function Home() {
             {/* TOP-LEFT: Headline + subtitle + buttons */}
             <div className="max-w-[800px]">
               <h1
-                className="font-black tracking-[0.1em] leading-[1.2] mb-6 uppercase text-white drop-shadow-sm flex flex-col"
+                className="font-black tracking-[0.05em] leading-[1.2] mb-6 uppercase text-white drop-shadow-sm flex flex-col gap-3"
                 style={{ fontSize: "clamp(2rem, 4vw, 3.3rem)" }}
               >
                 <span>TRADE</span>
