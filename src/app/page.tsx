@@ -43,7 +43,7 @@ export default function Home() {
           />
 
           {/* Bluish gradient spanning the whole section — makes text pop on a dark blue overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0D3A5C]/95 via-[#0D3A5C]/90 to-[#0D3A5C]/85 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0D3A5C]/95 via-[#0D3A5C]/90 to-[#0D3A5C]/95 pointer-events-none" />
 
           {/* Content: more left padding for breathing room */}
           <div className="absolute inset-0 flex flex-col justify-between pl-14 pr-8 sm:pl-20 sm:pr-12 pt-8 pb-6">
@@ -51,7 +51,7 @@ export default function Home() {
             {/* TOP-LEFT: Headline + subtitle + buttons */}
             <div className="max-w-[800px]">
               <h1
-                className="font-black tracking-[0.15em] leading-[1.2] mb-6 uppercase text-white drop-shadow-sm flex flex-col"
+                className="font-black tracking-[0.1em] leading-[1.2] mb-6 uppercase text-white drop-shadow-sm flex flex-col"
                 style={{ fontSize: "clamp(2rem, 4vw, 3.3rem)" }}
               >
                 <span>TRADE</span>
