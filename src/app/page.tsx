@@ -6,8 +6,7 @@ import NewsletterSignup from "@/components/sections/NewsletterSignup";
 import FAQSection from "@/components/sections/FAQSection";
 import FadeInSection from "@/components/ui/FadeInSection";
 import {
-  Mail, TrendingUp, Bot, Cpu, Search, Rocket, CheckCircle, ArrowRight,
-  Globe, ShieldCheck, BarChart2, Monitor
+  Mail, Bot, Cpu, Search, Rocket, CheckCircle, ArrowRight
 } from "lucide-react";
 
 // ── Shared section header pattern ────────────────────────────
@@ -25,25 +24,17 @@ export default function Home() {
   return (
     <div className="w-full">
 
-      {/* ══════════════════════════════════════════════════════════════
-          ABOVE-THE-FOLD BLOCK
-          Everything here is visible on first visit — no scroll needed.
-          Layout (flex col, exact 100vh minus navbar):
-            1. Hero banner with plain background image (~58% height)
-            2. OUR BUSINESSES two-column section (~26%)
-            3. 4-stat trust bar (~16%)
-      ══════════════════════════════════════════════════════════════ */}
-      <div
-        className="w-full flex flex-col overflow-hidden"
-        style={{ height: "calc(100vh - 73px)", minHeight: "620px" }}
+      {/* ══════════════════════════════════════════════
+          HERO — Full viewport, blurred bg + gradient
+      ══════════════════════════════════════════════ */}
+      <section
+        className="relative w-full overflow-hidden"
+        style={{ height: "calc(100vh - 73px)", minHeight: "520px" }}
       >
 
-        {/* ── 1. HERO BANNER (plain image, no overlays) ── */}
-        <div className="relative w-full overflow-hidden" style={{ flex: "0 0 58%" }}>
-
-          {/* Plain background photo — NO gradient, NO opacity overlay */}
+          {/* Background photo — no blur, no zoom, placed as-is */}
           <Image
-            src="/image copy 2.png"
+            src="/image copy.png"
             alt="AlliedOne Global Trade & Technology Solutions"
             fill
             className="object-cover object-center"
@@ -51,48 +42,51 @@ export default function Home() {
             sizes="100vw"
           />
 
-          {/* ── Content: left text + bottom-right icons ── */}
-          <div className="absolute inset-0 flex flex-col justify-between px-8 sm:px-12 pt-6 pb-4">
+          {/* Whitish gradient on left — makes text pop and easy to read */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/65 via-[38%] to-transparent pointer-events-none" />
 
-            {/* TOP-LEFT: Headline + subtitle + buttons */}
-            <div className="max-w-[480px]">
+          {/* Content: more left padding for breathing room */}
+          <div className="absolute inset-0 flex flex-col justify-between pl-14 pr-8 sm:pl-20 sm:pr-12 pt-8 pb-6">
+
+            {/* TOP-LEFT: Headline + subtitle + buttons (on light/white gradient bg) */}
+            <div className="max-w-[560px]">
               <h1
-                className="font-black tracking-tight leading-[1.1] mb-3"
-                style={{ fontSize: "clamp(1.7rem, 3.8vw, 3rem)" }}
+                className="font-black tracking-tight leading-[1.1] mb-4"
+                style={{ fontSize: "clamp(2rem, 4vw, 3.3rem)" }}
               >
-                <span className="block text-[#1a5c30]" style={{ textShadow: "0 1px 3px rgba(255,255,255,0.9)" }}>
+                {/* Logo green */}
+                <span className="block text-[#006A4E]">
                   Global Trade
                 </span>
-                <span className="block text-[#0c5f9e]" style={{ textShadow: "0 1px 3px rgba(255,255,255,0.9)" }}>
+                {/* Logo blue */}
+                <span className="block text-[#075586]">
                   Technology
                 </span>
-                <span className="block text-[#0D2D4A]" style={{ textShadow: "0 1px 3px rgba(255,255,255,0.9)" }}>
+                {/* Dark navy — always one line */}
+                <span className="block text-[#0D2D4A] whitespace-nowrap">
                   Trusted Partnerships
                 </span>
               </h1>
 
-              <p
-                className="text-[#0f172a] text-[13px] sm:text-[14px] leading-relaxed mb-4 max-w-[340px] font-semibold"
-                style={{ textShadow: "0 1px 4px rgba(255,255,255,0.95)" }}
-              >
+              <p className="text-[#1e293b] text-[14px] sm:text-[15px] leading-relaxed mb-5 max-w-[370px] font-medium">
                 Two independent, specialized businesses —<br />
                 one shared commitment to reliability, expertise,<br />
                 and long-term partnership.
               </p>
 
-              <div className="flex flex-wrap items-center gap-2.5">
+              <div className="flex flex-wrap items-center gap-3">
                 <Link
                   href="#our-businesses"
-                  className="inline-flex items-center gap-1.5 bg-[#1a5c30] hover:bg-[#154a26] text-white px-4 py-2 rounded-md text-[12.5px] font-bold shadow-md transition-all hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 bg-[#006A4E] hover:bg-[#005540] text-white px-5 py-2.5 rounded-md text-[13.5px] font-bold shadow-md transition-all hover:-translate-y-0.5"
                 >
                   <span>Explore Our Businesses</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-1.5 bg-white border border-[#94a3b8] text-[#1e293b] px-4 py-2 rounded-md text-[12.5px] font-bold transition-all hover:-translate-y-0.5 shadow-sm"
+                  className="inline-flex items-center gap-2 border border-[#475569] bg-white/70 hover:bg-white text-[#1e293b] px-5 py-2.5 rounded-md text-[13.5px] font-bold backdrop-blur-sm transition-all hover:-translate-y-0.5"
                 >
-                  <Mail className="w-3.5 h-3.5" />
+                  <Mail className="w-4 h-4" />
                   Contact Us
                 </Link>
               </div>
@@ -167,147 +161,8 @@ export default function Home() {
             </div>
 
           </div>
-        </div>
-
-
-        {/* ── 2. OUR BUSINESSES (white, below image, still in viewport) ── */}
-        <div
-          id="our-businesses"
-          className="bg-white border-t border-slate-200 flex-shrink-0"
-          style={{ flex: "0 0 26%" }}
-        >
-          <div className="h-full max-w-7xl mx-auto px-8 sm:px-10 flex flex-col justify-center">
-
-            {/* Section label */}
-            <div className="flex items-center justify-center gap-4 mb-3">
-              <div className="h-px w-10 bg-[#1a5c30]" />
-              <span className="text-[10.5px] font-extrabold uppercase tracking-[0.25em] text-[#0D2D4A]">OUR BUSINESSES</span>
-              <div className="h-px w-10 bg-[#0c5f9e]" />
-            </div>
-
-            {/* Two cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200">
-
-              {/* CARD 01 */}
-              <div className="flex items-start gap-3 pr-0 md:pr-8 py-1">
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#e8f5ee] border-2 border-[#1a5c30]/25 flex items-center justify-center">
-                  <Globe className="w-6 h-6 text-[#1a5c30]" />
-                </div>
-                <div>
-                  <div className="flex items-baseline gap-2 mb-0.5">
-                    <span className="text-[11px] font-bold text-[#64748b]">01</span>
-                    <span className="text-[11.5px] font-black text-[#1a5c30] uppercase tracking-wide">GLOBAL SUPPLY BD (GSBD)</span>
-                  </div>
-                  <p className="text-[12.5px] font-bold text-[#0D2D4A] mb-1">International Trade &amp; Supply Solutions</p>
-                  <p className="text-[11.5px] text-[#475569] leading-relaxed mb-1.5 max-w-[400px]">
-                    14+ years of experience in global sourcing, import-export,
-                    indenting, and supply chain management for industrial,
-                    institutional, and commercial sectors.
-                  </p>
-                  <Link href="/gsbd" className="inline-flex items-center gap-1 text-[11.5px] font-bold text-[#0D2D4A] hover:text-[#1a5c30] transition-colors">
-                    Learn More <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
-
-              {/* CARD 02 */}
-              <div className="flex items-start gap-3 pl-0 md:pl-8 py-1">
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#e8f0fb] border-2 border-[#0c5f9e]/25 flex items-center justify-center">
-                  <Monitor className="w-6 h-6 text-[#0c5f9e]" />
-                </div>
-                <div>
-                  <div className="flex items-baseline gap-2 mb-0.5">
-                    <span className="text-[11px] font-bold text-[#64748b]">02</span>
-                    <span className="text-[11.5px] font-black text-[#0c5f9e] uppercase tracking-wide">ALLIEDONE DIGITAL</span>
-                  </div>
-                  <p className="text-[12.5px] font-bold text-[#0D2D4A] mb-1">Smart IT &amp; Digital Enterprise Solutions</p>
-                  <p className="text-[11.5px] text-[#475569] leading-relaxed mb-1.5 max-w-[400px]">
-                    Practical technology solutions that help businesses build,
-                    automate, and grow — from websites and AI automation
-                    to digital learning and enterprise tools.
-                  </p>
-                  <Link href="/services" className="inline-flex items-center gap-1 text-[11.5px] font-bold text-[#0c5f9e] hover:text-[#0a4f80] transition-colors">
-                    Learn More <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-
-        {/* ── 3. TRUST BAR — 4 stat columns ── */}
-        <div
-          className="bg-[#f8fafc] border-t border-slate-200 flex-shrink-0"
-          style={{ flex: "0 0 16%" }}
-        >
-          <div className="h-full max-w-7xl mx-auto px-8 sm:px-10 flex items-center">
-            <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-2 divide-y-0 md:divide-x divide-slate-200">
-
-              <div className="flex items-center gap-2.5 md:pr-4">
-                <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-sm">
-                  <TrendingUp className="w-3.5 h-3.5 text-[#0c5f9e]" />
-                </div>
-                <div>
-                  <p className="text-[11px] font-bold text-[#0D2D4A] leading-tight">14+ Years of Trade Experience</p>
-                  <p className="text-[10px] text-[#64748b] leading-snug">Proven expertise in international<br />trade and business operations.</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2.5 md:px-4">
-                <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-sm">
-                  <Globe className="w-3.5 h-3.5 text-[#0c5f9e]" />
-                </div>
-                <div>
-                  <p className="text-[11px] font-bold text-[#0D2D4A] leading-tight">Global Network</p>
-                  <p className="text-[10px] text-[#64748b] leading-snug">Connections with suppliers,<br />buyers &amp; partners in 50+ markets.</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2.5 md:px-4">
-                <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-sm">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#0c5f9e]" />
-                </div>
-                <div>
-                  <p className="text-[11px] font-bold text-[#0c5f9e] leading-tight">Reliable &amp; Secure</p>
-                  <p className="text-[10px] text-[#64748b] leading-snug">Compliant, verified, and<br />process-driven operations.</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2.5 md:pl-4">
-                <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-sm">
-                  <BarChart2 className="w-3.5 h-3.5 text-[#0c5f9e]" />
-                </div>
-                <div>
-                  <p className="text-[11px] font-bold text-[#0c5f9e] leading-tight">Growth-Focused</p>
-                  <p className="text-[10px] text-[#64748b] leading-snug">Solutions built for long-term<br />value and future scalability.</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-      {/* ── END ABOVE-THE-FOLD BLOCK ── */}
-
-
-      {/* ══════════════════════════════════════════════
-          BELOW-FOLD sections (scroll to see)
-      ══════════════════════════════════════════════ */}
-
-      {/* Industry trust strip */}
-      <section className="bg-gradient-to-r from-[#0D3A5C] via-[#2180C0] to-[#0D3A5C] border-b border-blue-900/20 py-10 shadow-inner">
-        <FadeInSection className="max-w-7xl mx-auto px-6 text-center" delay={0.2}>
-          <p className="text-xs font-bold text-blue-200/80 uppercase tracking-[0.18em] mb-6 drop-shadow-sm">Delivering results across industries</p>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12 items-center">
-            {["Retail & E-Commerce", "Healthcare", "Finance & FinTech", "Education", "Real Estate", "Logistics"].map((industry) => (
-              <span key={industry} className="text-blue-50 text-sm font-semibold hover:text-white transition-colors cursor-default drop-shadow-sm">{industry}</span>
-            ))}
-          </div>
-        </FadeInSection>
       </section>
+
 
       {/* Full Portfolio */}
       <section className="py-28 bg-[#F8FAFC]">
