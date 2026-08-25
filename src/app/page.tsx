@@ -42,8 +42,8 @@ export default function Home() {
             sizes="100vw"
           />
 
-          {/* Whitish gradient on left — makes text pop and easy to read */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/65 via-[38%] to-transparent pointer-events-none" />
+          {/* Bluish gradient spanning the whole section — makes text pop on a dark blue overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0D3A5C]/95 via-[#0D3A5C]/75 to-[#0D3A5C]/20 pointer-events-none" />
 
           {/* Content: more left padding for breathing room */}
           <div className="absolute inset-0 flex flex-col justify-between pl-14 pr-8 sm:pl-20 sm:pr-12 pt-8 pb-6">
@@ -54,21 +54,18 @@ export default function Home() {
                 className="font-black tracking-tight leading-[1.1] mb-4"
                 style={{ fontSize: "clamp(2rem, 4vw, 3.3rem)" }}
               >
-                {/* Logo green */}
-                <span className="block text-[#006A4E]">
+                <span className="block text-white drop-shadow-sm">
                   Global Trade
                 </span>
-                {/* Logo blue */}
-                <span className="block text-[#075586]">
+                <span className="block text-sky-200 drop-shadow-sm">
                   Technology
                 </span>
-                {/* Dark navy — always one line */}
-                <span className="block text-[#0D2D4A] whitespace-nowrap">
+                <span className="block text-slate-100 whitespace-nowrap drop-shadow-sm">
                   Trusted Partnerships
                 </span>
               </h1>
 
-              <p className="text-[#1e293b] text-[14px] sm:text-[15px] leading-relaxed mb-5 max-w-[370px] font-medium">
+              <p className="text-white/90 text-[14px] sm:text-[15px] leading-relaxed mb-5 max-w-[370px] font-medium drop-shadow-sm">
                 Two independent, specialized businesses —<br />
                 one shared commitment to reliability, expertise,<br />
                 and long-term partnership.
@@ -84,7 +81,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 border border-[#475569] bg-white/70 hover:bg-white text-[#1e293b] px-5 py-2.5 rounded-md text-[13.5px] font-bold backdrop-blur-sm transition-all hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 border border-white/30 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-md text-[13.5px] font-bold backdrop-blur-sm transition-all hover:-translate-y-0.5"
                 >
                   <Mail className="w-4 h-4" />
                   Contact Us
