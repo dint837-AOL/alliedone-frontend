@@ -43,26 +43,20 @@ export default function Home() {
           />
 
           {/* Bluish gradient spanning the whole section — makes text pop on a dark blue overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0D3A5C]/95 via-[#0D3A5C]/75 to-[#0D3A5C]/20 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0D3A5C]/95 via-[#0D3A5C]/80 to-[#0D3A5C]/65 pointer-events-none" />
 
           {/* Content: more left padding for breathing room */}
           <div className="absolute inset-0 flex flex-col justify-between pl-14 pr-8 sm:pl-20 sm:pr-12 pt-8 pb-6">
 
-            {/* TOP-LEFT: Headline + subtitle + buttons (on light/white gradient bg) */}
-            <div className="max-w-[560px]">
+            {/* TOP-LEFT: Headline + subtitle + buttons */}
+            <div className="max-w-[800px]">
               <h1
-                className="font-black tracking-tight leading-[1.1] mb-4"
-                style={{ fontSize: "clamp(2rem, 4vw, 3.3rem)" }}
+                className="font-black tracking-[0.15em] leading-[1.2] mb-6 uppercase text-white drop-shadow-sm flex whitespace-nowrap gap-x-4 sm:gap-x-8"
+                style={{ fontSize: "clamp(1.1rem, 2.5vw, 2.2rem)" }}
               >
-                <span className="block text-white drop-shadow-sm">
-                  Global Trade
-                </span>
-                <span className="block text-sky-200 drop-shadow-sm">
-                  Technology
-                </span>
-                <span className="block text-slate-100 whitespace-nowrap drop-shadow-sm">
-                  Trusted Partnerships
-                </span>
+                <span>TRADE</span>
+                <span>TECHNOLOGY</span>
+                <span>TRUST</span>
               </h1>
 
               <p className="text-white/90 text-[14px] sm:text-[15px] leading-relaxed mb-5 max-w-[370px] font-medium drop-shadow-sm">
@@ -89,73 +83,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* BOTTOM-RIGHT: 5 service icon labels */}
-            <div className="flex justify-end">
-              <div className="flex items-end gap-4 sm:gap-6">
-                {[
-                  {
-                    label: "Web\nDevelopment",
-                    icon: (
-                      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="16 18 22 12 16 6" />
-                        <polyline points="8 6 2 12 8 18" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    label: "AI & Business\nAutomation",
-                    icon: (
-                      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="3" y="11" width="18" height="11" rx="2" />
-                        <path d="M7 11V7a5 5 0 0110 0v4" />
-                        <circle cx="12" cy="16" r="1" fill="currentColor" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    label: "Education &\nLearning",
-                    icon: (
-                      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    label: "Cloud & Software\nSolutions",
-                    icon: (
-                      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="16 16 12 12 8 16" />
-                        <line x1="12" y1="12" x2="12" y2="21" />
-                        <path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3" />
-                      </svg>
-                    ),
-                  },
-                  {
-                    label: "Digital\nGrowth",
-                    icon: (
-                      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="18" y1="20" x2="18" y2="10" />
-                        <line x1="12" y1="20" x2="12" y2="4" />
-                        <line x1="6" y1="20" x2="6" y2="14" />
-                      </svg>
-                    ),
-                  },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex flex-col items-center gap-1 group cursor-default">
-                    <div className="w-10 h-10 rounded-xl bg-white/25 backdrop-blur-[2px] border border-white/40 flex items-center justify-center text-white shadow-md group-hover:bg-white/35 transition-all">
-                      {item.icon}
-                    </div>
-                    <span
-                      className="text-[9.5px] sm:text-[10.5px] font-semibold text-white text-center leading-tight whitespace-pre-line"
-                      style={{ textShadow: "0 1px 5px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.6)" }}
-                    >
-                      {item.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+
 
           </div>
       </section>
