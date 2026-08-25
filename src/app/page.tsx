@@ -43,7 +43,7 @@ export default function Home() {
           />
 
           {/* Bluish gradient spanning the whole section — makes text pop on a dark blue overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0D3A5C]/95 via-[#0D3A5C]/90 to-[#0D3A5C]/95 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#0D3A5C]/95 via-[#0D3A5C]/90 to-[#0D3A5C]/30 pointer-events-none" />
 
           {/* Content: more left padding for breathing room */}
           <div className="absolute inset-0 flex flex-col justify-between pl-14 pr-8 sm:pl-20 sm:pr-12 pt-8 pb-6">
