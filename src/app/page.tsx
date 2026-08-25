@@ -54,7 +54,7 @@ export default function Home() {
                 className="font-black tracking-[0.05em] leading-[1.2] mb-6 uppercase text-white drop-shadow-sm flex flex-col gap-3"
                 style={{ fontSize: "clamp(2rem, 4vw, 3.3rem)" }}
               >
-                <span>TRADE</span>
+                <span>GLOBAL TRADE</span>
                 <span>TECHNOLOGY</span>
                 <span>TRUST</span>
               </h1>
