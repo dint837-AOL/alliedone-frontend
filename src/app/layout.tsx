@@ -30,26 +30,16 @@ export default function RootLayout({
         <nav className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
           <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
 
-            {/* Logo + Name + Tagline */}
-            <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 flex-shrink-0">
-                <Image
-                  src="/alliedone-mark.svg"
-                  alt="AlliedOne Logo Mark"
-                  fill
-                  className="object-contain transition-transform duration-300 group-hover:scale-105"
-                  priority
-                />
-              </div>
-              <div className="flex flex-col justify-center">
-                <div className="flex items-center font-black text-2xl sm:text-[1.65rem] md:text-[1.75rem] tracking-tight leading-none">
-                  <span className="text-[#075586]">Allied</span>
-                  <span className="text-[#006A4E]">One</span>
-                </div>
-                <span className="text-[8px] sm:text-[9px] md:text-[9.5px] font-extrabold tracking-[0.22em] text-[#4A6070] uppercase mt-1 leading-none">
-                  TRADE. TECHNOLOGY. TRUST.
-                </span>
-              </div>
+            {/* Logo */}
+            <Link href="/" className="flex items-center group py-0.5">
+              <Image
+                src="/alliedone-logo.png"
+                alt="AlliedOne - Trade Technology Trust"
+                width={200}
+                height={50}
+                className="h-9 sm:h-10 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                priority
+              />
             </Link>
 
             {/* Desktop nav links */}
