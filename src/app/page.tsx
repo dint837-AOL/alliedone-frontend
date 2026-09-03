@@ -1,10 +1,10 @@
-'use client';
 import Image from "next/image";
 import Link from "next/link";
 import LeadCaptureForm from "@/components/sections/LeadCaptureForm";
 import NewsletterSignup from "@/components/sections/NewsletterSignup";
 import FAQSection from "@/components/sections/FAQSection";
 import FadeInSection from "@/components/ui/FadeInSection";
+import { fetchSiteContent } from "@/lib/siteContent";
 import {
   Mail, Bot, Cpu, Search, Rocket, CheckCircle, ArrowRight
 } from "lucide-react";
@@ -20,7 +20,11 @@ function SectionHeader({ eyebrow, title, subtitle }: { eyebrow: string; title: R
   );
 }
 
-export default function Home() {
+export default async function Home() {
+  // Fetch CMS content — falls back to hardcoded defaults if backend is down
+  const content = await fetchSiteContent('homepage');
+  const { hero, portfolio } = content;
+
   return (
     <div className="w-full">
 
@@ -32,9 +36,9 @@ export default function Home() {
         style={{ height: "calc(100vh - 73px)", minHeight: "520px" }}
       >
 
-          {/* Background photo — no blur, no zoom, placed as-is */}
+          {/* Background photo — dynamically loaded from CMS */}
           <Image
-            src="/image copy.png"
+            src={hero.backgroundImage}
             alt="AlliedOne Global Trade & Technology Solutions"
             fill
             className="object-cover object-center"
@@ -54,15 +58,15 @@ export default function Home() {
                 className="font-black tracking-[0.05em] leading-[1.2] mb-6 uppercase text-white drop-shadow-sm flex flex-col gap-3"
                 style={{ fontSize: "clamp(2rem, 4vw, 3.3rem)" }}
               >
-                <span>GLOBAL TRADE</span>
-                <span>TECHNOLOGY</span>
-                <span>TRUST</span>
+                {hero.headline.map((line, i) => (
+                  <span key={i}>{line}</span>
+                ))}
               </h1>
 
               <p className="text-white/90 text-[14px] sm:text-[15px] leading-relaxed max-w-[370px] font-medium drop-shadow-sm">
-                Two independent, specialized businesses —<br />
-                one shared commitment to reliability, expertise,<br />
-                and long-term partnership.
+                {hero.subtitle.split('\n').map((line, i, arr) => (
+                  <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+                ))}
               </p>
             </div>
 
@@ -76,12 +80,11 @@ export default function Home() {
       <section className="py-28 bg-[#F8FAFC]">
         <FadeInSection className="max-w-7xl mx-auto px-6" delay={0.1}>
           <SectionHeader
-            eyebrow="Full Portfolio"
-            title="Everything We Offer"
+            eyebrow={portfolio.eyebrow}
+            title={portfolio.title}
             subtitle={
               <div className="flex flex-col items-center justify-center">
-                <span>Two core business pillars built on decades of expertise</span>
-                <span>and cutting-edge technology — working together for your growth.</span>
+                <span>{portfolio.subtitle}</span>
               </div>
             }
           />
@@ -91,26 +94,19 @@ export default function Home() {
               <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/5"></div>
               <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-white/5"></div>
               <div className="relative z-10 flex flex-col flex-grow">
-                <span className="inline-block text-[#5BAEE8] text-xs font-bold uppercase tracking-[0.18em] mb-4">Pillar 01</span>
-                <h3 className="text-3xl font-extrabold text-white mb-4 leading-tight tracking-tight">Global Trade &amp; Institutional Business</h3>
-                <p className="text-slate-300 text-base leading-relaxed mb-8">Reliable sourcing, export facilitation, commercial representation, and government procurement support — connecting Bangladesh with global markets.</p>
+                <span className="inline-block text-[#5BAEE8] text-xs font-bold uppercase tracking-[0.18em] mb-4">{portfolio.pillar1.eyebrow}</span>
+                <h3 className="text-3xl font-extrabold text-white mb-4 leading-tight tracking-tight">{portfolio.pillar1.title}</h3>
+                <p className="text-slate-300 text-base leading-relaxed mb-8">{portfolio.pillar1.description}</p>
                 <ul className="space-y-3 mb-10 flex-grow">
-                  {[
-                    "Import & Strategic Sourcing",
-                    "Industrial Supply Solutions",
-                    "Export Facilitation",
-                    "Supply Chain & Logistics Coordination",
-                    "International Indenting & Representation",
-                    "Government Procurement & Institutional Supply",
-                  ].map((item) => (
+                  {portfolio.pillar1.bullets.map((item) => (
                     <li key={item} className="flex items-center gap-3 text-slate-200 text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#5BAEE8] flex-shrink-0"></span>
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Link href="/services#global-trade" className="inline-flex items-center gap-2 bg-white text-[#0D3A5C] px-7 py-3.5 rounded-xl font-bold hover:bg-[#2180C0] hover:text-white transition-all duration-300 shadow-md w-fit">
-                  Explore Global Trade <ArrowRight className="w-4 h-4" />
+                <Link href={portfolio.pillar1.ctaHref} className="inline-flex items-center gap-2 bg-white text-[#0D3A5C] px-7 py-3.5 rounded-xl font-bold hover:bg-[#2180C0] hover:text-white transition-all duration-300 shadow-md w-fit">
+                  {portfolio.pillar1.ctaText} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -120,26 +116,19 @@ export default function Home() {
               <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#EBF4FB]"></div>
               <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-[#EBF4FB]"></div>
               <div className="relative z-10 flex flex-col flex-grow">
-                <span className="inline-block text-[#2180C0] text-xs font-bold uppercase tracking-[0.18em] mb-4">Pillar 02</span>
-                <h3 className="text-3xl font-extrabold text-[#0D3A5C] mb-4 leading-tight tracking-tight">Technology &amp; Digital Solutions</h3>
-                <p className="text-slate-500 text-base leading-relaxed mb-8">Educational software, AI training, no-code workflow automation, executive dashboards, AI tool selection, and transformation workshops.</p>
+                <span className="inline-block text-[#2180C0] text-xs font-bold uppercase tracking-[0.18em] mb-4">{portfolio.pillar2.eyebrow}</span>
+                <h3 className="text-3xl font-extrabold text-[#0D3A5C] mb-4 leading-tight tracking-tight">{portfolio.pillar2.title}</h3>
+                <p className="text-slate-500 text-base leading-relaxed mb-8">{portfolio.pillar2.description}</p>
                 <ul className="space-y-3 mb-10 flex-grow">
-                  {[
-                    "Educational Web/App",
-                    "AI Training",
-                    "Workflow Automation (No Code)",
-                    "Dashboard Automation",
-                    "AI Tool selection & Implementation",
-                    "Discovery Workshop",
-                  ].map((item) => (
+                  {portfolio.pillar2.bullets.map((item) => (
                     <li key={item} className="flex items-center gap-3 text-slate-600 text-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] flex-shrink-0"></span>
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Link href="/services#technology" className="inline-flex items-center gap-2 bg-[#0D3A5C] text-white px-7 py-3.5 rounded-xl font-bold hover:bg-[#2180C0] transition-all duration-300 shadow-md w-fit">
-                  Explore Tech Solutions <ArrowRight className="w-4 h-4" />
+                <Link href={portfolio.pillar2.ctaHref} className="inline-flex items-center gap-2 bg-[#0D3A5C] text-white px-7 py-3.5 rounded-xl font-bold hover:bg-[#2180C0] transition-all duration-300 shadow-md w-fit">
+                  {portfolio.pillar2.ctaText} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
