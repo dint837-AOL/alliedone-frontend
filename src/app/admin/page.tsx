@@ -22,11 +22,8 @@ type DeviceView = 'desktop' | 'tablet' | 'mobile';
 // ─── Preset Images ────────────────────────────────────────────────────────────
 
 const PRESET_HERO_IMAGES = [
-  { label: 'Global Trade (Default)', path: '/image copy.png' },
-  { label: 'Technology Modern', path: '/hero-bg.png' },
-  { label: 'Automation & AI', path: '/automation-hero.png' },
-  { label: 'Global Operations 2', path: '/image copy 2.png' },
-  { label: 'Global Operations 3', path: '/image copy 3.png' },
+  { label: 'Global Trade (Default)', path: '/hero-banner.png' },
+  { label: 'GSBD Global Sourcing', path: '/gsbd-hero.png' },
 ];
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

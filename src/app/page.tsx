@@ -36,15 +36,15 @@ export default async function Home() {
         style={{ height: "calc(100vh - 73px)", minHeight: "520px" }}
       >
 
-          {/* Background photo — dynamically loaded from CMS */}
+          {/* Background photo — dynamically loaded from CMS with clean default */}
           <Image
-            src={hero.backgroundImage}
+            src={hero.backgroundImage || "/hero-banner.png"}
             alt="AlliedOne Global Trade & Technology Solutions"
             fill
             className="object-cover object-center"
             priority
             sizes="100vw"
-            unoptimized={hero.backgroundImage.startsWith('http')}
+            unoptimized={hero.backgroundImage?.startsWith('http')}
           />
 
           {/* Bluish gradient spanning the whole section — makes text pop on a dark blue overlay */}

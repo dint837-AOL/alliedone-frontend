@@ -41,7 +41,7 @@ export const DEFAULT_HOMEPAGE_CONTENT: HomepageContent = {
     headline: ['GLOBAL TRADE', 'TECHNOLOGY', 'TRUST'],
     subtitle:
       'Two independent, specialized businesses —\none shared commitment to reliability, expertise,\nand long-term partnership.',
-    backgroundImage: '/image copy.png',
+    backgroundImage: '/hero-banner.png',
   },
   portfolio: {
     eyebrow: 'Full Portfolio',

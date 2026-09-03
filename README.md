@@ -69,9 +69,11 @@ The application serves multiple purposes:
 ```
 alliedone-frontend/
 ├── public/
-│   ├── logo-mark-v2.png       # AlliedOne primary logo mark
+│   ├── alliedone-logo.png     # AlliedOne primary logo lockup
+│   ├── alliedone-mark.svg     # AlliedOne vector logo mark
 │   ├── gsbd-logo.png          # Global Supply BD brand logo
-│   └── ...                    # Static assets and images
+│   ├── hero-banner.png        # Homepage hero illustration
+│   └── gsbd-hero.png          # GSBD hero illustration
 │
 ├── src/
 │   ├── app/                   # Next.js App Router pages
