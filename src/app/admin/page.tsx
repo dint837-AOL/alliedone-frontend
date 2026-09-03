@@ -9,7 +9,8 @@ import {
 } from 'lucide-react';
 import { DEFAULT_HOMEPAGE_CONTENT, HomepageContent } from '@/lib/siteContent';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+const rawBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+const API_BASE = rawBase.replace(/\/api\/?$/, '').replace(/\/+$/, '');
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

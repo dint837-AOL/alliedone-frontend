@@ -86,7 +86,8 @@ export const DEFAULT_HOMEPAGE_CONTENT: HomepageContent = {
 // ─── Fetcher ──────────────────────────────────────────────────────────────────
 
 export async function fetchSiteContent(key: string): Promise<HomepageContent> {
-  const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  const rawBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  const apiBase = rawBase.replace(/\/api\/?$/, '').replace(/\/+$/, '');
   try {
     const res = await fetch(`${apiBase}/api/admin/content/${key}`, {
       // No auth needed for public reads (content key is public)
