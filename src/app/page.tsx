@@ -44,6 +44,7 @@ export default async function Home() {
             className="object-cover object-center"
             priority
             sizes="100vw"
+            unoptimized={hero.backgroundImage.startsWith('http')}
           />
 
           {/* Bluish gradient spanning the whole section — makes text pop on a dark blue overlay */}

@@ -90,8 +90,7 @@ export async function fetchSiteContent(key: string): Promise<HomepageContent> {
   const apiBase = rawBase.replace(/\/api\/?$/, '').replace(/\/+$/, '');
   try {
     const res = await fetch(`${apiBase}/api/admin/content/${key}`, {
-      // No auth needed for public reads (content key is public)
-      next: { revalidate: 60 }, // ISR: revalidate every 60 seconds
+      cache: 'no-store',
     });
     if (!res.ok) return DEFAULT_HOMEPAGE_CONTENT;
     const data = await res.json();
