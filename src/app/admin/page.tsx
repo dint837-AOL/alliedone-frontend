@@ -78,9 +78,13 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
       const data = await fetch(`${API_BASE}/api/admin/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username: username.trim(), password: password.trim() }),
       });
-      if (!data.ok) { setError('Invalid username or password.'); return; }
+      if (!data.ok) {
+        const errData = await data.json().catch(() => null);
+        setError(errData?.error || `Login failed (Status: ${data.status})`);
+        return;
+      }
       const { token } = await data.json();
       setToken(token);
       onLogin(token);
