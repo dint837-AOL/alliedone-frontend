@@ -64,7 +64,7 @@ export default function ChatWidget() {
             className="w-[calc(100vw-2rem)] sm:w-[380px] md:w-[420px] h-[550px] max-h-[85vh] mb-4 md:mb-5 flex flex-col overflow-hidden rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] border border-slate-200/60 bg-white/95 backdrop-blur-xl"
           >
             {/* Header */}
-            <div className="relative bg-gradient-to-r from-[#0D3A5C] via-[#155b8c] to-[#2180C0] p-5 pb-6 overflow-hidden">
+            <div className="relative bg-gradient-to-r from-[#0A5486] via-[#073E63] to-[#0095DA] p-5 pb-6 overflow-hidden">
               {/* Decorative background elements */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/3"></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-cyan-400/20 rounded-full blur-xl translate-y-1/3 -translate-x-1/4"></div>
@@ -75,7 +75,7 @@ export default function ChatWidget() {
                     <div className="w-12 h-12 bg-white/80 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/30 shadow-inner overflow-hidden p-1.5">
                       <Image src="/alliedone-mark.svg" alt="AlliedOne Logo" width={32} height={32} className="object-contain" />
                     </div>
-                    <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-400 border-2 border-[#155b8c] rounded-full animate-pulse"></span>
+                    <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-400 border-2 border-[#073E63] rounded-full animate-pulse"></span>
                   </div>
                   <div>
                     <h3 className="font-extrabold text-lg tracking-tight flex items-center gap-1.5">
@@ -111,14 +111,14 @@ export default function ChatWidget() {
                     <button
                       type="button"
                       onClick={() => handleQuickPrompt("What is AI Automation?")}
-                      className="text-xs font-semibold text-[#2180C0] bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full cursor-pointer hover:bg-blue-100 transition-colors"
+                      className="text-xs font-semibold text-[#0095DA] bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full cursor-pointer hover:bg-blue-100 transition-colors"
                     >
                       What is AI Automation?
                     </button>
                     <button
                       type="button"
                       onClick={() => handleQuickPrompt("What marketing services do you offer?")}
-                      className="text-xs font-semibold text-[#2180C0] bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full cursor-pointer hover:bg-blue-100 transition-colors"
+                      className="text-xs font-semibold text-[#0095DA] bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full cursor-pointer hover:bg-blue-100 transition-colors"
                     >
                       Marketing Services
                     </button>
@@ -150,7 +150,7 @@ export default function ChatWidget() {
                     <div
                       className={`relative max-w-[80%] px-4 py-3 text-sm leading-relaxed shadow-sm whitespace-pre-wrap ${
                         m.role === "user"
-                          ? "bg-[#0D3A5C] text-white rounded-2xl rounded-br-sm"
+                          ? "bg-[#0A5486] text-white rounded-2xl rounded-br-sm"
                           : "bg-white text-slate-700 border border-slate-100 rounded-2xl rounded-bl-sm"
                       }`}
                     >
@@ -172,9 +172,9 @@ export default function ChatWidget() {
                     <Image src="/alliedone-mark.svg" alt="AlliedOne" width={20} height={20} className="object-contain" />
                   </div>
                   <div className="bg-white border border-slate-100 rounded-2xl rounded-bl-sm px-4 py-4 shadow-sm flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-[#2180C0]/60 rounded-full animate-bounce"></span>
-                    <span className="w-1.5 h-1.5 bg-[#2180C0]/60 rounded-full animate-bounce [animation-delay:0.2s]"></span>
-                    <span className="w-1.5 h-1.5 bg-[#2180C0]/60 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                    <span className="w-1.5 h-1.5 bg-[#0095DA]/60 rounded-full animate-bounce"></span>
+                    <span className="w-1.5 h-1.5 bg-[#0095DA]/60 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                    <span className="w-1.5 h-1.5 bg-[#0095DA]/60 rounded-full animate-bounce [animation-delay:0.4s]"></span>
                   </div>
                 </div>
               )}
@@ -190,13 +190,13 @@ export default function ChatWidget() {
                   value={input}
                   onChange={handleInputChange}
                   placeholder="Ask anything..."
-                  className="w-full bg-slate-100/80 border border-slate-200/80 rounded-full pl-5 pr-12 py-3.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#2180C0]/40 focus:bg-white transition-all shadow-inner"
+                  className="w-full bg-slate-100/80 border border-slate-200/80 rounded-full pl-5 pr-12 py-3.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0095DA]/40 focus:bg-white transition-all shadow-inner"
                   disabled={isLoading}
                 />
                 <button
                   type="submit"
                   disabled={isLoading || !input?.trim()}
-                  className="absolute right-1.5 w-10 h-10 flex items-center justify-center bg-[#2180C0] text-white rounded-full hover:bg-[#1A5C8A] transition-colors disabled:opacity-50 disabled:bg-slate-300 shadow-sm"
+                  className="absolute right-1.5 w-10 h-10 flex items-center justify-center bg-[#0095DA] text-white rounded-full hover:bg-[#0095DA] transition-colors disabled:opacity-50 disabled:bg-slate-300 shadow-sm"
                   aria-label="Send message"
                 >
                   <Send className="w-4 h-4 ml-0.5" />
@@ -220,7 +220,7 @@ export default function ChatWidget() {
         <div className="absolute inset-0 bg-[#0ea5e9] rounded-full blur-md opacity-50 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500 animate-pulse"></div>
         
         {/* Main button body */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#2180C0] to-[#0ea5e9] rounded-full shadow-2xl shadow-cyan-500/50 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-2 border-white/90">
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#0095DA] to-[#0ea5e9] rounded-full shadow-2xl shadow-cyan-500/50 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-2 border-white/90">
           {isOpen ? (
             <X className="w-7 h-7 text-white" />
           ) : (

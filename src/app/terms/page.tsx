@@ -43,7 +43,7 @@ const sections = [
             "Government and institutional procurement support, project-based services, and strategic collaboration",
           ].map((item, i) => (
             <li key={i} className="flex gap-3 items-start text-slate-600">
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#2180C0] shrink-0" />
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0095DA] shrink-0" />
               {item}
             </li>
           ))}
@@ -67,7 +67,7 @@ const sections = [
           "For international trade, sourcing, and procurement engagements, payment terms, letters of credit, incoterms, and related conditions will be governed by the specific trade contract or purchase agreement between the parties.",
         ].map((item, i) => (
           <li key={i} className="flex gap-3 items-start text-slate-600">
-            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#2180C0] shrink-0" />
+            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0095DA] shrink-0" />
             {item}
           </li>
         ))}
@@ -89,7 +89,7 @@ const sections = [
             "Not use our Services for any unlawful, fraudulent, infringing, or harmful purpose",
           ].map((item, i) => (
             <li key={i} className="flex gap-3 items-start text-slate-600">
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#2180C0] shrink-0" />
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0095DA] shrink-0" />
               {item}
             </li>
           ))}
@@ -108,7 +108,7 @@ const sections = [
           "We do not guarantee specific business outcomes (such as lead volume, conversion rates, or cost savings) from AI or automation Services unless expressly stated in a Service Agreement.",
         ].map((item, i) => (
           <li key={i} className="flex gap-3 items-start text-slate-600">
-            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#2180C0] shrink-0" />
+            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0095DA] shrink-0" />
             {item}
           </li>
         ))}
@@ -135,7 +135,7 @@ const sections = [
           "Ongoing support, maintenance, and updates are provided only where included in a Service Agreement or separate support plan.",
         ].map((item, i) => (
           <li key={i} className="flex gap-3 items-start text-slate-600">
-            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#2180C0] shrink-0" />
+            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0095DA] shrink-0" />
             {item}
           </li>
         ))}
@@ -157,7 +157,7 @@ const sections = [
             "Institutions using our platforms on behalf of students are responsible for obtaining any consents required under applicable law prior to enrolling students.",
           ].map((item, i) => (
             <li key={i} className="flex gap-3 items-start text-slate-600">
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#2180C0] shrink-0" />
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0095DA] shrink-0" />
               {item}
             </li>
           ))}
@@ -185,7 +185,7 @@ const sections = [
           "Client retains ownership of its pre-existing intellectual property, data, and content shared with us, and grants AlliedOne a limited license to use such materials solely to perform the Services.",
         ].map((item, i) => (
           <li key={i} className="flex gap-3 items-start text-slate-600">
-            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#2180C0] shrink-0" />
+            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0095DA] shrink-0" />
             {item}
           </li>
         ))}
@@ -248,7 +248,7 @@ const sections = [
           "Either party may terminate a Service Agreement in accordance with its terms; termination does not relieve Client of the obligation to pay for Services already rendered.",
         ].map((item, i) => (
           <li key={i} className="flex gap-3 items-start text-slate-600">
-            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#2180C0] shrink-0" />
+            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0095DA] shrink-0" />
             {item}
           </li>
         ))}
@@ -288,7 +288,7 @@ export default function TermsOfServicePage() {
   return (
     <div className="bg-[#F8FAFC] min-h-screen">
       {/* ── Hero ── */}
-      <section className="bg-[#0D3A5C] relative overflow-hidden">
+      <section className="bg-[#0A5486] relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full border border-white/5" />
           <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full border border-white/5" />
@@ -300,7 +300,7 @@ export default function TermsOfServicePage() {
           <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
             These Terms govern your access to and use of the AlliedOne Limited website and all services we provide.
           </p>
-          <p className="mt-5 inline-block text-xs font-bold text-[#5BAEE8] uppercase tracking-widest">
+          <p className="mt-5 inline-block text-xs font-bold text-[#0095DA] uppercase tracking-widest">
             Last Updated: July 24, 2026
           </p>
         </div>
@@ -316,7 +316,7 @@ export default function TermsOfServicePage() {
             id={section.id}
             className="bg-white border border-slate-100 rounded-2xl p-7 md:p-10 shadow-sm"
           >
-            <h2 className="text-lg md:text-xl font-bold text-[#0D3A5C] mb-4 pb-4 border-b border-slate-100">
+            <h2 className="text-lg md:text-xl font-bold text-[#0A5486] mb-4 pb-4 border-b border-slate-100">
               {section.title}
             </h2>
             <div className="text-sm md:text-base leading-relaxed">
@@ -326,7 +326,7 @@ export default function TermsOfServicePage() {
         ))}
 
         {/* ── Contact ── */}
-        <div className="bg-[#0D3A5C] text-white rounded-2xl p-8 md:p-12">
+        <div className="bg-[#0A5486] text-white rounded-2xl p-8 md:p-12">
           <h2 className="text-xl font-bold mb-6">21. Contact Us</h2>
           <p className="text-slate-300 mb-6">If you have questions about these Terms, please contact us:</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
@@ -337,7 +337,7 @@ export default function TermsOfServicePage() {
               { label: "Website", value: "www.alliedoneltd.com" },
             ].map((item) => (
               <div key={item.label} className="bg-white/5 border border-white/10 rounded-xl p-4">
-                <p className="text-[#5BAEE8] text-xs font-bold uppercase tracking-widest mb-1">{item.label}</p>
+                <p className="text-[#0095DA] text-xs font-bold uppercase tracking-widest mb-1">{item.label}</p>
                 <p className="text-white font-medium">{item.value}</p>
               </div>
             ))}

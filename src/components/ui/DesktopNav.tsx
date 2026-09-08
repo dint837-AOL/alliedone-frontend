@@ -7,19 +7,11 @@ import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 
 const globalTradeServices = [
-  { name: "Global Sourcing & Procurement", href: "/services/global-sourcing-procurement" },
-  { name: "Import & Trade Solutions", href: "/services/import-trade-solutions" },
-  { name: "Export & Global Market Access", href: "/services/export-global-market-access" },
-  { name: "International Indenting & Representation", href: "/services/international-indenting-representation" },
-  { name: "Supply Chain & Logistics Coordination", href: "/services/supply-chain-logistics-coordination" },
-];
-
-const digitalServices = [
-  { name: "Web Development & Design", href: "/services/web-development-design" },
-  { name: "AI & Business Automation", href: "/services/ai-business-automation" },
-  { name: "Education, Training & Skills Development", href: "/services/education-training-skills-development" },
-  { name: "Enterprise Software & Digital Solutions", href: "#", comingSoon: true },
-  { name: "Smart Utilities & Digital Productivity Applications", href: "#", comingSoon: true },
+  { name: "Global Sourcing and Procurement", href: "/services#global-sourcing-procurement" },
+  { name: "Import and Trade Solutions", href: "/services#import-trade-solutions" },
+  { name: "Export and Global Market Access", href: "/services#export-global-market-access" },
+  { name: "International Indenting & Representation", href: "/services#international-indenting-representation" },
+  { name: "Supply Chain and Logistics Coordination", href: "/services#supply-chain-logistics-coordination" },
 ];
 
 const topLinksBeforeServices = [
@@ -28,7 +20,6 @@ const topLinksBeforeServices = [
 ];
 
 const topLinksAfterServices = [
-  { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -36,6 +27,18 @@ export default function DesktopNav() {
   const pathname = usePathname();
   const [servicesOpen, setServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setServicesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setServicesOpen(false);
+    }, 150);
+  };
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -44,7 +47,10 @@ export default function DesktopNav() {
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, []);
 
   const isServicesActive = pathname.startsWith("/services");
@@ -59,7 +65,7 @@ export default function DesktopNav() {
             key={link.name}
             href={link.href}
             className={`relative px-4 py-2 rounded-full text-sm lg:text-base font-bold transition-colors ${
-              isActive ? "text-[#0D3A5C]" : "text-slate-600 hover:text-[#1A5C8A]"
+              isActive ? "text-[#0A5486]" : "text-slate-600 hover:text-[#0095DA]"
             }`}
           >
             {isActive && (
@@ -75,76 +81,54 @@ export default function DesktopNav() {
         );
       })}
 
-      {/* Services dropdown — right after About */}
-      <div className="relative" ref={dropdownRef}>
-        <button
-          onClick={() => setServicesOpen(!servicesOpen)}
-          className={`relative flex items-center gap-1 px-4 py-2 rounded-full text-sm lg:text-base font-bold transition-colors ${
-            isServicesActive ? "text-[#0D3A5C] bg-slate-100" : "text-slate-600 hover:text-[#1A5C8A]"
+      {/* Services dropdown — hover to open, click navigates to /services */}
+      <div
+        className="relative"
+        ref={dropdownRef}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <Link
+          href="/services"
+          onClick={() => setServicesOpen(false)}
+          className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-sm lg:text-base font-bold transition-colors ${
+            isServicesActive ? "text-[#0A5486] bg-slate-100" : "text-slate-600 hover:text-[#0095DA]"
           }`}
         >
           Services
-          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
-        </button>
+          <ChevronDown
+            className={`w-4 h-4 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+          />
+        </Link>
 
         <AnimatePresence>
           {servicesOpen && (
             <motion.div
-              initial={{ opacity: 0, y: 8, scale: 0.97 }}
+              initial={{ opacity: 0, y: 6, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 8, scale: 0.97 }}
+              exit={{ opacity: 0, y: 6, scale: 0.98 }}
               transition={{ duration: 0.15 }}
-              className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[700px] bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden"
+              className="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50"
             >
-              <div className="grid grid-cols-2 gap-0">
-                {/* Global Trade Column — First */}
-                <div className="p-5 border-r border-slate-100">
-                  <p className="text-[10px] font-extrabold text-[#0D3A5C] uppercase tracking-[0.18em] mb-3 px-2">Global Trade</p>
-                  <div className="space-y-0.5">
-                    {globalTradeServices.map((s) => (
-                      <Link
-                        key={s.name}
-                        href={s.href}
-                        onClick={() => setServicesOpen(false)}
-                        className="flex items-start gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C] transition-all group"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] flex-shrink-0 mt-1.5 group-hover:scale-125 transition-transform"></span>
-                        <span className="leading-snug">{s.name}</span>
-                      </Link>
-                    ))}
-                  </div>
+              <div className="w-[360px] bg-white rounded-2xl shadow-2xl border border-slate-200 p-5 overflow-hidden">
+                <div className="border-b border-slate-100 pb-3 mb-3 px-2">
+                  <p className="text-xs font-extrabold text-[#0A5486] uppercase tracking-[0.16em] flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#0095DA]"></span>
+                    Global Supply BD.
+                  </p>
                 </div>
-
-                {/* Digital Solutions Column — Second */}
-                <div className="p-5">
-                  <p className="text-[10px] font-extrabold text-[#0D3A5C] uppercase tracking-[0.18em] mb-3 px-2">Digital Solutions</p>
-                  <div className="space-y-0.5">
-                    {digitalServices.map((s) => (
-                      <Link
-                        key={s.name}
-                        href={s.href}
-                        onClick={(e) => {
-                          if (s.comingSoon) e.preventDefault();
-                          else setServicesOpen(false);
-                        }}
-                        className={`flex items-start gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium transition-all group ${
-                          s.comingSoon 
-                            ? "text-slate-400 cursor-default" 
-                            : "text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0D3A5C]"
-                        }`}
-                      >
-                        <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5 transition-transform ${
-                          s.comingSoon ? "bg-slate-200" : "bg-cyan-500 group-hover:scale-125"
-                        }`}></span>
-                        <span className="leading-snug flex-1">{s.name}</span>
-                        {s.comingSoon && (
-                          <span className="ml-2 text-[9px] font-black uppercase tracking-wider text-white bg-[#FF5F15] px-1.5 py-0.5 rounded shadow-sm flex-shrink-0 mt-0.5">
-                            Soon
-                          </span>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
+                <div className="space-y-1">
+                  {globalTradeServices.map((s) => (
+                    <Link
+                      key={s.name}
+                      href={s.href}
+                      onClick={() => setServicesOpen(false)}
+                      className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-[#EBF4FB] hover:text-[#0A5486] transition-all group"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0095DA] flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+                      <span className="leading-snug">{s.name}</span>
+                    </Link>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -152,7 +136,7 @@ export default function DesktopNav() {
         </AnimatePresence>
       </div>
 
-      {/* Remaining links (Careers, Contact) */}
+      {/* Remaining links (Contact) */}
       {topLinksAfterServices.map((link) => {
         const isActive =
           link.href === "/"
@@ -164,7 +148,7 @@ export default function DesktopNav() {
             key={link.name}
             href={link.href}
             className={`relative px-4 py-2 rounded-full text-sm lg:text-base font-bold transition-colors ${
-              isActive ? "text-[#0D3A5C]" : "text-slate-600 hover:text-[#1A5C8A]"
+              isActive ? "text-[#0A5486]" : "text-slate-600 hover:text-[#0095DA]"
             }`}
           >
             {isActive && (

@@ -55,24 +55,24 @@ export default function NewsletterSignup() {
   };
 
   return (
-    <div className="relative rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(33,128,192,0.15)] border border-slate-200">
+    <div className="relative rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0, 149, 218,0.15)] border border-slate-200">
       {/* Background Gradient & Mesh */}
-      <div className="absolute inset-0 bg-[#0D3A5C] z-0"></div>
-      <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#2180C0]/60 via-transparent to-transparent opacity-80 z-0 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#5BAEE8]/40 via-transparent to-transparent opacity-50 z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[#0A5486] z-0"></div>
+      <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#0095DA]/60 via-transparent to-transparent opacity-80 z-0 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#0095DA]/40 via-transparent to-transparent opacity-50 z-0 pointer-events-none"></div>
 
       {/* Grid Pattern overlay */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)] z-0"></div>
 
       <div className="px-8 py-16 md:p-20 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="md:w-[55%] text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#5BAEE8] text-xs font-bold uppercase tracking-[0.2em] mb-6 border border-white/20 backdrop-blur-md shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#0095DA] text-xs font-bold uppercase tracking-[0.2em] mb-6 border border-white/20 backdrop-blur-md shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
             Weekly Industry Insights
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight leading-[1.1]">
             Automate to dominate. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5BAEE8] to-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0095DA] to-white">
               Stay ahead of the curve.
             </span>
           </h2>
@@ -109,13 +109,13 @@ export default function NewsletterSignup() {
                     placeholder="Enter your work email"
                     required
                     disabled={status === "loading"}
-                    className="w-full pl-12 pr-4 py-4 rounded-xl bg-[#061d30]/60 border border-white/20 text-white placeholder:text-blue-200/50 focus:outline-none focus:border-[#5BAEE8] focus:ring-1 focus:ring-[#5BAEE8] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-inner backdrop-blur-sm"
+                    className="w-full pl-12 pr-4 py-4 rounded-xl bg-[#061d30]/60 border border-white/20 text-white placeholder:text-blue-200/50 focus:outline-none focus:border-[#0095DA] focus:ring-1 focus:ring-[#0095DA] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-inner backdrop-blur-sm"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={status === "loading" || !email}
-                  className="group w-full inline-flex items-center justify-center gap-2 bg-[#2180C0] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#1A5C8A] transition-all shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="group w-full inline-flex items-center justify-center gap-2 bg-[#0095DA] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#0095DA] transition-all shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {status === "loading" ? (
                     <Loader2 className="w-5 h-5 animate-spin text-white" />

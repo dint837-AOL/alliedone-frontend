@@ -13,8 +13,46 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AlliedOne | AI & Digital Solutions",
-  description: "Enterprise AI Automation, Consulting, and Digital Marketing — AlliedOne Limited, Dhaka.",
+  metadataBase: new URL("https://www.alliedoneltd.com"),
+  title: {
+    default: "AlliedOne | Global Trade & Sourcing",
+    template: "%s | AlliedOne",
+  },
+  description:
+    "AlliedOne Limited operates and facilitates international business, working closely with import export, strategic sourcing and procurement and trade representation.",
+  keywords: [
+    "AlliedOne",
+    "Global Trade",
+    "Global Sourcing",
+    "Strategic Sourcing",
+    "Global Supply BD",
+    "Import Export Bangladesh",
+    "International Indenting",
+    "Supply Chain Logistics",
+  ],
+  openGraph: {
+    title: "AlliedOne | Global Trade & Sourcing",
+    description:
+      "AlliedOne Limited operates and facilitates international business, working closely with import export, strategic sourcing and procurement and trade representation.",
+    url: "https://www.alliedoneltd.com",
+    siteName: "AlliedOne Limited",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AlliedOne | Global Trade & Sourcing",
+    description:
+      "AlliedOne Limited operates and facilitates international business, working closely with import export, strategic sourcing and procurement and trade representation.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -49,7 +87,7 @@ export default function RootLayout({
             <div className="flex items-center gap-4">
               <Link
                 href="/gsbd"
-                className="hidden md:inline-flex items-center gap-2.5 bg-[#0D3A5C] text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-[#1A5C8A] transition-all shadow-md group"
+                className="hidden md:inline-flex items-center gap-2.5 bg-[#0A5486] text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-[#0095DA] transition-all shadow-md group"
               >
                 <span className="w-6 h-6 rounded-md bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm overflow-hidden">
                   <Image
@@ -71,11 +109,11 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main>
 
         {/* ── Footer ── */}
-        <footer className="bg-[#0D3A5C] text-slate-100 pt-16 pb-8">
+        <footer className="bg-[#0A5486] text-slate-100 pt-16 pb-8">
           <div className="max-w-7xl mx-auto px-6">
 
             {/* Top 4-col grid: 1 Contacts + 1 Services + 2 Company/Contact/Newsletter */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-[#1A5C8A]">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-[#0095DA]">
 
               {/* Contact column */}
               <div className="md:col-span-1">
@@ -120,23 +158,41 @@ export default function RootLayout({
               {/* Services column */}
               <div className="md:col-span-1">
                 <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Services</h4>
-                <ul className="space-y-4 text-sm text-slate-300">
+                <ul className="space-y-3 text-sm text-slate-300">
                   <li>
-                    <Link href="/services#global-trade" className="hover:text-white transition-colors group flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#5BAEE8] mt-1.5 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
-                      <span>Global Trade &amp; Institutional</span>
+                    <Link href="/services#global-sourcing-procurement" className="hover:text-white transition-colors group flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0095DA] mt-1.5 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+                      <span>Global Sourcing &amp; Procurement</span>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services#technology" className="hover:text-white transition-colors group flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] mt-1.5 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
-                      <span>Technology &amp; Digital</span>
+                    <Link href="/services#import-trade-solutions" className="hover:text-white transition-colors group flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0095DA] mt-1.5 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+                      <span>Import &amp; Trade Solutions</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services#export-global-market-access" className="hover:text-white transition-colors group flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0095DA] mt-1.5 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+                      <span>Export &amp; Global Market Access</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services#international-indenting-representation" className="hover:text-white transition-colors group flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0095DA] mt-1.5 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+                      <span>International Indenting &amp; Representation</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services#supply-chain-logistics-coordination" className="hover:text-white transition-colors group flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0095DA] mt-1.5 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+                      <span>Supply Chain &amp; Logistics Coordination</span>
                     </Link>
                   </li>
                 </ul>
               </div>
 
-              {/* Right side: Company, Contact, and horizontal Newsletter */}
+              {/* Right side: Company, Contact */}
               <div className="md:col-span-2 flex flex-col justify-between">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
                   {/* Company column */}
@@ -144,7 +200,7 @@ export default function RootLayout({
                     <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Company</h4>
                     <ul className="space-y-3 text-sm text-slate-200">
                       <li><Link href="/about" className="hover:text-white hover:underline transition-all">About Us</Link></li>
-                      <li><Link href="/careers" className="hover:text-white hover:underline transition-all">Careers</Link></li>
+                      <li><Link href="/services" className="hover:text-white hover:underline transition-all">Services</Link></li>
                       <li><Link href="/privacy" className="hover:text-white hover:underline transition-all">Privacy Policy</Link></li>
                       <li><Link href="/terms" className="hover:text-white hover:underline transition-all">Terms of Service</Link></li>
                     </ul>
@@ -154,13 +210,13 @@ export default function RootLayout({
                   <div>
                     <h4 className="text-white font-bold mb-5 uppercase text-lg tracking-wider">Get in Touch</h4>
                     <p className="text-sm text-slate-200 mb-5 leading-relaxed">
-                      Ready to transform your business with AI? Let&apos;s talk.
+                      Ready to partner on global sourcing and trade execution? Let&apos;s talk.
                     </p>
                     <Link
                       href="/contact"
-                      className="inline-block bg-white text-[#0D3A5C] px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-slate-200 transition-all"
+                      className="inline-block bg-white text-[#0A5486] px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-slate-200 transition-all"
                     >
-                      Schedule a Demo &rarr;
+                      Contact Us &rarr;
                     </Link>
                   </div>
                 </div>

@@ -20,19 +20,17 @@ const leadSchema = z.object({
     return isEmail || isPhone;
   }, "Must be a valid email address or phone number"),
   serviceInterest: z.enum([
+    "GLOBAL_SOURCING_PROCUREMENT",
+    "IMPORT_TRADE_SOLUTIONS",
+    "EXPORT_GLOBAL_MARKET_ACCESS",
+    "INTERNATIONAL_INDENTING_REPRESENTATION",
+    "SUPPLY_CHAIN_LOGISTICS_COORDINATION",
     "GLOBAL_TRADE_SOURCING",
     "GLOBAL_TRADE_INDUSTRIAL_SUPPLY",
     "GLOBAL_TRADE_LOGISTICS",
     "GLOBAL_TRADE_EXPORT",
     "GLOBAL_TRADE_INDENTING",
     "GOVERNMENT_PROCUREMENT",
-    "AI_OPPORTUNITY_CONSULTING",
-    "PROCESS_AUTOMATION_STRATEGY",
-    "WHATSAPP_BOTS_STRATEGY",
-    "EMAIL_AUTOMATION_CONSULTING",
-    "ATS_HR_TECH_ARCHITECTURE",
-    "DIGITAL_MARKETING_AGENCY",
-    "AI_CONTENT_STUDIO",
     "OTHER",
   ]),
   problemDescription: z.string().optional(),
@@ -110,7 +108,7 @@ export default function LeadCaptureForm() {
 
   return (
     <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-200 max-w-2xl mx-auto">
-      <h3 className="text-2xl md:text-3xl font-extrabold text-[#0D3A5C] mb-3">Let&apos;s discuss your project</h3>
+      <h3 className="text-2xl md:text-3xl font-extrabold text-[#0A5486] mb-3">Let&apos;s discuss your project</h3>
       <p className="text-slate-500 text-sm md:text-base mb-8">Tell us a bit about your business and what you&apos;re looking to achieve.</p>
       
       {submitStatus === "success" && (
@@ -129,10 +127,10 @@ export default function LeadCaptureForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Name Field */}
           <div>
-            <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Full Name *</label>
+            <label className="block text-sm font-semibold text-[#0A5486] mb-1.5">Full Name *</label>
             <input
               {...register("name")}
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all text-slate-800"
               placeholder="John Doe"
             />
             {errors.name && <p className="text-red-500 text-xs mt-1 font-medium">{errors.name.message}</p>}
@@ -140,10 +138,10 @@ export default function LeadCaptureForm() {
 
           {/* Company Field */}
           <div>
-            <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Company</label>
+            <label className="block text-sm font-semibold text-[#0A5486] mb-1.5">Company</label>
             <input
               {...register("company")}
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all text-slate-800"
               placeholder="Your Company Ltd."
             />
           </div>
@@ -151,10 +149,10 @@ export default function LeadCaptureForm() {
 
         {/* Contact Info Field */}
         <div>
-          <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Email or Phone *</label>
+          <label className="block text-sm font-semibold text-[#0A5486] mb-1.5">Email or Phone *</label>
           <input
             {...register("contactInfo")}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all text-slate-800"
             placeholder="john@example.com"
           />
           {errors.contactInfo && <p className="text-red-500 text-xs mt-1 font-medium">{errors.contactInfo.message}</p>}
@@ -162,30 +160,18 @@ export default function LeadCaptureForm() {
 
         {/* Service Interest Field */}
         <div>
-          <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Service of Interest *</label>
+          <label className="block text-sm font-semibold text-[#0A5486] mb-1.5">Service of Interest *</label>
           <div className="relative">
             <select
               {...register("serviceInterest")}
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800 appearance-none pr-10"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all text-slate-800 appearance-none pr-10"
             >
-              <optgroup label="Global Trade & Institutional Business">
-                <option value="GLOBAL_TRADE_SOURCING">Import & Strategic Sourcing</option>
-                <option value="GLOBAL_TRADE_INDUSTRIAL_SUPPLY">Industrial Supply Solutions</option>
-                <option value="GLOBAL_TRADE_LOGISTICS">Supply Chain & Logistics Coordination</option>
-                <option value="GLOBAL_TRADE_EXPORT">Export Facilitation</option>
-                <option value="GLOBAL_TRADE_INDENTING">International Indenting & Representation</option>
-                <option value="GOVERNMENT_PROCUREMENT">Government Procurement & Supply</option>
-              </optgroup>
-              <optgroup label="Technology & Digital Solutions">
-                <option value="AI_OPPORTUNITY_CONSULTING">AI Opportunity & Implementation</option>
-                <option value="PROCESS_AUTOMATION_STRATEGY">Process Automation Strategy</option>
-                <option value="WHATSAPP_BOTS_STRATEGY">WhatsApp & Messaging Bots</option>
-                <option value="EMAIL_AUTOMATION_CONSULTING">Email Automation Consulting</option>
-                <option value="ATS_HR_TECH_ARCHITECTURE">ATS & HR Tech Architecture</option>
-                <option value="DIGITAL_MARKETING_AGENCY">AI Agency</option>
-                <option value="AI_CONTENT_STUDIO">AI Content Studio</option>
-              </optgroup>
-              <option value="OTHER">Other / General Inquiry</option>
+              <option value="GLOBAL_SOURCING_PROCUREMENT">Global Sourcing and Procurement</option>
+              <option value="IMPORT_TRADE_SOLUTIONS">Import and Trade Solutions</option>
+              <option value="EXPORT_GLOBAL_MARKET_ACCESS">Export and Global Market Access</option>
+              <option value="INTERNATIONAL_INDENTING_REPRESENTATION">International Indenting &amp; Representation</option>
+              <option value="SUPPLY_CHAIN_LOGISTICS_COORDINATION">Supply Chain and Logistics Coordination</option>
+              <option value="OTHER">Other</option>
             </select>
             <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-500">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -195,22 +181,22 @@ export default function LeadCaptureForm() {
 
         {/* Problem Description Field */}
         <div>
-          <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Please describe your exact problem or project</label>
+          <label className="block text-sm font-semibold text-[#0A5486] mb-1.5">Please describe your exact problem or project</label>
           <textarea
             {...register("problemDescription")}
             rows={3}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all resize-none text-slate-800"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all resize-none text-slate-800"
             placeholder="Tell us about the challenges you're facing and what you need help with..."
           ></textarea>
         </div>
 
         {/* Notes Field */}
         <div>
-          <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Additional Notes (Optional)</label>
+          <label className="block text-sm font-semibold text-[#0A5486] mb-1.5">Additional Notes (Optional)</label>
           <textarea
             {...register("notes")}
             rows={2}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all resize-none text-slate-800"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all resize-none text-slate-800"
             placeholder="Any other details you'd like to share..."
           ></textarea>
         </div>
@@ -219,7 +205,7 @@ export default function LeadCaptureForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-[#2180C0] text-white py-4 rounded-xl font-bold hover:bg-[#1A5C8A] transition-all shadow-md disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center gap-2 text-base mt-2"
+          className="w-full bg-[#0095DA] text-white py-4 rounded-xl font-bold hover:bg-[#0095DA] transition-all shadow-md disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center gap-2 text-base mt-2"
         >
           {isSubmitting ? (
             <>

@@ -1,138 +1,157 @@
-import Link from "next/link";
 import {
-  Lightbulb, Workflow, MessageSquare, TrendingUp, PenTool, Mail, GraduationCap,
-  ArrowRight, CheckCircle, Landmark, Globe, Briefcase, Network, Truck, Factory,
-  Monitor, Code
+  Globe, Truck, Briefcase, Landmark, CheckCircle, Ship
 } from "lucide-react";
-import { servicesData } from "./serviceData";
 
 export const metadata = {
-  title: "Services | AlliedOne",
-  description: "Explore our comprehensive suite of Trade, Procurement, and Digital services.",
+  title: "Services | AlliedOne Limited",
+  description: "Global Sourcing, Import, Export, Indenting, and Logistics Coordination — Global Supply BD.",
 };
 
-// Group services by category
-const globalTradeServices = servicesData.filter(s => s.category === "Global Trade & Institutional Business");
-const techServices = servicesData.filter(s => s.category === "Technology & Digital Solutions");
+const topRowServices = [
+  {
+    id: "global-sourcing-procurement",
+    title: "Global Sourcing & Procurement",
+    icon: <Globe className="w-6 h-6 text-[#0095DA]" />,
+    desc: "Connecting Bangladeshi businesses with verified international manufacturers through rigorous techno-commercial negotiation and end-to-end procurement.",
+    bullets: [
+      "Global Supplier Identification & Verification",
+      "RFQ Preparation & Quotation Analysis",
+      "Price & Commercial Terms Negotiation",
+      "Pre-Shipment Quality Inspection Coordination",
+    ],
+  },
+  {
+    id: "import-trade-solutions",
+    title: "Import & Trade Solutions",
+    icon: <Landmark className="w-6 h-6 text-[#0095DA]" />,
+    desc: "Managing complex cross-border imports, banking instruments, regulatory clearance, and major institutional supply execution.",
+    bullets: [
+      "LC / TT Banking & Trade Finance Coordination",
+      "Customs Tariffs, HS Code & Regulatory Compliance",
+      "Proforma Invoice (PI) & Commercial Contract Vetting",
+      "Government & Private Tender Supply Execution",
+    ],
+  },
+  {
+    id: "export-global-market-access",
+    title: "Export & Global Market Access",
+    icon: <Ship className="w-6 h-6 text-[#0095DA]" />,
+    desc: "Assisting Bangladeshi producers in entering international markets through targeted buyer outreach, trade compliance, and export execution.",
+    bullets: [
+      "Quality Export-Ready Product Sourcing",
+      "International Buyer Identification & Matching",
+      "Export Costing & Professional Offer Presentation",
+      "Export Documentation (Exp, Form C, GSP, CoO)",
+    ],
+  },
+];
 
-// Helper function to assign icons based on slug
-const getIconForSlug = (slug: string) => {
-  switch (slug) {
-    case "import-strategic-sourcing": return <Globe className="w-6 h-6" />;
-    case "industrial-supply-solutions": return <Factory className="w-6 h-6" />;
-    case "export-facilitation": return <Network className="w-6 h-6" />;
-    case "supply-chain-logistics": return <Truck className="w-6 h-6" />;
-    case "international-indenting": return <Briefcase className="w-6 h-6" />;
-    case "government-procurement": return <Landmark className="w-6 h-6" />;
-    case "educational-web-app": return <GraduationCap className="w-6 h-6" />;
-    case "ai-training": return <Lightbulb className="w-6 h-6" />;
-    case "workflow-automation-no-code": return <Workflow className="w-6 h-6" />;
-    case "dashboard-automation": return <TrendingUp className="w-6 h-6" />;
-    case "ai-tool-selection-implementation": return <PenTool className="w-6 h-6" />;
-    case "discovery-workshop": return <MessageSquare className="w-6 h-6" />;
-    case "website-development": return <Monitor className="w-6 h-6" />;
-    case "software-development": return <Code className="w-6 h-6" />;
-    default: return <CheckCircle className="w-6 h-6" />;
-  }
-};
+const bottomRowServices = [
+  {
+    id: "international-indenting-representation",
+    title: "International Indenting & Representation",
+    icon: <Briefcase className="w-6 h-6 text-[#0095DA]" />,
+    desc: "Acting as the authorized local agent and strategic partner for overseas manufacturers expanding their market footprint in Bangladesh.",
+    bullets: [
+      "Foreign Principal & Brand Representation",
+      "Local Buyer, Dealer & Distributor Network Development",
+      "Indenting, Order Booking & Commission Management",
+      "Technical Presentations & Commercial Negotiation",
+    ],
+  },
+  {
+    id: "supply-chain-logistics-coordination",
+    title: "Supply Chain & Logistics Coordination",
+    icon: <Truck className="w-6 h-6 text-[#0095DA]" />,
+    desc: "Orchestrating multi-modal transport, customs oversight, and final delivery to keep cargo moving without delays.",
+    bullets: [
+      "Shipping Space Booking & Container Allocation",
+      "Port Clearance & Customs Brokerage Supervision",
+      "Real-Time Cargo Tracking & Milestone Updates",
+      "Demurrage Control & Last-Mile Delivery Coordination",
+    ],
+  },
+];
 
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
 
-      {/* ── Page Header ── */}
-      <section className="bg-[#0D3A5C] relative overflow-hidden">
+      {/* ── Page Header: Just one sentence under What We Offer ── */}
+      <section className="bg-[#0A5486] relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full border border-white/5"></div>
           <div className="absolute -bottom-12 -left-12 w-[300px] h-[300px] rounded-full border border-white/5"></div>
         </div>
-        <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10 text-center">
-          <span className="inline-block text-[#5BAEE8] text-xs font-bold uppercase tracking-[0.18em] mb-4">What We Offer</span>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight leading-[1.08]">
-            Transform Your Business
-          </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            From global strategic sourcing and government procurement to hands-on AI and digital implementation, we provide the infrastructure and expertise to scale your operations efficiently.
+        <div className="max-w-4xl mx-auto px-6 py-20 md:py-24 relative z-10 text-center">
+          <span className="inline-block text-[#0095DA] text-xs font-bold uppercase tracking-[0.2em] mb-4">
+            What We Offer
+          </span>
+          <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-snug">
+            We power international trade and supply as a modern solution for businesses.
           </p>
         </div>
       </section>
 
-      {/* ── PILLAR 1: Global Trade ── */}
-      <section className="max-w-7xl mx-auto px-6 py-20" id="global-trade">
-        <div className="mb-12 border-b border-slate-200 pb-6">
-          <span className="text-[#2180C0] text-sm font-bold uppercase tracking-widest">Pillar 01</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0D3A5C] mt-2">Global Trade & Institutional Business</h2>
-          <p className="text-slate-500 mt-3 max-w-2xl text-lg">Reliable sourcing of critical raw materials, commercial representation, export facilitation, and complex institutional procurement across global markets.</p>
+      {/* ── Services Section: Global Supply BD. (3 on first row, 2 on second row) ── */}
+      <section className="max-w-7xl mx-auto px-6 py-16 pb-24">
+        <div className="mb-10 border-b border-slate-200 pb-5">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A5486]">
+            Global Supply BD.
+          </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {globalTradeServices.map((service, sIdx) => (
-            <ServiceCard key={sIdx} service={service} />
+
+        {/* First row: 3 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          {topRowServices.map((service) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
+        </div>
+
+        {/* Second row: 2 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {bottomRowServices.map((service) => (
+            <ServiceCard key={service.id} service={service} />
           ))}
         </div>
       </section>
 
-      {/* ── PILLAR 2: Tech ── */}
-      <section className="max-w-7xl mx-auto px-6 py-20 bg-white border-t border-slate-200" id="technology">
-        <div className="mb-12 border-b border-slate-200 pb-6">
-          <span className="text-[#2180C0] text-sm font-bold uppercase tracking-widest">Pillar 02</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0D3A5C] mt-2">Technology & Digital Solutions</h2>
-          <p className="text-slate-500 mt-3 max-w-2xl text-lg">Modernizing businesses with process automation, conversational AI, digital marketing, and intelligent software.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {techServices.map((service, sIdx) => (
-            <ServiceCard key={sIdx} service={service} />
-          ))}
-        </div>
-      </section>
-
-      {/* ── CTA Section ── */}
-      <section className="max-w-7xl mx-auto px-6 pb-24">
-        <div className="bg-[#0D3A5C] rounded-2xl p-12 md:p-16 text-center shadow-xl">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">Ready to get started?</h2>
-          <p className="text-slate-300 mb-8 text-lg max-w-2xl mx-auto leading-relaxed">
-            Book a free consultation to discuss which services align best with your current growth goals.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center gap-2 bg-[#2180C0] text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-[#0D3A5C] transition-all duration-300 shadow-md"
-          >
-            Contact Us Today
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
     </main>
   );
 }
 
-// Extracted ServiceCard component for cleaner code
-function ServiceCard({ service }: { service: any }) {
+function ServiceCard({
+  service,
+}: {
+  service: {
+    id: string;
+    title: string;
+    icon: React.ReactNode;
+    desc: string;
+    bullets: string[];
+  };
+}) {
   return (
-    <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:border-[#2180C0]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group">
-      <div className="w-14 h-14 rounded-2xl bg-[#EBF4FB] text-[#2180C0] group-hover:bg-[#2180C0] group-hover:text-white transition-colors duration-300 flex items-center justify-center mb-6 shadow-sm">
-        {getIconForSlug(service.slug)}
+    <div
+      id={service.id}
+      className="bg-white rounded-3xl p-8 border border-slate-200 hover:border-[#0095DA]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group scroll-mt-24"
+    >
+      <div className="w-14 h-14 rounded-2xl bg-[#EBF4FB] text-[#0095DA] group-hover:bg-[#0A5486] group-hover:text-white transition-colors duration-300 flex items-center justify-center mb-6 shadow-sm">
+        {service.icon}
       </div>
-      <h3 className="text-xl font-bold text-[#0D3A5C] mb-3 leading-tight">{service.title}</h3>
-      <p className="text-slate-500 text-sm mb-6 leading-relaxed flex-grow">{service.coreValue}</p>
-      
-      <div className="bg-slate-50 rounded-xl p-5 mb-8">
+      <h3 className="text-2xl font-bold text-[#0A5486] mb-3 leading-tight">{service.title}</h3>
+      <p className="text-slate-500 text-sm mb-6 leading-relaxed flex-grow">{service.desc}</p>
+
+      <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100">
         <ul className="space-y-3">
-          {service.whatWeOffer.slice(0, 3).map((item: any, iIdx: number) => (
-            <li key={iIdx} className="flex items-start gap-3 text-slate-600 text-sm font-medium">
-              <CheckCircle className="w-4 h-4 text-[#2180C0] flex-shrink-0 mt-0.5" />
-              {item.title}
+          {service.bullets.map((bullet, idx) => (
+            <li key={idx} className="flex items-start gap-2.5 text-slate-700 text-sm font-medium">
+              <CheckCircle className="w-4 h-4 text-[#0095DA] flex-shrink-0 mt-0.5" />
+              <span>{bullet}</span>
             </li>
           ))}
         </ul>
       </div>
-      
-      <Link 
-        href={`/services/${service.slug}`}
-        className="mt-auto w-full flex items-center justify-center gap-2 bg-[#F8FAFC] group-hover:bg-[#2180C0] text-[#0D3A5C] group-hover:text-white transition-all duration-300 border border-slate-200 group-hover:border-[#2180C0] rounded-xl px-5 py-3.5 font-bold shadow-sm"
-      >
-        Learn More in Detail
-        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-      </Link>
     </div>
   );
 }

@@ -44,7 +44,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       <div className="hidden md:block fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
         <Link
           href="/services"
-          className="flex items-center gap-2 bg-[#2180C0] hover:bg-[#5BAEE8] text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider shadow-2xl shadow-[#2180C0]/50 transition-all hover:-translate-y-1 border-2 border-white/90 backdrop-blur-md"
+          className="flex items-center gap-2 bg-[#0095DA] hover:bg-[#0095DA] text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider shadow-2xl shadow-[#0095DA]/50 transition-all hover:-translate-y-1 border-2 border-white/90 backdrop-blur-md"
         >
           <ChevronLeft className="w-5 h-5" />
           Back to Services
@@ -52,7 +52,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       </div>
 
       {/* ── Page Header ── */}
-      <section className="bg-[#0D3A5C] relative overflow-hidden">
+      <section className="bg-[#0A5486] relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full border border-white/5"></div>
           <div className="absolute -bottom-12 -left-12 w-[300px] h-[300px] rounded-full border border-white/5"></div>
@@ -75,18 +75,18 @@ export default async function ServiceDetailPage({ params }: Props) {
           
           {/* Left Column - Value Proposition */}
           <div className="lg:col-span-5 lg:sticky lg:top-32">
-            <span className="text-[#2180C0] text-xs font-bold uppercase tracking-[0.18em]">Core Value</span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-[#0D3A5C] mt-2 mb-6 leading-tight">
+            <span className="text-[#0095DA] text-xs font-bold uppercase tracking-[0.18em]">Core Value</span>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#0A5486] mt-2 mb-6 leading-tight">
               {service.coreValue}
             </h2>
             <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-              <h3 className="text-lg font-bold text-[#0D3A5C] mb-4">Ready to accelerate?</h3>
+              <h3 className="text-lg font-bold text-[#0A5486] mb-4">Ready to accelerate?</h3>
               <p className="text-slate-500 mb-6 text-sm leading-relaxed">
                 Take the first step towards transforming your business with our specialized expertise.
               </p>
               <Link
                 href="/contact"
-                className="w-full inline-flex items-center justify-center gap-2 bg-[#2180C0] text-white px-6 py-3.5 rounded-xl font-bold hover:bg-[#0D3A5C] transition-all duration-300 shadow-sm"
+                className="w-full inline-flex items-center justify-center gap-2 bg-[#0095DA] text-white px-6 py-3.5 rounded-xl font-bold hover:bg-[#0A5486] transition-all duration-300 shadow-sm"
               >
                 {service.ctaText}
                 <ArrowRight className="w-4 h-4" />
@@ -97,15 +97,15 @@ export default async function ServiceDetailPage({ params }: Props) {
           {/* Right Column - Features */}
           <div className="lg:col-span-7 space-y-12">
             <div>
-              <span className="text-[#2180C0] text-xs font-bold uppercase tracking-[0.18em]">What We Offer</span>
-              <h2 className="text-3xl font-extrabold text-[#0D3A5C] mt-2 mb-10">Our Approach & Deliverables</h2>
+              <span className="text-[#0095DA] text-xs font-bold uppercase tracking-[0.18em]">What We Offer</span>
+              <h2 className="text-3xl font-extrabold text-[#0A5486] mt-2 mb-10">Our Approach & Deliverables</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {service.whatWeOffer.map((offer, idx) => (
-                  <div key={idx} className="bg-white rounded-2xl p-7 border border-slate-200 hover:border-[#2180C0]/30 hover:shadow-md transition-all duration-200">
-                    <div className="w-10 h-10 rounded-xl bg-[#EBF4FB] text-[#2180C0] flex items-center justify-center mb-5">
+                  <div key={idx} className="bg-white rounded-2xl p-7 border border-slate-200 hover:border-[#0095DA]/30 hover:shadow-md transition-all duration-200">
+                    <div className="w-10 h-10 rounded-xl bg-[#EBF4FB] text-[#0095DA] flex items-center justify-center mb-5">
                       <CheckCircle className="w-5 h-5" />
                     </div>
-                    <h3 className="text-lg font-bold text-[#0D3A5C] mb-3 leading-tight">{offer.title}</h3>
+                    <h3 className="text-lg font-bold text-[#0A5486] mb-3 leading-tight">{offer.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed">{offer.description}</p>
                   </div>
                 ))}

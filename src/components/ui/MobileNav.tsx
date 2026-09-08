@@ -7,19 +7,11 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Bug, ChevronDown, ChevronUp } from "lucide-react";
 
 const globalTradeServices = [
-  { name: "Global Sourcing & Procurement", href: "/services/global-sourcing-procurement" },
-  { name: "Import & Trade Solutions", href: "/services/import-trade-solutions" },
-  { name: "Export & Global Market Access", href: "/services/export-global-market-access" },
-  { name: "International Indenting & Representation", href: "/services/international-indenting-representation" },
-  { name: "Supply Chain & Logistics Coordination", href: "/services/supply-chain-logistics-coordination" },
-];
-
-const digitalServices = [
-  { name: "Web Development & Design", href: "/services/web-development-design" },
-  { name: "AI & Business Automation", href: "/services/ai-business-automation" },
-  { name: "Education, Training & Skills Development", href: "/services/education-training-skills-development" },
-  { name: "Enterprise Software & Digital Solutions", href: "#", comingSoon: true },
-  { name: "Smart Utilities & Digital Productivity Applications", href: "#", comingSoon: true },
+  { name: "Global Sourcing and Procurement", href: "/services#global-sourcing-procurement" },
+  { name: "Import and Trade Solutions", href: "/services#import-trade-solutions" },
+  { name: "Export and Global Market Access", href: "/services#export-global-market-access" },
+  { name: "International Indenting & Representation", href: "/services#international-indenting-representation" },
+  { name: "Supply Chain and Logistics Coordination", href: "/services#supply-chain-logistics-coordination" },
 ];
 
 const topLinksBeforeServices = [
@@ -28,7 +20,6 @@ const topLinksBeforeServices = [
 ];
 
 const topLinksAfterServices = [
-  { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -41,7 +32,7 @@ export default function MobileNav() {
     <div className="md:hidden flex items-center">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 text-[#0D3A5C] hover:bg-slate-100 rounded-lg transition-colors"
+        className="p-2 text-[#0A5486] hover:bg-slate-100 rounded-lg transition-colors"
         aria-label="Toggle menu"
       >
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -59,8 +50,8 @@ export default function MobileNav() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`font-bold text-lg transition-colors ${
-                  isActive ? "text-[#1A5C8A] border-l-4 border-[#1A5C8A] pl-2" : "text-[#0D3A5C] hover:text-[#1A5C8A]"
+                className={`font-bold text-lg transition-colors py-1 ${
+                  isActive ? "text-[#0095DA] border-l-4 border-[#0095DA] pl-2" : "text-[#0A5486] hover:text-[#0095DA]"
                 }`}
               >
                 {link.name}
@@ -69,45 +60,45 @@ export default function MobileNav() {
           })}
 
           {/* Services accordion */}
-          <button
-            onClick={() => setServicesOpen(!servicesOpen)}
-            className="flex items-center justify-between font-bold text-lg text-[#0D3A5C] hover:text-[#1A5C8A] transition-colors py-1"
-          >
-            Services
-            {servicesOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
-          </button>
-
-          {servicesOpen && (
-            <div className="pl-4 border-l-2 border-slate-200 space-y-3 mb-2">
-              <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider mt-2">Global Trade</p>
-              {globalTradeServices.map((s) => (
-                <Link key={s.name} href={s.href} onClick={() => setIsOpen(false)}
-                  className="block text-sm font-medium text-slate-600 hover:text-[#1A5C8A] transition-colors py-1">
-                  {s.name}
-                </Link>
-              ))}
-              
-              <p className="text-xs font-extrabold text-[#0D3A5C] uppercase tracking-wider pt-3">Digital Solutions</p>
-              {digitalServices.map((s) => (
-                <Link 
-                  key={s.name} 
-                  href={s.href} 
-                  onClick={(e) => {
-                    if (s.comingSoon) e.preventDefault();
-                    else setIsOpen(false);
-                  }}
-                  className={`block text-sm font-medium transition-colors py-1 ${
-                    s.comingSoon ? "text-slate-400" : "text-slate-600 hover:text-[#1A5C8A]"
-                  }`}
-                >
-                  {s.name}
-                  {s.comingSoon && <span className="ml-2 inline-block text-[9px] font-black uppercase tracking-wider text-white bg-[#FF5F15] px-1.5 py-0.5 rounded shadow-sm">Coming Soon</span>}
-                </Link>
-              ))}
+          <div className="py-1">
+            <div className="flex items-center justify-between">
+              <Link
+                href="/services"
+                onClick={() => setIsOpen(false)}
+                className="font-bold text-lg text-[#0A5486] hover:text-[#0095DA] transition-colors"
+              >
+                Services
+              </Link>
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="p-1 text-[#0A5486] hover:text-[#0095DA]"
+                aria-label="Toggle services list"
+              >
+                {servicesOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+              </button>
             </div>
-          )}
 
-          {/* Remaining links (Careers, Contact) */}
+            {servicesOpen && (
+              <div className="pl-4 border-l-2 border-slate-200 space-y-2 mt-2 mb-2">
+                <p className="text-xs font-extrabold text-[#0A5486] uppercase tracking-wider mt-2 mb-2 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0095DA]"></span>
+                  Global Supply BD.
+                </p>
+                {globalTradeServices.map((s) => (
+                  <Link
+                    key={s.name}
+                    href={s.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block text-sm font-semibold text-slate-700 hover:text-[#0095DA] transition-colors py-1.5"
+                  >
+                    {s.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Remaining links (Contact) */}
           {topLinksAfterServices.map((link) => {
             const isActive =
               link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
@@ -116,8 +107,8 @@ export default function MobileNav() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`font-bold text-lg transition-colors ${
-                  isActive ? "text-[#1A5C8A] border-l-4 border-[#1A5C8A] pl-2" : "text-[#0D3A5C] hover:text-[#1A5C8A]"
+                className={`font-bold text-lg transition-colors py-1 ${
+                  isActive ? "text-[#0095DA] border-l-4 border-[#0095DA] pl-2" : "text-[#0A5486] hover:text-[#0095DA]"
                 }`}
               >
                 {link.name}
@@ -131,7 +122,7 @@ export default function MobileNav() {
               setIsOpen(false);
               window.dispatchEvent(new Event("open-feedback"));
             }}
-            className="flex items-center gap-3 font-bold text-lg text-[#0D3A5C] hover:text-[#1A5C8A] transition-colors mt-2"
+            className="flex items-center gap-3 font-bold text-lg text-[#0A5486] hover:text-[#0095DA] transition-colors mt-2"
           >
             <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center border border-slate-200">
               <Bug className="w-4 h-4 text-amber-600" />
@@ -140,9 +131,9 @@ export default function MobileNav() {
           </button>
 
           <Link
-            href="/gsbd"
+            href="/services"
             onClick={() => setIsOpen(false)}
-            className="bg-[#0D3A5C] text-white px-6 py-4 mt-4 rounded-xl flex items-center justify-center gap-2.5 text-base font-bold shadow-md hover:bg-[#1A5C8A] transition-colors"
+            className="bg-[#0A5486] text-white px-6 py-4 mt-4 rounded-xl flex items-center justify-center gap-2.5 text-base font-bold shadow-md hover:bg-[#0095DA] transition-colors"
           >
             <span className="w-6 h-6 rounded-md bg-white flex items-center justify-center p-0.5 flex-shrink-0 shadow-sm overflow-hidden">
               <Image

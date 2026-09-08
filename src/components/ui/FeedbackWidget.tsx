@@ -85,7 +85,7 @@ export default function FeedbackWidget() {
             className="w-[calc(100vw-3rem)] sm:w-[380px] mr-2 md:mr-4 max-h-[85vh] flex flex-col overflow-hidden rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] border border-slate-200/60 bg-white/95 backdrop-blur-xl"
           >
             {/* Header */}
-            <div className="bg-[#0D3A5C] px-6 py-4 flex items-center justify-between text-white shadow-sm z-10 relative overflow-hidden flex-shrink-0">
+            <div className="bg-[#0A5486] px-6 py-4 flex items-center justify-between text-white shadow-sm z-10 relative overflow-hidden flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent pointer-events-none"></div>
               <div className="flex items-center gap-3 relative z-10">
                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20 shadow-inner">
@@ -124,7 +124,7 @@ export default function FeedbackWidget() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full text-sm px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2180C0] bg-white transition-all shadow-sm"
+                      className="w-full text-sm px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0095DA] bg-white transition-all shadow-sm"
                       placeholder="John Doe"
                     />
                   </div>
@@ -137,7 +137,7 @@ export default function FeedbackWidget() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full text-sm px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2180C0] bg-white transition-all shadow-sm"
+                      className="w-full text-sm px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0095DA] bg-white transition-all shadow-sm"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -148,7 +148,7 @@ export default function FeedbackWidget() {
                       name="type" 
                       value={formData.type} 
                       onChange={handleChange}
-                      className="w-full text-sm px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2180C0] bg-white transition-all shadow-sm"
+                      className="w-full text-sm px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0095DA] bg-white transition-all shadow-sm"
                     >
                       <option value="BUG_REPORT">Report a Bug / Glitch</option>
                       <option value="SUGGESTION">Logic Mismatch / Suggestion</option>
@@ -164,7 +164,7 @@ export default function FeedbackWidget() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={3}
-                      className="w-full text-sm px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2180C0] bg-white transition-all shadow-sm resize-none"
+                      className="w-full text-sm px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0095DA] bg-white transition-all shadow-sm resize-none"
                       placeholder="Please describe the issue..."
                     />
                   </div>
@@ -176,7 +176,7 @@ export default function FeedbackWidget() {
                   <button
                     disabled={status === "loading"}
                     type="submit"
-                    className="mt-2 w-full bg-[#0D3A5C] text-white py-2.5 rounded-lg text-sm font-bold shadow-md hover:bg-[#1A5C8A] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="mt-2 w-full bg-[#0A5486] text-white py-2.5 rounded-lg text-sm font-bold shadow-md hover:bg-[#0095DA] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {status === "loading" ? "Submitting..." : (
                       <>Submit Feedback <Send className="w-3 h-3" /></>
@@ -193,7 +193,7 @@ export default function FeedbackWidget() {
         whileHover={{ x: -2 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="hidden md:flex bg-[#0D3A5C] text-white shadow-lg border border-r-0 border-[#1A5C8A] flex-col items-center justify-center rounded-l-xl hover:bg-[#1A5C8A] transition-colors z-50 py-3 px-2 gap-2"
+        className="hidden md:flex bg-[#0A5486] text-white shadow-lg border border-r-0 border-[#0095DA] flex-col items-center justify-center rounded-l-xl hover:bg-[#0095DA] transition-colors z-50 py-3 px-2 gap-2"
       >
         {isOpen ? (
           <X className="w-4 h-4" />

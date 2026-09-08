@@ -83,7 +83,7 @@ export default function CareerApplicationForm() {
 
   return (
     <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-200 w-full max-w-3xl mx-auto">
-      <h3 className="text-2xl md:text-3xl font-extrabold text-[#0D3A5C] mb-3">Drop Your CV</h3>
+      <h3 className="text-2xl md:text-3xl font-extrabold text-[#0A5486] mb-3">Drop Your CV</h3>
       <p className="text-slate-500 text-sm md:text-base mb-8">Apply for a specific role or submit your resume for general consideration.</p>
       
       {submitStatus === "success" && (
@@ -102,10 +102,10 @@ export default function CareerApplicationForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Name Field */}
           <div>
-            <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Full Name *</label>
+            <label className="block text-sm font-semibold text-[#0A5486] mb-1.5">Full Name *</label>
             <input
               {...register("name")}
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all text-slate-800"
               placeholder="John Doe"
             />
             {errors.name && <p className="text-red-500 text-xs mt-1 font-medium">{errors.name.message}</p>}
@@ -113,10 +113,10 @@ export default function CareerApplicationForm() {
 
           {/* Email Field */}
           <div>
-            <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Email Address *</label>
+            <label className="block text-sm font-semibold text-[#0A5486] mb-1.5">Email Address *</label>
             <input
               {...register("email")}
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all text-slate-800"
               placeholder="john@example.com"
             />
             {errors.email && <p className="text-red-500 text-xs mt-1 font-medium">{errors.email.message}</p>}
@@ -126,10 +126,10 @@ export default function CareerApplicationForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
            {/* Phone Field */}
           <div>
-            <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Phone Number *</label>
+            <label className="block text-sm font-semibold text-[#0A5486] mb-1.5">Phone Number *</label>
             <input
               {...register("phone")}
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all text-slate-800"
               placeholder="+880 1..."
             />
             {errors.phone && <p className="text-red-500 text-xs mt-1 font-medium">{errors.phone.message}</p>}
@@ -137,11 +137,11 @@ export default function CareerApplicationForm() {
 
           {/* Role Field */}
           <div>
-            <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Applying For *</label>
+            <label className="block text-sm font-semibold text-[#0A5486] mb-1.5">Applying For *</label>
             <div className="relative">
               <select
                 {...register("role")}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800 appearance-none pr-10"
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all text-slate-800 appearance-none pr-10"
               >
                 <option value="GENERAL_CONSIDERATION">General Consideration</option>
                 <option value="UI_UX_DESIGNER">UI/UX Designer</option>
@@ -159,10 +159,10 @@ export default function CareerApplicationForm() {
 
         {/* Resume URL Field */}
         <div>
-          <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Resume Link (Google Drive, LinkedIn, Portfolio) *</label>
+          <label className="block text-sm font-semibold text-[#0A5486] mb-1.5">Resume Link (Google Drive, LinkedIn, Portfolio) *</label>
           <input
             {...register("resumeUrl")}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all text-slate-800"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all text-slate-800"
             placeholder="https://..."
           />
           {errors.resumeUrl && <p className="text-red-500 text-xs mt-1 font-medium">{errors.resumeUrl.message}</p>}
@@ -170,11 +170,11 @@ export default function CareerApplicationForm() {
 
         {/* Message Field */}
         <div>
-          <label className="block text-sm font-semibold text-[#0D3A5C] mb-1.5">Cover Letter / Message (Optional)</label>
+          <label className="block text-sm font-semibold text-[#0A5486] mb-1.5">Cover Letter / Message (Optional)</label>
           <textarea
             {...register("message")}
             rows={4}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#2180C0] focus:border-transparent outline-none transition-all resize-none text-slate-800"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all resize-none text-slate-800"
             placeholder="Tell us why you'd be a great fit for AlliedOne Tech..."
           ></textarea>
         </div>
@@ -183,7 +183,7 @@ export default function CareerApplicationForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-[#2180C0] text-white py-4 rounded-xl font-bold hover:bg-[#1A5C8A] transition-all shadow-md disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center gap-2 text-base mt-2"
+          className="w-full bg-[#0095DA] text-white py-4 rounded-xl font-bold hover:bg-[#0095DA] transition-all shadow-md disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center gap-2 text-base mt-2"
         >
           {isSubmitting ? (
             <>

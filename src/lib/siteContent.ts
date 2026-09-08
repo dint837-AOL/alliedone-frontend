@@ -38,47 +38,37 @@ export interface HomepageContent {
 
 export const DEFAULT_HOMEPAGE_CONTENT: HomepageContent = {
   hero: {
-    headline: ['GLOBAL TRADE', 'TECHNOLOGY', 'TRUST'],
+    headline: ['INTERNATIONAL TRADE', 'GLOBAL SOURCING', 'STRATEGIC PARTNERSHIPS'],
     subtitle:
-      'Two independent, specialized businesses —\none shared commitment to reliability, expertise,\nand long-term partnership.',
+      'We work with end-to-end import and export logistics, strategic sourcing and represent global trade.',
     backgroundImage: '/hero-banner.png',
   },
   portfolio: {
     eyebrow: 'Full Portfolio',
     title: 'Everything We Offer',
-    subtitle:
-      'Two core business pillars built on decades of expertise and cutting-edge technology — working together for your growth.',
+    subtitle: '',
     pillar1: {
-      eyebrow: 'Pillar 01',
-      title: 'Global Trade & Institutional Business',
+      eyebrow: '',
+      title: 'Global Supply BD.',
       description:
-        'Reliable sourcing, export facilitation, commercial representation, and government procurement support — connecting Bangladesh with global markets.',
+        'Reliable sourcing, export facilitation, commercial representation, and institutional supply execution.',
       bullets: [
-        'Import & Strategic Sourcing',
-        'Industrial Supply Solutions',
-        'Export Facilitation',
-        'Supply Chain & Logistics Coordination',
+        'Global Sourcing and Procurement',
+        'Import and Trade Solutions',
+        'Export and Global Market Access',
         'International Indenting & Representation',
-        'Government Procurement & Institutional Supply',
+        'Supply Chain and Logistics Coordination',
       ],
-      ctaText: 'Explore Global Trade',
-      ctaHref: '/services#global-trade',
+      ctaText: 'Explore Services',
+      ctaHref: '/services',
     },
     pillar2: {
-      eyebrow: 'Pillar 02',
-      title: 'Technology & Digital Solutions',
-      description:
-        'Educational software, AI training, no-code workflow automation, executive dashboards, AI tool selection, and transformation workshops.',
-      bullets: [
-        'Educational Web/App',
-        'AI Training',
-        'Workflow Automation (No Code)',
-        'Dashboard Automation',
-        'AI Tool selection & Implementation',
-        'Discovery Workshop',
-      ],
-      ctaText: 'Explore Tech Solutions',
-      ctaHref: '/services#technology',
+      eyebrow: '',
+      title: '',
+      description: '',
+      bullets: [],
+      ctaText: '',
+      ctaHref: '',
     },
   },
 };
@@ -86,7 +76,10 @@ export const DEFAULT_HOMEPAGE_CONTENT: HomepageContent = {
 // ─── Fetcher ──────────────────────────────────────────────────────────────────
 
 export async function fetchSiteContent(key: string): Promise<HomepageContent> {
-  const rawBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  const rawBase = process.env.NEXT_PUBLIC_API_URL;
+  if (!rawBase || rawBase.includes('3001')) {
+    return DEFAULT_HOMEPAGE_CONTENT;
+  }
   const apiBase = rawBase.replace(/\/api\/?$/, '').replace(/\/+$/, '');
   try {
     const res = await fetch(`${apiBase}/api/admin/content/${key}`, {

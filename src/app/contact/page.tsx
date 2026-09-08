@@ -1,30 +1,29 @@
 import LeadCaptureForm from "@/components/sections/LeadCaptureForm";
-import NewsletterSignup from "@/components/sections/NewsletterSignup";
 
 export const metadata = {
-  title: "Contact Us | AlliedOne",
-  description: "Get in touch with AlliedOne for AI automation and consulting.",
+  title: "Contact Us | AlliedOne Limited",
+  description: "Get in touch with AlliedOne and Global Supply BD. for global sourcing, trade solutions, and indenting representation.",
 };
 
 export default function ContactPage() {
   return (
-    <div className="bg-brand-light min-h-screen py-16 px-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-[#F8FAFC] min-h-screen py-20 px-6">
+      <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
-            Ready to <span className="text-brand-blue">Automate?</span>
+          <span className="inline-block text-[#0095DA] text-xs font-bold uppercase tracking-[0.18em] mb-3">
+            Get in Touch
+          </span>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#0A5486] mb-4 tracking-tight">
+            Connect With <span className="text-[#0095DA]">Our Team</span>
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Fill out the form below and our team will get back to you with a tailored strategy for your business.
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            Fill out the form below and our trade and sourcing specialists will get back to you with a tailored strategy for your business.
           </p>
         </div>
         
         {/* Render the Client Component Form */}
-        <LeadCaptureForm />
-
-        {/* Newsletter Signup at the bottom */}
-        <div className="mt-28 mb-8">
-          <NewsletterSignup />
+        <div className="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-sm">
+          <LeadCaptureForm />
         </div>
       </div>
     </div>

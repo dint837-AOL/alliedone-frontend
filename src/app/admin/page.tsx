@@ -125,7 +125,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#061D30] via-[#0D3A5C] to-[#1A5C8A] flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-[#061D30] via-[#0A5486] to-[#0095DA] flex items-center justify-center p-6">
       <div className="w-full max-w-md">
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 shadow-2xl">
           <div className="flex flex-col items-center mb-10">
@@ -149,7 +149,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
                   required
                   autoComplete="username"
                   placeholder="Enter username"
-                  className="w-full bg-white/10 border border-white/20 rounded-xl pl-11 pr-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-[#5BAEE8] focus:border-transparent transition-all"
+                  className="w-full bg-white/10 border border-white/20 rounded-xl pl-11 pr-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-[#0095DA] focus:border-transparent transition-all"
                 />
               </div>
             </div>
@@ -166,7 +166,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
                   required
                   autoComplete="current-password"
                   placeholder="Enter password"
-                  className="w-full bg-white/10 border border-white/20 rounded-xl pl-11 pr-12 py-3.5 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-[#5BAEE8] focus:border-transparent transition-all"
+                  className="w-full bg-white/10 border border-white/20 rounded-xl pl-11 pr-12 py-3.5 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-[#0095DA] focus:border-transparent transition-all"
                 />
                 <button type="button" onClick={() => setShowPw(v => !v)} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 transition-colors">
                   {showPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -185,7 +185,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
               id="admin-login-btn"
               type="submit"
               disabled={loading}
-              className="w-full bg-[#2180C0] hover:bg-[#1A5C8A] text-white font-bold py-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg disabled:opacity-60 disabled:cursor-not-allowed mt-2"
+              className="w-full bg-[#0095DA] hover:bg-[#0095DA] text-white font-bold py-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg disabled:opacity-60 disabled:cursor-not-allowed mt-2"
             >
               {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <ChevronRight className="w-5 h-5" />}
               {loading ? 'Signing in…' : 'Sign In'}
@@ -238,9 +238,9 @@ function ImageUploadButton({ onUpload, label = 'Upload From Computer' }: { onUpl
         type="button"
         onClick={() => fileRef.current?.click()}
         disabled={uploading}
-        className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#0D3A5C] border border-slate-300 px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-sm disabled:opacity-60"
+        className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#0A5486] border border-slate-300 px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-sm disabled:opacity-60"
       >
-        {uploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4 text-[#2180C0]" />}
+        {uploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4 text-[#0095DA]" />}
         {uploading ? 'Uploading…' : label}
       </button>
     </>
@@ -260,7 +260,7 @@ function TextInput({ value, onChange, placeholder, className = '' }: { value: st
       value={value}
       onChange={e => onChange(e.target.value)}
       placeholder={placeholder}
-      className={`w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-[#2180C0] bg-white transition-all text-sm ${className}`}
+      className={`w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0095DA] bg-white transition-all text-sm ${className}`}
     />
   );
 }
@@ -272,7 +272,7 @@ function TextArea({ value, onChange, placeholder, rows = 3 }: { value: string; o
       onChange={e => onChange(e.target.value)}
       placeholder={placeholder}
       rows={rows}
-      className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-[#2180C0] bg-white transition-all text-sm resize-y"
+      className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0095DA] bg-white transition-all text-sm resize-y"
     />
   );
 }
@@ -295,11 +295,11 @@ function HeroEditor({ content, onChange }: { content: HomepageContent; onChange:
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 rounded-xl bg-[#0D3A5C] flex items-center justify-center flex-shrink-0 shadow-sm">
+        <div className="w-10 h-10 rounded-xl bg-[#0A5486] flex items-center justify-center flex-shrink-0 shadow-sm">
           <Type className="w-5 h-5 text-white" />
         </div>
         <div>
-          <h2 className="text-xl font-bold text-[#0D3A5C]">Hero Section</h2>
+          <h2 className="text-xl font-bold text-[#0A5486]">Hero Section</h2>
           <p className="text-slate-500 text-sm">Customize the main full-screen banner, headline lines, subtitle, and imagery.</p>
         </div>
       </div>
@@ -323,7 +323,7 @@ function HeroEditor({ content, onChange }: { content: HomepageContent; onChange:
                   type="button"
                   onClick={() => setHero({ backgroundImage: preset.path })}
                   className={`group relative h-20 rounded-xl overflow-hidden border-2 text-left transition-all ${
-                    isSelected ? 'border-[#2180C0] ring-2 ring-[#2180C0]/20 shadow-md' : 'border-slate-200 hover:border-slate-300'
+                    isSelected ? 'border-[#0095DA] ring-2 ring-[#0095DA]/20 shadow-md' : 'border-slate-200 hover:border-slate-300'
                   }`}
                 >
                   <Image src={preset.path} alt={preset.label} fill className="object-cover" unoptimized />
@@ -332,7 +332,7 @@ function HeroEditor({ content, onChange }: { content: HomepageContent; onChange:
                     {preset.label}
                   </span>
                   {isSelected && (
-                    <span className="absolute top-1 right-1 w-4 h-4 bg-[#2180C0] rounded-full flex items-center justify-center text-white text-[10px]">
+                    <span className="absolute top-1 right-1 w-4 h-4 bg-[#0095DA] rounded-full flex items-center justify-center text-white text-[10px]">
                       ✓
                     </span>
                   )}
@@ -365,7 +365,7 @@ function HeroEditor({ content, onChange }: { content: HomepageContent; onChange:
         <div className="space-y-3">
           {h.headline.map((line, i) => (
             <div key={i} className="flex items-center gap-3">
-              <span className="w-7 h-7 rounded-lg bg-[#0D3A5C] text-white text-xs font-bold flex items-center justify-center flex-shrink-0">{i + 1}</span>
+              <span className="w-7 h-7 rounded-lg bg-[#0A5486] text-white text-xs font-bold flex items-center justify-center flex-shrink-0">{i + 1}</span>
               <TextInput value={line} onChange={v => setHeadline(i, v)} placeholder={`Line ${i + 1}`} />
             </div>
           ))}
@@ -412,7 +412,7 @@ function PillarEditor({
     <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
       <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
         <span className="w-3 h-3 rounded-full" style={{ background: accentColor }} />
-        <h3 className="font-bold text-[#0D3A5C] text-base">{label}</h3>
+        <h3 className="font-bold text-[#0A5486] text-base">{label}</h3>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -444,7 +444,7 @@ function PillarEditor({
       <div>
         <div className="flex items-center justify-between mb-3">
           <FieldLabel>Bullet Points ({pillar.bullets.length})</FieldLabel>
-          <button type="button" onClick={addBullet} className="inline-flex items-center gap-1 text-xs text-[#2180C0] hover:text-[#0D3A5C] font-bold transition-colors">
+          <button type="button" onClick={addBullet} className="inline-flex items-center gap-1 text-xs text-[#0095DA] hover:text-[#0A5486] font-bold transition-colors">
             <Plus className="w-3.5 h-3.5" /> Add Bullet
           </button>
         </div>
@@ -457,7 +457,7 @@ function PillarEditor({
                 value={b}
                 onChange={e => updateBullet(i, e.target.value)}
                 placeholder={`Bullet item ${i + 1}`}
-                className="flex-1 border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#2180C0] transition-all bg-white"
+                className="flex-1 border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0095DA] transition-all bg-white"
               />
               <button type="button" onClick={() => removeBullet(i)} className="text-slate-300 hover:text-red-500 transition-colors p-1">
                 <Trash2 className="w-4 h-4" />
@@ -479,17 +479,17 @@ function PortfolioEditor({ content, onChange }: { content: HomepageContent; onCh
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 rounded-xl bg-[#2180C0] flex items-center justify-center flex-shrink-0 shadow-sm">
+        <div className="w-10 h-10 rounded-xl bg-[#0095DA] flex items-center justify-center flex-shrink-0 shadow-sm">
           <Layers className="w-5 h-5 text-white" />
         </div>
         <div>
-          <h2 className="text-xl font-bold text-[#0D3A5C]">Full Portfolio Section</h2>
+          <h2 className="text-xl font-bold text-[#0A5486]">Full Portfolio Section</h2>
           <p className="text-slate-500 text-sm">Edit the section header and the two business pillar cards below the hero.</p>
         </div>
       </div>
 
       <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
-        <h3 className="font-bold text-[#0D3A5C] text-sm">Section Header</h3>
+        <h3 className="font-bold text-[#0A5486] text-sm">Section Header</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <FieldLabel>Eyebrow Label</FieldLabel>
@@ -509,14 +509,14 @@ function PortfolioEditor({ content, onChange }: { content: HomepageContent; onCh
       <PillarEditor
         label="Pillar 1 — Global Trade (Dark Navy Card)"
         pillar={p.pillar1}
-        accentColor="#5BAEE8"
+        accentColor="#0095DA"
         onChange={pillar1 => setPortfolio({ pillar1 })}
       />
 
       <PillarEditor
         label="Pillar 2 — Technology Solutions (Light Slate Card)"
         pillar={p.pillar2}
-        accentColor="#2180C0"
+        accentColor="#0095DA"
         onChange={pillar2 => setPortfolio({ pillar2 })}
       />
     </div>
@@ -542,7 +542,7 @@ function LivePreviewModal({
   return (
     <div className="fixed inset-0 z-[9990] bg-black/80 backdrop-blur-sm flex flex-col animate-in fade-in duration-200">
       {/* Top control bar */}
-      <div className="bg-[#0D3A5C] border-b border-white/10 px-6 py-3 flex items-center justify-between text-white flex-shrink-0">
+      <div className="bg-[#0A5486] border-b border-white/10 px-6 py-3 flex items-center justify-between text-white flex-shrink-0">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 px-3 py-1 rounded-full text-xs font-semibold">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -558,7 +558,7 @@ function LivePreviewModal({
           <button
             onClick={() => setDevice('desktop')}
             className={`p-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
-              device === 'desktop' ? 'bg-[#2180C0] text-white shadow' : 'text-white/60 hover:text-white'
+              device === 'desktop' ? 'bg-[#0095DA] text-white shadow' : 'text-white/60 hover:text-white'
             }`}
           >
             <Monitor className="w-4 h-4" /> <span className="hidden sm:inline">Desktop</span>
@@ -566,7 +566,7 @@ function LivePreviewModal({
           <button
             onClick={() => setDevice('tablet')}
             className={`p-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
-              device === 'tablet' ? 'bg-[#2180C0] text-white shadow' : 'text-white/60 hover:text-white'
+              device === 'tablet' ? 'bg-[#0095DA] text-white shadow' : 'text-white/60 hover:text-white'
             }`}
           >
             <Tablet className="w-4 h-4" /> <span className="hidden sm:inline">Tablet</span>
@@ -574,7 +574,7 @@ function LivePreviewModal({
           <button
             onClick={() => setDevice('mobile')}
             className={`p-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
-              device === 'mobile' ? 'bg-[#2180C0] text-white shadow' : 'text-white/60 hover:text-white'
+              device === 'mobile' ? 'bg-[#0095DA] text-white shadow' : 'text-white/60 hover:text-white'
             }`}
           >
             <Smartphone className="w-4 h-4" /> <span className="hidden sm:inline">Mobile</span>
@@ -638,7 +638,7 @@ function LivePreviewModal({
                 unoptimized
               />
             )}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#0D3A5C]/95 via-[#0D3A5C]/90 to-[#0D3A5C]/30 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#0A5486]/95 via-[#0A5486]/90 to-[#0A5486]/30 pointer-events-none" />
 
             <div className="absolute inset-0 flex flex-col justify-between p-8 sm:p-14">
               <div className="max-w-[700px]">
@@ -665,10 +665,10 @@ function LivePreviewModal({
             <div className="max-w-6xl mx-auto">
               {/* Header */}
               <div className="text-center mb-14">
-                <span className="inline-block text-[#2180C0] text-xs font-bold uppercase tracking-[0.18em] mb-2">
+                <span className="inline-block text-[#0095DA] text-xs font-bold uppercase tracking-[0.18em] mb-2">
                   {portfolio.eyebrow}
                 </span>
-                <h2 className="text-2xl md:text-3xl font-extrabold text-[#0D3A5C] mt-1 mb-3 tracking-tight">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-[#0A5486] mt-1 mb-3 tracking-tight">
                   {portfolio.title}
                 </h2>
                 <div className="text-slate-500 max-w-xl mx-auto text-sm leading-relaxed whitespace-pre-line">
@@ -679,8 +679,8 @@ function LivePreviewModal({
               {/* Cards Grid */}
               <div className={`grid gap-6 ${device === 'mobile' ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
                 {/* Pillar 1 */}
-                <div className="bg-[#0D3A5C] rounded-3xl p-8 text-white flex flex-col shadow-lg">
-                  <span className="text-[#5BAEE8] text-xs font-bold uppercase tracking-wider mb-2">
+                <div className="bg-[#0A5486] rounded-3xl p-8 text-white flex flex-col shadow-lg">
+                  <span className="text-[#0095DA] text-xs font-bold uppercase tracking-wider mb-2">
                     {portfolio.pillar1.eyebrow}
                   </span>
                   <h3 className="text-2xl font-extrabold mb-3 leading-tight">{portfolio.pillar1.title}</h3>
@@ -688,34 +688,34 @@ function LivePreviewModal({
                   <ul className="space-y-2.5 mb-8 flex-grow">
                     {portfolio.pillar1.bullets.map((b, i) => (
                       <li key={i} className="flex items-center gap-2.5 text-xs text-slate-200">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5BAEE8] flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#0095DA] flex-shrink-0" />
                         {b}
                       </li>
                     ))}
                   </ul>
-                  <div className="inline-flex items-center gap-2 bg-white text-[#0D3A5C] px-5 py-2.5 rounded-xl font-bold text-xs w-fit shadow">
+                  <div className="inline-flex items-center gap-2 bg-white text-[#0A5486] px-5 py-2.5 rounded-xl font-bold text-xs w-fit shadow">
                     {portfolio.pillar1.ctaText} <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
 
                 {/* Pillar 2 */}
                 <div className="bg-white rounded-3xl p-8 border border-slate-200 flex flex-col shadow-sm">
-                  <span className="text-[#2180C0] text-xs font-bold uppercase tracking-wider mb-2">
+                  <span className="text-[#0095DA] text-xs font-bold uppercase tracking-wider mb-2">
                     {portfolio.pillar2.eyebrow}
                   </span>
-                  <h3 className="text-2xl font-extrabold text-[#0D3A5C] mb-3 leading-tight">
+                  <h3 className="text-2xl font-extrabold text-[#0A5486] mb-3 leading-tight">
                     {portfolio.pillar2.title}
                   </h3>
                   <p className="text-slate-600 text-sm leading-relaxed mb-6">{portfolio.pillar2.description}</p>
                   <ul className="space-y-2.5 mb-8 flex-grow">
                     {portfolio.pillar2.bullets.map((b, i) => (
                       <li key={i} className="flex items-center gap-2.5 text-xs text-slate-600">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#2180C0] flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#0095DA] flex-shrink-0" />
                         {b}
                       </li>
                     ))}
                   </ul>
-                  <div className="inline-flex items-center gap-2 bg-[#0D3A5C] text-white px-5 py-2.5 rounded-xl font-bold text-xs w-fit shadow">
+                  <div className="inline-flex items-center gap-2 bg-[#0A5486] text-white px-5 py-2.5 rounded-xl font-bold text-xs w-fit shadow">
                     {portfolio.pillar2.ctaText} <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
@@ -789,7 +789,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
   return (
     <div className="min-h-screen bg-[#F8FAFC] flex">
       {/* Sidebar */}
-      <aside className="w-64 flex-shrink-0 bg-[#0D3A5C] flex flex-col min-h-screen shadow-xl">
+      <aside className="w-64 flex-shrink-0 bg-[#0A5486] flex flex-col min-h-screen shadow-xl">
         <div className="px-6 py-7 border-b border-white/10">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center shadow-sm">
@@ -847,8 +847,8 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
         <header className="bg-white border-b border-slate-200 px-8 py-4 flex items-center justify-between flex-shrink-0 shadow-sm">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2.5">
-              <LayoutDashboard className="w-5 h-5 text-[#0D3A5C]" />
-              <h1 className="font-bold text-[#0D3A5C] text-lg">
+              <LayoutDashboard className="w-5 h-5 text-[#0A5486]" />
+              <h1 className="font-bold text-[#0A5486] text-lg">
                 {section === 'hero' ? 'Hero Section' : 'Full Portfolio Section'}
               </h1>
             </div>
@@ -883,7 +883,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
             <button
               type="button"
               onClick={() => setShowPreview(true)}
-              className="inline-flex items-center gap-2 bg-[#EBF4FB] hover:bg-[#2180C0] text-[#0D3A5C] hover:text-white border border-[#2180C0]/30 px-4 py-2.5 rounded-xl font-bold text-xs transition-all shadow-sm"
+              className="inline-flex items-center gap-2 bg-[#EBF4FB] hover:bg-[#0095DA] text-[#0A5486] hover:text-white border border-[#0095DA]/30 px-4 py-2.5 rounded-xl font-bold text-xs transition-all shadow-sm"
             >
               <Eye className="w-4 h-4" />
               Live Preview Draft
@@ -894,7 +894,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
               id="admin-save-btn"
               onClick={handleSave}
               disabled={saving || loading || !hasUnsavedChanges}
-              className="inline-flex items-center gap-2 bg-[#0D3A5C] hover:bg-[#2180C0] text-white px-6 py-2.5 rounded-xl font-bold text-xs transition-all duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center gap-2 bg-[#0A5486] hover:bg-[#0095DA] text-white px-6 py-2.5 rounded-xl font-bold text-xs transition-all duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
               {saving ? 'Publishing…' : 'Save & Publish Live'}
@@ -906,7 +906,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
         <div className="flex-1 overflow-y-auto p-8 max-w-5xl">
           {loading ? (
             <div className="flex items-center justify-center h-64">
-              <Loader2 className="w-8 h-8 animate-spin text-[#2180C0]" />
+              <Loader2 className="w-8 h-8 animate-spin text-[#0095DA]" />
             </div>
           ) : (
             <>
@@ -956,7 +956,7 @@ export default function AdminPage() {
 
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-[#0D3A5C] flex items-center justify-center">
+      <div className="min-h-screen bg-[#0A5486] flex items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin text-white" />
       </div>
     );
