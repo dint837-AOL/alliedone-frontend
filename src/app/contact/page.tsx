@@ -22,7 +22,7 @@ export default function ContactPage() {
         </div>
         
         {/* Render the Client Component Form */}
-        <div className="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-sm">
+        <div className="max-w-2xl mx-auto">
           <LeadCaptureForm />
         </div>
       </div>
