@@ -69,15 +69,24 @@ export default function RootLayout({
           <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center group py-0.5">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 group py-1">
               <Image
-                src="/alliedone-logo.png"
-                alt="AlliedOne - Trade Technology Trust"
-                width={200}
-                height={50}
-                className="h-9 sm:h-10 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                src="/alliedone-mark.svg"
+                alt="AlliedOne Mark"
+                width={56}
+                height={56}
+                className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 priority
               />
+              <div className="flex flex-col justify-center pt-0.5">
+                <span className="text-[1.35rem] sm:text-3xl font-black tracking-tight leading-none mb-1">
+                  <span className="text-[#044086]">Allied</span>
+                  <span className="text-[#0B96E7]">One</span>
+                </span>
+                <span className="text-[0.5rem] sm:text-[0.65rem] font-bold text-slate-500 tracking-[0.22em] leading-none uppercase">
+                  Trade Transparency Trust
+                </span>
+              </div>
             </Link>
 
             {/* Desktop nav links */}
