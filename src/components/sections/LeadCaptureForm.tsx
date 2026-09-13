@@ -20,17 +20,19 @@ const leadSchema = z.object({
     return isEmail || isPhone;
   }, "Must be a valid email address or phone number"),
   serviceInterest: z.enum([
-    "GLOBAL_SOURCING_PROCUREMENT",
-    "IMPORT_TRADE_SOLUTIONS",
-    "EXPORT_GLOBAL_MARKET_ACCESS",
-    "INTERNATIONAL_INDENTING_REPRESENTATION",
-    "SUPPLY_CHAIN_LOGISTICS_COORDINATION",
     "GLOBAL_TRADE_SOURCING",
     "GLOBAL_TRADE_INDUSTRIAL_SUPPLY",
     "GLOBAL_TRADE_LOGISTICS",
     "GLOBAL_TRADE_EXPORT",
     "GLOBAL_TRADE_INDENTING",
     "GOVERNMENT_PROCUREMENT",
+    "AI_OPPORTUNITY_CONSULTING",
+    "PROCESS_AUTOMATION_STRATEGY",
+    "WHATSAPP_BOTS_STRATEGY",
+    "EMAIL_AUTOMATION_CONSULTING",
+    "ATS_HR_TECH_ARCHITECTURE",
+    "DIGITAL_MARKETING_AGENCY",
+    "AI_CONTENT_STUDIO",
     "OTHER",
   ]),
   problemDescription: z.string().optional(),
@@ -167,11 +169,11 @@ export default function LeadCaptureForm() {
               {...register("serviceInterest")}
               className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[#0095DA] focus:border-transparent outline-none transition-all text-slate-800 appearance-none pr-10"
             >
-              <option value="GLOBAL_SOURCING_PROCUREMENT">Global Sourcing and Procurement</option>
-              <option value="IMPORT_TRADE_SOLUTIONS">Import and Trade Solutions</option>
-              <option value="EXPORT_GLOBAL_MARKET_ACCESS">Export and Global Market Access</option>
-              <option value="INTERNATIONAL_INDENTING_REPRESENTATION">International Indenting &amp; Representation</option>
-              <option value="SUPPLY_CHAIN_LOGISTICS_COORDINATION">Supply Chain and Logistics Coordination</option>
+              <option value="GLOBAL_TRADE_SOURCING">Global Sourcing and Procurement</option>
+              <option value="GLOBAL_TRADE_INDUSTRIAL_SUPPLY">Import and Trade Solutions</option>
+              <option value="GLOBAL_TRADE_EXPORT">Export and Global Market Access</option>
+              <option value="GLOBAL_TRADE_INDENTING">International Indenting &amp; Representation</option>
+              <option value="GLOBAL_TRADE_LOGISTICS">Supply Chain and Logistics Coordination</option>
               <option value="OTHER">Other</option>
             </select>
             <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-500">
