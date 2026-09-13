@@ -51,20 +51,22 @@ export default async function Home() {
         <div className="absolute top-1/2 left-1/2 w-[900px] h-[400px] bg-[#0A5486]/40 rounded-[100%] blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none -rotate-45" />
 
         {/* Hero Content */}
-        <div className="absolute inset-0 flex flex-col justify-start pl-8 sm:pl-16 lg:pl-24 pr-8 pt-16 sm:pt-20 lg:pt-24 pb-10">
-          <div className="max-w-[850px]">
-            <h1
-              className="font-black tracking-[0.04em] leading-[1.15] mb-5 uppercase text-white drop-shadow-sm flex flex-col gap-1.5 sm:gap-2"
-              style={{ fontSize: "clamp(1.3rem, 3.5vw, 2.75rem)" }}
-            >
-              <span className="whitespace-nowrap">{hero.headline?.[0] || 'INTERNATIONAL TRADE'}</span>
-              <span className="whitespace-nowrap">{hero.headline?.[1] || 'GLOBAL SOURCING'}</span>
-              <span className="whitespace-nowrap">{hero.headline?.[2] || 'STRATEGIC PARTNERSHIPS'}</span>
-            </h1>
+        <div className="absolute inset-0 flex flex-col justify-center">
+          <div className="w-full max-w-7xl mx-auto px-6">
+            <div className="max-w-[850px]">
+              <h1
+                className="font-black tracking-[0.04em] leading-[1.15] mb-5 uppercase text-white drop-shadow-sm flex flex-col gap-1.5 sm:gap-2"
+                style={{ fontSize: "clamp(1.3rem, 3.5vw, 2.75rem)" }}
+              >
+                <span className="whitespace-nowrap">{hero.headline?.[0] || 'INTERNATIONAL TRADE'}</span>
+                <span className="whitespace-nowrap">{hero.headline?.[1] || 'GLOBAL SOURCING'}</span>
+                <span className="whitespace-nowrap">{hero.headline?.[2] || 'STRATEGIC PARTNERSHIPS'}</span>
+              </h1>
 
-            <p className="text-white/95 text-[15px] sm:text-[17px] leading-relaxed max-w-[540px] font-medium drop-shadow-sm">
-              {hero.subtitle || "We work with end-to-end import and export logistics, strategic sourcing and represent global trade."}
-            </p>
+              <p className="text-white/95 text-[15px] sm:text-[17px] leading-relaxed max-w-[540px] font-medium drop-shadow-sm">
+                {hero.subtitle || "We work with end-to-end import and export logistics, strategic sourcing and represent global trade."}
+              </p>
+            </div>
           </div>
         </div>
       </section>
