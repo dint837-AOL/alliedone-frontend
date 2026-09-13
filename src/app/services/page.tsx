@@ -1,6 +1,8 @@
 import { CheckCircle } from "lucide-react";
 import { fetchSiteContent } from "@/lib/siteContent";
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: "Services | AlliedOne Limited",
   description: "Global Sourcing, Import, Export, Indenting, and Logistics Coordination — Global Supply BD.",

@@ -1,6 +1,8 @@
 import { Target, Compass } from "lucide-react";
 import { fetchSiteContent } from "@/lib/siteContent";
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: "About Us | AlliedOne Limited",
   description: "Bridging International Trade and Supply — AlliedOne Limited, Dhaka.",

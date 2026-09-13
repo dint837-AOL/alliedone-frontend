@@ -6,6 +6,8 @@ import FadeInSection from "@/components/ui/FadeInSection";
 import { fetchSiteContent } from "@/lib/siteContent";
 import { ArrowRight, Image as ImageIcon } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 // ── Shared section header pattern ────────────────────────────
 function SectionHeader({ eyebrow, title, subtitle }: { eyebrow: string; title: React.ReactNode; subtitle?: React.ReactNode }) {
   return (
@@ -114,13 +116,13 @@ export default async function Home() {
                 </div>
 
                 <ul className="space-y-4 my-auto py-2">
-                  {[
+                  {(portfolio.pillar1.bullets?.length ? portfolio.pillar1.bullets : [
                     "Global Sourcing and Procurement",
                     "Import and Trade Solutions",
                     "Export and Global Market Access",
                     "International Indenting & Representation",
                     "Supply Chain and Logistics Coordination",
-                  ].map((item) => (
+                  ]).map((item) => (
                     <li key={item} className="flex items-center gap-3.5 text-slate-100 text-base sm:text-lg font-medium">
                       <span className="w-2 h-2 rounded-full bg-[#0095DA] flex-shrink-0"></span>
                       <span>{item}</span>
