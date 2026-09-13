@@ -164,34 +164,8 @@ export default async function Home() {
             subtitle={content.contact?.subtitle || "Drop us a message below. Whether you require strategic sourcing, import/export facilitation, or institutional supply execution, our team is ready to deliver."}
           />
           
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mt-12">
-            <div className="lg:col-span-2 space-y-8">
-              <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
-                <h3 className="text-xl font-bold text-[#0A5486] mb-6">Contact Information</h3>
-                <div className="space-y-6">
-                  <div>
-                    <p className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-1">Office Address</p>
-                    <p className="text-slate-700 font-medium">{content.contact?.address || 'Dhaka, Bangladesh'}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-1">Email Us</p>
-                    <a href={`mailto:${content.contact?.email}`} className="text-[#0095DA] hover:text-[#0A5486] font-medium transition-colors">
-                      {content.contact?.email || 'info@alliedoneltd.com'}
-                    </a>
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-1">Call Us</p>
-                    <a href={`tel:${content.contact?.phone?.replace(/\s/g, '')}`} className="text-[#0095DA] hover:text-[#0A5486] font-medium transition-colors">
-                      {content.contact?.phone || '+880 1601-440044'}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="lg:col-span-3">
-              <LeadCaptureForm />
-            </div>
+          <div className="max-w-2xl mx-auto mt-12">
+            <LeadCaptureForm />
           </div>
         </FadeInSection>
       </section>
