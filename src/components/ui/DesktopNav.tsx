@@ -111,12 +111,6 @@ export default function DesktopNav() {
               className="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50"
             >
               <div className="w-[360px] bg-white rounded-2xl shadow-2xl border border-slate-200 p-5 overflow-hidden">
-                <div className="border-b border-slate-100 pb-3 mb-3 px-2">
-                  <p className="text-xs font-extrabold text-[#0A5486] uppercase tracking-[0.16em] flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#0095DA]"></span>
-                    Global Supply BD.
-                  </p>
-                </div>
                 <div className="space-y-1">
                   {globalTradeServices.map((s) => (
                     <Link

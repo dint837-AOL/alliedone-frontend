@@ -80,10 +80,6 @@ export default function MobileNav() {
 
             {servicesOpen && (
               <div className="pl-4 border-l-2 border-slate-200 space-y-2 mt-2 mb-2">
-                <p className="text-xs font-extrabold text-[#0A5486] uppercase tracking-wider mt-2 mb-2 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0095DA]"></span>
-                  Global Supply BD.
-                </p>
                 {globalTradeServices.map((s) => (
                   <Link
                     key={s.name}
