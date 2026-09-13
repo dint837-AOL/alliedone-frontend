@@ -11,12 +11,12 @@ import {
 } from 'lucide-react';
 import { DEFAULT_HOMEPAGE_CONTENT, HomepageContent } from '@/lib/siteContent';
 
-const rawBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+const rawBase = process.env.NEXT_PUBLIC_API_URL || 'https://alliedone-backend-9a02.onrender.com';
 const API_BASE = rawBase.replace(/\/api\/?$/, '').replace(/\/+$/, '');
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Section = 'hero' | 'portfolio';
+type Section = 'hero' | 'portfolio' | 'about' | 'services' | 'faq' | 'contact';
 type DeviceView = 'desktop' | 'tablet' | 'mobile';
 
 // ─── Preset Images ────────────────────────────────────────────────────────────
@@ -470,6 +470,31 @@ function PillarEditor({
   );
 }
 
+// ─── Simple Message Editor (placeholder for coming soon sections) ─────────────
+
+function SimpleMessageEditor({ title, description }: { title: string; description: string }) {
+  return (
+    <div className="space-y-8">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-10 h-10 rounded-xl bg-slate-400 flex items-center justify-center flex-shrink-0 shadow-sm">
+          <LayoutDashboard className="w-5 h-5 text-white" />
+        </div>
+        <div>
+          <h2 className="text-xl font-bold text-[#0A5486]">{title}</h2>
+          <p className="text-slate-500 text-sm">{description}</p>
+        </div>
+      </div>
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-8 text-center">
+        <div className="w-16 h-16 rounded-2xl bg-amber-100 flex items-center justify-center mx-auto mb-4">
+          <AlertCircle className="w-8 h-8 text-amber-500" />
+        </div>
+        <h3 className="text-lg font-bold text-amber-800 mb-2">Coming Soon</h3>
+        <p className="text-amber-700 text-sm max-w-md mx-auto">{description}</p>
+      </div>
+    </div>
+  );
+}
+
 // ─── Portfolio Editor ─────────────────────────────────────────────────────────
 
 function PortfolioEditor({ content, onChange }: { content: HomepageContent; onChange: (c: HomepageContent) => void }) {
@@ -784,6 +809,10 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
   const navItems: { id: Section; label: string; icon: React.ReactNode }[] = [
     { id: 'hero', label: 'Hero Section', icon: <ImageIcon className="w-4 h-4" /> },
     { id: 'portfolio', label: 'Full Portfolio', icon: <Layers className="w-4 h-4" /> },
+    { id: 'about', label: 'About Page', icon: <User className="w-4 h-4" /> },
+    { id: 'services', label: 'Services Page', icon: <Type className="w-4 h-4" /> },
+    { id: 'faq', label: 'FAQ Section', icon: <LayoutDashboard className="w-4 h-4" /> },
+    { id: 'contact', label: 'Contact Section', icon: <Monitor className="w-4 h-4" /> },
   ];
 
   return (
@@ -849,7 +878,12 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
             <div className="flex items-center gap-2.5">
               <LayoutDashboard className="w-5 h-5 text-[#0A5486]" />
               <h1 className="font-bold text-[#0A5486] text-lg">
-                {section === 'hero' ? 'Hero Section' : 'Full Portfolio Section'}
+                {section === 'hero' ? 'Hero Section' :
+                 section === 'portfolio' ? 'Full Portfolio Section' :
+                 section === 'about' ? 'About Page' :
+                 section === 'services' ? 'Services Page' :
+                 section === 'faq' ? 'FAQ Section' :
+                 'Contact Section'}
               </h1>
             </div>
 
@@ -912,6 +946,10 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
             <>
               {section === 'hero' && <HeroEditor content={content} onChange={setContent} />}
               {section === 'portfolio' && <PortfolioEditor content={content} onChange={setContent} />}
+              {section === 'about' && <SimpleMessageEditor title="About Page" description="This section is coming soon. Content editing for the About page will be available in the next update." />}
+              {section === 'services' && <SimpleMessageEditor title="Services Page" description="This section is coming soon. Content editing for the Services page will be available in the next update." />}
+              {section === 'faq' && <SimpleMessageEditor title="FAQ Section" description="This section is coming soon. Content editing for the FAQ section will be available in the next update." />}
+              {section === 'contact' && <SimpleMessageEditor title="Contact Section" description="This section is coming soon. Content editing for the Contact form section will be available in the next update." />}
             </>
           )}
         </div>

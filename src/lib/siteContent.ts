@@ -77,7 +77,7 @@ export const DEFAULT_HOMEPAGE_CONTENT: HomepageContent = {
 
 export async function fetchSiteContent(key: string): Promise<HomepageContent> {
   const rawBase = process.env.NEXT_PUBLIC_API_URL;
-  if (!rawBase || rawBase.includes('3001')) {
+  if (!rawBase) {
     return DEFAULT_HOMEPAGE_CONTENT;
   }
   const apiBase = rawBase.replace(/\/api\/?$/, '').replace(/\/+$/, '');

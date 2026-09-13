@@ -62,11 +62,11 @@ export default async function Home() {
           <div className="max-w-[850px]">
             <h1
               className="font-black tracking-[0.04em] leading-[1.15] mb-5 uppercase text-white drop-shadow-sm flex flex-col gap-1.5 sm:gap-2"
-              style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.75rem)" }}
+              style={{ fontSize: "clamp(1.3rem, 3.5vw, 2.75rem)" }}
             >
-              <span>INTERNATIONAL TRADE</span>
-              <span>GLOBAL SOURCING</span>
-              <span>STRATEGIC PARTNERSHIPS</span>
+              <span className="whitespace-nowrap">{hero.headline?.[0] || 'INTERNATIONAL TRADE'}</span>
+              <span className="whitespace-nowrap">{hero.headline?.[1] || 'GLOBAL SOURCING'}</span>
+              <span className="whitespace-nowrap">{hero.headline?.[2] || 'STRATEGIC PARTNERSHIPS'}</span>
             </h1>
 
             <p className="text-white/95 text-[15px] sm:text-[17px] leading-relaxed max-w-[540px] font-medium drop-shadow-sm">
@@ -106,10 +106,10 @@ export default async function Home() {
               <div className="relative z-10 flex flex-col flex-grow">
                 <div className="border-b border-white/15 pb-5 mb-6">
                   <span className="inline-block text-[#0095DA] text-xs font-bold uppercase tracking-[0.18em] mb-2">
-                    Trade Division
+                    {portfolio.pillar1.eyebrow || 'Trade Division'}
                   </span>
                   <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                    Global Supply BD.
+                    {portfolio.pillar1.title || 'Our Services'}
                   </h3>
                 </div>
 
