@@ -70,7 +70,8 @@ export default function LeadCaptureForm() {
     setSubmitStatus("idle");
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/leads`, {
+      const baseUrl = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "");
+      const response = await fetch(`${baseUrl}/api/leads`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
