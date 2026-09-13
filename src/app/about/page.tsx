@@ -1,11 +1,15 @@
-import { Target, Compass, ShieldCheck } from "lucide-react";
+import { Target, Compass } from "lucide-react";
+import { fetchSiteContent } from "@/lib/siteContent";
 
 export const metadata = {
   title: "About Us | AlliedOne Limited",
   description: "Bridging International Trade and Supply — AlliedOne Limited, Dhaka.",
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const content = await fetchSiteContent('homepage');
+  const about = content.about!;
+
   return (
     <div className="w-full">
       {/* ── HERO SECTION ── */}
@@ -19,10 +23,10 @@ export default function AboutPage() {
             About AlliedOne Limited
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6">
-            Bridging International Trade and Supply
+            {about.title}
           </h1>
-          <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed font-medium">
-            Based in Bangladesh, AlliedOne Limited operates and facilitates international business, working closely with import export, sourcing and procurement and trade representation.
+          <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed font-medium whitespace-pre-wrap">
+            {about.description}
           </p>
         </div>
       </section>
@@ -59,18 +63,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── 3 BOXES IN ONE LINE: OUR VISION, OUR MISSION, OUR VALUES ── */}
+      {/* ── OUR VISION & OUR MISSION ── */}
       <section className="py-20 pb-28 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Box 1: Vision */}
             <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-slate-200 flex flex-col h-full hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-[#EBF4FB] rounded-2xl flex items-center justify-center text-[#0095DA] mb-6 shadow-sm">
                 <Target className="w-7 h-7" />
               </div>
               <h3 className="text-2xl font-bold text-[#0A5486] mb-3">Our Vision:</h3>
-              <p className="text-slate-600 leading-relaxed text-base sm:text-lg flex-grow">
-                To be a trusted regional name bridging global trade supply.
+              <p className="text-slate-600 leading-relaxed text-base sm:text-lg flex-grow whitespace-pre-wrap">
+                {about.vision}
               </p>
             </div>
 
@@ -80,19 +84,8 @@ export default function AboutPage() {
                 <Compass className="w-7 h-7" />
               </div>
               <h3 className="text-2xl font-bold text-[#0A5486] mb-3">Our Mission:</h3>
-              <p className="text-slate-600 leading-relaxed text-base sm:text-lg flex-grow">
-                To deliver reliable, efficient trade solutions that help our partners grow with confidence.
-              </p>
-            </div>
-
-            {/* Box 3: Values */}
-            <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-slate-200 flex flex-col h-full hover:shadow-md transition-shadow">
-              <div className="w-14 h-14 bg-[#EBF4FB] rounded-2xl flex items-center justify-center text-[#0095DA] mb-6 shadow-sm">
-                <ShieldCheck className="w-7 h-7" />
-              </div>
-              <h3 className="text-2xl font-bold text-[#0A5486] mb-3">Our Values:</h3>
-              <p className="text-slate-600 leading-relaxed text-base sm:text-lg flex-grow">
-                Integrity, reliability, and long-term partnership guide every engagement across both our businesses.
+              <p className="text-slate-600 leading-relaxed text-base sm:text-lg flex-grow whitespace-pre-wrap">
+                {about.mission}
               </p>
             </div>
           </div>

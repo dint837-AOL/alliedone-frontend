@@ -147,7 +147,7 @@ export default async function Home() {
       ══════════════════════════════════════════════ */}
       <section className="py-24 bg-white border-t border-slate-100">
         <FadeInSection className="max-w-5xl mx-auto px-6" delay={0.1}>
-          <FAQSection />
+          <FAQSection content={content.faq} />
         </FadeInSection>
       </section>
 
@@ -155,13 +155,42 @@ export default async function Home() {
           CONTACT FORM SECTION
       ══════════════════════════════════════════════ */}
       <section className="py-24 bg-[#F8FAFC] border-t border-slate-200/80" id="contact">
-        <FadeInSection className="max-w-5xl mx-auto px-6" delay={0.1}>
+        <FadeInSection className="max-w-7xl mx-auto px-6" delay={0.1}>
           <SectionHeader
             eyebrow="Connect With Us"
-            title={<>Let&apos;s Build Your <span className="text-[#0095DA]">Global Trade Future.</span></>}
-            subtitle="Drop us a message below. Whether you require strategic sourcing, import/export facilitation, or institutional supply execution, our team is ready to deliver."
+            title={content.contact?.title || "Let's Build Your Global Trade Future."}
+            subtitle={content.contact?.subtitle || "Drop us a message below. Whether you require strategic sourcing, import/export facilitation, or institutional supply execution, our team is ready to deliver."}
           />
-          <LeadCaptureForm />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mt-12">
+            <div className="lg:col-span-2 space-y-8">
+              <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+                <h3 className="text-xl font-bold text-[#0A5486] mb-6">Contact Information</h3>
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-1">Office Address</p>
+                    <p className="text-slate-700 font-medium">{content.contact?.address || 'Dhaka, Bangladesh'}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-1">Email Us</p>
+                    <a href={`mailto:${content.contact?.email}`} className="text-[#0095DA] hover:text-[#0A5486] font-medium transition-colors">
+                      {content.contact?.email || 'info@alliedoneltd.com'}
+                    </a>
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-1">Call Us</p>
+                    <a href={`tel:${content.contact?.phone?.replace(/\s/g, '')}`} className="text-[#0095DA] hover:text-[#0A5486] font-medium transition-colors">
+                      {content.contact?.phone || '+880 1601-440044'}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="lg:col-span-3">
+              <LeadCaptureForm />
+            </div>
+          </div>
         </FadeInSection>
       </section>
 

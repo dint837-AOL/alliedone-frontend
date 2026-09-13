@@ -502,6 +502,232 @@ function SimpleMessageEditor({ title, description }: { title: string; descriptio
   );
 }
 
+// ─── About Editor ─────────────────────────────────────────────────────────────
+
+function AboutEditor({ content, onChange }: { content: HomepageContent; onChange: (c: HomepageContent) => void }) {
+  const a = content.about || DEFAULT_HOMEPAGE_CONTENT.about!;
+  function setAbout(partial: Partial<typeof a>) { onChange({ ...content, about: { ...a, ...partial } }); }
+
+  return (
+    <div className="space-y-8">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-10 h-10 rounded-xl bg-[#0095DA] flex items-center justify-center flex-shrink-0 shadow-sm">
+          <User className="w-5 h-5 text-white" />
+        </div>
+        <div>
+          <h2 className="text-xl font-bold text-[#0A5486]">About Page Content</h2>
+          <p className="text-slate-500 text-sm">Edit the company overview, mission, and vision.</p>
+        </div>
+      </div>
+      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div>
+          <FieldLabel>Title</FieldLabel>
+          <TextInput value={a.title} onChange={v => setAbout({ title: v })} placeholder="Who We Are" />
+        </div>
+        <div>
+          <FieldLabel>Description</FieldLabel>
+          <TextArea value={a.description} onChange={v => setAbout({ description: v })} rows={4} />
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+          <FieldLabel>Mission Statement</FieldLabel>
+          <TextArea value={a.mission} onChange={v => setAbout({ mission: v })} rows={5} />
+        </div>
+        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+          <FieldLabel>Vision Statement</FieldLabel>
+          <TextArea value={a.vision} onChange={v => setAbout({ vision: v })} rows={5} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Services Editor ──────────────────────────────────────────────────────────
+
+function ServicesEditor({ content, onChange }: { content: HomepageContent; onChange: (c: HomepageContent) => void }) {
+  const s = content.services || DEFAULT_HOMEPAGE_CONTENT.services!;
+  function setServices(partial: Partial<typeof s>) { onChange({ ...content, services: { ...s, ...partial } }); }
+  function updateService(idx: number, key: 'title' | 'desc', val: string) {
+    const next = [...s.services];
+    next[idx] = { ...next[idx], [key]: val };
+    setServices({ services: next });
+  }
+  function addService() { setServices({ services: [...s.services, { title: '', desc: '' }] }); }
+  function removeService(idx: number) { setServices({ services: s.services.filter((_, i) => i !== idx) }); }
+
+  return (
+    <div className="space-y-8">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-10 h-10 rounded-xl bg-[#0095DA] flex items-center justify-center flex-shrink-0 shadow-sm">
+          <Type className="w-5 h-5 text-white" />
+        </div>
+        <div>
+          <h2 className="text-xl font-bold text-[#0A5486]">Services Page</h2>
+          <p className="text-slate-500 text-sm">Manage your global trade solutions and offerings.</p>
+        </div>
+      </div>
+      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div>
+          <FieldLabel>Main Title</FieldLabel>
+          <TextInput value={s.title} onChange={v => setServices({ title: v })} placeholder="Our Services" />
+        </div>
+        <div>
+          <FieldLabel>Introductory Description</FieldLabel>
+          <TextArea value={s.description} onChange={v => setServices({ description: v })} rows={3} />
+        </div>
+      </div>
+      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+        <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+          <FieldLabel>Service List ({s.services.length})</FieldLabel>
+          <button type="button" onClick={addService} className="inline-flex items-center gap-1 text-xs text-[#0095DA] font-bold hover:text-[#0A5486] transition-colors">
+            <Plus className="w-3.5 h-3.5" /> Add Service
+          </button>
+        </div>
+        <div className="space-y-4">
+          {s.services.map((item, i) => (
+            <div key={i} className="flex gap-4 p-4 rounded-xl border border-slate-100 bg-slate-50/50 relative group">
+              <button type="button" onClick={() => removeService(i)} className="absolute -top-2 -right-2 bg-red-100 text-red-600 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <Trash2 className="w-4 h-4" />
+              </button>
+              <div className="flex-1 space-y-3">
+                <TextInput value={item.title} onChange={v => updateService(i, 'title', v)} placeholder="Service Title" />
+                <TextArea value={item.desc} onChange={v => updateService(i, 'desc', v)} placeholder="Service Description" rows={2} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── FAQ Editor ───────────────────────────────────────────────────────────────
+
+function FAQEditor({ content, onChange }: { content: HomepageContent; onChange: (c: HomepageContent) => void }) {
+  const f = content.faq || DEFAULT_HOMEPAGE_CONTENT.faq!;
+  function setFaq(partial: Partial<typeof f>) { onChange({ ...content, faq: { ...f, ...partial } }); }
+  function updateItem(idx: number, key: 'question' | 'answer', val: string) {
+    const next = [...f.items];
+    next[idx] = { ...next[idx], [key]: val };
+    setFaq({ items: next });
+  }
+  function addItem() { setFaq({ items: [...f.items, { question: '', answer: '' }] }); }
+  function removeItem(idx: number) { setFaq({ items: f.items.filter((_, i) => i !== idx) }); }
+
+  return (
+    <div className="space-y-8">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-10 h-10 rounded-xl bg-[#0095DA] flex items-center justify-center flex-shrink-0 shadow-sm">
+          <LayoutDashboard className="w-5 h-5 text-white" />
+        </div>
+        <div>
+          <h2 className="text-xl font-bold text-[#0A5486]">FAQ Section</h2>
+          <p className="text-slate-500 text-sm">Manage frequently asked questions.</p>
+        </div>
+      </div>
+      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div>
+          <FieldLabel>Title</FieldLabel>
+          <TextInput value={f.title} onChange={v => setFaq({ title: v })} placeholder="Frequently Asked Questions" />
+        </div>
+        <div>
+          <FieldLabel>Subtitle</FieldLabel>
+          <TextInput value={f.subtitle} onChange={v => setFaq({ subtitle: v })} placeholder="Clear answers..." />
+        </div>
+      </div>
+      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+        <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+          <FieldLabel>Questions ({f.items.length})</FieldLabel>
+          <button type="button" onClick={addItem} className="inline-flex items-center gap-1 text-xs text-[#0095DA] font-bold hover:text-[#0A5486] transition-colors">
+            <Plus className="w-3.5 h-3.5" /> Add Question
+          </button>
+        </div>
+        <div className="space-y-4">
+          {f.items.map((item, i) => (
+            <div key={i} className="flex gap-4 p-4 rounded-xl border border-slate-100 bg-slate-50/50 relative group">
+              <button type="button" onClick={() => removeItem(i)} className="absolute -top-2 -right-2 bg-red-100 text-red-600 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <Trash2 className="w-4 h-4" />
+              </button>
+              <div className="flex-1 space-y-3">
+                <TextInput value={item.question} onChange={v => updateItem(i, 'question', v)} placeholder="Question?" />
+                <TextArea value={item.answer} onChange={v => updateItem(i, 'answer', v)} placeholder="Answer..." rows={2} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Contact Editor ───────────────────────────────────────────────────────────
+
+function ContactEditor({ content, onChange }: { content: HomepageContent; onChange: (c: HomepageContent) => void }) {
+  const c = content.contact || DEFAULT_HOMEPAGE_CONTENT.contact!;
+  function setContact(partial: Partial<typeof c>) { onChange({ ...content, contact: { ...c, ...partial } }); }
+
+  return (
+    <div className="space-y-8">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-10 h-10 rounded-xl bg-[#0095DA] flex items-center justify-center flex-shrink-0 shadow-sm">
+          <Monitor className="w-5 h-5 text-white" />
+        </div>
+        <div>
+          <h2 className="text-xl font-bold text-[#0A5486]">Contact Section</h2>
+          <p className="text-slate-500 text-sm">Update company address, email, phone, and social links.</p>
+        </div>
+      </div>
+      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <FieldLabel>Title</FieldLabel>
+            <TextInput value={c.title} onChange={v => setContact({ title: v })} placeholder="Get In Touch" />
+          </div>
+          <div>
+            <FieldLabel>Subtitle</FieldLabel>
+            <TextInput value={c.subtitle} onChange={v => setContact({ subtitle: v })} placeholder="Drop us a message below..." />
+          </div>
+        </div>
+      </div>
+      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <h3 className="font-bold text-[#0A5486] text-sm mb-2 border-b border-slate-100 pb-2">Business Details</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <FieldLabel>Address</FieldLabel>
+            <TextInput value={c.address} onChange={v => setContact({ address: v })} placeholder="Dhaka, Bangladesh" />
+          </div>
+          <div>
+            <FieldLabel>Email</FieldLabel>
+            <TextInput value={c.email} onChange={v => setContact({ email: v })} placeholder="info@alliedoneltd.com" />
+          </div>
+          <div>
+            <FieldLabel>Phone Number</FieldLabel>
+            <TextInput value={c.phone} onChange={v => setContact({ phone: v })} placeholder="+880 1234..." />
+          </div>
+        </div>
+      </div>
+      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <h3 className="font-bold text-[#0A5486] text-sm mb-2 border-b border-slate-100 pb-2">Social Links</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <FieldLabel>LinkedIn URL</FieldLabel>
+            <TextInput value={c.linkedin} onChange={v => setContact({ linkedin: v })} placeholder="https://linkedin.com/..." />
+          </div>
+          <div>
+            <FieldLabel>Facebook URL</FieldLabel>
+            <TextInput value={c.facebook} onChange={v => setContact({ facebook: v })} placeholder="https://facebook.com/..." />
+          </div>
+          <div>
+            <FieldLabel>WhatsApp URL</FieldLabel>
+            <TextInput value={c.whatsapp} onChange={v => setContact({ whatsapp: v })} placeholder="https://wa.me/..." />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Portfolio Editor ─────────────────────────────────────────────────────────
 
 function PortfolioEditor({ content, onChange }: { content: HomepageContent; onChange: (c: HomepageContent) => void }) {
@@ -953,10 +1179,10 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
             <>
               {section === 'hero' && <HeroEditor content={content} onChange={setContent} />}
               {section === 'portfolio' && <PortfolioEditor content={content} onChange={setContent} />}
-              {section === 'about' && <SimpleMessageEditor title="About Page" description="This section is coming soon. Content editing for the About page will be available in the next update." />}
-              {section === 'services' && <SimpleMessageEditor title="Services Page" description="This section is coming soon. Content editing for the Services page will be available in the next update." />}
-              {section === 'faq' && <SimpleMessageEditor title="FAQ Section" description="This section is coming soon. Content editing for the FAQ section will be available in the next update." />}
-              {section === 'contact' && <SimpleMessageEditor title="Contact Section" description="This section is coming soon. Content editing for the Contact form section will be available in the next update." />}
+              {section === 'about' && <AboutEditor content={content} onChange={setContent} />}
+              {section === 'services' && <ServicesEditor content={content} onChange={setContent} />}
+              {section === 'faq' && <FAQEditor content={content} onChange={setContent} />}
+              {section === 'contact' && <ContactEditor content={content} onChange={setContent} />}
             </>
           )}
         </div>
