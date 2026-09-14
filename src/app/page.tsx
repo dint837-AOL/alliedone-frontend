@@ -42,7 +42,7 @@ export default async function Home() {
           HERO — Full viewport, blurred bg + gradient
       ══════════════════════════════════════════════ */}
       <section
-        className="relative w-full overflow-hidden bg-gradient-to-br from-[#044086] via-[#0A5486] to-[#0095DA]"
+        className="relative w-full overflow-hidden bg-gradient-to-r from-[#044086] to-[#0B96E7]"
         style={{ height: "calc(100vh - 73px)", minHeight: "520px" }}
       >
         {hero.backgroundImage ? (
@@ -56,15 +56,15 @@ export default async function Home() {
               sizes="100vw"
               unoptimized={hero.backgroundImage.startsWith('http')}
             />
-            {/* Bluish gradient spanning the whole section overlay */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#0A5486]/95 via-[#0A5486]/80 to-[#0A5486]/30 pointer-events-none" />
+            {/* Gradient overlay spanning the whole section */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#044086]/95 via-[#044086]/70 to-[#0B96E7]/30 pointer-events-none" />
           </>
         ) : (
           <>
             {/* Decorative Modern Blur Elements when no image */}
-            <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-white/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-cyan-400/20 rounded-full blur-[100px] translate-x-1/4 translate-y-1/4 pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 w-[900px] h-[400px] bg-[#0A5486]/40 rounded-[100%] blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none -rotate-45" />
+            <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[100px] translate-x-1/4 translate-y-1/4 pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 w-[900px] h-[400px] bg-[#044086]/20 rounded-[100%] blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none -rotate-45" />
           </>
         )}
 
