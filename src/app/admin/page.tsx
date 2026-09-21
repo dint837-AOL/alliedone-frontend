@@ -20,11 +20,7 @@ type Section = 'hero' | 'portfolio' | 'about' | 'services' | 'faq' | 'contact';
 type DeviceView = 'desktop' | 'tablet' | 'mobile';
 
 // ─── Preset Images ────────────────────────────────────────────────────────────
-
-const PRESET_HERO_IMAGES = [
-  { label: 'Global Trade (Default)', path: '/hero-banner.png' },
-  { label: 'GSBD Global Sourcing', path: '/gsbd-hero.png' },
-];
+// Preset images removed as per user request
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -346,34 +342,10 @@ function HeroEditor({ content, onChange }: { content: HomepageContent; onChange:
           <p className="text-xs text-slate-500 mb-3">Choose from existing site images, paste any web URL, or upload from your computer.</p>
         </div>
 
-        {/* Preset Gallery */}
+        {/* Uploaded Gallery */}
         <div>
-          <span className="text-xs font-semibold text-slate-400 block mb-2">Preset Library (click to apply):</span>
+          <span className="text-xs font-semibold text-slate-400 block mb-2">Image Library (click to apply):</span>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
-            {PRESET_HERO_IMAGES.map((preset) => {
-              const isSelected = h.backgroundImage === preset.path;
-              return (
-                <button
-                  key={preset.path}
-                  type="button"
-                  onClick={() => setHero({ backgroundImage: preset.path })}
-                  className={`group relative h-20 rounded-xl overflow-hidden border-2 text-left transition-all ${
-                    isSelected ? 'border-[#0095DA] ring-2 ring-[#0095DA]/20 shadow-md' : 'border-slate-200 hover:border-slate-300'
-                  }`}
-                >
-                  <Image src={preset.path} alt={preset.label} fill className="object-cover" unoptimized />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
-                  <span className="absolute bottom-1 left-2 right-2 text-[10px] font-bold text-white leading-tight drop-shadow truncate">
-                    {preset.label}
-                  </span>
-                  {isSelected && (
-                    <span className="absolute top-1 right-1 w-4 h-4 bg-[#0095DA] rounded-full flex items-center justify-center text-white text-[10px]">
-                      ✓
-                    </span>
-                  )}
-                </button>
-              );
-            })}
             {uploadedImages.map((img) => {
               const isSelected = h.backgroundImage === img.url;
               return (
