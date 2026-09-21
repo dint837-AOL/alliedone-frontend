@@ -23,7 +23,7 @@ export default async function ServicesPage() {
           <div className="absolute -bottom-12 -left-12 w-[300px] h-[300px] rounded-full border border-white/5"></div>
         </div>
         <div className="max-w-4xl mx-auto px-6 py-20 md:py-24 relative z-10 text-center">
-          <span className="inline-block text-[#0095DA] text-xs font-bold uppercase tracking-[0.2em] mb-4">
+          <span className="inline-block text-[#0095DA] text-xs font-bold tracking-[0.2em] mb-4">
             What We Offer
           </span>
           <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-snug">

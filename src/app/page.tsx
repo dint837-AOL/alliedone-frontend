@@ -12,7 +12,7 @@ export const dynamic = 'force-dynamic';
 function SectionHeader({ eyebrow, title, subtitle }: { eyebrow: string; title: React.ReactNode; subtitle?: React.ReactNode }) {
   return (
     <div className="text-center mb-16">
-      <span className="inline-block text-[#0095DA] text-xs font-bold uppercase tracking-[0.18em] mb-3">{eyebrow}</span>
+      <span className="inline-block text-[#0095DA] text-xs font-bold tracking-[0.18em] mb-3">{eyebrow}</span>
       <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A5486] mt-1 mb-4 tracking-tight">{title}</h2>
       {subtitle && <div className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">{subtitle}</div>}
     </div>
@@ -73,7 +73,7 @@ export default async function Home() {
           <div className="w-full max-w-7xl mx-auto px-6">
             <div className="max-w-[850px]">
               <h1
-                className="font-black tracking-[0.04em] leading-[1.15] mb-5 uppercase text-white drop-shadow-sm flex flex-col gap-1.5 sm:gap-2"
+                className="font-black tracking-[0.04em] leading-[1.15] mb-5 text-white drop-shadow-sm flex flex-col gap-1.5 sm:gap-2"
                 style={{ fontSize: "clamp(1.3rem, 3.5vw, 2.75rem)" }}
               >
                 <span className="whitespace-nowrap">{hero.headline?.[0] || 'INTERNATIONAL TRADE'}</span>

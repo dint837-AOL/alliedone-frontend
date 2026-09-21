@@ -21,7 +21,7 @@ export default async function AboutPage() {
           <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] rounded-full border border-white/5"></div>
         </div>
         <div className="max-w-4xl mx-auto px-6 py-24 md:py-32 relative z-10 text-center">
-          <span className="inline-block text-[#0095DA] text-xs font-bold uppercase tracking-[0.2em] mb-4">
+          <span className="inline-block text-[#0095DA] text-xs font-bold tracking-[0.2em] mb-4">
             About AlliedOne Limited
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6">

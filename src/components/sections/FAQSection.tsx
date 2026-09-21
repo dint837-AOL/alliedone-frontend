@@ -29,7 +29,7 @@ export default function FAQSection({ content }: FAQProps) {
   return (
     <div className="max-w-4xl mx-auto w-full">
       <div className="text-center mb-12">
-        <span className="inline-block text-[#0095DA] text-xs font-bold uppercase tracking-[0.18em] mb-3">
+        <span className="inline-block text-[#0095DA] text-xs font-bold tracking-[0.18em] mb-3">
           FAQ
         </span>
         <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A5486] mt-1 mb-4 tracking-tight">

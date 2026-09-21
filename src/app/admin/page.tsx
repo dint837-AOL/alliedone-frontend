@@ -288,6 +288,34 @@ function TextArea({ value, onChange, placeholder, rows = 3 }: { value: string; o
 
 function HeroEditor({ content, onChange }: { content: HomepageContent; onChange: (c: HomepageContent) => void }) {
   const h = content.hero;
+  const [uploadedImages, setUploadedImages] = useState<{ url: string; filename: string }[]>([]);
+
+  const fetchImages = async () => {
+    try {
+      const res = await apiFetch('/api/admin/images');
+      if (res.images) setUploadedImages(res.images);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
+
+  const deleteImage = async (filename: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!confirm('Are you sure you want to delete this image?')) return;
+    try {
+      await apiFetch(`/api/admin/images/${filename}`, { method: 'DELETE' });
+      fetchImages();
+      if (h.backgroundImage?.includes(filename)) {
+        setHero({ backgroundImage: '' });
+      }
+    } catch (err) {
+      alert('Delete failed');
+    }
+  };
 
   function setHero(partial: Partial<typeof h>) {
     onChange({ ...content, hero: { ...h, ...partial } });
@@ -346,6 +374,38 @@ function HeroEditor({ content, onChange }: { content: HomepageContent; onChange:
                 </button>
               );
             })}
+            {uploadedImages.map((img) => {
+              const isSelected = h.backgroundImage === img.url;
+              return (
+                <button
+                  key={img.filename}
+                  type="button"
+                  onClick={() => setHero({ backgroundImage: img.url })}
+                  className={`group relative h-20 rounded-xl overflow-hidden border-2 text-left transition-all ${
+                    isSelected ? 'border-[#0095DA] ring-2 ring-[#0095DA]/20 shadow-md' : 'border-slate-200 hover:border-slate-300'
+                  }`}
+                >
+                  <Image src={img.url} alt={img.filename} fill className="object-cover" unoptimized />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+                  <button
+                    type="button"
+                    onClick={(e) => deleteImage(img.filename, e)}
+                    className="absolute top-1 right-1 w-5 h-5 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity shadow-sm z-10"
+                    title="Delete Image"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                  <span className="absolute bottom-1 left-2 right-2 text-[10px] font-bold text-white leading-tight drop-shadow truncate">
+                    Uploaded: {img.filename}
+                  </span>
+                  {isSelected && (
+                    <span className="absolute top-1 left-1 w-4 h-4 bg-[#0095DA] rounded-full flex items-center justify-center text-white text-[10px]">
+                      ✓
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -360,7 +420,7 @@ function HeroEditor({ content, onChange }: { content: HomepageContent; onChange:
             />
           </div>
           <div className="pt-2 sm:pt-5 flex items-center gap-3">
-            <ImageUploadButton onUpload={url => setHero({ backgroundImage: url })} />
+            <ImageUploadButton onUpload={url => { setHero({ backgroundImage: url }); fetchImages(); }} />
             <button 
               type="button" 
               onClick={() => setHero({ backgroundImage: '' })}
@@ -908,7 +968,7 @@ function LivePreviewModal({
             <div className="absolute inset-0 flex flex-col justify-between p-8 sm:p-14">
               <div className="max-w-[700px]">
                 <h1
-                  className="font-black tracking-[0.05em] leading-[1.2] mb-6 uppercase text-white drop-shadow-sm flex flex-col gap-2"
+                  className="font-black tracking-[0.05em] leading-[1.2] mb-6 text-white drop-shadow-sm flex flex-col gap-2"
                   style={{
                     fontSize: device === 'mobile' ? '1.8rem' : 'clamp(2rem, 3.8vw, 3.2rem)',
                   }}
@@ -930,7 +990,7 @@ function LivePreviewModal({
             <div className="max-w-6xl mx-auto">
               {/* Header */}
               <div className="text-center mb-14">
-                <span className="inline-block text-[#0095DA] text-xs font-bold uppercase tracking-[0.18em] mb-2">
+                <span className="inline-block text-[#0095DA] text-xs font-bold tracking-[0.18em] mb-2">
                   {portfolio.eyebrow}
                 </span>
                 <h2 className="text-2xl md:text-3xl font-extrabold text-[#0A5486] mt-1 mb-3 tracking-tight">
@@ -945,7 +1005,7 @@ function LivePreviewModal({
               <div className={`grid gap-6 ${device === 'mobile' ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
                 {/* Pillar 1 */}
                 <div className="bg-[#0A5486] rounded-3xl p-8 text-white flex flex-col shadow-lg">
-                  <span className="text-[#0095DA] text-xs font-bold uppercase tracking-wider mb-2">
+                  <span className="text-[#0095DA] text-xs font-bold tracking-wider mb-2">
                     {portfolio.pillar1.eyebrow}
                   </span>
                   <h3 className="text-2xl font-extrabold mb-3 leading-tight">{portfolio.pillar1.title}</h3>
@@ -965,7 +1025,7 @@ function LivePreviewModal({
 
                 {/* Pillar 2 */}
                 <div className="bg-white rounded-3xl p-8 border border-slate-200 flex flex-col shadow-sm">
-                  <span className="text-[#0095DA] text-xs font-bold uppercase tracking-wider mb-2">
+                  <span className="text-[#0095DA] text-xs font-bold tracking-wider mb-2">
                     {portfolio.pillar2.eyebrow}
                   </span>
                   <h3 className="text-2xl font-extrabold text-[#0A5486] mb-3 leading-tight">

@@ -10,7 +10,7 @@ export default function ContactPage() {
     <div className="bg-[#F8FAFC] min-h-screen py-20 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <span className="inline-block text-[#0095DA] text-xs font-bold uppercase tracking-[0.18em] mb-3">
+          <span className="inline-block text-[#0095DA] text-xs font-bold tracking-[0.18em] mb-3">
             Get in Touch
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-[#0A5486] mb-4 tracking-tight">
