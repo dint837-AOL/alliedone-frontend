@@ -332,9 +332,22 @@ export default function PagesTab({ apiBase, token }: { apiBase: string, token: s
           <div>
             <h2 className="text-2xl font-bold">Edit Page: {editingPage.title}</h2>
             <div className="text-sm text-slate-500 mt-1 flex items-center gap-2">
-              <span className={`px-2 py-0.5 rounded text-xs font-bold ${editingPage.status === 'PUBLISHED' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}>
+              <button 
+                onClick={() => {
+                  let userRole = null;
+                  try { if (token) userRole = JSON.parse(atob(token.split('.')[1]))?.role; } catch {}
+                  if (userRole === 'CONTENT_EDITOR') {
+                    triggerToast('Publishing requires Super Admin access', 'error');
+                    return;
+                  }
+                  const newStatus = editingPage.status === 'PUBLISHED' ? 'DRAFT' : 'PUBLISHED';
+                  toggleStatus(editingPage.id, editingPage.status);
+                  setEditingPage({...editingPage, status: newStatus});
+                }}
+                className={`px-3 py-1 rounded-md text-xs font-bold uppercase transition-colors hover:opacity-80 shadow-sm ${editingPage.status === 'PUBLISHED' ? 'bg-green-100 text-green-700 hover:bg-green-200' : 'bg-amber-100 text-amber-700 hover:bg-amber-200'}`}
+              >
                 {editingPage.status}
-              </span>
+              </button>
               <a href={`/${editingPage.slug}${editingPage.status !== 'PUBLISHED' ? '?preview=true' : ''}`} target="_blank" className="hover:underline flex items-center gap-1"><Globe size={14}/> {editingPage.status === 'PUBLISHED' ? 'View Live' : 'Preview Draft'}</a>
             </div>
           </div>
