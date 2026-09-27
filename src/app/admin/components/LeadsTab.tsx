@@ -16,6 +16,14 @@ export default function LeadsTab({ apiBase, token }: { apiBase: string, token: s
     if (res.ok) setLeads(await res.json());
     setLoading(false);
   };
+  const deleteLead = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this lead?')) return;
+    const res = await fetch(`${apiBase}/api/leads/${id}`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    if (res.ok) fetchLeads();
+  };
 
   return (
     <div className="space-y-6">
@@ -35,6 +43,7 @@ export default function LeadsTab({ apiBase, token }: { apiBase: string, token: s
                 <th className="p-4 font-semibold text-slate-500">Contact</th>
                 <th className="p-4 font-semibold text-slate-500">Interest</th>
                 <th className="p-4 font-semibold text-slate-500">Notes</th>
+                <th className="p-4 font-semibold text-slate-500 w-24">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -55,6 +64,14 @@ export default function LeadsTab({ apiBase, token }: { apiBase: string, token: s
                   </td>
                   <td className="p-4 text-slate-600 align-top whitespace-pre-wrap">
                     {lead.notes || '-'}
+                  </td>
+                  <td className="p-4 align-top">
+                    <button 
+                      onClick={() => deleteLead(lead.id)}
+                      className="text-red-500 hover:bg-red-50 px-2 py-1 rounded transition-colors text-sm font-semibold"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
