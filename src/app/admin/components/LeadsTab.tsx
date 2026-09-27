@@ -22,7 +22,12 @@ export default function LeadsTab({ apiBase, token }: { apiBase: string, token: s
       method: 'DELETE',
       headers: { Authorization: `Bearer ${token}` }
     });
-    if (res.ok) fetchLeads();
+    if (res.ok) {
+      fetchLeads();
+    } else {
+      const err = await res.json().catch(() => ({}));
+      alert('Failed to delete lead: ' + (err.error || 'Unknown error'));
+    }
   };
 
   return (
