@@ -116,7 +116,7 @@ export default function PagesTab({ apiBase, token }: { apiBase: string, token: s
       method: 'PUT', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify({
         title: editingPage.title,
-        slug: editingPage.slug,
+        slug: editingPage.slug.replace(/^\/+|\/+$/g, '').replace(/\s+/g, '-').toLowerCase(),
         seoTitle: editingPage.seoTitle,
         seoDesc: editingPage.seoDesc,
         seoImage: editingPage.seoImage,

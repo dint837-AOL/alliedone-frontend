@@ -2,6 +2,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+export const dynamic = 'force-dynamic';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://alliedone-backend-9a02.onrender.com';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://alliedoneltd.com';
@@ -9,7 +10,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://alliedoneltd.com';
 async function getPageData(slug: string, isPreview: boolean = false) {
   try {
     const url = `${API_URL}/api/pages/${slug}${isPreview ? '?preview=true' : ''}`;
-    const options: RequestInit = isPreview ? { cache: 'no-store' } : { next: { revalidate: 60 } };
+    const options: RequestInit = { cache: 'no-store' };
     const res = await fetch(url, options);
     if (!res.ok) return null;
     return await res.json();
