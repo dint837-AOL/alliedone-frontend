@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 export const dynamic = 'force-dynamic';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://alliedone-backend-9a02.onrender.com';
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || 'https://alliedone-backend-9a02.onrender.com').replace(/\/+$/, '');
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://alliedoneltd.com';
 
 async function getPageData(slug: string, isPreview: boolean = false) {
