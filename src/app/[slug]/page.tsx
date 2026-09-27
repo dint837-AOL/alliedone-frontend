@@ -19,9 +19,11 @@ async function getPageData(slug: string, isPreview: boolean = false) {
 }
 
 export async function generateMetadata(
-  { params, searchParams }: { params: { slug: string }, searchParams: { [key: string]: string | string[] | undefined } },
+  props: { params: Promise<{ slug: string }>, searchParams: Promise<{ [key: string]: string | string[] | undefined }> },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const params = await props.params;
+  const searchParams = await props.searchParams;
   const isPreview = searchParams?.preview === 'true';
   const page = await getPageData(params.slug, isPreview);
   
@@ -43,7 +45,9 @@ export async function generateMetadata(
   };
 }
 
-export default async function DynamicPage({ params, searchParams }: { params: { slug: string }, searchParams: { [key: string]: string | string[] | undefined } }) {
+export default async function DynamicPage(props: { params: Promise<{ slug: string }>, searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
+  const params = await props.params;
+  const searchParams = await props.searchParams;
   const isPreview = searchParams?.preview === 'true';
   const page = await getPageData(params.slug, isPreview);
 
