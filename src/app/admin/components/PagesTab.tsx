@@ -41,7 +41,8 @@ export default function PagesTab({ apiBase, token }: { apiBase: string, token: s
           fetchPages();
           triggerToast('Page created', 'success');
         } else {
-          triggerToast('Failed to create page', 'error');
+          const errData = await res.json().catch(() => ({}));
+          triggerToast(errData.error || 'Failed to create page', 'error');
         }
       }
     });
