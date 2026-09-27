@@ -1129,7 +1129,6 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
   const cmsNavItems: { id: Section; label: string; icon: React.ReactNode }[] = [
     { id: 'pages-cms', label: 'Manage Pages', icon: <FileText className="w-4 h-4" /> },
     ...(userRole !== 'CONTENT_EDITOR' ? [{ id: 'settings-cms' as Section, label: 'Global Settings', icon: <Settings className="w-4 h-4" /> }] : []),
-    { id: 'forms-cms', label: 'Form Submissions', icon: <LayoutDashboard className="w-4 h-4" /> },
     { id: 'leads-cms', label: 'CRM Leads', icon: <Database className="w-4 h-4" /> },
     ...(userRole !== 'CONTENT_EDITOR' ? [{ id: 'users-cms' as Section, label: 'Users & Logs', icon: <Users className="w-4 h-4" /> }] : []),
   ];
