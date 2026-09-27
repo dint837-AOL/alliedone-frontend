@@ -8,13 +8,14 @@ import {
   ChevronRight, LayoutDashboard, Image as ImageIcon, Type, Layers,
   CheckCircle, AlertCircle, Loader2, Lock, User, Shield,
   Monitor, Smartphone, Tablet, X, RotateCcw, ArrowRight, ExternalLink,
-  Settings, FileText, Users
+  Settings, FileText, Users, Database
 } from 'lucide-react';
 import { DEFAULT_HOMEPAGE_CONTENT, HomepageContent } from '@/lib/siteContent';
 
 import PagesTab from './components/PagesTab';
 import GlobalSettingsTab from './components/GlobalSettingsTab';
 import FormsTab from './components/FormsTab';
+import LeadsTab from './components/LeadsTab';
 import UsersTab from './components/UsersTab';
 import CustomDialog, { DialogState, defaultDialogState, triggerToast, triggerDialog } from './components/CustomDialog';
 
@@ -1128,7 +1129,8 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
   const cmsNavItems: { id: Section; label: string; icon: React.ReactNode }[] = [
     { id: 'pages-cms', label: 'Manage Pages', icon: <FileText className="w-4 h-4" /> },
     ...(userRole !== 'CONTENT_EDITOR' ? [{ id: 'settings-cms' as Section, label: 'Global Settings', icon: <Settings className="w-4 h-4" /> }] : []),
-    { id: 'forms-cms', label: 'Forms & Leads', icon: <LayoutDashboard className="w-4 h-4" /> },
+    { id: 'forms-cms', label: 'Form Submissions', icon: <LayoutDashboard className="w-4 h-4" /> },
+    { id: 'leads-cms', label: 'CRM Leads', icon: <Database className="w-4 h-4" /> },
     ...(userRole !== 'CONTENT_EDITOR' ? [{ id: 'users-cms' as Section, label: 'Users & Logs', icon: <Users className="w-4 h-4" /> }] : []),
   ];
 
@@ -1302,6 +1304,7 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
               {section === 'pages-cms' && <div className="p-8"><PagesTab apiBase={API_BASE} token={token} /></div>}
               {section === 'settings-cms' && <div className="p-8"><GlobalSettingsTab apiBase={API_BASE} token={token} /></div>}
               {section === 'forms-cms' && <div className="p-8"><FormsTab apiBase={API_BASE} token={token} /></div>}
+              {section === 'leads-cms' && <div className="p-8"><LeadsTab apiBase={API_BASE} token={token} /></div>}
               {section === 'users-cms' && <div className="p-8"><UsersTab apiBase={API_BASE} token={token} /></div>}
             </>
           )}

@@ -18,13 +18,13 @@ export default function FormsTab({ apiBase, token }: { apiBase: string, token: s
   // --- SUBMISSIONS ---
   const fetchSubmissions = async () => {
     setLoading(true);
-    const res = await fetch(`${apiBase}/api/admin/forms/${formKey}/submissions`, { headers: { Authorization: `Bearer ${token}` }});
+    const res = await fetch(`${apiBase}/api/forms/${formKey}/submissions`, { headers: { Authorization: `Bearer ${token}` }});
     if (res.ok) setSubmissions(await res.json());
     setLoading(false);
   };
 
   const markRead = async (id: string) => {
-    await fetch(`${apiBase}/api/admin/forms/${formKey}/submissions/${id}/read`, {
+    await fetch(`${apiBase}/api/forms/${formKey}/submissions/${id}/read`, {
       method: 'PATCH', headers: { Authorization: `Bearer ${token}` }
     });
     fetchSubmissions();
@@ -37,7 +37,7 @@ export default function FormsTab({ apiBase, token }: { apiBase: string, token: s
       message: 'Are you sure you want to delete this submission?',
       onConfirm: async () => {
         try {
-          await fetch(`${apiBase}/api/admin/forms/${formKey}/submissions/${id}`, {
+          await fetch(`${apiBase}/api/forms/${formKey}/submissions/${id}`, {
             method: 'DELETE', headers: { Authorization: `Bearer ${token}` }
           });
           fetchSubmissions();
@@ -52,7 +52,7 @@ export default function FormsTab({ apiBase, token }: { apiBase: string, token: s
   // --- SCHEMA EDITOR ---
   const fetchSchema = async () => {
     setLoading(true);
-    const res = await fetch(`${apiBase}/api/admin/forms/${formKey}/schema`, { headers: { Authorization: `Bearer ${token}` }});
+    const res = await fetch(`${apiBase}/api/forms/${formKey}/schema`, { headers: { Authorization: `Bearer ${token}` }});
     if (res.ok) {
       const data = await res.json();
       setSchemaFields(data.fields || []);
@@ -64,7 +64,7 @@ export default function FormsTab({ apiBase, token }: { apiBase: string, token: s
 
   const saveSchema = async () => {
     try {
-      const res = await fetch(`${apiBase}/api/admin/forms/${formKey}/schema`, {
+      const res = await fetch(`${apiBase}/api/forms/${formKey}/schema`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ fields: schemaFields })
@@ -126,7 +126,7 @@ export default function FormsTab({ apiBase, token }: { apiBase: string, token: s
       {activeTab === 'submissions' && (
         <div>
           <div className="flex justify-end mb-4">
-            <a href={`${apiBase}/api/admin/forms/${formKey}/submissions/export.csv`} className="bg-emerald-600 text-white px-4 py-2 rounded flex items-center gap-2 font-semibold text-sm hover:bg-emerald-700 transition-colors">
+            <a href={`${apiBase}/api/forms/${formKey}/submissions/export.csv`} className="bg-emerald-600 text-white px-4 py-2 rounded flex items-center gap-2 font-semibold text-sm hover:bg-emerald-700 transition-colors">
               <Download size={16}/> Export CSV
             </a>
           </div>
