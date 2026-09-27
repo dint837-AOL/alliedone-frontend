@@ -213,7 +213,7 @@ export default function RootLayout({
         </footer>
         <ScrollToTop />
         <FeedbackWidget />
-        {process.env.NEXT_PUBLIC_ENABLE_CHATBOT === 'true' && <ChatWidget />}
+        <ChatWidget />
         <ContactModal />
         <Toaster position="bottom-right" richColors />
       </body>

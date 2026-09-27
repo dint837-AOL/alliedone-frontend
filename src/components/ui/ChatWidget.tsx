@@ -15,6 +15,10 @@ import Image from "next/image";
  */
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
+
+  if (process.env.NEXT_PUBLIC_ENABLE_CHATBOT?.toLowerCase() !== 'true') {
+    return null;
+  }
   const [input, setInput] = useState("");
   const { messages, status, sendMessage } = useChat({
     transport: new DefaultChatTransport({
