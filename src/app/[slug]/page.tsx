@@ -12,10 +12,13 @@ async function getPageData(slug: string, isPreview: boolean = false) {
     const url = `${API_URL}/api/pages/${slug}${isPreview ? '?preview=true' : ''}`;
     const options: RequestInit = { cache: 'no-store' };
     const res = await fetch(url, options);
-    if (!res.ok) return null;
+    if (!res.ok) {
+      const errTxt = await res.text().catch(() => 'unknown');
+      return { _error: `API Error: ${res.status} ${errTxt}`, slug };
+    }
     return await res.json();
-  } catch (err) {
-    return null;
+  } catch (err: any) {
+    return { _error: `Fetch Exception: ${err.message || String(err)}`, slug };
   }
 }
 
@@ -28,7 +31,7 @@ export async function generateMetadata(
   const isPreview = searchParams?.preview === 'true';
   const page = await getPageData(params.slug, isPreview);
   
-  if (!page) {
+  if (!page || page._error) {
     return { title: 'Not Found | AlliedOne' };
   }
 
@@ -54,6 +57,18 @@ export default async function DynamicPage(props: { params: Promise<{ slug: strin
 
   if (!page) {
     notFound();
+  }
+
+  if (page._error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-red-50 p-6">
+        <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl w-full border border-red-100">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">Page Load Error</h1>
+          <p className="text-slate-700 font-mono text-sm bg-slate-100 p-4 rounded whitespace-pre-wrap">{page._error}</p>
+          <p className="mt-4 text-sm text-slate-500">Attempted Slug: {page.slug}</p>
+        </div>
+      </div>
+    );
   }
 
   return (
