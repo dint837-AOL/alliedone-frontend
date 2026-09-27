@@ -12,7 +12,7 @@ export default function LeadsTab({ apiBase, token }: { apiBase: string, token: s
 
   const fetchLeads = async () => {
     setLoading(true);
-    const res = await fetch(`${apiBase}/api/leads`, { headers: { Authorization: `Bearer ${token}` }});
+    const res = await fetch(`${apiBase}/api/leads?_t=${Date.now()}`, { headers: { Authorization: `Bearer ${token}` }});
     if (res.ok) setLeads(await res.json());
     setLoading(false);
   };
