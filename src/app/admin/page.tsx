@@ -24,7 +24,7 @@ const API_BASE = rawBase.replace(/\/api\/?$/, '').replace(/\/+$/, '');
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Section = 'hero' | 'portfolio' | 'about' | 'services' | 'faq' | 'contact' | 'pages-cms' | 'settings-cms' | 'forms-cms' | 'users-cms';
+type Section = 'hero' | 'portfolio' | 'about' | 'services' | 'faq' | 'contact' | 'pages-cms' | 'settings-cms' | 'forms-cms' | 'leads-cms' | 'users-cms';
 type DeviceView = 'desktop' | 'tablet' | 'mobile';
 
 // ─── Preset Images ────────────────────────────────────────────────────────────
