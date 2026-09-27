@@ -7,23 +7,16 @@ import {
   LogOut, Save, Upload, Eye, EyeOff, Plus, Trash2,
   ChevronRight, LayoutDashboard, Image as ImageIcon, Type, Layers,
   CheckCircle, AlertCircle, Loader2, Lock, User, Shield,
-  Monitor, Smartphone, Tablet, X, RotateCcw, ArrowRight, ExternalLink,
-  Settings, FileText, Users
+  Monitor, Smartphone, Tablet, X, RotateCcw, ArrowRight, ExternalLink
 } from 'lucide-react';
 import { DEFAULT_HOMEPAGE_CONTENT, HomepageContent } from '@/lib/siteContent';
-
-import PagesTab from './components/PagesTab';
-import GlobalSettingsTab from './components/GlobalSettingsTab';
-import FormsTab from './components/FormsTab';
-import UsersTab from './components/UsersTab';
-import CustomDialog, { DialogState, defaultDialogState, triggerToast, triggerDialog } from './components/CustomDialog';
 
 const rawBase = process.env.NEXT_PUBLIC_API_URL || 'https://alliedone-backend-9a02.onrender.com';
 const API_BASE = rawBase.replace(/\/api\/?$/, '').replace(/\/+$/, '');
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Section = 'hero' | 'portfolio' | 'about' | 'services' | 'faq' | 'contact' | 'pages-cms' | 'settings-cms' | 'forms-cms' | 'users-cms';
+type Section = 'hero' | 'portfolio' | 'about' | 'services' | 'faq' | 'contact';
 type DeviceView = 'desktop' | 'tablet' | 'mobile';
 
 // ─── Preset Images ────────────────────────────────────────────────────────────
@@ -103,8 +96,8 @@ function Toast({ message, type, onClose }: { message: string; type: 'success' | 
 // ─── Login Screen ─────────────────────────────────────────────────────────────
 
 function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('password123');
+  const [username, setUsername] = useState('demo');
+  const [password, setPassword] = useState('demo123');
   const [showPw, setShowPw] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -234,7 +227,7 @@ function ImageUploadButton({ onUpload, label = 'Upload From Computer' }: { onUpl
       const { url } = await res.json();
       onUpload(url);
     } catch (err) {
-      triggerToast('Image upload failed: ' + (err as Error).message, 'error');
+      alert('Image upload failed: ' + (err as Error).message);
     } finally {
       setUploading(false);
       if (fileRef.current) fileRef.current.value = '';
@@ -306,25 +299,18 @@ function HeroEditor({ content, onChange }: { content: HomepageContent; onChange:
     fetchImages();
   }, []);
 
-  const deleteImage = (filename: string, e: React.MouseEvent) => {
+  const deleteImage = async (filename: string, e: React.MouseEvent) => {
     e.stopPropagation();
-    triggerDialog({
-      type: 'confirm',
-      title: 'Delete Image',
-      message: 'Are you sure you want to delete this image?',
-      onConfirm: async () => {
-        try {
-          await apiFetch(`/api/admin/images/${filename}`, { method: 'DELETE' });
-          fetchImages();
-          if (h.backgroundImage?.includes(filename)) {
-            setHero({ backgroundImage: '' });
-          }
-          triggerToast('Image deleted successfully', 'success');
-        } catch (err) {
-          triggerToast('Delete failed', 'error');
-        }
+    if (!confirm('Are you sure you want to delete this image?')) return;
+    try {
+      await apiFetch(`/api/admin/images/${filename}`, { method: 'DELETE' });
+      fetchImages();
+      if (h.backgroundImage?.includes(filename)) {
+        setHero({ backgroundImage: '' });
       }
-    });
+    } catch (err) {
+      alert('Delete failed');
+    }
   };
 
   function setHero(partial: Partial<typeof h>) {
@@ -1041,7 +1027,7 @@ function LivePreviewModal({
 
 // ─── Dashboard ────────────────────────────────────────────────────────────────
 
-function Dashboard({ token, onLogout }: { token: string, onLogout: () => void }) {
+function Dashboard({ onLogout }: { onLogout: () => void }) {
   const [section, setSection] = useState<Section>('hero');
   const [content, setContent] = useState<HomepageContent>(DEFAULT_HOMEPAGE_CONTENT);
   const [publishedContent, setPublishedContent] = useState<HomepageContent>(DEFAULT_HOMEPAGE_CONTENT);
@@ -1049,19 +1035,6 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
   const [saving, setSaving] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
-  const [dialog, setDialog] = useState<DialogState>(defaultDialogState);
-
-  // Global event listeners for toast and dialog
-  useEffect(() => {
-    const handleToast = (e: any) => setToast(e.detail);
-    const handleDialog = (e: any) => setDialog(e.detail);
-    window.addEventListener('app-toast', handleToast);
-    window.addEventListener('app-dialog', handleDialog);
-    return () => {
-      window.removeEventListener('app-toast', handleToast);
-      window.removeEventListener('app-dialog', handleDialog);
-    };
-  }, []);
 
   // Load existing content on mount
   useEffect(() => {
@@ -1100,15 +1073,9 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
   }
 
   function handleReset() {
-    triggerDialog({
-      type: 'confirm',
-      title: 'Discard Changes',
-      message: 'Discard all unsaved changes and reset to the currently published content?',
-      onConfirm: () => {
-        setContent(publishedContent);
-        triggerToast('Changes discarded', 'success');
-      }
-    });
+    if (confirm('Discard all unsaved changes and reset to the currently published content?')) {
+      setContent(publishedContent);
+    }
   }
 
   const navItems: { id: Section; label: string; icon: React.ReactNode }[] = [
@@ -1118,18 +1085,6 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
     { id: 'services', label: 'Services Page', icon: <Type className="w-4 h-4" /> },
     { id: 'faq', label: 'FAQ Section', icon: <LayoutDashboard className="w-4 h-4" /> },
     { id: 'contact', label: 'Contact Section', icon: <Monitor className="w-4 h-4" /> },
-  ];
-
-  let userRole = null;
-  try {
-    if (token) userRole = JSON.parse(atob(token.split('.')[1]))?.role;
-  } catch {}
-
-  const cmsNavItems: { id: Section; label: string; icon: React.ReactNode }[] = [
-    { id: 'pages-cms', label: 'Manage Pages', icon: <FileText className="w-4 h-4" /> },
-    ...(userRole !== 'CONTENT_EDITOR' ? [{ id: 'settings-cms' as Section, label: 'Global Settings', icon: <Settings className="w-4 h-4" /> }] : []),
-    { id: 'forms-cms', label: 'Forms & Leads', icon: <LayoutDashboard className="w-4 h-4" /> },
-    ...(userRole !== 'CONTENT_EDITOR' ? [{ id: 'users-cms' as Section, label: 'Users & Logs', icon: <Users className="w-4 h-4" /> }] : []),
   ];
 
   return (
@@ -1165,25 +1120,6 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
               {section === item.id && <ChevronRight className="w-4 h-4 ml-auto opacity-60" />}
             </button>
           ))}
-          
-          <div className="pt-4 mt-2 border-t border-white/5">
-            <p className="text-white/30 text-[10px] font-bold uppercase tracking-widest mb-4 px-2">System CMS</p>
-            {cmsNavItems.map(item => (
-              <button
-                key={item.id}
-                onClick={() => setSection(item.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 text-left ${
-                  section === item.id
-                    ? 'bg-white/15 text-white shadow-sm'
-                    : 'text-white/50 hover:text-white/80 hover:bg-white/5'
-                }`}
-              >
-                {item.icon}
-                {item.label}
-                {section === item.id && <ChevronRight className="w-4 h-4 ml-auto opacity-60" />}
-              </button>
-            ))}
-          </div>
         </nav>
 
         <div className="px-4 py-6 border-t border-white/10 space-y-2">
@@ -1219,73 +1155,61 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
                  section === 'about' ? 'About Page' :
                  section === 'services' ? 'Services Page' :
                  section === 'faq' ? 'FAQ Section' :
-                 section === 'contact' ? 'Contact Section' :
-                 section === 'pages-cms' ? 'Manage Pages' :
-                 section === 'settings-cms' ? 'Global Settings' :
-                 section === 'forms-cms' ? 'Forms & Leads' :
-                 'Users & Logs'}
+                 'Contact Section'}
               </h1>
             </div>
 
             {/* Status indicator */}
-            {!section.endsWith('-cms') && (
-              <>
-                {hasUnsavedChanges ? (
-                  <span className="hidden sm:inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 border border-amber-200 text-xs px-2.5 py-1 rounded-full font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                    Unsaved Draft
-                  </span>
-                ) : (
-                  <span className="hidden sm:inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs px-2.5 py-1 rounded-full font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    Up to Date
-                  </span>
-                )}
-              </>
+            {hasUnsavedChanges ? (
+              <span className="hidden sm:inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 border border-amber-200 text-xs px-2.5 py-1 rounded-full font-semibold">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                Unsaved Draft
+              </span>
+            ) : (
+              <span className="hidden sm:inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs px-2.5 py-1 rounded-full font-semibold">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                Up to Date
+              </span>
             )}
           </div>
 
           <div className="flex items-center gap-3">
-            {!section.endsWith('-cms') && (
-              <>
-                {hasUnsavedChanges && (
-                  <button
-                    type="button"
-                    onClick={handleReset}
-                    className="hidden md:inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-slate-800 px-3 py-2 rounded-lg hover:bg-slate-100 transition-all"
-                    title="Discard your draft and restore currently published text"
-                  >
-                    <RotateCcw className="w-3.5 h-3.5" /> Discard Draft
-                  </button>
-                )}
-
-                {/* Full-screen interactive live preview button */}
-                <button
-                  type="button"
-                  onClick={() => setShowPreview(true)}
-                  className="inline-flex items-center gap-2 bg-[#EBF4FB] hover:bg-[#0095DA] text-[#0A5486] hover:text-white border border-[#0095DA]/30 px-4 py-2.5 rounded-xl font-bold text-xs transition-all shadow-sm"
-                >
-                  <Eye className="w-4 h-4" />
-                  Live Preview Draft
-                </button>
-
-                {/* Publish button */}
-                <button
-                  id="admin-save-btn"
-                  onClick={handleSave}
-                  disabled={saving || loading || !hasUnsavedChanges}
-                  className="inline-flex items-center gap-2 bg-[#0A5486] hover:bg-[#0095DA] text-white px-6 py-2.5 rounded-xl font-bold text-xs transition-all duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                  {saving ? 'Publishing…' : 'Save & Publish Live'}
-                </button>
-              </>
+            {hasUnsavedChanges && (
+              <button
+                type="button"
+                onClick={handleReset}
+                className="hidden md:inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-slate-800 px-3 py-2 rounded-lg hover:bg-slate-100 transition-all"
+                title="Discard your draft and restore currently published text"
+              >
+                <RotateCcw className="w-3.5 h-3.5" /> Discard Draft
+              </button>
             )}
+
+            {/* Full-screen interactive live preview button */}
+            <button
+              type="button"
+              onClick={() => setShowPreview(true)}
+              className="inline-flex items-center gap-2 bg-[#EBF4FB] hover:bg-[#0095DA] text-[#0A5486] hover:text-white border border-[#0095DA]/30 px-4 py-2.5 rounded-xl font-bold text-xs transition-all shadow-sm"
+            >
+              <Eye className="w-4 h-4" />
+              Live Preview Draft
+            </button>
+
+            {/* Publish button */}
+            <button
+              id="admin-save-btn"
+              onClick={handleSave}
+              disabled={saving || loading || !hasUnsavedChanges}
+              className="inline-flex items-center gap-2 bg-[#0A5486] hover:bg-[#0095DA] text-white px-6 py-2.5 rounded-xl font-bold text-xs transition-all duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+              {saving ? 'Publishing…' : 'Save & Publish Live'}
+            </button>
           </div>
         </header>
 
         {/* Editor area */}
-        <div className={`flex-1 overflow-y-auto ${section.endsWith('-cms') ? 'p-0' : 'p-8 max-w-5xl'}`}>
+        <div className="flex-1 overflow-y-auto p-8 max-w-5xl">
           {loading ? (
             <div className="flex items-center justify-center h-64">
               <Loader2 className="w-8 h-8 animate-spin text-[#0095DA]" />
@@ -1298,11 +1222,6 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
               {section === 'services' && <ServicesEditor content={content} onChange={setContent} />}
               {section === 'faq' && <FAQEditor content={content} onChange={setContent} />}
               {section === 'contact' && <ContactEditor content={content} onChange={setContent} />}
-              
-              {section === 'pages-cms' && <div className="p-8"><PagesTab apiBase={API_BASE} token={token} /></div>}
-              {section === 'settings-cms' && <div className="p-8"><GlobalSettingsTab apiBase={API_BASE} token={token} /></div>}
-              {section === 'forms-cms' && <div className="p-8"><FormsTab apiBase={API_BASE} token={token} /></div>}
-              {section === 'users-cms' && <div className="p-8"><UsersTab apiBase={API_BASE} token={token} /></div>}
             </>
           )}
         </div>
@@ -1318,8 +1237,7 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
         />
       )}
 
-      {/* Dialog & Toast */}
-      <CustomDialog dialog={dialog} setDialog={setDialog} />
+      {/* Toast */}
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </div>
   );
@@ -1355,5 +1273,5 @@ export default function AdminPage() {
   }
 
   if (!token) return <LoginScreen onLogin={handleLogin} />;
-  return <Dashboard token={token} onLogout={handleLogout} />;
+  return <Dashboard onLogout={handleLogout} />;
 }

@@ -7,23 +7,17 @@ import {
   LogOut, Save, Upload, Eye, EyeOff, Plus, Trash2,
   ChevronRight, LayoutDashboard, Image as ImageIcon, Type, Layers,
   CheckCircle, AlertCircle, Loader2, Lock, User, Shield,
-  Monitor, Smartphone, Tablet, X, RotateCcw, ArrowRight, ExternalLink,
-  Settings, FileText, Users
+  Monitor, Smartphone, Tablet, X, RotateCcw, ArrowRight, ExternalLink
 } from 'lucide-react';
 import { DEFAULT_HOMEPAGE_CONTENT, HomepageContent } from '@/lib/siteContent';
-
-import PagesTab from './components/PagesTab';
-import GlobalSettingsTab from './components/GlobalSettingsTab';
-import FormsTab from './components/FormsTab';
-import UsersTab from './components/UsersTab';
-import CustomDialog, { DialogState, defaultDialogState, triggerToast, triggerDialog } from './components/CustomDialog';
+import { triggerToast, triggerDialog } from './CustomDialog';
 
 const rawBase = process.env.NEXT_PUBLIC_API_URL || 'https://alliedone-backend-9a02.onrender.com';
 const API_BASE = rawBase.replace(/\/api\/?$/, '').replace(/\/+$/, '');
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Section = 'hero' | 'portfolio' | 'about' | 'services' | 'faq' | 'contact' | 'pages-cms' | 'settings-cms' | 'forms-cms' | 'users-cms';
+type Section = 'hero' | 'portfolio' | 'about' | 'services' | 'faq' | 'contact';
 type DeviceView = 'desktop' | 'tablet' | 'mobile';
 
 // ─── Preset Images ────────────────────────────────────────────────────────────
@@ -96,114 +90,6 @@ function Toast({ message, type, onClose }: { message: string; type: 'success' | 
     <div className={`fixed bottom-6 right-6 z-[9999] flex items-center gap-3 px-5 py-4 rounded-2xl shadow-2xl text-white text-sm font-medium transition-all duration-300 ${type === 'success' ? 'bg-emerald-600' : 'bg-red-600'}`}>
       {type === 'success' ? <CheckCircle className="w-5 h-5 flex-shrink-0" /> : <AlertCircle className="w-5 h-5 flex-shrink-0" />}
       {message}
-    </div>
-  );
-}
-
-// ─── Login Screen ─────────────────────────────────────────────────────────────
-
-function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('password123');
-  const [showPw, setShowPw] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
-    try {
-      const data = await fetch(`${API_BASE}/api/admin/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: username.trim(), password: password.trim() }),
-      });
-      if (!data.ok) {
-        const errData = await data.json().catch(() => null);
-        setError(errData?.error || `Login failed (Status: ${data.status})`);
-        return;
-      }
-      const { token } = await data.json();
-      setToken(token);
-      onLogin(token);
-    } catch {
-      setError('Could not connect to backend. Verify your backend server is active.');
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-[#061D30] via-[#0A5486] to-[#0095DA] flex items-center justify-center p-6">
-      <div className="w-full max-w-md">
-        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 shadow-2xl">
-          <div className="flex flex-col items-center mb-10">
-            <div className="w-16 h-16 rounded-2xl bg-white/20 border border-white/30 flex items-center justify-center mb-4 shadow-lg">
-              <Shield className="w-8 h-8 text-white" />
-            </div>
-            <h1 className="text-2xl font-black text-white tracking-tight">Admin Panel</h1>
-            <p className="text-white/60 text-sm mt-1">AlliedOne CMS — Restricted Access</p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label className="block text-white/70 text-xs font-semibold uppercase tracking-wider mb-2">Username</label>
-              <div className="relative">
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
-                <input
-                  id="admin-username"
-                  type="text"
-                  value={username}
-                  onChange={e => setUsername(e.target.value)}
-                  required
-                  autoComplete="username"
-                  placeholder="Enter username"
-                  className="w-full bg-white/10 border border-white/20 rounded-xl pl-11 pr-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-[#0095DA] focus:border-transparent transition-all"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-white/70 text-xs font-semibold uppercase tracking-wider mb-2">Password</label>
-              <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
-                <input
-                  id="admin-password"
-                  type={showPw ? 'text' : 'password'}
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                  required
-                  autoComplete="current-password"
-                  placeholder="Enter password"
-                  className="w-full bg-white/10 border border-white/20 rounded-xl pl-11 pr-12 py-3.5 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-[#0095DA] focus:border-transparent transition-all"
-                />
-                <button type="button" onClick={() => setShowPw(v => !v)} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 transition-colors">
-                  {showPw ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                </button>
-              </div>
-            </div>
-
-            {error && (
-              <div className="flex items-center gap-2 bg-red-500/20 border border-red-400/30 rounded-xl px-4 py-3 text-red-200 text-sm">
-                <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                {error}
-              </div>
-            )}
-
-            <button
-              id="admin-login-btn"
-              type="submit"
-              disabled={loading}
-              className="w-full bg-[#0095DA] hover:bg-[#0095DA] text-white font-bold py-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg disabled:opacity-60 disabled:cursor-not-allowed mt-2"
-            >
-              {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <ChevronRight className="w-5 h-5" />}
-              {loading ? 'Signing in…' : 'Sign In'}
-            </button>
-          </form>
-        </div>
-        <p className="text-center text-white/30 text-xs mt-6">AlliedOne Limited © {new Date().getFullYear()}</p>
-      </div>
     </div>
   );
 }
@@ -319,7 +205,6 @@ function HeroEditor({ content, onChange }: { content: HomepageContent; onChange:
           if (h.backgroundImage?.includes(filename)) {
             setHero({ backgroundImage: '' });
           }
-          triggerToast('Image deleted successfully', 'success');
         } catch (err) {
           triggerToast('Delete failed', 'error');
         }
@@ -1041,7 +926,7 @@ function LivePreviewModal({
 
 // ─── Dashboard ────────────────────────────────────────────────────────────────
 
-function Dashboard({ token, onLogout }: { token: string, onLogout: () => void }) {
+export default function LegacyDashboardTab({ onLogout }: { onLogout?: () => void }) {
   const [section, setSection] = useState<Section>('hero');
   const [content, setContent] = useState<HomepageContent>(DEFAULT_HOMEPAGE_CONTENT);
   const [publishedContent, setPublishedContent] = useState<HomepageContent>(DEFAULT_HOMEPAGE_CONTENT);
@@ -1049,19 +934,6 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
   const [saving, setSaving] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
-  const [dialog, setDialog] = useState<DialogState>(defaultDialogState);
-
-  // Global event listeners for toast and dialog
-  useEffect(() => {
-    const handleToast = (e: any) => setToast(e.detail);
-    const handleDialog = (e: any) => setDialog(e.detail);
-    window.addEventListener('app-toast', handleToast);
-    window.addEventListener('app-dialog', handleDialog);
-    return () => {
-      window.removeEventListener('app-toast', handleToast);
-      window.removeEventListener('app-dialog', handleDialog);
-    };
-  }, []);
 
   // Load existing content on mount
   useEffect(() => {
@@ -1106,7 +978,6 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
       message: 'Discard all unsaved changes and reset to the currently published content?',
       onConfirm: () => {
         setContent(publishedContent);
-        triggerToast('Changes discarded', 'success');
       }
     });
   }
@@ -1118,18 +989,6 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
     { id: 'services', label: 'Services Page', icon: <Type className="w-4 h-4" /> },
     { id: 'faq', label: 'FAQ Section', icon: <LayoutDashboard className="w-4 h-4" /> },
     { id: 'contact', label: 'Contact Section', icon: <Monitor className="w-4 h-4" /> },
-  ];
-
-  let userRole = null;
-  try {
-    if (token) userRole = JSON.parse(atob(token.split('.')[1]))?.role;
-  } catch {}
-
-  const cmsNavItems: { id: Section; label: string; icon: React.ReactNode }[] = [
-    { id: 'pages-cms', label: 'Manage Pages', icon: <FileText className="w-4 h-4" /> },
-    ...(userRole !== 'CONTENT_EDITOR' ? [{ id: 'settings-cms' as Section, label: 'Global Settings', icon: <Settings className="w-4 h-4" /> }] : []),
-    { id: 'forms-cms', label: 'Forms & Leads', icon: <LayoutDashboard className="w-4 h-4" /> },
-    ...(userRole !== 'CONTENT_EDITOR' ? [{ id: 'users-cms' as Section, label: 'Users & Logs', icon: <Users className="w-4 h-4" /> }] : []),
   ];
 
   return (
@@ -1165,25 +1024,6 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
               {section === item.id && <ChevronRight className="w-4 h-4 ml-auto opacity-60" />}
             </button>
           ))}
-          
-          <div className="pt-4 mt-2 border-t border-white/5">
-            <p className="text-white/30 text-[10px] font-bold uppercase tracking-widest mb-4 px-2">System CMS</p>
-            {cmsNavItems.map(item => (
-              <button
-                key={item.id}
-                onClick={() => setSection(item.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 text-left ${
-                  section === item.id
-                    ? 'bg-white/15 text-white shadow-sm'
-                    : 'text-white/50 hover:text-white/80 hover:bg-white/5'
-                }`}
-              >
-                {item.icon}
-                {item.label}
-                {section === item.id && <ChevronRight className="w-4 h-4 ml-auto opacity-60" />}
-              </button>
-            ))}
-          </div>
         </nav>
 
         <div className="px-4 py-6 border-t border-white/10 space-y-2">
@@ -1219,73 +1059,61 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
                  section === 'about' ? 'About Page' :
                  section === 'services' ? 'Services Page' :
                  section === 'faq' ? 'FAQ Section' :
-                 section === 'contact' ? 'Contact Section' :
-                 section === 'pages-cms' ? 'Manage Pages' :
-                 section === 'settings-cms' ? 'Global Settings' :
-                 section === 'forms-cms' ? 'Forms & Leads' :
-                 'Users & Logs'}
+                 'Contact Section'}
               </h1>
             </div>
 
             {/* Status indicator */}
-            {!section.endsWith('-cms') && (
-              <>
-                {hasUnsavedChanges ? (
-                  <span className="hidden sm:inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 border border-amber-200 text-xs px-2.5 py-1 rounded-full font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                    Unsaved Draft
-                  </span>
-                ) : (
-                  <span className="hidden sm:inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs px-2.5 py-1 rounded-full font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    Up to Date
-                  </span>
-                )}
-              </>
+            {hasUnsavedChanges ? (
+              <span className="hidden sm:inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 border border-amber-200 text-xs px-2.5 py-1 rounded-full font-semibold">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                Unsaved Draft
+              </span>
+            ) : (
+              <span className="hidden sm:inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs px-2.5 py-1 rounded-full font-semibold">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                Up to Date
+              </span>
             )}
           </div>
 
           <div className="flex items-center gap-3">
-            {!section.endsWith('-cms') && (
-              <>
-                {hasUnsavedChanges && (
-                  <button
-                    type="button"
-                    onClick={handleReset}
-                    className="hidden md:inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-slate-800 px-3 py-2 rounded-lg hover:bg-slate-100 transition-all"
-                    title="Discard your draft and restore currently published text"
-                  >
-                    <RotateCcw className="w-3.5 h-3.5" /> Discard Draft
-                  </button>
-                )}
-
-                {/* Full-screen interactive live preview button */}
-                <button
-                  type="button"
-                  onClick={() => setShowPreview(true)}
-                  className="inline-flex items-center gap-2 bg-[#EBF4FB] hover:bg-[#0095DA] text-[#0A5486] hover:text-white border border-[#0095DA]/30 px-4 py-2.5 rounded-xl font-bold text-xs transition-all shadow-sm"
-                >
-                  <Eye className="w-4 h-4" />
-                  Live Preview Draft
-                </button>
-
-                {/* Publish button */}
-                <button
-                  id="admin-save-btn"
-                  onClick={handleSave}
-                  disabled={saving || loading || !hasUnsavedChanges}
-                  className="inline-flex items-center gap-2 bg-[#0A5486] hover:bg-[#0095DA] text-white px-6 py-2.5 rounded-xl font-bold text-xs transition-all duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                  {saving ? 'Publishing…' : 'Save & Publish Live'}
-                </button>
-              </>
+            {hasUnsavedChanges && (
+              <button
+                type="button"
+                onClick={handleReset}
+                className="hidden md:inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-slate-800 px-3 py-2 rounded-lg hover:bg-slate-100 transition-all"
+                title="Discard your draft and restore currently published text"
+              >
+                <RotateCcw className="w-3.5 h-3.5" /> Discard Draft
+              </button>
             )}
+
+            {/* Full-screen interactive live preview button */}
+            <button
+              type="button"
+              onClick={() => setShowPreview(true)}
+              className="inline-flex items-center gap-2 bg-[#EBF4FB] hover:bg-[#0095DA] text-[#0A5486] hover:text-white border border-[#0095DA]/30 px-4 py-2.5 rounded-xl font-bold text-xs transition-all shadow-sm"
+            >
+              <Eye className="w-4 h-4" />
+              Live Preview Draft
+            </button>
+
+            {/* Publish button */}
+            <button
+              id="admin-save-btn"
+              onClick={handleSave}
+              disabled={saving || loading || !hasUnsavedChanges}
+              className="inline-flex items-center gap-2 bg-[#0A5486] hover:bg-[#0095DA] text-white px-6 py-2.5 rounded-xl font-bold text-xs transition-all duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+              {saving ? 'Publishing…' : 'Save & Publish Live'}
+            </button>
           </div>
         </header>
 
         {/* Editor area */}
-        <div className={`flex-1 overflow-y-auto ${section.endsWith('-cms') ? 'p-0' : 'p-8 max-w-5xl'}`}>
+        <div className="flex-1 overflow-y-auto p-8 max-w-5xl">
           {loading ? (
             <div className="flex items-center justify-center h-64">
               <Loader2 className="w-8 h-8 animate-spin text-[#0095DA]" />
@@ -1298,11 +1126,6 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
               {section === 'services' && <ServicesEditor content={content} onChange={setContent} />}
               {section === 'faq' && <FAQEditor content={content} onChange={setContent} />}
               {section === 'contact' && <ContactEditor content={content} onChange={setContent} />}
-              
-              {section === 'pages-cms' && <div className="p-8"><PagesTab apiBase={API_BASE} token={token} /></div>}
-              {section === 'settings-cms' && <div className="p-8"><GlobalSettingsTab apiBase={API_BASE} token={token} /></div>}
-              {section === 'forms-cms' && <div className="p-8"><FormsTab apiBase={API_BASE} token={token} /></div>}
-              {section === 'users-cms' && <div className="p-8"><UsersTab apiBase={API_BASE} token={token} /></div>}
             </>
           )}
         </div>
@@ -1318,42 +1141,8 @@ function Dashboard({ token, onLogout }: { token: string, onLogout: () => void })
         />
       )}
 
-      {/* Dialog & Toast */}
-      <CustomDialog dialog={dialog} setDialog={setDialog} />
+      {/* Toast */}
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </div>
   );
-}
-
-// ─── Page Root ────────────────────────────────────────────────────────────────
-
-export default function AdminPage() {
-  const [token, setTokenState] = useState<string | null>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    setTokenState(getToken());
-  }, []);
-
-  function handleLogin(t: string) {
-    setToken(t);
-    setTokenState(t);
-  }
-
-  function handleLogout() {
-    clearToken();
-    setTokenState(null);
-  }
-
-  if (!mounted) {
-    return (
-      <div className="min-h-screen bg-[#0A5486] flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-white" />
-      </div>
-    );
-  }
-
-  if (!token) return <LoginScreen onLogin={handleLogin} />;
-  return <Dashboard token={token} onLogout={handleLogout} />;
 }

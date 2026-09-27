@@ -3,7 +3,7 @@ import Link from "next/link";
 import LeadCaptureForm from "@/components/sections/LeadCaptureForm";
 import FAQSection from "@/components/sections/FAQSection";
 import FadeInSection from "@/components/ui/FadeInSection";
-import { fetchSiteContent } from "@/lib/siteContent";
+import { fetchSiteContent, fetchSiteSettings } from "@/lib/siteContent";
 import { ArrowRight, Image as ImageIcon } from "lucide-react";
 
 export const dynamic = 'force-dynamic';
@@ -33,6 +33,7 @@ export const metadata = {
 export default async function Home() {
   // Fetch CMS content — falls back to hardcoded defaults if backend is down
   const content = await fetchSiteContent('homepage');
+  const settings = await fetchSiteSettings();
   const { hero, portfolio } = content;
 
   return (
@@ -153,19 +154,21 @@ export default async function Home() {
       {/* ══════════════════════════════════════════════
           CONTACT FORM SECTION
       ══════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#F8FAFC] border-t border-slate-200/80" id="contact">
-        <FadeInSection className="max-w-7xl mx-auto px-6" delay={0.1}>
-          <SectionHeader
-            eyebrow="Connect With Us"
-            title={content.contact?.title || "Let's Build Your Global Trade Future."}
-            subtitle={content.contact?.subtitle || "Drop us a message below. Whether you require strategic sourcing, import/export facilitation, or institutional supply execution, our team is ready to deliver."}
-          />
-          
-          <div className="max-w-2xl mx-auto mt-12">
-            <LeadCaptureForm />
-          </div>
-        </FadeInSection>
-      </section>
+      {!settings.suppressHomepageForm && (
+        <section className="py-24 bg-[#F8FAFC] border-t border-slate-200/80" id="contact">
+          <FadeInSection className="max-w-7xl mx-auto px-6" delay={0.1}>
+            <SectionHeader
+              eyebrow="Connect With Us"
+              title={content.contact?.title || "Let's Build Your Global Trade Future."}
+              subtitle={content.contact?.subtitle || "Drop us a message below. Whether you require strategic sourcing, import/export facilitation, or institutional supply execution, our team is ready to deliver."}
+            />
+            
+            <div className="max-w-2xl mx-auto mt-12">
+              <LeadCaptureForm />
+            </div>
+          </FadeInSection>
+        </section>
+      )}
 
     </div>
   );

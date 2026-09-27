@@ -170,6 +170,20 @@ export async function fetchSiteContent(key: string): Promise<HomepageContent> {
   }
 }
 
+export async function fetchSiteSettings(): Promise<any> {
+  const rawBase = process.env.NEXT_PUBLIC_API_URL;
+  if (!rawBase) return {};
+  const apiBase = rawBase.replace(/\/api\/?$/, '').replace(/\/+$/, '');
+  try {
+    const res = await fetch(`${apiBase}/api/admin/content/siteSettings`, { cache: 'no-store' });
+    if (!res.ok) return {};
+    const data = await res.json();
+    return data.value || {};
+  } catch {
+    return {};
+  }
+}
+
 // ─── Utility ─────────────────────────────────────────────────────────────────
 
 function deepMerge(target: any, source: any): any {

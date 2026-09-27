@@ -7,6 +7,7 @@ import DesktopNav from "@/components/ui/DesktopNav";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import ChatWidget from "@/components/ui/ChatWidget";
 import FeedbackWidget from "@/components/ui/FeedbackWidget";
+import ContactModal from "@/components/ContactModal";
 import { Toaster } from 'sonner';
 import "./globals.css";
 
@@ -212,7 +213,8 @@ export default function RootLayout({
         </footer>
         <ScrollToTop />
         <FeedbackWidget />
-        <ChatWidget />
+        {process.env.NEXT_PUBLIC_ENABLE_CHATBOT === 'true' && <ChatWidget />}
+        <ContactModal />
         <Toaster position="bottom-right" richColors />
       </body>
     </html>
