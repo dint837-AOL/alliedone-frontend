@@ -6,9 +6,11 @@ import Link from 'next/link';
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://alliedone-backend-9a02.onrender.com';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://alliedoneltd.com';
 
-async function getPageData(slug: string) {
+async function getPageData(slug: string, isPreview: boolean = false) {
   try {
-    const res = await fetch(`${API_URL}/api/pages/${slug}`, { next: { revalidate: 60 } });
+    const url = `${API_URL}/api/pages/${slug}${isPreview ? '?preview=true' : ''}`;
+    const options: RequestInit = isPreview ? { cache: 'no-store' } : { next: { revalidate: 60 } };
+    const res = await fetch(url, options);
     if (!res.ok) return null;
     return await res.json();
   } catch (err) {
@@ -17,17 +19,18 @@ async function getPageData(slug: string) {
 }
 
 export async function generateMetadata(
-  { params }: { params: { slug: string } },
+  { params, searchParams }: { params: { slug: string }, searchParams: { [key: string]: string | string[] | undefined } },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const page = await getPageData(params.slug);
+  const isPreview = searchParams?.preview === 'true';
+  const page = await getPageData(params.slug, isPreview);
   
   if (!page) {
     return { title: 'Not Found | AlliedOne' };
   }
 
   return {
-    title: page.seoTitle || page.title,
+    title: (isPreview ? '[PREVIEW] ' : '') + (page.seoTitle || page.title),
     description: page.seoDesc || '',
     alternates: {
       canonical: page.canonicalUrl || `${SITE_URL}/${page.slug}`,
@@ -40,8 +43,9 @@ export async function generateMetadata(
   };
 }
 
-export default async function DynamicPage({ params }: { params: { slug: string } }) {
-  const page = await getPageData(params.slug);
+export default async function DynamicPage({ params, searchParams }: { params: { slug: string }, searchParams: { [key: string]: string | string[] | undefined } }) {
+  const isPreview = searchParams?.preview === 'true';
+  const page = await getPageData(params.slug, isPreview);
 
   if (!page) {
     notFound();
